@@ -17,13 +17,9 @@
       %a.brand{:href => ""} Home Manager
       .nav-collapse
         %ul.nav
-          %li= link_to "Tasks"
-          %li= link_to "Users"
-          %li
-            -if 1 == 2
-              =link_to "| Sign Out |", signout_path
-            -else
-              =link_to "| Sign in with Facebook |", "/auth/facebook"
+          -if 1 == 2
+            %li= link_to "Tasks"
+            %li= link_to "Users"
 .container
   .row
     .span8
