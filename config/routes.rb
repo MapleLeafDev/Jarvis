@@ -1,5 +1,7 @@
 HomeManager::Application.routes.draw do
   
+  resources :users
+
   root :to => 'home#index'
 
   match '/auth/facebook/callback' => 'sessions#create'
