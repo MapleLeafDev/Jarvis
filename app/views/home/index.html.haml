@@ -3,7 +3,7 @@
     %h1 Home Manager
     %p Make managing tasks at home fun and productive.
     %p
-      -if 1 == 2
-        = link_to 'Sign In', "/auth/facebook", :class => 'btn btn-large btn-success'
-      -else
+      -if current_user
         = link_to 'Sign Out', signout_path, :class => 'btn btn-large btn-danger'
+      -else
+        = link_to 'Sign In', "/auth/facebook", :class => 'btn btn-large btn-success'

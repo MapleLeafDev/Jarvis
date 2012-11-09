@@ -17,7 +17,7 @@
       %a.brand{:href => "#{root_url}"} Home Manager
       .nav-collapse
         %ul.nav
-          -if 1 == 1
+          -if current_user
             %li= link_to "Tasks"
             %li= link_to "Family Members"
             %li= link_to "User Profile"
