@@ -14,12 +14,13 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      %a.brand{:href => ""} Home Manager
+      %a.brand{:href => "#{root_url}"} Home Manager
       .nav-collapse
         %ul.nav
-          -if 1 == 2
+          -if 1 == 1
             %li= link_to "Tasks"
-            %li= link_to "Users"
+            %li= link_to "Family Members"
+            %li= link_to "User Profile"
 .container
   .row
     .span8
@@ -27,6 +28,4 @@
         .alert.fade.in.alert-info
           -flash.each do |name, msg|
             =content_tag :div, msg, :id => "flash_#{name}"
-  .row
-    .span8
-      =yield
+    =yield
