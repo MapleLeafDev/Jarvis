@@ -1,0 +1,4 @@
+.span8
+  %h2 Family Members
+  -@users.each do |user|
+    =render partial: 'card', locals: { user: user }

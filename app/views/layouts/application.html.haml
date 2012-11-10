@@ -19,8 +19,8 @@
         %ul.nav
           -if current_user
             %li= link_to "Tasks"
-            %li= link_to "Family Members"
-            %li= link_to "User Profile"
+            %li= link_to "Family Members", users_path
+            %li= link_to "User Profile", user_path(current_user)
 .container
   .row
     .span8

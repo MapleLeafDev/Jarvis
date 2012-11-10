@@ -1,0 +1,18 @@
+.span8
+  %div.well
+    %table
+      %tr
+        %td= image_tag(user.thumbnail, :class => 'img-rounded')
+        %td
+          %h2= user.name
+    %h3 Tasks
+    %table.table
+      %tr
+        %th Today
+        %th This Week
+        %th This Month
+      %tr
+        %td
+        %td
+        %td
+    = link_to "Family Members", users_path

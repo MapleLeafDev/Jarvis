@@ -1,8 +1,15 @@
 class UsersController < ApplicationController
+  before_filter :user_check, :only => ['index', 'edit', 'new', 'destroy', 'update']
+
+  def user_check
+    if current_user == nil
+      redirect_to root_url
+    end
+  end
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.where(parent_id: current_user.id)
 
     respond_to do |format|
       format.html # index.html.erb
