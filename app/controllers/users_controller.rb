@@ -49,6 +49,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
 
+    if params[:user][:parent_id]
+      @user.parent_id = User.find_by_facebook_id(params[:user][:parent_id]).id
+    end
+
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }

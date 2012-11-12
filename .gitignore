@@ -1,2 +1,4 @@
 tmp/cache/assets
 /tmp/pids/
+.DS_Store
+development.log
