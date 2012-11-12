@@ -1,4 +1,6 @@
 .span8
   %h2 Family Members
+  = link_to " Add family member", new_user_path, class: "i icon-plus label label-success"
+  %p
   -@users.each do |user|
     =render partial: 'card', locals: { user: user }

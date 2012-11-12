@@ -2,11 +2,21 @@
   %div.well
     %table
       %tr
-        %td= image_tag(user.thumbnail, :class => 'img-rounded')
+        -if user.thumbnail == ""
+          %td= image_tag('no_profile.png', :class => 'img-rounded', :size => "50x50")
+        -else
+          %td= image_tag(user.thumbnail, :class => 'img-rounded')
         %td
           %h2= user.name
+      -if user.parent_id == nil
+        %tr
+          %td
+          %td= user.facebook_id
+      %tr
+        %td= link_to ' Edit', edit_user_path(user), class: "i icon-edit label label-info"
+        %td= link_to ' Remove', user, confirm: 'Are you sure?', method: :delete, class: "i icon-remove label label-important"
     %h3 Tasks
-    %table.table
+    %table.table{align: "center"}
       %tr
         %th Today
         %th This Week
@@ -15,4 +25,3 @@
         %td
         %td
         %td
-    = link_to "Family Members", users_path

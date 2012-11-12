@@ -1,0 +1,26 @@
+= form_for(@user) do |f|
+  - if @user.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@user.errors.count, "error")
+        prohibited this user from being saved:
+      %ul
+        - @user.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :facebook_id
+    = f.text_field :facebook_id
+  .field
+    = f.label :thumbnail
+    = f.text_field :thumbnail
+  .field
+    = f.label :parent_id
+    = f.number_field :parent_id
+  .field
+    = f.label :theme_id
+    = f.number_field :theme_id
+  .actions
+    = f.submit
