@@ -21,13 +21,20 @@
         = f.text_field :facebook_id, disabled: true
       %dt
         .field
-          %h5 Profile Photo
-      %dd
-        = f.text_field :thumbnail, placeholder: "URL"
-      %dt
-        .field
           %h5 Parent ID
       %dd
         = f.text_field :parent_id, placeholder: "Link to parent", value: ("#{User.find_by_id(@user.parent_id).facebook_id}" if @user.parent_id != nil)
-        .actions
-          = f.submit "Save", class: "btn btn-small"
+      -if @user.facebook_id == ""
+        %dt
+          .field
+            %h5 Profile Photo
+        %dd
+          .field
+            = f.radio_button :thumbnail, "User1.png"
+            = image_tag('User1.png', :class => 'img-rounded', :size => "50x50")
+            = f.radio_button :thumbnail, "User2.png"
+            = image_tag('User2.png', :class => 'img-rounded', :size => "50x50")
+            = f.radio_button :thumbnail, "User3.png"
+            = image_tag('User3.png', :class => 'img-rounded', :size => "50x50")
+      .actions{align: "right"}
+        = f.submit "Save", class: "btn btn-small"

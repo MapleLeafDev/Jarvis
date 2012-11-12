@@ -69,8 +69,18 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
 
+    @user.name = params[:user][:name]
+
+    if params[:user][:parent_id]
+      @user.parent_id = User.find_by_facebook_id(params[:user][:parent_id]).id
+    end
+
+    if params[:user][:thumbnail]
+      @user.thumbnail = params[:user][:thumbnail]
+    end
+
     respond_to do |format|
-      if @user.update_attributes(params[:user])
+      if @user.save
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else

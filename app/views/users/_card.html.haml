@@ -5,7 +5,7 @@
         -if user.thumbnail == ""
           %td= image_tag('no_profile.png', :class => 'img-rounded', :size => "50x50")
         -else
-          %td= image_tag(user.thumbnail, :class => 'img-rounded')
+          %td= image_tag(user.thumbnail, :class => 'img-rounded', :size => "50x50")
         %td
           %h2= user.name
       -if user.parent_id == nil
