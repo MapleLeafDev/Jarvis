@@ -1,0 +1,75 @@
+= form_for(@task) do |f|
+  - if @task.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@task.errors.count, "error")
+        prohibited this task from being saved:
+      %ul
+        - @task.errors.full_messages.each do |msg|
+          %li= msg
+  %dl.dl-horizontal
+    %dt
+      %h5 Who?
+      %dd
+        Name
+      %dd
+        = f.collection_select :user_id, User.where(parent_id: current_user.id), :id, :name
+    %dt
+      %h5 What?
+      %dd
+        Title
+      %dd
+        = f.text_field :title
+      %dd
+        Description
+      %dd
+        = f.text_area :description, rows: "3"
+      %dd
+        Points
+      %dd
+        = f.text_field :points, class: "input-mini"
+    %dt
+      %h5 When?
+      %dd
+        = f.check_box :daily
+        Daily
+        = f.check_box :weekly
+        Weekly
+        = f.check_box :monthly
+        Monthly
+      %dd
+        %br
+        = f.check_box :sunday
+        Sunday
+        = f.check_box :monday
+        Monday
+        = f.check_box :tuesday
+        Tuesday
+        = f.check_box :wednesday
+        Wednesday
+        = f.check_box :thursday
+        Thursday
+        = f.check_box :friday
+        Friday
+        = f.check_box :saturday
+        Saturday
+      %dd
+        %br
+        = f.radio_button :period, 1
+        Morning
+        = f.radio_button :period, 2
+        Noon
+        = f.radio_button :period, 3
+        Evening
+      %dd
+        %br
+        Every 
+        = f.text_field :how_often, class: "input-mini"
+        days.
+      %dd
+        %br
+        Occurs once on:
+      %dd
+        = f.text_field :custom_start
+      .actions
+        = f.submit "Save", class: "btn btn-small"

@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  title: MyString
+  description: MyString
+  next_date: 2012-11-13 08:27:23
+  daily: false
+  weekly: false
+  monthly: false
+  sunday: false
+  monday: false
+  tuesday: false
+  wednesday: false
+  thursday: false
+  friday: false
+  saturday: false
+  period: 1
+  how_often: 1
+  custom_start: 2012-11-13 08:27:23
+  points: 1
+
+two:
+  user_id: 1
+  title: MyString
+  description: MyString
+  next_date: 2012-11-13 08:27:23
+  daily: false
+  weekly: false
+  monthly: false
+  sunday: false
+  monday: false
+  tuesday: false
+  wednesday: false
+  thursday: false
+  friday: false
+  saturday: false
+  period: 1
+  how_often: 1
+  custom_start: 2012-11-13 08:27:23
+  points: 1

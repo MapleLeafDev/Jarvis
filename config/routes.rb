@@ -1,6 +1,10 @@
 HomeManager::Application.routes.draw do
   
-  resources :users
+  resources :tasks
+
+  resources :users do
+    resources :tasks
+  end
 
   root :to => 'home#index'
 

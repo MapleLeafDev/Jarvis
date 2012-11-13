@@ -18,7 +18,7 @@
       .nav-collapse
         %ul.nav
           -if current_user
-            %li= link_to "Tasks"
+            %li= link_to "Tasks", user_tasks_path(current_user)
             %li= link_to "Family Members", users_path
             %li= link_to "User Profile", user_path(current_user)
 .container

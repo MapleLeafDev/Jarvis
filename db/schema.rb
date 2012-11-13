@@ -11,7 +11,30 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121109212138) do
+ActiveRecord::Schema.define(:version => 20121113162723) do
+
+  create_table "tasks", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.string   "description"
+    t.datetime "next_date"
+    t.boolean  "daily"
+    t.boolean  "weekly"
+    t.boolean  "monthly"
+    t.boolean  "sunday"
+    t.boolean  "monday"
+    t.boolean  "tuesday"
+    t.boolean  "wednesday"
+    t.boolean  "thursday"
+    t.boolean  "friday"
+    t.boolean  "saturday"
+    t.integer  "period"
+    t.integer  "how_often"
+    t.datetime "custom_start"
+    t.integer  "points"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name"
