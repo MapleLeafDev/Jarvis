@@ -24,7 +24,7 @@
           %h5 Parent ID
       %dd
         = f.text_field :parent_id, placeholder: "Link to parent", value: ("#{User.find_by_id(@user.parent_id).facebook_id}" if @user.parent_id != nil)
-      -if @user.facebook_id == ""
+      -if @user.facebook_id == "" || @user.facebook_id == nil
         %dt
           .field
             %h5 Profile Photo
