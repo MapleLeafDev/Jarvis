@@ -1,0 +1,58 @@
+%p#notice= notice
+%p
+  %b User:
+  = @task.user_id
+%p
+  %b Title:
+  = @task.title
+%p
+  %b Description:
+  = @task.description
+%p
+  %b Next date:
+  = @task.next_date
+%p
+  %b Daily:
+  = @task.daily
+%p
+  %b Weekly:
+  = @task.weekly
+%p
+  %b Monthly:
+  = @task.monthly
+%p
+  %b Sunday:
+  = @task.sunday
+%p
+  %b Monday:
+  = @task.monday
+%p
+  %b Tuesday:
+  = @task.tuesday
+%p
+  %b Wednesday:
+  = @task.wednesday
+%p
+  %b Thursday:
+  = @task.thursday
+%p
+  %b Friday:
+  = @task.friday
+%p
+  %b Saturday:
+  = @task.saturday
+%p
+  %b Period:
+  = @task.period
+%p
+  %b How often:
+  = @task.how_often
+%p
+  %b Custom start:
+  = @task.custom_start
+%p
+  %b Points:
+  = @task.points
+= link_to 'Edit', edit_task_path(@task)
+|
+= link_to 'Back', tasks_path

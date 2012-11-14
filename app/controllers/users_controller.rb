@@ -10,6 +10,22 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.where(parent_id: current_user.id)
+    
+    @todays = Array.new
+    @this_weeks = Array.new
+    @this_months = Array.new
+
+    @users.each do |user|
+      Task.where(daily: true, user_id: user.id).each do |task|
+        @todays << task
+      end
+      Task.where(weekly: true, user_id: user.id).each do |task|
+        @this_weeks << task
+      end
+      Task.where(monthly: true, user_id: user.id).each do |task|
+        @this_months << task
+      end
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -21,6 +37,12 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
+
+    @todays = Task.where(daily: true, user_id: @user.id)
+
+    @this_weeks = Task.where(weekly: true, user_id: @user.id)
+
+    @this_months = Task.where(monthly: true, user_id: @user.id)
 
     respond_to do |format|
       format.html # show.html.erb

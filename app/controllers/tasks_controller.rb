@@ -2,7 +2,11 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
+    @todays = Task.where(daily: true, user_id: current_user.id)
+
+    @this_weeks = Task.where(weekly: true, user_id: current_user.id)
+
+    @this_months = Task.where(monthly: true, user_id: current_user.id)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,6 +29,8 @@ class TasksController < ApplicationController
   # GET /tasks/new.json
   def new
     @task = Task.new
+    @users = User.where(parent_id: current_user.id)
+    @users << current_user
 
     respond_to do |format|
       format.html # new.html.erb

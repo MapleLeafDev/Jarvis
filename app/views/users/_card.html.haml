@@ -22,6 +22,6 @@
         %th This Week
         %th This Month
       %tr
-        %td
-        %td
-        %td
+        %td= @todays.select {|t| t[:user_id] == user.id }.count
+        %td= @this_weeks.select {|t| t[:user_id] == user.id }.count
+        %td= @this_months.select {|t| t[:user_id] == user.id }.count

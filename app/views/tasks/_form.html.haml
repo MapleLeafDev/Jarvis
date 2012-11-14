@@ -13,7 +13,7 @@
       %dd
         Name
       %dd
-        = f.collection_select :user_id, User.where(parent_id: current_user.id), :id, :name
+        = f.collection_select :user_id, @users, :id, :name
     %dt
       %h5 What?
       %dd

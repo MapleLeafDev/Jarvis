@@ -1,0 +1,45 @@
+.span8
+  %h2
+    %em= current_user.name + "'s"
+    Tasks
+  = link_to " Add task", new_task_path, class: "i icon-plus label label-success"
+  %h4 Todays
+  %table.table
+    %tr
+      %th Title
+      %th Description
+      %th
+      %th
+    - @todays.each do |task|
+      %tr
+        %td= link_to task.title, task
+        %td= task.description
+        %td= link_to 'Edit', edit_task_path(task)
+        %td= link_to 'Destroy', task, confirm: 'Are you sure?', method: :delete
+  %br/
+  %h4 This Weeks
+  %table.table
+    %tr
+      %th Title
+      %th Description
+      %th
+      %th
+    - @this_weeks.each do |task|
+      %tr
+        %td= link_to task.title, task
+        %td= task.description
+        %td= link_to 'Edit', edit_task_path(task)
+        %td= link_to 'Destroy', task, confirm: 'Are you sure?', method: :delete
+  %h4 This Months
+  %table.table
+    %tr
+      %th Title
+      %th Description
+      %th
+      %th
+    - @this_months.each do |task|
+      %tr
+        %td= link_to task.title, task
+        %td= task.description
+        %td= link_to 'Edit', edit_task_path(task)
+        %td= link_to 'Destroy', task, confirm: 'Are you sure?', method: :delete
