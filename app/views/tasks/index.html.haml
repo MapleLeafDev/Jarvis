@@ -1,9 +1,9 @@
 .span8
   %h2
-    %em= current_user.name + "'s"
+    %em= @user.name + "'s"
     Tasks
   = link_to " Add task", new_task_path, class: "i icon-plus label label-success"
-  %h4 Todays
+  %h4 Today
   %table.table
     %tr
       %th Title
@@ -17,7 +17,7 @@
         %td= link_to 'Edit', edit_task_path(task)
         %td= link_to 'Destroy', task, confirm: 'Are you sure?', method: :delete
   %br/
-  %h4 This Weeks
+  %h4 This Week
   %table.table
     %tr
       %th Title
@@ -30,7 +30,7 @@
         %td= task.description
         %td= link_to 'Edit', edit_task_path(task)
         %td= link_to 'Destroy', task, confirm: 'Are you sure?', method: :delete
-  %h4 This Months
+  %h4 This Month
   %table.table
     %tr
       %th Title

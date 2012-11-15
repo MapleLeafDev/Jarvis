@@ -2,11 +2,13 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @todays = Task.where(daily: true, user_id: current_user.id)
+    @todays = Task.where(daily: true, user_id: params[:user_id])
 
-    @this_weeks = Task.where(weekly: true, user_id: current_user.id)
+    @this_weeks = Task.where(weekly: true, user_id: params[:user_id])
 
-    @this_months = Task.where(monthly: true, user_id: current_user.id)
+    @this_months = Task.where(monthly: true, user_id: params[:user_id])
+
+    @user = User.find(params[:user_id])
 
     respond_to do |format|
       format.html # index.html.erb
