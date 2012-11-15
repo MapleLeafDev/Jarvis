@@ -13,7 +13,7 @@
       %dd
         Name
       %dd
-        = f.collection_select :user_id, @users, :id, :name
+        = f.collection_select :user_id, @users, :id, :name, value: @task.user
     %dt
       %h5 What?
       %dd

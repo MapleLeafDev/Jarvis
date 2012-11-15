@@ -42,6 +42,8 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/edit
   def edit
+    @users = User.where(parent_id: current_user.id)
+    @users << current_user
     @task = Task.find(params[:id])
   end
 
@@ -84,7 +86,7 @@ class TasksController < ApplicationController
     @task.destroy
 
     respond_to do |format|
-      format.html { redirect_to tasks_url }
+      format.html { redirect_to user_tasks_path(@task.user) }
       format.json { head :no_content }
     end
   end

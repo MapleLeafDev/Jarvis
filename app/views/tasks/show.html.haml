@@ -53,6 +53,9 @@
 %p
   %b Points:
   = @task.points
+
+= link_to 'Back', :back
+|
 = link_to 'Edit', edit_task_path(@task)
 |
-= link_to 'Back', tasks_path
+= link_to 'Destroy', @task, confirm: 'Are you sure?', method: :delete
