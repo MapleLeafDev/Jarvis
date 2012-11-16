@@ -10,6 +10,8 @@ class TasksController < ApplicationController
 
     @user = User.find(params[:user_id])
 
+    @time = Date.today
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @tasks }

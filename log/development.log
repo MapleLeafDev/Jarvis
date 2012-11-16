@@ -67311,3 +67311,2952 @@ Served asset /bootstrap.js - 304 Not Modified (0ms)
 
 Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2012-11-15 16:44:03 -0800
 Served asset /main.js - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-16 06:42:53 -0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.haml within layouts/application (2.0ms)
+Completed 200 OK in 61ms (Views: 60.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-11-16 06:42:54 -0800
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-16 06:42:54 -0800
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-11-16 06:42:54 -0800
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-11-16 06:42:54 -0800
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-16 06:42:54 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-11-16 06:42:54 -0800
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-11-16 06:42:54 -0800
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-11-16 06:42:54 -0800
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-11-16 06:42:54 -0800
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-11-16 06:42:54 -0800
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-11-16 06:42:54 -0800
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-11-16 06:42:54 -0800
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-11-16 06:42:54 -0800
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-11-16 06:42:54 -0800
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-11-16 06:42:54 -0800
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-11-16 06:42:54 -0800
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 06:42:54 -0800
+Served asset /twitter/bootstrap.js - 304 Not Modified (12ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 06:42:54 -0800
+Served asset /bootstrap.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2012-11-16 06:42:54 -0800
+Served asset /main.js - 304 Not Modified (1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-16 06:43:04 -0800
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (4.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered home/index.html.haml within layouts/application (56.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1
+Completed 200 OK in 65ms (Views: 37.5ms | ActiveRecord: 27.6ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-11-16 06:43:04 -0800
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:04 -0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:04 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:04 -0800
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:04 -0800
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:04 -0800
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:04 -0800
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:04 -0800
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:04 -0800
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:04 -0800
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:04 -0800
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:04 -0800
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:04 -0800
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:04 -0800
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:04 -0800
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:04 -0800
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:04 -0800
+Served asset /twitter/bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:04 -0800
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:04 -0800
+Served asset /main.js - 304 Not Modified (0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2012-11-16 06:43:06 -0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."parent_id" = 1[0m
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."daily" = 't' AND "tasks"."user_id" = 2
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."weekly" = 't' AND "tasks"."user_id" = 2[0m
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."monthly" = 't' AND "tasks"."user_id" = 2
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."daily" = 't' AND "tasks"."user_id" = 8[0m
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."weekly" = 't' AND "tasks"."user_id" = 8
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."monthly" = 't' AND "tasks"."user_id" = 8[0m
+  Rendered users/_card.html.haml (6.9ms)
+  Rendered users/_card.html.haml (1.2ms)
+  Rendered users/index.html.haml within layouts/application (13.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1
+Completed 200 OK in 73ms (Views: 22.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:06 -0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:06 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-11-16 06:43:06 -0800
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:06 -0800
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:06 -0800
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:06 -0800
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:06 -0800
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:06 -0800
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:06 -0800
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:06 -0800
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:06 -0800
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:06 -0800
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:06 -0800
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:06 -0800
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:06 -0800
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:06 -0800
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:06 -0800
+Served asset /twitter/bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:06 -0800
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:06 -0800
+Served asset /main.js - 304 Not Modified (0ms)
+
+
+Started GET "/users/2/tasks" for 127.0.0.1 at 2012-11-16 06:43:08 -0800
+Processing by TasksController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."daily" = 't' AND "tasks"."user_id" = 2
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."weekly" = 't' AND "tasks"."user_id" = 2[0m
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."monthly" = 't' AND "tasks"."user_id" = 2
+  Rendered tasks/index.html.haml within layouts/application (5.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m
+Completed 200 OK in 15ms (Views: 13.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:08 -0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-11-16 06:43:08 -0800
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:09 -0800
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:09 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:09 -0800
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:09 -0800
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:09 -0800
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:09 -0800
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:09 -0800
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:09 -0800
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:09 -0800
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:09 -0800
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:09 -0800
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:09 -0800
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:09 -0800
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:09 -0800
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:09 -0800
+Served asset /twitter/bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:09 -0800
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:09 -0800
+Served asset /main.js - 304 Not Modified (0ms)
+
+
+Started GET "/users/2/completions/new?task=3" for 127.0.0.1 at 2012-11-16 06:43:10 -0800
+Processing by CompletionsController#new as HTML
+  Parameters: {"task"=>"3", "user_id"=>"2"}
+  Rendered completions/_form.html.erb (0.9ms)
+  Rendered completions/new.html.erb within layouts/application (1.7ms)
+Completed 500 Internal Server Error in 3ms
+
+ActionView::Template::Error (undefined method `model_name' for NilClass:Class):
+    1: <%= form_for(@completion) do |f| %>
+    2:   <% if @completion.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(@completion.errors.count, "error") %> prohibited this completion from being saved:</h2>
+  app/views/completions/_form.html.erb:1:in `_app_views_completions__form_html_erb___4246410661526370938_70346136127660'
+  app/views/completions/new.html.erb:3:in `_app_views_completions_new_html_erb___2685538060604189446_70346136330780'
+
+
+  Rendered /Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.7ms)
+  Rendered /Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (4.8ms)
+
+
+Started GET "/users/2/tasks" for 127.0.0.1 at 2012-11-16 06:43:55 -0800
+Processing by TasksController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."daily" = 't' AND "tasks"."user_id" = 2[0m
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."weekly" = 't' AND "tasks"."user_id" = 2
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."monthly" = 't' AND "tasks"."user_id" = 2[0m
+  Rendered tasks/index.html.haml within layouts/application (45.1ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1
+Completed 200 OK in 65ms (Views: 53.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-11-16 06:43:55 -0800
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:55 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:55 -0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:55 -0800
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:55 -0800
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:55 -0800
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:55 -0800
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:55 -0800
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:55 -0800
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:55 -0800
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:55 -0800
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:55 -0800
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:55 -0800
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:55 -0800
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:55 -0800
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:55 -0800
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:55 -0800
+Served asset /twitter/bootstrap.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:55 -0800
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:55 -0800
+Served asset /main.js - 304 Not Modified (0ms)
+
+
+Started GET "/users/2/completions/new?task=3" for 127.0.0.1 at 2012-11-16 06:43:56 -0800
+Processing by CompletionsController#new as HTML
+  Parameters: {"task"=>"3", "user_id"=>"2"}
+Redirected to http://localhost:3002/users/2/tasks
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/users/2/tasks" for 127.0.0.1 at 2012-11-16 06:43:56 -0800
+Processing by TasksController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."daily" = 't' AND "tasks"."user_id" = 2
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."weekly" = 't' AND "tasks"."user_id" = 2[0m
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."monthly" = 't' AND "tasks"."user_id" = 2
+  Rendered tasks/index.html.haml within layouts/application (1.9ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-11-16 06:43:57 -0800
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:57 -0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:57 -0800
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:57 -0800
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:57 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:57 -0800
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:57 -0800
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:57 -0800
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:57 -0800
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:57 -0800
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:57 -0800
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:57 -0800
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:57 -0800
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:57 -0800
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:57 -0800
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:57 -0800
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:57 -0800
+Served asset /twitter/bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:57 -0800
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2012-11-16 06:43:57 -0800
+Served asset /main.js - 304 Not Modified (0ms)
+
+
+Started GET "/users/2/completions/new?task=3" for 127.0.0.1 at 2012-11-16 06:44:04 -0800
+Processing by CompletionsController#new as HTML
+  Parameters: {"task"=>"3", "user_id"=>"2"}
+Redirected to http://localhost:3002/users/2/tasks
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/2/tasks" for 127.0.0.1 at 2012-11-16 06:44:04 -0800
+Processing by TasksController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."daily" = 't' AND "tasks"."user_id" = 2[0m
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."weekly" = 't' AND "tasks"."user_id" = 2
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."monthly" = 't' AND "tasks"."user_id" = 2[0m
+  Rendered tasks/index.html.haml within layouts/application (2.0ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-16 06:44:04 -0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-16 06:44:04 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-11-16 06:44:04 -0800
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-11-16 06:44:04 -0800
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-11-16 06:44:04 -0800
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-11-16 06:44:04 -0800
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-11-16 06:44:04 -0800
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-11-16 06:44:04 -0800
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-11-16 06:44:04 -0800
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-11-16 06:44:04 -0800
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-11-16 06:44:04 -0800
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-11-16 06:44:04 -0800
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-11-16 06:44:04 -0800
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-11-16 06:44:04 -0800
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-11-16 06:44:04 -0800
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-11-16 06:44:04 -0800
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 06:44:04 -0800
+Served asset /twitter/bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 06:44:04 -0800
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2012-11-16 06:44:04 -0800
+Served asset /main.js - 304 Not Modified (0ms)
+
+
+Started GET "/users/2/tasks" for 127.0.0.1 at 2012-11-16 06:45:27 -0800
+Processing by TasksController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."daily" = 't' AND "tasks"."user_id" = 2
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."weekly" = 't' AND "tasks"."user_id" = 2[0m
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."monthly" = 't' AND "tasks"."user_id" = 2
+  Rendered tasks/index.html.haml within layouts/application (13.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m
+Completed 200 OK in 62ms (Views: 21.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-16 06:45:27 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-16 06:45:27 -0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-11-16 06:45:27 -0800
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-11-16 06:45:27 -0800
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-11-16 06:45:27 -0800
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-11-16 06:45:27 -0800
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-11-16 06:45:27 -0800
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-11-16 06:45:27 -0800
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-11-16 06:45:27 -0800
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-11-16 06:45:27 -0800
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-11-16 06:45:27 -0800
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-11-16 06:45:27 -0800
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-11-16 06:45:27 -0800
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-11-16 06:45:27 -0800
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-11-16 06:45:27 -0800
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-11-16 06:45:27 -0800
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 06:45:27 -0800
+Served asset /twitter/bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 06:45:27 -0800
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2012-11-16 06:45:27 -0800
+Served asset /main.js - 304 Not Modified (0ms)
+
+
+Started GET "/users/2/completions/new?task=3" for 127.0.0.1 at 2012-11-16 06:45:28 -0800
+Processing by CompletionsController#new as HTML
+  Parameters: {"task"=>"3", "user_id"=>"2"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "completions" ("created_at", "task_id", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 16 Nov 2012 14:45:28 UTC +00:00], ["task_id", 3], ["updated_at", Fri, 16 Nov 2012 14:45:28 UTC +00:00], ["user_id", nil]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Redirected to http://localhost:3002/users/2/tasks
+Completed 302 Found in 8ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/users/2/tasks" for 127.0.0.1 at 2012-11-16 06:45:28 -0800
+Processing by TasksController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."daily" = 't' AND "tasks"."user_id" = 2
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."weekly" = 't' AND "tasks"."user_id" = 2[0m
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."monthly" = 't' AND "tasks"."user_id" = 2
+  Rendered tasks/index.html.haml within layouts/application (2.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m
+Completed 200 OK in 12ms (Views: 10.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-16 06:45:29 -0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-11-16 06:45:29 -0800
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-16 06:45:29 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-11-16 06:45:29 -0800
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-11-16 06:45:29 -0800
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-11-16 06:45:29 -0800
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-11-16 06:45:29 -0800
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-11-16 06:45:29 -0800
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-11-16 06:45:29 -0800
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-11-16 06:45:29 -0800
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-11-16 06:45:29 -0800
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-11-16 06:45:29 -0800
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-11-16 06:45:29 -0800
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-11-16 06:45:29 -0800
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-11-16 06:45:29 -0800
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-11-16 06:45:29 -0800
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 06:45:29 -0800
+Served asset /twitter/bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 06:45:29 -0800
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2012-11-16 06:45:29 -0800
+Served asset /main.js - 304 Not Modified (0ms)
+
+
+Started GET "/users/2/tasks" for 127.0.0.1 at 2012-11-16 06:46:42 -0800
+Processing by TasksController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."daily" = 't' AND "tasks"."user_id" = 2[0m
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."weekly" = 't' AND "tasks"."user_id" = 2
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."monthly" = 't' AND "tasks"."user_id" = 2[0m
+  Rendered tasks/index.html.haml within layouts/application (13.7ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1
+Completed 200 OK in 62ms (Views: 50.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-11-16 06:46:42 -0800
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-16 06:46:42 -0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-16 06:46:42 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-11-16 06:46:42 -0800
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-11-16 06:46:42 -0800
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-11-16 06:46:42 -0800
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-11-16 06:46:42 -0800
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-11-16 06:46:42 -0800
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-11-16 06:46:42 -0800
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-11-16 06:46:42 -0800
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-11-16 06:46:42 -0800
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-11-16 06:46:42 -0800
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-11-16 06:46:42 -0800
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-11-16 06:46:42 -0800
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-11-16 06:46:42 -0800
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-11-16 06:46:42 -0800
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 06:46:42 -0800
+Served asset /twitter/bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 06:46:42 -0800
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2012-11-16 06:46:42 -0800
+Served asset /main.js - 304 Not Modified (0ms)
+
+
+Started GET "/users/2/completions/new?task=3" for 127.0.0.1 at 2012-11-16 06:46:43 -0800
+Processing by CompletionsController#new as HTML
+  Parameters: {"task"=>"3", "user_id"=>"2"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "completions" ("created_at", "task_id", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["created_at", Fri, 16 Nov 2012 14:46:43 UTC +00:00], ["task_id", 3], ["updated_at", Fri, 16 Nov 2012 14:46:43 UTC +00:00], ["user_id", 2]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3002/users/2/tasks
+Completed 302 Found in 7ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/users/2/tasks" for 127.0.0.1 at 2012-11-16 06:46:43 -0800
+Processing by TasksController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."daily" = 't' AND "tasks"."user_id" = 2[0m
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."weekly" = 't' AND "tasks"."user_id" = 2
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."monthly" = 't' AND "tasks"."user_id" = 2[0m
+  Rendered tasks/index.html.haml within layouts/application (2.2ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1
+Completed 200 OK in 12ms (Views: 10.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-16 06:46:43 -0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-16 06:46:43 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-11-16 06:46:43 -0800
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-11-16 06:46:43 -0800
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-11-16 06:46:43 -0800
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-11-16 06:46:43 -0800
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-11-16 06:46:43 -0800
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-11-16 06:46:43 -0800
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-11-16 06:46:43 -0800
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-11-16 06:46:43 -0800
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-11-16 06:46:43 -0800
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-11-16 06:46:43 -0800
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-11-16 06:46:43 -0800
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-11-16 06:46:43 -0800
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-11-16 06:46:43 -0800
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-11-16 06:46:43 -0800
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 06:46:43 -0800
+Served asset /twitter/bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 06:46:43 -0800
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2012-11-16 06:46:43 -0800
+Served asset /main.js - 304 Not Modified (0ms)
+
+
+Started GET "/users/2/tasks" for 127.0.0.1 at 2012-11-16 06:49:26 -0800
+Processing by TasksController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "2"]]
+ERROR: compiling _app_views_tasks_index_html_haml__620549377013044715_70346141107020 RAISED /Users/jisaac/Development/HomeManager/app/views/tasks/index.html.haml:12: syntax error, unexpected ';', expecting ')'
+));}</td>\n    </tr>\n", -1, false);end
+   ^
+/Users/jisaac/Development/HomeManager/app/views/tasks/index.html.haml:12: unknown regexp options - tr
+/Users/jisaac/Development/HomeManager/app/views/tasks/index.html.haml:12: syntax error, unexpected $undefined
+));}</td>\n    </tr>\n", -1, false);end
+                     ^
+/Users/jisaac/Development/HomeManager/app/views/tasks/index.html.haml:13: unknown regexp option - h
+/Users/jisaac/Development/HomeManager/app/views/tasks/index.html.haml:13: syntax error, unexpected tINTEGER, expecting '}'
+...  </table>\n  <h4>This Week</h4>\n  <table class='table'>\n"...
+...                               ^
+/Users/jisaac/Development/HomeManager/app/views/tasks/index.html.haml:13: syntax error, unexpected keyword_class, expecting keyword_do or '{' or '('
+...>This Week</h4>\n  <table class='table'>\n", 0, false);
+...                               ^
+/Users/jisaac/Development/HomeManager/app/views/tasks/index.html.haml:13: syntax error, unexpected $undefined
+...</h4>\n  <table class='table'>\n", 0, false);
+...                               ^
+/Users/jisaac/Development/HomeManager/app/views/tasks/index.html.haml:15: syntax error, unexpected $undefined
+_hamlout.push_text("    <tr>\n      <td>#{_hamlout.adjust_tabs(2); 
+                             ^
+Function body:           def _app_views_tasks_index_html_haml__620549377013044715_70346141107020(local_assigns, output_buffer)
+            _old_virtual_path, @virtual_path = @virtual_path, "tasks/index";_old_output_buffer = @output_buffer;;begin;extend Haml::Helpers;_hamlout = @haml_buffer = Haml::Buffer.new(@haml_buffer, {:autoclose=>["meta", "img", "link", "br", "hr", "input", "area", "param", "col", "base"], :preserve=>["textarea", "pre", "code"], :attr_wrapper=>"'", :ugly=>false, :format=>:html5, :encoding=>"UTF-8", :escape_html=>true, :escape_attrs=>true});_erbout = _hamlout.buffer;__in_erb_template = true;;_hamlout.push_text("<div class='span8'>\n  <h2>\n    <em>#{_hamlout.adjust_tabs(3); 
+
+_hamlout.format_script_false_true_false_true_false_true_false((@user.name + "'s"
+));}</em>\n    Tasks\n  </h2>\n  #{_hamlout.adjust_tabs(-1); 
+_hamlout.format_script_false_false_false_true_false_true_false(( link_to " Add task", new_task_path, class: "i icon-plus label label-success"
+));}\n  <h4>Today</h4>\n  <table class='table'>\n", 1, false);
+
+ @todays.each do |task|
+_hamlout.push_text("    <tr>\n      <td>#{_hamlout.adjust_tabs(2); 
+_hamlout.format_script_false_true_false_true_false_true_false((link_to task.title, task
+));}</td>\n      <td>#{_hamlout.adjust_tabs(1); _hamlout.format_script_false_true_false_true_false_true_false((link_to '', new_user_completion_path(task: task.id), class: (if Completion.find_by_user_id_task_id(@user.id, task.id) then "i icon-ok btn btn-success" else "i icon-ok btn" end
+));}</td>\n    </tr>\n", -1, false);end
+_hamlout.push_text("  </table>\n  <h4>This Week</h4>\n  <table class='table'>\n", 0, false);
+ @this_weeks.each do |task|
+_hamlout.push_text("    <tr>\n      <td>#{_hamlout.adjust_tabs(2); 
+_hamlout.format_script_false_true_false_true_false_true_false((link_to task.title, task
+));}</td>\n      <td>#{_hamlout.adjust_tabs(1); _hamlout.format_script_false_true_false_true_false_true_false((link_to '', new_user_completion_path(task: task.id), class: "i icon-ok btn"
+));}</td>\n    </tr>\n", -1, false);end
+_hamlout.push_text("  </table>\n  <h4>This Month</h4>\n  <table class='table'>\n", 0, false);
+ @this_months.each do |task|
+_hamlout.push_text("    <tr>\n      <td>#{_hamlout.adjust_tabs(2); 
+_hamlout.format_script_false_true_false_true_false_true_false((link_to task.title, task
+));}</td>\n      <td>#{_hamlout.adjust_tabs(1); _hamlout.format_script_false_true_false_true_false_true_false((link_to '', new_user_completion_path(task: task.id), class: "i icon-ok btn"
+));}</td>\n    </tr>\n", -1, false);end
+_hamlout.push_text("  </table>\n</div>\n", -2, false);::Haml::Util.html_safe(_erbout);ensure;@haml_buffer = @haml_buffer.upper if @haml_buffer;end;
+          ensure
+            @virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+
+Backtrace: /Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_view/template.rb:285:in `module_eval'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_view/template.rb:285:in `compile'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_view/template.rb:233:in `compile!'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_view/template.rb:142:in `block in render'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activesupport-3.2.1/lib/active_support/notifications.rb:125:in `instrument'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_view/template.rb:141:in `render'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_view/renderer/template_renderer.rb:41:in `block (2 levels) in render_template'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activesupport-3.2.1/lib/active_support/notifications.rb:123:in `block in instrument'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activesupport-3.2.1/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activesupport-3.2.1/lib/active_support/notifications.rb:123:in `instrument'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_view/renderer/template_renderer.rb:40:in `block in render_template'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_view/renderer/template_renderer.rb:48:in `render_with_layout'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_view/renderer/template_renderer.rb:39:in `render_template'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_view/renderer/template_renderer.rb:12:in `render'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_view/renderer/renderer.rb:36:in `render_template'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_view/renderer/renderer.rb:17:in `render'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/abstract_controller/rendering.rb:109:in `_render_template'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_controller/metal/streaming.rb:225:in `_render_template'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/abstract_controller/rendering.rb:103:in `render_to_body'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_controller/metal/renderers.rb:28:in `render_to_body'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_controller/metal/compatibility.rb:50:in `render_to_body'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/abstract_controller/rendering.rb:88:in `render'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_controller/metal/rendering.rb:16:in `render'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activesupport-3.2.1/lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+/Users/jisaac/.rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/benchmark.rb:310:in `realtime'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activesupport-3.2.1/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_controller/metal/instrumentation.rb:83:in `cleanup_view_runtime'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activerecord-3.2.1/lib/active_record/railties/controller_runtime.rb:24:in `cleanup_view_runtime'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_controller/metal/mime_responds.rb:268:in `block in retrieve_response_from_mimes'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_controller/metal/mime_responds.rb:195:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_controller/metal/mime_responds.rb:195:in `respond_to'
+/Users/jisaac/Development/HomeManager/app/controllers/tasks_controller.rb:13:in `index'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/abstract_controller/base.rb:167:in `process_action'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_controller/metal/rendering.rb:10:in `process_action'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activesupport-3.2.1/lib/active_support/callbacks.rb:414:in `_run__1228453999754970506__process_action__2263587533385708151__callbacks'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activesupport-3.2.1/lib/active_support/callbacks.rb:405:in `__run_callback'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activesupport-3.2.1/lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activesupport-3.2.1/lib/active_support/callbacks.rb:81:in `run_callbacks'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_controller/metal/rescue.rb:29:in `process_action'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activesupport-3.2.1/lib/active_support/notifications.rb:123:in `block in instrument'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activesupport-3.2.1/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activesupport-3.2.1/lib/active_support/notifications.rb:123:in `instrument'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_controller/metal/params_wrapper.rb:205:in `process_action'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activerecord-3.2.1/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/abstract_controller/base.rb:121:in `process'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/abstract_controller/rendering.rb:45:in `process'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_controller/metal.rb:203:in `dispatch'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_controller/metal.rb:246:in `block in action'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/routing/route_set.rb:66:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/routing/route_set.rb:66:in `dispatch'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/routing/route_set.rb:30:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/journey-1.0.4/lib/journey/router.rb:68:in `block in call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/journey-1.0.4/lib/journey/router.rb:56:in `each'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/journey-1.0.4/lib/journey/router.rb:56:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/routing/route_set.rb:589:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/omniauth-1.1.1/lib/omniauth/strategy.rb:177:in `call!'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/omniauth-1.1.1/lib/omniauth/strategy.rb:157:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/omniauth-1.1.1/lib/omniauth/builder.rb:48:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/sass-3.2.2/lib/sass/plugin/rack.rb:54:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/rack-1.4.1/lib/rack/etag.rb:23:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/rack-1.4.1/lib/rack/conditionalget.rb:25:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/middleware/head.rb:14:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/middleware/flash.rb:242:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/rack-1.4.1/lib/rack/session/abstract/id.rb:205:in `context'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/rack-1.4.1/lib/rack/session/abstract/id.rb:200:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/middleware/cookies.rb:338:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activerecord-3.2.1/lib/active_record/query_cache.rb:64:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activerecord-3.2.1/lib/active_record/connection_adapters/abstract/connection_pool.rb:443:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activesupport-3.2.1/lib/active_support/callbacks.rb:405:in `_run__1029274499966048372__call__3099152613790822905__callbacks'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activesupport-3.2.1/lib/active_support/callbacks.rb:405:in `__run_callback'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activesupport-3.2.1/lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activesupport-3.2.1/lib/active_support/callbacks.rb:81:in `run_callbacks'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/middleware/reloader.rb:65:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/railties-3.2.1/lib/rails/rack/logger.rb:26:in `call_app'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/railties-3.2.1/lib/rails/rack/logger.rb:16:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/middleware/request_id.rb:22:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/rack-1.4.1/lib/rack/methodoverride.rb:21:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/rack-1.4.1/lib/rack/runtime.rb:17:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activesupport-3.2.1/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/rack-1.4.1/lib/rack/lock.rb:15:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/middleware/static.rb:53:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/railties-3.2.1/lib/rails/engine.rb:479:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/railties-3.2.1/lib/rails/application.rb:220:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/rack-1.4.1/lib/rack/content_length.rb:14:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/railties-3.2.1/lib/rails/rack/log_tailer.rb:14:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/rack-1.4.1/lib/rack/handler/webrick.rb:59:in `service'
+/Users/jisaac/.rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+/Users/jisaac/.rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+/Users/jisaac/.rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+  Rendered tasks/index.html.haml within layouts/application (3.1ms)
+Completed 500 Internal Server Error in 5ms
+
+ActionView::Template::Error (/Users/jisaac/Development/HomeManager/app/views/tasks/index.html.haml:12: syntax error, unexpected ';', expecting ')'
+));}</td>\n    </tr>\n", -1, false);end
+   ^
+/Users/jisaac/Development/HomeManager/app/views/tasks/index.html.haml:12: unknown regexp options - tr
+/Users/jisaac/Development/HomeManager/app/views/tasks/index.html.haml:12: syntax error, unexpected $undefined
+));}</td>\n    </tr>\n", -1, false);end
+                     ^
+/Users/jisaac/Development/HomeManager/app/views/tasks/index.html.haml:13: unknown regexp option - h
+/Users/jisaac/Development/HomeManager/app/views/tasks/index.html.haml:13: syntax error, unexpected tINTEGER, expecting '}'
+...  </table>\n  <h4>This Week</h4>\n  <table class='table'>\n"...
+...                               ^
+/Users/jisaac/Development/HomeManager/app/views/tasks/index.html.haml:13: syntax error, unexpected keyword_class, expecting keyword_do or '{' or '('
+...>This Week</h4>\n  <table class='table'>\n", 0, false);
+...                               ^
+/Users/jisaac/Development/HomeManager/app/views/tasks/index.html.haml:13: syntax error, unexpected $undefined
+...</h4>\n  <table class='table'>\n", 0, false);
+...                               ^
+/Users/jisaac/Development/HomeManager/app/views/tasks/index.html.haml:15: syntax error, unexpected $undefined
+_hamlout.push_text("    <tr>\n      <td>#{_hamlout.adjust_tabs(2); 
+                             ^):
+    9:       %tr
+    10:         %td= link_to task.title, task
+    11:         %td= link_to '', new_user_completion_path(task: task.id), class: (if Completion.find_by_user_id_task_id(@user.id, task.id) then "i icon-ok btn btn-success" else "i icon-ok btn" end
+    12:   %h4 This Week
+    13:   %table.table
+    14:     - @this_weeks.each do |task|
+    15:       %tr
+  app/controllers/tasks_controller.rb:13:in `index'
+
+
+  Rendered /Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.4ms)
+  Rendered /Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (29.8ms)
+  Rendered /Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (33.9ms)
+
+
+Started GET "/users/2/tasks" for 127.0.0.1 at 2012-11-16 06:50:18 -0800
+Processing by TasksController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "2"]]
+ERROR: compiling _app_views_tasks_index_html_haml__620549377013044715_70346143475600 RAISED /Users/jisaac/Development/HomeManager/app/views/tasks/index.html.haml:12: syntax error, unexpected ';', expecting ')'
+));}</td>\n    </tr>\n", -1, false);end
+   ^
+/Users/jisaac/Development/HomeManager/app/views/tasks/index.html.haml:12: unknown regexp options - tr
+/Users/jisaac/Development/HomeManager/app/views/tasks/index.html.haml:12: syntax error, unexpected $undefined
+));}</td>\n    </tr>\n", -1, false);end
+                     ^
+/Users/jisaac/Development/HomeManager/app/views/tasks/index.html.haml:13: unknown regexp option - h
+/Users/jisaac/Development/HomeManager/app/views/tasks/index.html.haml:13: syntax error, unexpected tINTEGER, expecting '}'
+...  </table>\n  <h4>This Week</h4>\n  <table class='table'>\n"...
+...                               ^
+/Users/jisaac/Development/HomeManager/app/views/tasks/index.html.haml:13: syntax error, unexpected keyword_class, expecting keyword_do or '{' or '('
+...>This Week</h4>\n  <table class='table'>\n", 0, false);
+...                               ^
+/Users/jisaac/Development/HomeManager/app/views/tasks/index.html.haml:13: syntax error, unexpected $undefined
+...</h4>\n  <table class='table'>\n", 0, false);
+...                               ^
+/Users/jisaac/Development/HomeManager/app/views/tasks/index.html.haml:15: syntax error, unexpected $undefined
+_hamlout.push_text("    <tr>\n      <td>#{_hamlout.adjust_tabs(2); 
+                             ^
+Function body:           def _app_views_tasks_index_html_haml__620549377013044715_70346143475600(local_assigns, output_buffer)
+            _old_virtual_path, @virtual_path = @virtual_path, "tasks/index";_old_output_buffer = @output_buffer;;begin;extend Haml::Helpers;_hamlout = @haml_buffer = Haml::Buffer.new(@haml_buffer, {:autoclose=>["meta", "img", "link", "br", "hr", "input", "area", "param", "col", "base"], :preserve=>["textarea", "pre", "code"], :attr_wrapper=>"'", :ugly=>false, :format=>:html5, :encoding=>"UTF-8", :escape_html=>true, :escape_attrs=>true});_erbout = _hamlout.buffer;__in_erb_template = true;;_hamlout.push_text("<div class='span8'>\n  <h2>\n    <em>#{_hamlout.adjust_tabs(3); 
+
+_hamlout.format_script_false_true_false_true_false_true_false((@user.name + "'s"
+));}</em>\n    Tasks\n  </h2>\n  #{_hamlout.adjust_tabs(-1); 
+_hamlout.format_script_false_false_false_true_false_true_false(( link_to " Add task", new_task_path, class: "i icon-plus label label-success"
+));}\n  <h4>Today</h4>\n  <table class='table'>\n", 1, false);
+
+ @todays.each do |task|
+_hamlout.push_text("    <tr>\n      <td>#{_hamlout.adjust_tabs(2); 
+_hamlout.format_script_false_true_false_true_false_true_false((link_to task.title, task
+));}</td>\n      <td>#{_hamlout.adjust_tabs(1); _hamlout.format_script_false_true_false_true_false_true_false((link_to '', new_user_completion_path(task: task.id), class: (if Completion.find_by_user_id_and_task_id(@user.id, task.id) then "i icon-ok btn btn-success" else "i icon-ok btn" end
+));}</td>\n    </tr>\n", -1, false);end
+_hamlout.push_text("  </table>\n  <h4>This Week</h4>\n  <table class='table'>\n", 0, false);
+ @this_weeks.each do |task|
+_hamlout.push_text("    <tr>\n      <td>#{_hamlout.adjust_tabs(2); 
+_hamlout.format_script_false_true_false_true_false_true_false((link_to task.title, task
+));}</td>\n      <td>#{_hamlout.adjust_tabs(1); _hamlout.format_script_false_true_false_true_false_true_false((link_to '', new_user_completion_path(task: task.id), class: "i icon-ok btn"
+));}</td>\n    </tr>\n", -1, false);end
+_hamlout.push_text("  </table>\n  <h4>This Month</h4>\n  <table class='table'>\n", 0, false);
+ @this_months.each do |task|
+_hamlout.push_text("    <tr>\n      <td>#{_hamlout.adjust_tabs(2); 
+_hamlout.format_script_false_true_false_true_false_true_false((link_to task.title, task
+));}</td>\n      <td>#{_hamlout.adjust_tabs(1); _hamlout.format_script_false_true_false_true_false_true_false((link_to '', new_user_completion_path(task: task.id), class: "i icon-ok btn"
+));}</td>\n    </tr>\n", -1, false);end
+_hamlout.push_text("  </table>\n</div>\n", -2, false);::Haml::Util.html_safe(_erbout);ensure;@haml_buffer = @haml_buffer.upper if @haml_buffer;end;
+          ensure
+            @virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+
+Backtrace: /Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_view/template.rb:285:in `module_eval'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_view/template.rb:285:in `compile'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_view/template.rb:233:in `compile!'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_view/template.rb:142:in `block in render'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activesupport-3.2.1/lib/active_support/notifications.rb:125:in `instrument'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_view/template.rb:141:in `render'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_view/renderer/template_renderer.rb:41:in `block (2 levels) in render_template'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activesupport-3.2.1/lib/active_support/notifications.rb:123:in `block in instrument'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activesupport-3.2.1/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activesupport-3.2.1/lib/active_support/notifications.rb:123:in `instrument'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_view/renderer/template_renderer.rb:40:in `block in render_template'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_view/renderer/template_renderer.rb:48:in `render_with_layout'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_view/renderer/template_renderer.rb:39:in `render_template'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_view/renderer/template_renderer.rb:12:in `render'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_view/renderer/renderer.rb:36:in `render_template'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_view/renderer/renderer.rb:17:in `render'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/abstract_controller/rendering.rb:109:in `_render_template'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_controller/metal/streaming.rb:225:in `_render_template'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/abstract_controller/rendering.rb:103:in `render_to_body'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_controller/metal/renderers.rb:28:in `render_to_body'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_controller/metal/compatibility.rb:50:in `render_to_body'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/abstract_controller/rendering.rb:88:in `render'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_controller/metal/rendering.rb:16:in `render'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activesupport-3.2.1/lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+/Users/jisaac/.rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/benchmark.rb:310:in `realtime'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activesupport-3.2.1/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_controller/metal/instrumentation.rb:83:in `cleanup_view_runtime'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activerecord-3.2.1/lib/active_record/railties/controller_runtime.rb:24:in `cleanup_view_runtime'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_controller/metal/mime_responds.rb:268:in `block in retrieve_response_from_mimes'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_controller/metal/mime_responds.rb:195:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_controller/metal/mime_responds.rb:195:in `respond_to'
+/Users/jisaac/Development/HomeManager/app/controllers/tasks_controller.rb:13:in `index'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/abstract_controller/base.rb:167:in `process_action'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_controller/metal/rendering.rb:10:in `process_action'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activesupport-3.2.1/lib/active_support/callbacks.rb:414:in `_run__1228453999754970506__process_action__2263587533385708151__callbacks'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activesupport-3.2.1/lib/active_support/callbacks.rb:405:in `__run_callback'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activesupport-3.2.1/lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activesupport-3.2.1/lib/active_support/callbacks.rb:81:in `run_callbacks'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_controller/metal/rescue.rb:29:in `process_action'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activesupport-3.2.1/lib/active_support/notifications.rb:123:in `block in instrument'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activesupport-3.2.1/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activesupport-3.2.1/lib/active_support/notifications.rb:123:in `instrument'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_controller/metal/params_wrapper.rb:205:in `process_action'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activerecord-3.2.1/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/abstract_controller/base.rb:121:in `process'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/abstract_controller/rendering.rb:45:in `process'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_controller/metal.rb:203:in `dispatch'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_controller/metal.rb:246:in `block in action'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/routing/route_set.rb:66:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/routing/route_set.rb:66:in `dispatch'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/routing/route_set.rb:30:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/journey-1.0.4/lib/journey/router.rb:68:in `block in call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/journey-1.0.4/lib/journey/router.rb:56:in `each'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/journey-1.0.4/lib/journey/router.rb:56:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/routing/route_set.rb:589:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/omniauth-1.1.1/lib/omniauth/strategy.rb:177:in `call!'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/omniauth-1.1.1/lib/omniauth/strategy.rb:157:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/omniauth-1.1.1/lib/omniauth/builder.rb:48:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/sass-3.2.2/lib/sass/plugin/rack.rb:54:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/rack-1.4.1/lib/rack/etag.rb:23:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/rack-1.4.1/lib/rack/conditionalget.rb:25:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/middleware/head.rb:14:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/middleware/flash.rb:242:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/rack-1.4.1/lib/rack/session/abstract/id.rb:205:in `context'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/rack-1.4.1/lib/rack/session/abstract/id.rb:200:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/middleware/cookies.rb:338:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activerecord-3.2.1/lib/active_record/query_cache.rb:64:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activerecord-3.2.1/lib/active_record/connection_adapters/abstract/connection_pool.rb:443:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activesupport-3.2.1/lib/active_support/callbacks.rb:405:in `_run__1029274499966048372__call__3099152613790822905__callbacks'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activesupport-3.2.1/lib/active_support/callbacks.rb:405:in `__run_callback'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activesupport-3.2.1/lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activesupport-3.2.1/lib/active_support/callbacks.rb:81:in `run_callbacks'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/middleware/reloader.rb:65:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/railties-3.2.1/lib/rails/rack/logger.rb:26:in `call_app'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/railties-3.2.1/lib/rails/rack/logger.rb:16:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/middleware/request_id.rb:22:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/rack-1.4.1/lib/rack/methodoverride.rb:21:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/rack-1.4.1/lib/rack/runtime.rb:17:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/activesupport-3.2.1/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/rack-1.4.1/lib/rack/lock.rb:15:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/middleware/static.rb:53:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/railties-3.2.1/lib/rails/engine.rb:479:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/railties-3.2.1/lib/rails/application.rb:220:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/rack-1.4.1/lib/rack/content_length.rb:14:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/railties-3.2.1/lib/rails/rack/log_tailer.rb:14:in `call'
+/Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/rack-1.4.1/lib/rack/handler/webrick.rb:59:in `service'
+/Users/jisaac/.rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+/Users/jisaac/.rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+/Users/jisaac/.rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+  Rendered tasks/index.html.haml within layouts/application (3.1ms)
+Completed 500 Internal Server Error in 5ms
+
+ActionView::Template::Error (/Users/jisaac/Development/HomeManager/app/views/tasks/index.html.haml:12: syntax error, unexpected ';', expecting ')'
+));}</td>\n    </tr>\n", -1, false);end
+   ^
+/Users/jisaac/Development/HomeManager/app/views/tasks/index.html.haml:12: unknown regexp options - tr
+/Users/jisaac/Development/HomeManager/app/views/tasks/index.html.haml:12: syntax error, unexpected $undefined
+));}</td>\n    </tr>\n", -1, false);end
+                     ^
+/Users/jisaac/Development/HomeManager/app/views/tasks/index.html.haml:13: unknown regexp option - h
+/Users/jisaac/Development/HomeManager/app/views/tasks/index.html.haml:13: syntax error, unexpected tINTEGER, expecting '}'
+...  </table>\n  <h4>This Week</h4>\n  <table class='table'>\n"...
+...                               ^
+/Users/jisaac/Development/HomeManager/app/views/tasks/index.html.haml:13: syntax error, unexpected keyword_class, expecting keyword_do or '{' or '('
+...>This Week</h4>\n  <table class='table'>\n", 0, false);
+...                               ^
+/Users/jisaac/Development/HomeManager/app/views/tasks/index.html.haml:13: syntax error, unexpected $undefined
+...</h4>\n  <table class='table'>\n", 0, false);
+...                               ^
+/Users/jisaac/Development/HomeManager/app/views/tasks/index.html.haml:15: syntax error, unexpected $undefined
+_hamlout.push_text("    <tr>\n      <td>#{_hamlout.adjust_tabs(2); 
+                             ^):
+    9:       %tr
+    10:         %td= link_to task.title, task
+    11:         %td= link_to '', new_user_completion_path(task: task.id), class: (if Completion.find_by_user_id_and_task_id(@user.id, task.id) then "i icon-ok btn btn-success" else "i icon-ok btn" end
+    12:   %h4 This Week
+    13:   %table.table
+    14:     - @this_weeks.each do |task|
+    15:       %tr
+  app/controllers/tasks_controller.rb:13:in `index'
+
+
+  Rendered /Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.5ms)
+  Rendered /Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Users/jisaac/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (4.9ms)
+
+
+Started GET "/users/2/tasks" for 127.0.0.1 at 2012-11-16 06:52:49 -0800
+Processing by TasksController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."daily" = 't' AND "tasks"."user_id" = 2
+  [1m[36mCompletion Load (0.1ms)[0m  [1mSELECT "completions".* FROM "completions" WHERE "completions"."user_id" = 2 AND "completions"."task_id" = 3 LIMIT 1[0m
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."weekly" = 't' AND "tasks"."user_id" = 2
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."monthly" = 't' AND "tasks"."user_id" = 2[0m
+  Rendered tasks/index.html.haml within layouts/application (5.7ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1
+Completed 200 OK in 15ms (Views: 13.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-11-16 06:52:49 -0800
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-16 06:52:49 -0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-16 06:52:49 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-11-16 06:52:49 -0800
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-11-16 06:52:49 -0800
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-11-16 06:52:49 -0800
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-11-16 06:52:49 -0800
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-11-16 06:52:49 -0800
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-11-16 06:52:49 -0800
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-11-16 06:52:49 -0800
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-11-16 06:52:49 -0800
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-11-16 06:52:49 -0800
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-11-16 06:52:49 -0800
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-11-16 06:52:49 -0800
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-11-16 06:52:49 -0800
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-11-16 06:52:49 -0800
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 06:52:49 -0800
+Served asset /twitter/bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 06:52:49 -0800
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2012-11-16 06:52:49 -0800
+Served asset /main.js - 304 Not Modified (0ms)
+
+
+Started GET "/users/2/tasks" for 127.0.0.1 at 2012-11-16 06:53:44 -0800
+Processing by TasksController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."daily" = 't' AND "tasks"."user_id" = 2
+  [1m[36mCompletion Load (0.1ms)[0m  [1mSELECT "completions".* FROM "completions" WHERE "completions"."user_id" = 2 AND "completions"."task_id" = 3 LIMIT 1[0m
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."weekly" = 't' AND "tasks"."user_id" = 2
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."monthly" = 't' AND "tasks"."user_id" = 2[0m
+  Rendered tasks/index.html.haml within layouts/application (5.6ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1
+Completed 200 OK in 15ms (Views: 13.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-16 06:53:44 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-11-16 06:53:44 -0800
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-16 06:53:44 -0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-11-16 06:53:44 -0800
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-11-16 06:53:44 -0800
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-11-16 06:53:44 -0800
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-11-16 06:53:44 -0800
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-11-16 06:53:44 -0800
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-11-16 06:53:44 -0800
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-11-16 06:53:44 -0800
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-11-16 06:53:44 -0800
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-11-16 06:53:44 -0800
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-11-16 06:53:44 -0800
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-11-16 06:53:44 -0800
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-11-16 06:53:44 -0800
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-11-16 06:53:44 -0800
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 06:53:44 -0800
+Served asset /twitter/bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 06:53:44 -0800
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2012-11-16 06:53:44 -0800
+Served asset /main.js - 304 Not Modified (0ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20121109212138)
+Migrating to CreateTasks (20121113162723)
+Migrating to CreateCompletions (20121115213203)
+Migrating to AddCompletedToCompletions (20121116145744)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "completions" ADD "completed" varchar(255)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121116145744')[0m
+  [1m[35m (3.3ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("completions")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("tasks")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+
+
+Started GET "/users/2/tasks" for 127.0.0.1 at 2012-11-16 06:59:56 -0800
+Processing by TasksController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."daily" = 't' AND "tasks"."user_id" = 2
+  [1m[36mCompletion Load (0.1ms)[0m  [1mSELECT "completions".* FROM "completions" WHERE "completions"."user_id" = 2 AND "completions"."task_id" = 3 AND "completions"."completed" = '2012-11-16' LIMIT 1[0m
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."weekly" = 't' AND "tasks"."user_id" = 2
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."monthly" = 't' AND "tasks"."user_id" = 2[0m
+  Rendered tasks/index.html.haml within layouts/application (19.6ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1
+Completed 200 OK in 67ms (Views: 55.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-11-16 06:59:56 -0800
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-16 06:59:56 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-16 06:59:56 -0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-11-16 06:59:56 -0800
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-11-16 06:59:56 -0800
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-11-16 06:59:56 -0800
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-11-16 06:59:56 -0800
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-11-16 06:59:56 -0800
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-11-16 06:59:56 -0800
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-11-16 06:59:56 -0800
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-11-16 06:59:56 -0800
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-11-16 06:59:56 -0800
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-11-16 06:59:56 -0800
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-11-16 06:59:56 -0800
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-11-16 06:59:56 -0800
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-11-16 06:59:56 -0800
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 06:59:56 -0800
+Served asset /twitter/bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 06:59:56 -0800
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2012-11-16 06:59:56 -0800
+Served asset /main.js - 304 Not Modified (0ms)
+
+
+Started GET "/users/2/completions/new?task=3" for 127.0.0.1 at 2012-11-16 06:59:58 -0800
+Processing by CompletionsController#new as HTML
+  Parameters: {"task"=>"3", "user_id"=>"2"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "completions" ("completed", "created_at", "task_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["completed", Fri, 16 Nov 2012], ["created_at", Fri, 16 Nov 2012 14:59:58 UTC +00:00], ["task_id", 3], ["updated_at", Fri, 16 Nov 2012 14:59:58 UTC +00:00], ["user_id", 2]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3002/users/2/tasks
+Completed 302 Found in 7ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/users/2/tasks" for 127.0.0.1 at 2012-11-16 06:59:58 -0800
+Processing by TasksController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."daily" = 't' AND "tasks"."user_id" = 2[0m
+  [1m[35mCompletion Load (0.1ms)[0m  SELECT "completions".* FROM "completions" WHERE "completions"."user_id" = 2 AND "completions"."task_id" = 3 AND "completions"."completed" = '2012-11-16' LIMIT 1
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."weekly" = 't' AND "tasks"."user_id" = 2[0m
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."monthly" = 't' AND "tasks"."user_id" = 2
+  Rendered tasks/index.html.haml within layouts/application (2.8ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m
+Completed 200 OK in 12ms (Views: 10.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-16 06:59:58 -0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-11-16 06:59:58 -0800
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-16 06:59:58 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-11-16 06:59:58 -0800
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-11-16 06:59:58 -0800
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-11-16 06:59:58 -0800
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-11-16 06:59:58 -0800
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-11-16 06:59:58 -0800
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-11-16 06:59:58 -0800
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-11-16 06:59:58 -0800
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-11-16 06:59:58 -0800
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-11-16 06:59:58 -0800
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-11-16 06:59:58 -0800
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-11-16 06:59:58 -0800
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-11-16 06:59:58 -0800
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-11-16 06:59:58 -0800
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 06:59:58 -0800
+Served asset /twitter/bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 06:59:58 -0800
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2012-11-16 06:59:58 -0800
+Served asset /main.js - 304 Not Modified (0ms)
+
+
+Started GET "/users/2/tasks" for 127.0.0.1 at 2012-11-16 07:00:01 -0800
+Processing by TasksController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."daily" = 't' AND "tasks"."user_id" = 2[0m
+  [1m[35mCompletion Load (0.1ms)[0m  SELECT "completions".* FROM "completions" WHERE "completions"."user_id" = 2 AND "completions"."task_id" = 3 AND "completions"."completed" = '2012-11-16' LIMIT 1
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."weekly" = 't' AND "tasks"."user_id" = 2[0m
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."monthly" = 't' AND "tasks"."user_id" = 2
+  Rendered tasks/index.html.haml within layouts/application (2.6ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m
+Completed 200 OK in 12ms (Views: 10.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-16 07:00:01 -0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-16 07:00:01 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-11-16 07:00:01 -0800
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-11-16 07:00:01 -0800
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-11-16 07:00:01 -0800
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-11-16 07:00:01 -0800
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-11-16 07:00:01 -0800
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-11-16 07:00:01 -0800
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-11-16 07:00:01 -0800
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-11-16 07:00:01 -0800
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-11-16 07:00:01 -0800
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-11-16 07:00:01 -0800
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-11-16 07:00:01 -0800
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-11-16 07:00:01 -0800
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-11-16 07:00:01 -0800
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-11-16 07:00:01 -0800
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 07:00:01 -0800
+Served asset /twitter/bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 07:00:01 -0800
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2012-11-16 07:00:01 -0800
+Served asset /main.js - 304 Not Modified (0ms)
+
+
+Started GET "/users/2/tasks" for 127.0.0.1 at 2012-11-16 07:02:43 -0800
+Processing by TasksController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."daily" = 't' AND "tasks"."user_id" = 2[0m
+  [1m[35mCompletion Load (0.1ms)[0m  SELECT "completions".* FROM "completions" WHERE "completions"."user_id" = 2 AND "completions"."task_id" = 3 AND "completions"."completed" = '2012-11-16' LIMIT 1
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."weekly" = 't' AND "tasks"."user_id" = 2[0m
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."monthly" = 't' AND "tasks"."user_id" = 2
+  Rendered tasks/index.html.haml within layouts/application (6.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m
+Completed 200 OK in 16ms (Views: 14.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-11-16 07:02:43 -0800
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-16 07:02:43 -0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-16 07:02:43 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-11-16 07:02:43 -0800
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-11-16 07:02:43 -0800
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-11-16 07:02:43 -0800
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-11-16 07:02:43 -0800
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-11-16 07:02:43 -0800
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-11-16 07:02:43 -0800
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-11-16 07:02:43 -0800
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-11-16 07:02:43 -0800
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-11-16 07:02:43 -0800
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-11-16 07:02:43 -0800
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-11-16 07:02:43 -0800
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-11-16 07:02:43 -0800
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-11-16 07:02:43 -0800
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 07:02:43 -0800
+Served asset /twitter/bootstrap.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 07:02:43 -0800
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2012-11-16 07:02:43 -0800
+Served asset /main.js - 304 Not Modified (0ms)
+
+
+Started GET "/users/2/tasks" for 127.0.0.1 at 2012-11-16 07:03:06 -0800
+Processing by TasksController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."daily" = 't' AND "tasks"."user_id" = 2[0m
+  [1m[35mCompletion Load (0.1ms)[0m  SELECT "completions".* FROM "completions" WHERE "completions"."user_id" = 2 AND "completions"."task_id" = 3 AND "completions"."completed" = '2012-11-16' LIMIT 1
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."weekly" = 't' AND "tasks"."user_id" = 2[0m
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."monthly" = 't' AND "tasks"."user_id" = 2
+  Rendered tasks/index.html.haml within layouts/application (6.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m
+Completed 200 OK in 16ms (Views: 14.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:06 -0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-11-16 07:03:06 -0800
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:06 -0800
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:06 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:06 -0800
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:06 -0800
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:06 -0800
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:06 -0800
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:06 -0800
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:06 -0800
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:06 -0800
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:06 -0800
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:06 -0800
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:06 -0800
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:06 -0800
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:06 -0800
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:06 -0800
+Served asset /twitter/bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:06 -0800
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:06 -0800
+Served asset /main.js - 304 Not Modified (0ms)
+
+
+Started GET "/users/2/tasks" for 127.0.0.1 at 2012-11-16 07:03:26 -0800
+Processing by TasksController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."daily" = 't' AND "tasks"."user_id" = 2[0m
+  [1m[35mCompletion Load (0.1ms)[0m  SELECT "completions".* FROM "completions" WHERE "completions"."user_id" = 2 AND "completions"."task_id" = 3 AND "completions"."completed" = '2012-11-16' LIMIT 1
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."weekly" = 't' AND "tasks"."user_id" = 2[0m
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."monthly" = 't' AND "tasks"."user_id" = 2
+  Rendered tasks/index.html.haml within layouts/application (6.9ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m
+Completed 200 OK in 17ms (Views: 15.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-11-16 07:03:26 -0800
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:26 -0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:26 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:26 -0800
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:26 -0800
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:26 -0800
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:26 -0800
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:26 -0800
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:26 -0800
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:26 -0800
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:26 -0800
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:26 -0800
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:26 -0800
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:26 -0800
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:26 -0800
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:26 -0800
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:26 -0800
+Served asset /twitter/bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:26 -0800
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:26 -0800
+Served asset /main.js - 304 Not Modified (0ms)
+
+
+Started GET "/users/2/tasks" for 127.0.0.1 at 2012-11-16 07:03:46 -0800
+Processing by TasksController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."daily" = 't' AND "tasks"."user_id" = 2[0m
+  [1m[35mCompletion Load (0.1ms)[0m  SELECT "completions".* FROM "completions" WHERE "completions"."user_id" = 2 AND "completions"."task_id" = 3 AND "completions"."completed" = '2012-11-16' LIMIT 1
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."weekly" = 't' AND "tasks"."user_id" = 2[0m
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."monthly" = 't' AND "tasks"."user_id" = 2
+  Rendered tasks/index.html.haml within layouts/application (7.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m
+Completed 200 OK in 16ms (Views: 14.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-11-16 07:03:46 -0800
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:46 -0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:46 -0800
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:46 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:46 -0800
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:46 -0800
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:46 -0800
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:46 -0800
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:46 -0800
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:46 -0800
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:46 -0800
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:46 -0800
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:46 -0800
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:46 -0800
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:46 -0800
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:46 -0800
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:46 -0800
+Served asset /twitter/bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:46 -0800
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2012-11-16 07:03:46 -0800
+Served asset /main.js - 304 Not Modified (0ms)
+
+
+Started GET "/tasks/new" for 127.0.0.1 at 2012-11-16 07:04:40 -0800
+Processing by TasksController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."parent_id" = 1
+  Rendered tasks/_form.html.haml (47.9ms)
+  Rendered tasks/new.html.haml within layouts/application (49.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m
+Completed 200 OK in 60ms (Views: 57.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-11-16 07:04:40 -0800
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-16 07:04:40 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-16 07:04:40 -0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-11-16 07:04:40 -0800
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-11-16 07:04:40 -0800
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-11-16 07:04:40 -0800
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-11-16 07:04:40 -0800
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-11-16 07:04:40 -0800
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-11-16 07:04:40 -0800
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-11-16 07:04:40 -0800
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-11-16 07:04:40 -0800
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-11-16 07:04:40 -0800
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-11-16 07:04:40 -0800
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-11-16 07:04:40 -0800
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-11-16 07:04:40 -0800
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-11-16 07:04:40 -0800
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 07:04:40 -0800
+Served asset /twitter/bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 07:04:40 -0800
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2012-11-16 07:04:40 -0800
+Served asset /main.js - 304 Not Modified (0ms)
+
+
+Started POST "/tasks" for 127.0.0.1 at 2012-11-16 07:04:58 -0800
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KjiEJJtfNeGF8qO4/UdlMkM/VNBbrvOiev9sH25CKkM=", "task"=>{"user_id"=>"2", "title"=>"Make Bed", "description"=>"", "points"=>"", "daily"=>"1", "weekly"=>"0", "monthly"=>"0", "sunday"=>"0", "monday"=>"0", "tuesday"=>"0", "wednesday"=>"0", "thursday"=>"0", "friday"=>"0", "saturday"=>"0", "period"=>"1", "how_often"=>"", "custom_start"=>""}, "commit"=>"Save"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "tasks" ("created_at", "custom_start", "daily", "description", "friday", "how_often", "monday", "monthly", "next_date", "period", "points", "saturday", "sunday", "thursday", "title", "tuesday", "updated_at", "user_id", "wednesday", "weekly") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 16 Nov 2012 15:04:58 UTC +00:00], ["custom_start", nil], ["daily", true], ["description", ""], ["friday", false], ["how_often", nil], ["monday", false], ["monthly", false], ["next_date", nil], ["period", 1], ["points", nil], ["saturday", false], ["sunday", false], ["thursday", false], ["title", "Make Bed"], ["tuesday", false], ["updated_at", Fri, 16 Nov 2012 15:04:58 UTC +00:00], ["user_id", 2], ["wednesday", false], ["weekly", false]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Redirected to http://localhost:3002/tasks/6
+Completed 302 Found in 6ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/tasks/6" for 127.0.0.1 at 2012-11-16 07:04:58 -0800
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered tasks/show.html.haml within layouts/application (6.3ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1
+Completed 200 OK in 44ms (Views: 42.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-16 07:04:58 -0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-11-16 07:04:58 -0800
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-16 07:04:58 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-11-16 07:04:58 -0800
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-11-16 07:04:58 -0800
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-11-16 07:04:58 -0800
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-11-16 07:04:58 -0800
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-11-16 07:04:58 -0800
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-11-16 07:04:58 -0800
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-11-16 07:04:58 -0800
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-11-16 07:04:58 -0800
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-11-16 07:04:58 -0800
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-11-16 07:04:58 -0800
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-11-16 07:04:58 -0800
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-11-16 07:04:58 -0800
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-11-16 07:04:58 -0800
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 07:04:58 -0800
+Served asset /twitter/bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 07:04:58 -0800
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2012-11-16 07:04:58 -0800
+Served asset /main.js - 304 Not Modified (0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2012-11-16 07:05:03 -0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."parent_id" = 1[0m
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."daily" = 't' AND "tasks"."user_id" = 2
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."weekly" = 't' AND "tasks"."user_id" = 2[0m
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."monthly" = 't' AND "tasks"."user_id" = 2
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."daily" = 't' AND "tasks"."user_id" = 8[0m
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."weekly" = 't' AND "tasks"."user_id" = 8
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."monthly" = 't' AND "tasks"."user_id" = 8[0m
+  Rendered users/_card.html.haml (1.9ms)
+  Rendered users/_card.html.haml (1.2ms)
+  Rendered users/index.html.haml within layouts/application (4.5ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1
+Completed 200 OK in 16ms (Views: 13.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:03 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:03 -0800
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:03 -0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:03 -0800
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:03 -0800
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-11-16 07:05:03 -0800
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:03 -0800
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:03 -0800
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:03 -0800
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:03 -0800
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:03 -0800
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:03 -0800
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:03 -0800
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:03 -0800
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:03 -0800
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:03 -0800
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:03 -0800
+Served asset /twitter/bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:03 -0800
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:03 -0800
+Served asset /main.js - 304 Not Modified (0ms)
+
+
+Started GET "/users/2/tasks" for 127.0.0.1 at 2012-11-16 07:05:05 -0800
+Processing by TasksController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."daily" = 't' AND "tasks"."user_id" = 2
+  [1m[36mCompletion Load (0.1ms)[0m  [1mSELECT "completions".* FROM "completions" WHERE "completions"."user_id" = 2 AND "completions"."task_id" = 3 AND "completions"."completed" = '2012-11-16' LIMIT 1[0m
+  [1m[35mCompletion Load (0.1ms)[0m  SELECT "completions".* FROM "completions" WHERE "completions"."user_id" = 2 AND "completions"."task_id" = 6 AND "completions"."completed" = '2012-11-16' LIMIT 1
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."weekly" = 't' AND "tasks"."user_id" = 2[0m
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."monthly" = 't' AND "tasks"."user_id" = 2
+  Rendered tasks/index.html.haml within layouts/application (3.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m
+Completed 200 OK in 13ms (Views: 11.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-11-16 07:05:05 -0800
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:05 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:05 -0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:05 -0800
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:05 -0800
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:05 -0800
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:05 -0800
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:05 -0800
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:05 -0800
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:05 -0800
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:05 -0800
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:05 -0800
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:05 -0800
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:05 -0800
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:05 -0800
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:05 -0800
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:05 -0800
+Served asset /twitter/bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:05 -0800
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:05 -0800
+Served asset /main.js - 304 Not Modified (0ms)
+
+
+Started GET "/users/2/completions/new?task=6" for 127.0.0.1 at 2012-11-16 07:05:13 -0800
+Processing by CompletionsController#new as HTML
+  Parameters: {"task"=>"6", "user_id"=>"2"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "completions" ("completed", "created_at", "task_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["completed", Fri, 16 Nov 2012], ["created_at", Fri, 16 Nov 2012 15:05:13 UTC +00:00], ["task_id", 6], ["updated_at", Fri, 16 Nov 2012 15:05:13 UTC +00:00], ["user_id", 2]]
+  [1m[35m (2.9ms)[0m  commit transaction
+Redirected to http://localhost:3002/users/2/tasks
+Completed 302 Found in 5ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/users/2/tasks" for 127.0.0.1 at 2012-11-16 07:05:13 -0800
+Processing by TasksController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."daily" = 't' AND "tasks"."user_id" = 2
+  [1m[36mCompletion Load (0.1ms)[0m  [1mSELECT "completions".* FROM "completions" WHERE "completions"."user_id" = 2 AND "completions"."task_id" = 3 AND "completions"."completed" = '2012-11-16' LIMIT 1[0m
+  [1m[35mCompletion Load (0.1ms)[0m  SELECT "completions".* FROM "completions" WHERE "completions"."user_id" = 2 AND "completions"."task_id" = 6 AND "completions"."completed" = '2012-11-16' LIMIT 1
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."weekly" = 't' AND "tasks"."user_id" = 2[0m
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."monthly" = 't' AND "tasks"."user_id" = 2
+  Rendered tasks/index.html.haml within layouts/application (3.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m
+Completed 200 OK in 13ms (Views: 11.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:13 -0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-11-16 07:05:13 -0800
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:13 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:13 -0800
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:13 -0800
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:13 -0800
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:13 -0800
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:13 -0800
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:13 -0800
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:13 -0800
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:13 -0800
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:13 -0800
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:13 -0800
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:13 -0800
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:13 -0800
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:13 -0800
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:13 -0800
+Served asset /twitter/bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:13 -0800
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:13 -0800
+Served asset /main.js - 304 Not Modified (0ms)
+
+
+Started GET "/tasks/3" for 127.0.0.1 at 2012-11-16 07:05:27 -0800
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", "3"]]
+  Rendered tasks/show.html.haml within layouts/application (1.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m
+Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-11-16 07:05:27 -0800
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:27 -0800
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:27 -0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:27 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:27 -0800
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:27 -0800
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:27 -0800
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:27 -0800
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:27 -0800
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:27 -0800
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:27 -0800
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:27 -0800
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:27 -0800
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:27 -0800
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:27 -0800
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:27 -0800
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:27 -0800
+Served asset /twitter/bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:27 -0800
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:27 -0800
+Served asset /main.js - 304 Not Modified (0ms)
+
+
+Started DELETE "/tasks/3" for 127.0.0.1 at 2012-11-16 07:05:34 -0800
+Processing by TasksController#destroy as HTML
+  Parameters: {"authenticity_token"=>"KjiEJJtfNeGF8qO4/UdlMkM/VNBbrvOiev9sH25CKkM=", "id"=>"3"}
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", "3"]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "tasks" WHERE "tasks"."id" = ?  [["id", 3]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+Redirected to http://localhost:3002/users/2/tasks
+Completed 302 Found in 41ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/users/2/tasks" for 127.0.0.1 at 2012-11-16 07:05:34 -0800
+Processing by TasksController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."daily" = 't' AND "tasks"."user_id" = 2
+  [1m[36mCompletion Load (0.1ms)[0m  [1mSELECT "completions".* FROM "completions" WHERE "completions"."user_id" = 2 AND "completions"."task_id" = 6 AND "completions"."completed" = '2012-11-16' LIMIT 1[0m
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."weekly" = 't' AND "tasks"."user_id" = 2
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."monthly" = 't' AND "tasks"."user_id" = 2[0m
+  Rendered tasks/index.html.haml within layouts/application (2.7ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1
+Completed 200 OK in 12ms (Views: 10.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-11-16 07:05:34 -0800
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:34 -0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:34 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:34 -0800
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:34 -0800
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:34 -0800
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:34 -0800
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:34 -0800
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:34 -0800
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:34 -0800
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:34 -0800
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:34 -0800
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:34 -0800
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:34 -0800
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:34 -0800
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:34 -0800
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:34 -0800
+Served asset /twitter/bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:34 -0800
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2012-11-16 07:05:34 -0800
+Served asset /main.js - 304 Not Modified (0ms)
