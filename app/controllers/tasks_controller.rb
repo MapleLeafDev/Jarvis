@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   def index
     date = Date.parse(Date.today.to_s).strftime("%A")
     @todays = Task.where(daily: true, user_id: params[:user_id])
-    @todays = @todays + Task.where(date.intern => true)
+    @todays = @todays + Task.where(user_id: params[:user_id], date.intern => true)
 
     @this_weeks = Task.where(weekly: true, user_id: params[:user_id])
 
