@@ -15,8 +15,13 @@ class UsersController < ApplicationController
     @this_weeks = Array.new
     @this_months = Array.new
 
+    date = Date.parse(Date.today.to_s).strftime("%A").downcase
+
     @users.each do |user|
       Task.where(daily: true, user_id: user.id).each do |task|
+        @todays << task
+      end
+      Task.where(user_id: user.id, date.intern => true).each do |task|
         @todays << task
       end
       Task.where(weekly: true, user_id: user.id).each do |task|
