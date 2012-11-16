@@ -8,22 +8,16 @@
     - @todays.each do |task|
       %tr
         %td= link_to task.title, task
-        %td
-          %a.btn{:href => "#"}
-            %i.icon-ok
+        %td= link_to '', new_user_completion_path(task: task.id), class: "i icon-ok btn"
   %h4 This Week
   %table.table
     - @this_weeks.each do |task|
       %tr
         %td= link_to task.title, task
-        %td
-          %a.btn{:href => "#"}
-            %i.icon-ok
+        %td= link_to '', new_user_completion_path(task: task.id), class: "i icon-ok btn"
   %h4 This Month
   %table.table
     - @this_months.each do |task|
       %tr
         %td= link_to task.title, task
-        %td
-          %a.btn{:href => "#"}
-            %i.icon-ok
+        %td= link_to '', new_user_completion_path(task: task.id), class: "i icon-ok btn"
