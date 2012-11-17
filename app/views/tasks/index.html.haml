@@ -11,11 +11,11 @@
           .span4
             = link_to task.title, task
           -if Completion.find_by_user_id_and_task_id_and_completed(@user.id, task.id, @time)
-            .span1{class: "i icon-ok btn btn-success"}
-              = link_to '', '#'
+            .span1
+              = link_to '', '#', class: "i icon-ok btn btn-block btn-success"
           -else
-            .span1{class: "i icon-ok btn"}
-              = link_to '', new_user_completion_path(task: task.id)
+            .span1
+              = link_to '', new_user_completion_path(task: task.id), class: "i icon-ok btn btn-block"
   %h4 This Week
   %table.table
     - @this_weeks.each do |task|
@@ -24,11 +24,11 @@
           .span4
             = link_to task.title, task
           -if Completion.find_by_user_id_and_task_id_and_completed(@user.id, task.id, @time)
-            .span1{class: "i icon-ok btn btn-success"}
-              = link_to '', '#'
+            .span1
+              = link_to '', '#', class: "i icon-ok btn btn-block btn-success"
           -else
-            .span1{class: "i icon-ok btn"}
-              = link_to '', new_user_completion_path(task: task.id)
+            .span1
+              = link_to '', new_user_completion_path(task: task.id), class: "i icon-ok btn btn-block"
   %h4 This Month
   %table.table
     - @this_months.each do |task|
@@ -37,8 +37,8 @@
           .span4
             = link_to task.title, task
           -if Completion.find_by_user_id_and_task_id_and_completed(@user.id, task.id, @time)
-            .span1{class: "i icon-ok btn btn-success"}
-              = link_to '', '#'
+            .span1
+              = link_to '', '#', class: "i icon-ok btn btn-block btn-success"
           -else
-            .span1{class: "i icon-ok btn"}
-              = link_to '', new_user_completion_path(task: task.id)
+            .span1
+              = link_to '', new_user_completion_path(task: task.id), class: "i icon-ok btn btn-block"
