@@ -7,32 +7,38 @@
   %table.table
     - @todays.each do |task|
       %tr
-        %td{colspan: "2"}= link_to task.title, task
         %td
-        %td{align: "right"}
+          .span4
+            = link_to task.title, task
           -if Completion.find_by_user_id_and_task_id_and_completed(@user.id, task.id, @time)
-            = link_to '', '#', class: "i icon-ok btn btn-success"
+            .span1{class: "i icon-ok btn btn-success"}
+              = link_to '', '#'
           -else
-            = link_to '', new_user_completion_path(task: task.id), class: "i icon-ok btn"
+            .span1{class: "i icon-ok btn"}
+              = link_to '', new_user_completion_path(task: task.id)
   %h4 This Week
   %table.table
     - @this_weeks.each do |task|
       %tr
-        %td{colspan: "2"}= link_to task.title, task
         %td
-        %td{align: "right"}
+          .span4
+            = link_to task.title, task
           -if Completion.find_by_user_id_and_task_id_and_completed(@user.id, task.id, @time)
-            = link_to '', '#', class: "i icon-ok btn btn-success"
+            .span1{class: "i icon-ok btn btn-success"}
+              = link_to '', '#'
           -else
-            = link_to '', new_user_completion_path(task: task.id), class: "i icon-ok btn"
+            .span1{class: "i icon-ok btn"}
+              = link_to '', new_user_completion_path(task: task.id)
   %h4 This Month
   %table.table
     - @this_months.each do |task|
       %tr
-        %td{colspan: "2"}= link_to task.title, task
         %td
-        %td{align: "right"}
+          .span4
+            = link_to task.title, task
           -if Completion.find_by_user_id_and_task_id_and_completed(@user.id, task.id, @time)
-            = link_to '', '#', class: "i icon-ok btn btn-success"
+            .span1{class: "i icon-ok btn btn-success"}
+              = link_to '', '#'
           -else
-            = link_to '', new_user_completion_path(task: task.id), class: "i icon-ok btn"
+            .span1{class: "i icon-ok btn"}
+              = link_to '', new_user_completion_path(task: task.id)
