@@ -1,7 +1,10 @@
-%h2
-  Editing
-  %em=@task.title
-=render 'form'
-= link_to 'Show', @task
-|
-= link_to 'Back', :back
+.span8
+  .well
+    %h2
+      Editing
+      %em=@task.title
+    =render 'form'
+  %p
+    = link_to 'Back', :back, class: "btn"
+    = link_to ' Show', @task, class: "i icon-edit btn btn-info"
+    = link_to ' Destroy', @task, confirm: 'Are you sure?', method: :delete, class: "i icon-remove btn btn-danger"

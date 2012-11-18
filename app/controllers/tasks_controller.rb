@@ -2,17 +2,13 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    date = Date.parse(Date.today.to_s).strftime("%A").downcase
-    @todays = Task.where(daily: true, user_id: params[:user_id])
-    @todays = @todays + Task.where(user_id: params[:user_id], date.intern => true)
-
-    @this_weeks = Task.where(weekly: true, user_id: params[:user_id])
-
-    @this_months = Task.where(monthly: true, user_id: params[:user_id])
-
     @user = User.find(params[:user_id])
-
-    @time = Date.today
+    date = Date.parse(Date.today.to_s).strftime("%A").downcase
+    @todays = Task.where(daily: true, user_id: @user.id)
+    @todays = @todays + Task.where(user_id: @user.id, date.intern => true)
+    @this_weeks = Task.where(weekly: true, user_id: @user.id)
+    @this_months = Task.where(monthly: true, user_id: @user.id)
+    @time = Date.today.to_s
 
     respond_to do |format|
       format.html # index.html.erb
@@ -24,6 +20,7 @@ class TasksController < ApplicationController
   # GET /tasks/1.json
   def show
     @task = Task.find(params[:id])
+    @completions = Completion.where(task_id: @task.id).order("completed DESC").limit(5)
 
     respond_to do |format|
       format.html # show.html.erb

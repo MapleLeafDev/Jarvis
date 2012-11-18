@@ -1,61 +1,42 @@
-%p#notice= notice
-%p
-  %b User:
-  = @task.user_id
-%p
-  %b Title:
-  = @task.title
-%p
-  %b Description:
+.span8.well
+  %h3= @task.title
   = @task.description
-%p
-  %b Next date:
-  = @task.next_date
-%p
-  %b Daily:
-  = @task.daily
-%p
-  %b Weekly:
-  = @task.weekly
-%p
-  %b Monthly:
-  = @task.monthly
-%p
-  %b Sunday:
-  = @task.sunday
-%p
-  %b Monday:
-  = @task.monday
-%p
-  %b Tuesday:
-  = @task.tuesday
-%p
-  %b Wednesday:
-  = @task.wednesday
-%p
-  %b Thursday:
-  = @task.thursday
-%p
-  %b Friday:
-  = @task.friday
-%p
-  %b Saturday:
-  = @task.saturday
-%p
-  %b Period:
-  = @task.period
-%p
-  %b How often:
-  = @task.how_often
-%p
-  %b Custom start:
-  = @task.custom_start
-%p
-  %b Points:
-  = @task.points
+  .lead
+    Assigned to:
+    %b= @task.user.name
+  .lead
+    Occurs:
+    %b
+      = 'Daily' if @task.daily
+      = 'Weekly' if @task.weekly
+      = 'Monthly' if @task.monthly
+      = 'Sunday' if @task.sunday
+      = 'Monday' if @task.monday
+      = 'Tuesday' if @task.tuesday
+      = 'Wednesday' if @task.wednesday
+      = 'Thursday' if @task.thursday
+      = 'Friday' if @task.friday
+      = 'Saturday' if @task.saturday
+  -if @task.period
+    .lead
+      When:
+      %b
+        = 'Morning' if @task.period == 1
+        = 'Noon' if @task.period == 2
+        = 'Evening' if @task.period == 3
+  .lead
+    = 'Every ' + @task.how_often.to_s + ' days.' if @task.how_often
+  %p
+    = 'Points: ' + @task.points.to_s if @task.points
+  -if @completions != []
+    %h3 Latest Completions
+    %table.table
+      - @completions.each do |completion|
+        %tr
+          %td= completion.completed
+          %td= link_to ' Clear', completion, confirm: 'Are you sure?', method: :delete, class: "i icon-remove btn"
 
-= link_to 'Back', :back
-|
-= link_to 'Edit', edit_task_path(@task)
-|
-= link_to 'Destroy', @task, confirm: 'Are you sure?', method: :delete
+  %p
+    = link_to 'Back', :back, class: "btn"
+    = link_to ' Edit', edit_task_path(@task), class: "i icon-edit btn btn-info"
+    = link_to ' Destroy', @task, confirm: 'Are you sure?', method: :delete, class: "i icon-remove btn btn-danger"

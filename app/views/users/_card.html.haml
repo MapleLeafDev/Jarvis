@@ -12,13 +12,10 @@
         %tr
           %td
           %td= user.facebook_id
-      %tr
-        %td= link_to ' Edit', edit_user_path(user), class: "i icon-edit label label-info"
-        %td= link_to ' Remove', user, confirm: 'Are you sure?', method: :delete, class: "i icon-remove label label-important"
-    %h3 Tasks
+    %h3= link_to 'Tasks', user_tasks_path(user)
     %table.table{align: "center"}
       %tr
-        %td= link_to 'Today', user_tasks_path(user)
+        %td Today
         %td
           - today_complete = Completion.where(completed: Date.today.to_s, user_id: user.id, task_id: @todays.collect(&:id)).count
           = today_complete
@@ -30,7 +27,7 @@
           .progress.progress
             .bar{:style => "width: #{today_complete.to_f/today_total.to_f*100}%;"}
       %tr
-        %td= link_to 'Week', user_tasks_path(user)
+        %td This Week
         %td
           - this_week_complete = Completion.where(completed: Date.today.to_s, user_id: user.id, task_id: @this_weeks.collect(&:id)).count
           = this_week_complete
@@ -42,7 +39,7 @@
           .progress.progress
             .bar{:style => "width: #{this_week_complete.to_f/this_week_total.to_f*100}%;"}
       %tr
-        %td= link_to 'Month', user_tasks_path(user)
+        %td This Month
         %td
           - this_month_complete = Completion.where(completed: Date.today.to_s, user_id: user.id, task_id: @this_months.collect(&:id)).count
           = this_month_complete
@@ -53,3 +50,5 @@
         %td{:colspan => "2"}
           .progress.progress
             .bar{:style => "width: #{this_month_complete.to_f/this_month_total.to_f*100}%;"}
+    = link_to ' Edit', edit_user_path(user), class: "i icon-edit btn btn-info"
+    = link_to ' Remove', user, confirm: 'Are you sure?', method: :delete, class: "i icon-remove btn btn-danger"

@@ -1,44 +1,50 @@
 .span8
-  %h2
-    %em= @user.name + "'s"
-    Tasks
-  = link_to " Add task", new_task_path, class: "i icon-plus label label-success"
-  %h4 Today
-  %table.table
-    - @todays.each do |task|
-      %tr
-        %td
-          .span4
-            = link_to task.title, task
-          -if Completion.find_by_user_id_and_task_id_and_completed(@user.id, task.id, @time)
-            .span1
-              = link_to '', '#', class: "i icon-ok btn btn-block btn-success"
-          -else
-            .span1
-              = link_to '', new_user_completion_path(task: task.id), class: "i icon-ok btn btn-block"
-  %h4 This Week
-  %table.table
-    - @this_weeks.each do |task|
-      %tr
-        %td
-          .span4
-            = link_to task.title, task
-          -if Completion.find_by_user_id_and_task_id_and_completed(@user.id, task.id, @time)
-            .span1
-              = link_to '', '#', class: "i icon-ok btn btn-block btn-success"
-          -else
-            .span1
-              = link_to '', new_user_completion_path(task: task.id), class: "i icon-ok btn btn-block"
-  %h4 This Month
-  %table.table
-    - @this_months.each do |task|
-      %tr
-        %td
-          .span4
-            = link_to task.title, task
-          -if Completion.find_by_user_id_and_task_id_and_completed(@user.id, task.id, @time)
-            .span1
-              = link_to '', '#', class: "i icon-ok btn btn-block btn-success"
-          -else
-            .span1
-              = link_to '', new_user_completion_path(task: task.id), class: "i icon-ok btn btn-block"
+  .span4
+    %h2
+      %em= @user.name + "'s"
+      Tasks
+  .span2
+    = link_to " Add task", new_task_path, class: "i icon-plus btn btn-success"
+  .span7
+    -if @todays != []
+      %h4 Today
+      %table.table
+        - @todays.each do |task|
+          %tr
+            %td
+              .span5
+                = link_to task.title, task
+              -if Completion.find_by_user_id_and_task_id_and_completed(@user.id, task.id, @time)
+                .span1
+                  = link_to '', '#', class: "i icon-ok btn btn-block btn-success"
+              -else
+                .span1
+                  = link_to '', new_user_completion_path(task: task.id), class: "i icon-ok btn btn-block"
+    -if @this_weeks != []
+      %h4 This Week
+      %table.table
+        - @this_weeks.each do |task|
+          %tr
+            %td
+              .span5
+                = link_to task.title, task
+              -if Completion.find_by_user_id_and_task_id_and_completed(@user.id, task.id, @time)
+                .span1
+                  = link_to '', '#', class: "i icon-ok btn btn-block btn-success"
+              -else
+                .span1
+                  = link_to '', new_user_completion_path(task: task.id), class: "i icon-ok btn btn-block"
+    -if @this_months != []
+      %h4 This Month
+      %table.table
+        - @this_months.each do |task|
+          %tr
+            %td
+              .span5
+                = link_to task.title, task
+              -if Completion.find_by_user_id_and_task_id_and_completed(@user.id, task.id, @time)
+                .span1
+                  = link_to '', '#', class: "i icon-ok btn btn-block btn-success"
+              -else
+                .span1
+                  = link_to '', new_user_completion_path(task: task.id), class: "i icon-ok btn btn-block"
