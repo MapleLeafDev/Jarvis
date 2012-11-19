@@ -26,15 +26,17 @@
         = 'Evening' if @task.period == 3
   .lead
     = 'Every ' + @task.how_often.to_s + ' days.' if @task.how_often
-  %p
-    = 'Points: ' + @task.points.to_s if @task.points
+  .lead
+    = 'Credits:'
+    %b
+      = @task.points.to_s if @task.points
   -if @completions != []
     %h3 Latest Completions
     %table.table
       - @completions.each do |completion|
         %tr
           %td= completion.completed
-          %td= link_to ' Clear', completion, confirm: 'Are you sure?', method: :delete, class: "i icon-remove btn"
+          %td= link_to ' Clear', completion, method: :delete, class: "i icon-remove btn"
 
   %p
     = link_to 'Back', :back, class: "btn"

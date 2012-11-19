@@ -2,3 +2,5 @@ tmp/cache/assets
 /tmp/pids/
 .DS_Store
 development.log
+/db/development.sqlite3
+/log/development.log

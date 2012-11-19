@@ -8,6 +8,8 @@
           %td= image_tag(user.thumbnail, :class => 'img-rounded', :size => "50x50")
         %td
           %h2= user.name
+        %td
+        %td= user.credits
       -if user.parent_id == nil
         %tr
           %td
