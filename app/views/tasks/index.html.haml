@@ -2,9 +2,9 @@
   .span4
     %h2
       %em= @user.name + "'s"
-      Tasks
+      Chores
   .span2
-    = link_to " Add task", new_task_path, class: "i icon-plus btn btn-success"
+    = link_to " Add chore", new_task_path, class: "i icon-plus btn btn-success"
   .span7
     -if @todays != []
       %h4 Today

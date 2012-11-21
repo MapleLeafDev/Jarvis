@@ -18,9 +18,9 @@
       .nav-collapse
         %ul.nav
           -if current_user
-            %li= link_to "My Tasks", user_tasks_path(current_user)
+            %li= link_to "My Chores", user_tasks_path(current_user)
             %li= link_to "Family Members", users_path
-            %li= link_to "Profile", user_path(current_user)
+            %li= link_to "My Profile", user_path(current_user)
 .container
   .row
     .span8
