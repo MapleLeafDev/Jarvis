@@ -7,9 +7,13 @@
         -else
           %td= image_tag(user.thumbnail, :class => 'img-rounded', :size => "50x50")
         %td
-          %h2= user.name
-        %td
-        %td= user.credits
+          .span4
+            %h2= user.name
+          .span2
+            -if user.credits
+              %h2
+                = user.credits
+                credits
       -if user.parent_id == nil
         %tr
           %td
