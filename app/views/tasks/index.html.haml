@@ -8,8 +8,8 @@
   .span7
     -if @todays != []
       %h4 Today
-      %table.table
-        - @todays.each do |task|
+      %table.table.table-striped
+        - @todays.sort_by{ |t| t.period }.each do |task|
           %tr
             %td
               .span5
@@ -22,7 +22,7 @@
                   = link_to '', new_user_completion_path(task: task.id), class: "i icon-ok btn btn-block"
     -if @this_weeks != []
       %h4 This Week
-      %table.table
+      %table.table.table-striped
         - @this_weeks.each do |task|
           %tr
             %td
@@ -36,7 +36,7 @@
                   = link_to '', new_user_completion_path(task: task.id), class: "i icon-ok btn btn-block"
     -if @this_months != []
       %h4 This Month
-      %table.table
+      %table.table.table-striped
         - @this_months.each do |task|
           %tr
             %td

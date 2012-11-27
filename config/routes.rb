@@ -16,4 +16,6 @@ HomeManager::Application.routes.draw do
   match '/auth/facebook/callback' => 'sessions#create'
   match '/signout' => 'sessions#destroy', :as => :signout
 
+  match '/chores' => 'tasks#chores'
+
 end

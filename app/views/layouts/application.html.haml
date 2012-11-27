@@ -7,7 +7,7 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
-.navbar.navbar.navbar-fixed-top
+.navbar.navbar-inverse.navbar-fixed-top
   .navbar-inner
     .container
       %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
@@ -18,7 +18,7 @@
       .nav-collapse
         %ul.nav
           -if current_user
-            %li= link_to "My Chores", user_tasks_path(current_user)
+            %li= link_to "All Chores", '/chores'
             %li= link_to "Family Members", users_path
             %li= link_to "My Profile", user_path(current_user)
 .container

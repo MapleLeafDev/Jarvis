@@ -16,6 +16,21 @@ class TasksController < ApplicationController
     end
   end
 
+  def chores
+    @tasks = Task.all
+
+    date = Date.parse(Date.today.to_s).strftime("%A").downcase
+    @todays = Task.where(daily: true)
+    @todays = @todays + Task.where(date.intern => true)
+    @this_weeks = Task.where(weekly: true)
+    @this_months = Task.where(monthly: true)
+    @time = Date.today.to_s
+
+    respond_to do |format|
+      format.html { render :chores}
+    end
+  end
+
   # GET /tasks/1
   # GET /tasks/1.json
   def show
@@ -52,6 +67,10 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = Task.new(params[:task])
+
+    if params[:task][:period] == nil
+      @task.period = 0
+    end
 
     respond_to do |format|
       if @task.save

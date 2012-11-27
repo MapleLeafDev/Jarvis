@@ -1,0 +1,21 @@
+.span8
+  .span4
+    %h2 All Chores
+  .span2
+    = link_to " Add chore", new_task_path, class: "i icon-plus btn btn-success"
+  .span7
+    %table.table.table-striped
+      - @tasks.each do |task|
+        %tr
+          %td
+            .span4
+              = link_to task.title, task
+            .span1
+              = link_to task.user.name, task.user
+            .span1
+              -if task.monthly
+                Monthly
+              -elsif task.weekly
+                Weekly
+              -else
+                Daily
