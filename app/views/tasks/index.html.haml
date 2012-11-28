@@ -14,12 +14,11 @@
             %td
               .span5
                 = link_to task.title, task
-              -if Completion.find_by_user_id_and_task_id_and_completed(@user.id, task.id, @time)
-                .span1
+              .span1{ id: "task-#{task.id}" }
+                -if Completion.find_by_user_id_and_task_id_and_completed(@user.id, task.id, @time)
                   = link_to '', '#', class: "i icon-ok btn btn-block btn-success"
-              -else
-                .span1
-                  = link_to '', new_user_completion_path(task: task.id), class: "i icon-ok btn btn-block"
+                -else
+                  = link_to '', complete_task_path(task: task.id, user: @user.id), class: "i icon-ok btn btn-block", remote: true
     -if @this_weeks != []
       %h4 This Week
       %table.table.table-striped
@@ -28,12 +27,11 @@
             %td
               .span5
                 = link_to task.title, task
-              -if Completion.find_by_user_id_and_task_id_and_completed(@user.id, task.id, @time)
-                .span1
+              .span1{ id: "task-#{task.id}" }
+                -if Completion.find_by_user_id_and_task_id_and_completed(@user.id, task.id, @time)
                   = link_to '', '#', class: "i icon-ok btn btn-block btn-success"
-              -else
-                .span1
-                  = link_to '', new_user_completion_path(task: task.id), class: "i icon-ok btn btn-block"
+                -else
+                  = link_to '', complete_task_path(task: task.id, user: @user.id), class: "i icon-ok btn btn-block", remote: true
     -if @this_months != []
       %h4 This Month
       %table.table.table-striped
@@ -42,9 +40,8 @@
             %td
               .span5
                 = link_to task.title, task
-              -if Completion.find_by_user_id_and_task_id_and_completed(@user.id, task.id, @time)
-                .span1
+              .span1{ id: "task-#{task.id}" }
+                -if Completion.find_by_user_id_and_task_id_and_completed(@user.id, task.id, @time)
                   = link_to '', '#', class: "i icon-ok btn btn-block btn-success"
-              -else
-                .span1
-                  = link_to '', new_user_completion_path(task: task.id), class: "i icon-ok btn btn-block"
+                -else
+                  = link_to '', complete_task_path(task: task.id, user: @user.id), class: "i icon-ok btn btn-block", remote: true

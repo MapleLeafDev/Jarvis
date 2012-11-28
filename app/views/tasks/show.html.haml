@@ -34,9 +34,9 @@
     %h3 Latest Completions
     %table.table
       - @completions.each do |completion|
-        %tr
+        %tr{ id: "completion-#{completion.id}" }
           %td= completion.completed
-          %td= link_to ' Clear', completion, method: :delete, class: "i icon-remove btn"
+          %td= link_to ' Clear', completion, method: :delete, class: "i icon-remove btn", remote: true
 
   %p
     = link_to 'Back', :back, class: "btn"
