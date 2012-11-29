@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.where(parent_id: current_user.id)
+    @users << current_user
     
     @todays = Array.new
     @this_weeks = Array.new

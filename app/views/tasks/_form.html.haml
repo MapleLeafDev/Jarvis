@@ -61,15 +61,15 @@
         Noon
         = f.radio_button :period, 3
         Evening
-      %dd
-        %br
-        Every 
-        = f.text_field :how_often, class: "input-mini"
-        days.
-      %dd
-        %br
-        Occurs once on:
-      %dd
-        = f.text_field :custom_start
+      / %dd
+      /   %br
+      /   Every 
+      /   = f.text_field :how_often, class: "input-mini"
+      /   days.
+      / %dd
+      /   %br
+      /   Occurs once on:
+      / %dd
+      /   = f.text_field :custom_start
       .actions{align: "right"}
         = f.submit "Save", class: "btn btn-success"

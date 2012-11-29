@@ -4,5 +4,5 @@
   .span2
     = link_to " Add member", new_user_path, class: "i icon-plus btn btn-success"
   .span7
-    -@users.each do |user|
+    -@users.sort_by{|x| x.facebook_id.to_i }.reverse.each do |user|
       =render partial: 'card', locals: { user: user }

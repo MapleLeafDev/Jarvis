@@ -10,9 +10,8 @@
           %td
             .span4
               = link_to task.title, task
-            .span1
+            .span2
               = link_to task.user.name, task.user
-            .span1
               -if task.monthly
                 Monthly
               -elsif task.weekly
