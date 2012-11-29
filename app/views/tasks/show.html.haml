@@ -30,14 +30,16 @@
     = 'Credits:'
     %b
       = @task.points.to_s if @task.points
+  %h4 Last completed...
   -if @completions != []
-    %h3 Latest Completions
     %table.table
       - @completions.each do |completion|
         %tr{ id: "completion-#{completion.id}" }
           %td= completion.completed
           %td= link_to ' Clear', completion, method: :delete, class: "i icon-remove btn", remote: true
-
+  -else
+    .muted Task has not been done
+    %br
   %p
     = link_to 'Back', :back, class: "btn"
     = link_to ' Edit', edit_task_path(@task), class: "i icon-edit btn btn-info"

@@ -1,18 +1,20 @@
 .span8
   .span4
     %h2
-      %em= link_to "#{@user.name}'s", user_path(@user)
+      %em= link_to "#{@user.name}'s", users_path
       Chores
   .span2
     = link_to " Add chore", new_task_path, class: "i icon-plus btn btn-success"
   .span7
     -if @todays != []
       %h4 Today
-      %table.table.table-striped
+      %table.table
         - @todays.sort_by{ |t| t.period }.each do |task|
           %tr
             %td
               .span5
+                %a{class: "badge badge-#{if task.period == 1 then 'info' elsif task.period == 2 then 'success' elsif task.period == 3 then 'warning' end}"}
+                  = if task.period == 1 then 'M' elsif task.period == 2 then 'N' elsif task.period == 3 then 'E' end
                 = link_to task.title, task
               .span1{ id: "task-#{task.id}" }
                 -if Completion.find_by_user_id_and_task_id_and_completed(@user.id, task.id, @time)
@@ -26,6 +28,8 @@
           %tr
             %td
               .span5
+                %a{class: "badge badge-#{if task.period == 1 then 'info' elsif task.period == 2 then 'success' elsif task.period == 3 then 'warning' end}"}
+                  = if task.period == 1 then 'M' elsif task.period == 2 then 'N' elsif task.period == 3 then 'E' end
                 = link_to task.title, task
               .span1{ id: "task-#{task.id}" }
                 -if Completion.find_by_user_id_and_task_id_and_completed(@user.id, task.id, @time)
@@ -39,6 +43,8 @@
           %tr
             %td
               .span5
+                %a{class: "badge badge-#{if task.period == 1 then 'info' elsif task.period == 2 then 'success' elsif task.period == 3 then 'warning' end}"}
+                  = if task.period == 1 then 'M' elsif task.period == 2 then 'N' elsif task.period == 3 then 'E' end
                 = link_to task.title, task
               .span1{ id: "task-#{task.id}" }
                 -if Completion.find_by_user_id_and_task_id_and_completed(@user.id, task.id, @time)

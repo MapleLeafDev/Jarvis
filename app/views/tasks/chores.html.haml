@@ -2,19 +2,17 @@
   .span4
     %h2 All Chores
   .span2
-    = link_to " Add chore", new_task_path, class: "i icon-plus btn btn-success"
+    = link_to " New Chore", new_task_path, class: "i icon-plus btn btn-success btn-small"
   .span7
-    %table.table.table-striped
-      - @tasks.each do |task|
+    %table.table
+      - @tasks.sort_by{|x| x.period}.each do |task|
         %tr
           %td
             .span4
+              %a{class: "badge badge-#{if task.period == 1 then 'info' elsif task.period == 2 then 'success' elsif task.period == 3 then 'warning' end}"}
+                = if task.period == 1 then 'M' elsif task.period == 2 then 'N' elsif task.period == 3 then 'E' end
+              %a{class: "badge badge-inverse"}
+                = if task.monthly then 'M' elsif task.weekly then 'W' else 'D' end
               = link_to task.title, task
             .span2
-              = link_to task.user.name, task.user
-              -if task.monthly
-                Monthly
-              -elsif task.weekly
-                Weekly
-              -else
-                Daily
+              = link_to task.user.name, user_tasks_path(task.user)

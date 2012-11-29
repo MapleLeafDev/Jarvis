@@ -31,45 +31,35 @@
     %dt
       %h5 When?
       %dd
-        = f.check_box :daily
+        = f.check_box :daily, id: "daily", onclick: "setDailyOccurance();"
         Daily
-        = f.check_box :weekly
+        = f.check_box :weekly, id: "weekly", onclick: "setWeeklyOccurance();"
         Weekly
-        = f.check_box :monthly
+        = f.check_box :monthly, id: "monthly", onclick: "setMonthlyOccurance();"
         Monthly
       %dd
         %br
-        = f.check_box :sunday
+        = f.check_box :sunday, id: "sunday", onclick: "setSelectOccurance();"
         Sunday
-        = f.check_box :monday
+        = f.check_box :monday, id: "monday", onclick: "setSelectOccurance();"
         Monday
-        = f.check_box :tuesday
+        = f.check_box :tuesday, id: "tuesday", onclick: "setSelectOccurance();"
         Tuesday
-        = f.check_box :wednesday
+        = f.check_box :wednesday, id: "wednesday", onclick: "setSelectOccurance();"
         Wednesday
-        = f.check_box :thursday
+        = f.check_box :thursday, id: "thursday", onclick: "setSelectOccurance();"
         Thursday
-        = f.check_box :friday
+        = f.check_box :friday, id: "friday", onclick: "setSelectOccurance();"
         Friday
-        = f.check_box :saturday
+        = f.check_box :saturday, id: "saturday", onclick: "setSelectOccurance();"
         Saturday
       %dd
         %br
         = f.radio_button :period, 1
-        Morning
+        %div.label.label-info Morning
         = f.radio_button :period, 2
-        Noon
+        %div.label.label-success Noon
         = f.radio_button :period, 3
-        Evening
-      / %dd
-      /   %br
-      /   Every 
-      /   = f.text_field :how_often, class: "input-mini"
-      /   days.
-      / %dd
-      /   %br
-      /   Occurs once on:
-      / %dd
-      /   = f.text_field :custom_start
+        %div.label.label-warning Evening
       .actions{align: "right"}
         = f.submit "Save", class: "btn btn-success"

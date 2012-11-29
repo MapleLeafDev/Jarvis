@@ -2,7 +2,7 @@
   .span5
     %h2 Family Members
   .span2
-    = link_to " Add member", new_user_path, class: "i icon-plus btn btn-success"
+    = link_to " New Member", new_user_path, class: "i icon-plus btn btn-success btn-small"
   .span7
     -@users.sort_by{|x| x.facebook_id.to_i }.reverse.each do |user|
       =render partial: 'card', locals: { user: user }
