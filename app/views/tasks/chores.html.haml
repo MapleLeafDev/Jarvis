@@ -10,7 +10,7 @@
           %td
             .span4
               %a{class: "badge badge-#{if task.period == 1 then 'info' elsif task.period == 2 then 'success' elsif task.period == 3 then 'warning' end}"}
-                = if task.period == 1 then 'M' elsif task.period == 2 then 'N' elsif task.period == 3 then 'E' end
+                = if task.period == 1 then 'M' elsif task.period == 2 then 'N' elsif task.period == 3 then 'E' else 'U' end
               %a{class: "badge badge-inverse"}
                 = if task.monthly then 'M' elsif task.weekly then 'W' else 'D' end
               = link_to task.title, task

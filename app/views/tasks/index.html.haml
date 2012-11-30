@@ -14,7 +14,7 @@
             %td
               .span5
                 %a{class: "badge badge-#{if task.period == 1 then 'info' elsif task.period == 2 then 'success' elsif task.period == 3 then 'warning' end}"}
-                  = if task.period == 1 then 'M' elsif task.period == 2 then 'N' elsif task.period == 3 then 'E' end
+                  = if task.period == 1 then 'M' elsif task.period == 2 then 'N' elsif task.period == 3 then 'E' else 'U' end
                 = link_to task.title, task
               .span1{ id: "task-#{task.id}" }
                 -if Completion.find_by_user_id_and_task_id_and_completed(@user.id, task.id, @time)
@@ -23,13 +23,13 @@
                   = link_to '', complete_task_path(task: task.id, user: @user.id), class: "i icon-ok btn btn-block", remote: true
     -if @this_weeks != []
       %h4 This Week
-      %table.table.table-striped
+      %table.table
         - @this_weeks.each do |task|
           %tr
             %td
               .span5
                 %a{class: "badge badge-#{if task.period == 1 then 'info' elsif task.period == 2 then 'success' elsif task.period == 3 then 'warning' end}"}
-                  = if task.period == 1 then 'M' elsif task.period == 2 then 'N' elsif task.period == 3 then 'E' end
+                  = if task.period == 1 then 'M' elsif task.period == 2 then 'N' elsif task.period == 3 then 'E' else 'U' end
                 = link_to task.title, task
               .span1{ id: "task-#{task.id}" }
                 -if Completion.find_by_user_id_and_task_id_and_completed(@user.id, task.id, @time)
@@ -38,13 +38,13 @@
                   = link_to '', complete_task_path(task: task.id, user: @user.id), class: "i icon-ok btn btn-block", remote: true
     -if @this_months != []
       %h4 This Month
-      %table.table.table-striped
+      %table.table
         - @this_months.each do |task|
           %tr
             %td
               .span5
                 %a{class: "badge badge-#{if task.period == 1 then 'info' elsif task.period == 2 then 'success' elsif task.period == 3 then 'warning' end}"}
-                  = if task.period == 1 then 'M' elsif task.period == 2 then 'N' elsif task.period == 3 then 'E' end
+                  = if task.period == 1 then 'M' elsif task.period == 2 then 'N' elsif task.period == 3 then 'E' else 'U' end
                 = link_to task.title, task
               .span1{ id: "task-#{task.id}" }
                 -if Completion.find_by_user_id_and_task_id_and_completed(@user.id, task.id, @time)

@@ -70,7 +70,7 @@
   };
 
 .span8
-  %div.well
+  %div.well.well-small
     %table
       %tr
         -if user.thumbnail == ""
@@ -89,15 +89,15 @@
           = link_to '', '#', class: "i icon-chevron-down btn", onclick: "showStats(#{user.id});"
     %div{align: "right"}
       = link_to 'Manage Credits', '#', class: "btn btn-small", onclick: "showManageCredits(#{user.id});"
-      = link_to ' Edit', edit_user_path(user), class: "i icon-edit btn btn-info btn-small"
-      = link_to ' Delete', user, confirm: 'Are you sure?', method: :delete, class: "i icon-remove btn btn-danger btn-small"
-  %div.well.span4{id: 'manageCredits-' + user.id.to_s, hidden: true, align: "center"}
+      = link_to '', edit_user_path(user), class: "i icon-edit btn btn-info btn-small"
+      = link_to '', user, confirm: 'Are you sure?', method: :delete, class: "i icon-remove btn btn-danger btn-small"
+  %div.well.well-small.span4{id: 'manageCredits-' + user.id.to_s, hidden: true, align: "center"}
     %p
       = form_tag({controller: "users", action: "award_credits", user: user.id}, {remote: true}) do
         = submit_tag "Award", name: "award", class: "i icon-plus btn btn-success"
         = text_field_tag(:credits, '', size: "5", class: "input-mini")
         = submit_tag "Remove", name: "remove", class: "i icon-minus btn btn-danger"
-  %div.well.span7{id: 'stats-' + user.id.to_s, hidden: true}
+  %div.well.well-small.span7{id: 'stats-' + user.id.to_s, hidden: true}
     %h3= link_to 'Chores', user_tasks_path(user)
     %table.table{align: "center"}
       %tr
