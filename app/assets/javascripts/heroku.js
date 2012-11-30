@@ -1,6 +1,4 @@
-var setDailyOccurance, setMonthlyOccurance, setSelectOccurance, setWeeklyOccurance, showManageCredits, showStats;
-
-this.showStats = showStats = function(user_id) {
+showStats = function(user_id) {
   event.preventDefault();
   if ($("#stats-" + user_id).is(":hidden")) {
     $("#stats-" + user_id).fadeIn("fast");
@@ -11,7 +9,7 @@ this.showStats = showStats = function(user_id) {
   }
 };
 
-this.setMonthlyOccurance = setMonthlyOccurance = function() {
+setMonthlyOccurance = function() {
   if ($('#monthly').is(':checked')) {
     $('#weekly').attr("checked", false);
     $('#daily').attr("checked", false);
@@ -25,7 +23,7 @@ this.setMonthlyOccurance = setMonthlyOccurance = function() {
   }
 };
 
-this.setWeeklyOccurance = setWeeklyOccurance = function() {
+setWeeklyOccurance = function() {
   if ($('#weekly').is(':checked')) {
     $('#monthly').attr("checked", false);
     $('#daily').attr("checked", false);
@@ -39,7 +37,7 @@ this.setWeeklyOccurance = setWeeklyOccurance = function() {
   }
 };
 
-this.setDailyOccurance = setDailyOccurance = function() {
+setDailyOccurance = function() {
   if ($('#daily').is(':checked')) {
     $('#weekly').attr("checked", false);
     $('#monthly').attr("checked", false);
@@ -53,7 +51,7 @@ this.setDailyOccurance = setDailyOccurance = function() {
   }
 };
 
-this.setSelectOccurance = setSelectOccurance = function() {
+setSelectOccurance = function() {
   if ($('#sunday').is(':checked') || $('#monday').is(':checked') || $('#tuesday').is(':checked') || $('#wednesday').is(':checked') || $('#thursday').is(':checked') || $('#friday').is(':checked') || $('#saturday').is(':checked')) {
     $('#daily').attr("checked", false);
     $('#weekly').attr("checked", false);
@@ -61,7 +59,7 @@ this.setSelectOccurance = setSelectOccurance = function() {
   }
 };
 
-this.showManageCredits = showManageCredits = function(user_id) {
+showManageCredits = function(user_id) {
   event.preventDefault();
   if ($("#manageCredits-" + user_id).is(":hidden")) {
     return $("#manageCredits-" + user_id).fadeIn("fast");
