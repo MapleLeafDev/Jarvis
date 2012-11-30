@@ -9,51 +9,59 @@
         %td
           .span4
             %h2= user.name
-          .span2
+          .span2{id: "credits-#{user.id}"}
             -if user.credits
               %h2
                 = user.credits
                 credits
         %td{id: "statsShow-" + user.id.to_s}
-          = link_to '', '#', class: "i icon-chevron-down btn", :onclick => "showStats(#{user.id});"
-    %div{id: 'stats-' + user.id.to_s, hidden: true}
-      %h3= link_to 'Chores', user_tasks_path(user)
-      %table.table{align: "center"}
-        %tr
-          %td Today
-          %td
-            - today_complete = Completion.where(completed: Date.today.to_s, user_id: user.id, task_id: @todays.collect(&:id)).count
-            = today_complete
-            = "/"
-            - today_total = @todays.select {|t| t[:user_id] == user.id }.count
-            = today_total
-        %tr
-          %td{:colspan => "2"}
-            .progress.progress
-              .bar{:style => "width: #{today_complete.to_f/today_total.to_f*100}%;"}
-        %tr
-          %td This Week
-          %td
-            - this_week_complete = Completion.where(completed: Date.today.to_s, user_id: user.id, task_id: @this_weeks.collect(&:id)).count
-            = this_week_complete
-            = "/"
-            - this_week_total = @this_weeks.select {|t| t[:user_id] == user.id }.count
-            = this_week_total
-        %tr
-          %td{:colspan => "2"}
-            .progress.progress
-              .bar{:style => "width: #{this_week_complete.to_f/this_week_total.to_f*100}%;"}
-        %tr
-          %td This Month
-          %td
-            - this_month_complete = Completion.where(completed: Date.today.to_s, user_id: user.id, task_id: @this_months.collect(&:id)).count
-            = this_month_complete
-            = "/"
-            - this_month_total = @this_months.select {|t| t[:user_id] == user.id }.count
-            = this_month_total
-        %tr
-          %td{:colspan => "2"}
-            .progress.progress
-              .bar{:style => "width: #{this_month_complete.to_f/this_month_total.to_f*100}%;"}
+          = link_to '', '#', class: "i icon-chevron-down btn", onclick: "showStats(#{user.id});"
+    %div{align: "right"}
+      = link_to 'Manage Credits', '#', class: "btn btn-small", onclick: "showManageCredits(#{user.id});"
       = link_to ' Edit', edit_user_path(user), class: "i icon-edit btn btn-info btn-small"
       = link_to ' Delete', user, confirm: 'Are you sure?', method: :delete, class: "i icon-remove btn btn-danger btn-small"
+  %div.well.span4{id: 'manageCredits-' + user.id.to_s, hidden: true, align: "center"}
+    %p
+      = form_tag({controller: "users", action: "award_credits", user: user.id}, {remote: true}) do
+        = submit_tag "Award", name: "award", class: "i icon-plus btn btn-success"
+        = text_field_tag(:credits, '', size: "5", class: "input-mini")
+        = submit_tag "Remove", name: "remove", class: "i icon-minus btn btn-danger"
+  %div.well.span7{id: 'stats-' + user.id.to_s, hidden: true}
+    %h3= link_to 'Chores', user_tasks_path(user)
+    %table.table{align: "center"}
+      %tr
+        %td Today
+        %td
+          - today_complete = Completion.where(completed: Date.today.to_s, user_id: user.id, task_id: @todays.collect(&:id)).count
+          = today_complete
+          = "/"
+          - today_total = @todays.select {|t| t[:user_id] == user.id }.count
+          = today_total
+      %tr
+        %td{:colspan => "2"}
+          .progress.progress
+            .bar{:style => "width: #{today_complete.to_f/today_total.to_f*100}%;"}
+      %tr
+        %td This Week
+        %td
+          - this_week_complete = Completion.where(completed: Date.today.to_s, user_id: user.id, task_id: @this_weeks.collect(&:id)).count
+          = this_week_complete
+          = "/"
+          - this_week_total = @this_weeks.select {|t| t[:user_id] == user.id }.count
+          = this_week_total
+      %tr
+        %td{:colspan => "2"}
+          .progress.progress
+            .bar{:style => "width: #{this_week_complete.to_f/this_week_total.to_f*100}%;"}
+      %tr
+        %td This Month
+        %td
+          - this_month_complete = Completion.where(completed: Date.today.to_s, user_id: user.id, task_id: @this_months.collect(&:id)).count
+          = this_month_complete
+          = "/"
+          - this_month_total = @this_months.select {|t| t[:user_id] == user.id }.count
+          = this_month_total
+      %tr
+        %td{:colspan => "2"}
+          .progress.progress
+            .bar{:style => "width: #{this_month_complete.to_f/this_month_total.to_f*100}%;"}

@@ -5,6 +5,6 @@
       %em=@task.title
     =render 'form'
   %p
-    = link_to 'Back', :back, class: "btn"
-    = link_to ' Show', @task, class: "i icon-edit btn btn-info"
-    = link_to ' Destroy', @task, confirm: 'Are you sure?', method: :delete, class: "i icon-remove btn btn-danger"
+    = link_to 'Back', :back, class: "btn btn-small"
+    = link_to ' Show', @task, class: "i icon-edit btn btn-info btn-small"
+    = link_to ' Destroy', @task, confirm: 'Are you sure?', method: :delete, class: "i icon-remove btn btn-danger btn-small"

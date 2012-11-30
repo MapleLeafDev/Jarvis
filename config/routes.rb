@@ -18,4 +18,6 @@ HomeManager::Application.routes.draw do
 
   match '/chores' => 'tasks#chores'
   match '/complete_task' => 'completions#complete_task', :as => :complete_task
+
+  match '/award_credits' => 'users#award_credits', :as => :award_credits
 end

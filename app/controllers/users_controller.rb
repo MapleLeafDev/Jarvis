@@ -6,6 +6,22 @@ class UsersController < ApplicationController
       redirect_to root_url
     end
   end
+
+  def award_credits
+    @user = User.find_by_id(params[:user])
+    if @user
+      if params[:award] == "Award"
+        @credits = @user.credits.to_i + params[:credits].to_i
+        @user.credits = @credits
+        @user.save
+      elsif params[:remove] == "Remove"
+        @credits = @user.credits.to_i - params[:credits].to_i
+        @user.credits = @credits
+        @user.save
+      end
+    end    
+  end
+
   # GET /users
   # GET /users.json
   def index
