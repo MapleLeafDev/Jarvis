@@ -1,4 +1,5 @@
 class CompletionsController < ApplicationController
+  before_filter :user_check
 
   def complete_task
     @completion = Completion.new

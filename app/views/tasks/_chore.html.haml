@@ -1,0 +1,18 @@
+.row
+  .span4
+    %a{class: "badge badge-#{if task.period == 1 then 'info' elsif task.period == 2 then 'success' elsif task.period == 3 then 'warning' end}"}
+      = if task.period == 1 then 'M' elsif task.period == 2 then 'N' elsif task.period == 3 then 'E' else 'U' end
+    %a{class: "badge badge-inverse"}
+      = if task.monthly then 'M' elsif task.weekly then 'W' else 'D' end
+    = link_to task.title, task
+  .span2
+    = link_to task.user.name, user_tasks_path(task.user)
+.row
+  .span6.muted
+    = 'Sun ' if task.sunday
+    = 'Mon ' if task.monday
+    = 'Tue ' if task.tuesday
+    = 'Wed ' if task.wednesday
+    = 'Thu ' if task.thursday
+    = 'Fri ' if task.friday
+    = 'Sat' if task.saturday

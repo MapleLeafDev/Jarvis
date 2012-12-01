@@ -17,7 +17,7 @@
       = 'Thursday' if @task.thursday
       = 'Friday' if @task.friday
       = 'Saturday' if @task.saturday
-  -if @task.period
+  -if @task.period != 0
     .lead
       When:
       %b

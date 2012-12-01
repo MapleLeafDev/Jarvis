@@ -1,0 +1,19 @@
+.span8{align: "center"}
+  %div.well.well-small
+    .row
+      .span1
+        -if item.thumbnail == ""
+          = image_tag('product.png', :class => 'img-rounded', :size => "50x50")
+        -else
+          = image_tag(item.thumbnail, :class => 'img-rounded', :size => "50x50")
+      .span3
+        .lead= item.name
+      .span2
+        .lead
+          = item.price
+          credits
+      .span1{id: "purchase-#{item.id}"}
+        = link_to 'Buy', '#', class: "btn", onclick: "purchaseItem(#{current_user.id}, #{item.id});", remote: true
+    .row
+      .span7
+        .muted= item.description

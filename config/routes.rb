@@ -1,5 +1,7 @@
 HomeManager::Application.routes.draw do
   
+  resources :items
+
   resources :completions
 
   resources :tasks do

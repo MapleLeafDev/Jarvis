@@ -1,0 +1,16 @@
+.span8{align: "center"}
+  .row
+    .span5
+      %h2 Store
+    .span2.well.well-small
+      .lead
+        = current_user.credits
+        credits
+  .row
+    .span1
+      = link_to " Item", new_item_path, class: "i icon-plus btn btn-success btn-small"
+  .row
+    .span7
+      %p
+        -@items.each do |item|
+          =render partial: 'item', locals: { item: item }

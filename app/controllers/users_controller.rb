@@ -1,11 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :user_check, :only => ['index', 'edit', 'new', 'destroy', 'update']
-
-  def user_check
-    if current_user == nil
-      redirect_to root_url
-    end
-  end
+  before_filter :user_check
 
   def award_credits
     @user = User.find_by_id(params[:user])

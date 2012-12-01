@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
-  # GET /tasks
-  # GET /tasks.json
+  before_filter :user_check
+
   def index
     @user = User.find(params[:user_id])
     date = Date.parse(Date.today.to_s).strftime("%A").downcase
