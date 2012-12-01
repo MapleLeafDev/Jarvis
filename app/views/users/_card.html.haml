@@ -88,7 +88,7 @@
         %td{id: "statsShow-" + user.id.to_s}
           = link_to '', '#', class: "i icon-chevron-down btn", onclick: "showStats(#{user.id});"
     %div{align: "right"}
-      = link_to 'Manage Credits', '#', class: "btn btn-small", onclick: "showManageCredits(#{user.id});"
+      = link_to 'Credits', '#', class: "btn btn-small", onclick: "showManageCredits(#{user.id});"
       = link_to '', edit_user_path(user), class: "i icon-edit btn btn-info btn-small"
       = link_to '', user, confirm: 'Are you sure?', method: :delete, class: "i icon-remove btn btn-danger btn-small"
   %div.well.well-small.span4{id: 'manageCredits-' + user.id.to_s, hidden: true, align: "center"}

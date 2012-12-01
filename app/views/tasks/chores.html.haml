@@ -2,7 +2,7 @@
   .span4
     %h2 All Chores
   .span2
-    = link_to " New Chore", new_task_path, class: "i icon-plus btn btn-success btn-small"
+    = link_to " Chore", new_task_path, class: "i icon-plus btn btn-success btn-small"
   .span7
     %table.table
       - @tasks.sort_by{|x| x.period}.each do |task|

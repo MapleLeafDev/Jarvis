@@ -1,7 +1,9 @@
-%h2
-  Editing
-  %em=@user.name
-=render 'form'
-= link_to 'Show', @user
-|
-= link_to 'Back', :back
+.span8
+  .well
+    %h2
+      Editing
+      %em=@user.name
+    =render 'form'
+  %p
+    = link_to 'Back', :back, class: "btn btn-small"
+    = link_to '', @user, confirm: 'Are you sure?', method: :delete, class: "i icon-remove btn btn-danger btn-small"
