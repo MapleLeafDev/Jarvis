@@ -55,6 +55,8 @@
         Saturday
       %dd
         %br
+        = f.radio_button :period, 0
+        %div.label Not Set
         = f.radio_button :period, 1
         %div.label.label-info Morning
         = f.radio_button :period, 2
