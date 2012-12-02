@@ -1,7 +1,8 @@
 .span8
   .well
     %h2
-      New Family Member
+      Editing
+      %em=@item.name
     =render 'form'
   %p
     = link_to 'Back', :back, class: "btn btn-small"

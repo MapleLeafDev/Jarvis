@@ -1,19 +1,19 @@
 = form_for(@task) do |f|
   - if @task.errors.any?
-    #error_explanation
-      %h2
+    .text-error
+      #error_explanation
         = pluralize(@task.errors.count, "error")
-        prohibited this task from being saved:
-      %ul
-        - @task.errors.full_messages.each do |msg|
-          %li= msg
+        prohibited this chore from being saved:
+        %ul
+          - @task.errors.full_messages.each do |msg|
+            %li= msg
   %dl.dl-horizontal
     %dt
       %h5 Who?
       %dd
         Name
       %dd
-        = f.collection_select :user_id, @users, :id, :name, value: @task.user
+        = f.collection_select :user_id, @users, :id, :name, value: ""
     %dt
       %h5 What?
       %dd
@@ -23,7 +23,7 @@
       %dd
         Description
       %dd
-        = f.text_area :description, rows: "3"
+        = f.text_area :description, rows: "3", maxlength: "255"
       %dd
         Credits
       %dd

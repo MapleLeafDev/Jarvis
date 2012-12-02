@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   attr_accessible :name, :facebook_id, :thumbnail, :parent_id, :theme_id
   has_many :tasks, :dependent => :destroy
   has_many :completions, :dependent => :destroy
+  has_many :purchases, :dependent => :destroy
+  validates_presence_of :name
 
   def self.create_with_omniauth(auth)
     create! do |user|

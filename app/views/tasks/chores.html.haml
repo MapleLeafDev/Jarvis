@@ -1,12 +1,14 @@
-.span8
-  .span4
+.span8{align: "center"}
+  .row
     %h2 All Chores
-  .span2
-    = link_to " Chore", new_task_path, class: "i icon-plus btn btn-success btn-small"
-  %br
-  .span7
-    %table.table
-      - @tasks.sort_by{|x| x.period}.each do |task|
-        %tr
-          %td
-            = render partial: 'chore', locals: { task: task }
+  .row
+    .span2
+      = link_to " Chore", new_task_path, class: "i icon-plus btn btn-success btn-small"
+  .row
+    .span7
+      %p
+        %table.table
+          - @tasks.sort_by{|x| x.period}.each do |task|
+            %tr
+              %td
+                = render partial: 'chore', locals: { task: task }

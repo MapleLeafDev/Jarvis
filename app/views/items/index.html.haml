@@ -2,13 +2,17 @@
   .row
     .span5
       %h2 Store
-    .span2.well.well-small
+    .span2.well.well-small{id: "credits"}
       .lead
         = current_user.credits
         credits
   .row
-    .span1
+    .span2
       = link_to " Item", new_item_path, class: "i icon-plus btn btn-success btn-small"
+      %p
+    .span2
+      = link_to "Purchases", purchases_path, class: "btn btn-small"
+      %p
   .row
     .span7
       %p

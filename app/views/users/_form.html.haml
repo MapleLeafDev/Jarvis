@@ -1,12 +1,12 @@
 = form_for(@user) do |f|
   - if @user.errors.any?
-    #error_explanation
-      %h2
+    .text-error
+      #error_explanation
         = pluralize(@user.errors.count, "error")
         prohibited this user from being saved:
-      %ul
-        - @user.errors.full_messages.each do |msg|
-          %li= msg
+        %ul
+          - @user.errors.full_messages.each do |msg|
+            %li= msg
   %dl{class: "dl-horizontal"}
     %dt
       .field

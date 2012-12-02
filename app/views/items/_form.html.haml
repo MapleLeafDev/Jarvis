@@ -1,0 +1,33 @@
+= form_for(@item) do |f|
+  - if @item.errors.any?
+    .text-error
+      #error_explanation
+        = pluralize(@item.errors.count, "error")
+        prohibited this item from being saved:
+        %ul
+          - @item.errors.full_messages.each do |msg|
+            %li= msg
+  %dl{class: "dl-horizontal"}
+    %dt
+      .field
+      %h5 Name
+    %dd
+      = f.text_field :name
+    %dt
+      .field
+        %h5 Description
+    %dd
+      = f.text_area :description, rows: "3", maxlength: "255"
+    %dt
+      .field
+        %h5 Price
+    %dd
+      = f.text_field :price, class: "input-mini"
+      credits
+    %dt
+      .field
+        %h5 Item Image
+    %dd
+      = f.text_field :thumbnail
+    .actions{align: "right"}
+      = f.submit "Save", class: "btn btn-small btn-success"
