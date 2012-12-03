@@ -79,10 +79,10 @@
           %td= image_tag(user.thumbnail, :class => 'img-rounded', :size => "50x50")
         %td
           .span4
-            %h2= user.name
+            %h2.lead= user.name
           .span2{id: "credits-#{user.id}"}
             -if user.credits
-              %h2
+              %h2.lead
                 = user.credits
                 credits
         %td{id: "statsShow-" + user.id.to_s}
@@ -93,6 +93,7 @@
       = link_to '', user, confirm: 'Are you sure?', method: :delete, class: "i icon-remove btn btn-danger btn-small"
   %div.well.well-small.span4{id: 'manageCredits-' + user.id.to_s, hidden: true, align: "center"}
     %p
+      Manually award or remove credits
       = form_tag({controller: "users", action: "award_credits", user: user.id}, {remote: true}) do
         = submit_tag "Award", name: "award", class: "i icon-plus btn btn-success"
         = text_field_tag(:credits, '', size: "5", class: "input-mini")

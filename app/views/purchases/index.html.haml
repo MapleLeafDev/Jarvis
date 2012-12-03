@@ -1,6 +1,19 @@
 .span8{align: "center"}
   .row
-    %h2 Recent Purchases
+    .span5
+      %h2.lead Store
+    .span2.well.well-small{id: "credits"}
+      .lead
+        = current_user.credits
+        credits
+  .row
+    %ul.nav.nav-tabs
+      %li
+        = link_to 'Items', items_path
+      %li.active
+        %a{:href => "#"} Purchases
+  .row
+    .lead Recent Purchases
   .row
     %table.table
       -@purchases.each do |purchase|

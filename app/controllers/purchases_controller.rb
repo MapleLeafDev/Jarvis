@@ -34,7 +34,8 @@ class PurchasesController < ApplicationController
     item = Item.find_by_id(@purchase.item_id)
 
     if @purchase.destroy
-      user.credits = user.credits.to_i + item.price.to_i
+      @credits = user.credits.to_i + item.price.to_i
+      user.credits = @credits
       user.save
     end
   end
