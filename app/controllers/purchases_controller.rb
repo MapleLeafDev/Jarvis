@@ -19,7 +19,13 @@ class PurchasesController < ApplicationController
   end
 
   def index
-    @purchases = Purchase.all
+    users = family
+    @purchases = Array.new
+    users.each do |user|
+      Purchase.where(user_id: user.id).each do |purchase|
+        @purchases << purchase
+      end
+    end
 
     respond_to do |format|
       format.html # index.html.erb

@@ -21,11 +21,11 @@
             %li= link_to "Chores", '/chores'
             %li= link_to "Family Members", users_path
             %li= link_to "Store", items_path
-.container
-  .row
-    .span8
+    .container{style: "position:fixed; top:50px; right:10px; opacity:0.8; width:300px;"}
       -if flash.count > 0
-        .alert.fade.in.alert-info
+        .alert.fade.in.alert-success{align: "center"}
           -flash.each do |name, msg|
             =content_tag :div, msg, :id => "flash_#{name}"
+.container
+  .row
     =yield

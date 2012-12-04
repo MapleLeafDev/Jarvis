@@ -2,8 +2,13 @@ class ItemsController < ApplicationController
   before_filter :user_check
 
   def index
-    @items = Item.all
-    @purchases = Purchase.all
+    users = family
+    @items = Array.new
+    users.each do |user|
+      Item.where(user_id: user.id).each do |item|
+        @items << item
+      end
+    end
     
     respond_to do |format|
       format.html # index.html.erb
@@ -35,6 +40,8 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(params[:item])
+
+    @item.user_id = current_user.id
 
     respond_to do |format|
       if @item.save

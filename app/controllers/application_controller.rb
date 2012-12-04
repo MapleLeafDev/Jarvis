@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   helper_method :current_user
+  helper_method :family
 
   private
 
@@ -16,5 +17,16 @@ class ApplicationController < ActionController::Base
     if current_user == nil
       redirect_to root_url
     end
+  end
+
+  def family
+    if current_user.parent_id == nil || current_user.parent_id == ""
+      users = User.where(parent_id: current_user.id)
+      users << current_user
+    else
+      users = User.where(parent_id: current_user.parent_id)
+      users << User.find_by_id(current_user.parent_id)
+    end
+    return users
   end
 end

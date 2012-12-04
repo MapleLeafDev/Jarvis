@@ -17,14 +17,13 @@ class TasksController < ApplicationController
   end
 
   def chores
-    @tasks = Task.all
-
-    date = Date.parse(Date.today.to_s).strftime("%A").downcase
-    @todays = Task.where(daily: true)
-    @todays = @todays + Task.where(date.intern => true)
-    @this_weeks = Task.where(weekly: true)
-    @this_months = Task.where(monthly: true)
-    @time = Date.today.to_s
+    users = family
+    @tasks = Array.new
+    users.each do |user|
+      Task.where(user_id: user.id).each do |task|
+        @tasks << task
+      end
+    end
 
     respond_to do |format|
       format.html { render :chores}
