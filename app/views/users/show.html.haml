@@ -1,1 +1,27 @@
-=render partial: 'card', locals: { user: @user }
+:javascript
+  function showStats(){
+    $('#stats').show();
+    $('#todays').hide();
+    $('#weeks').hide();
+  };
+
+  function showTodays(){
+    $('#todays').show();
+    $('#stats').hide();
+    $('#weeks').hide();
+  }
+
+  function showWeeks(){
+    $('#todays').hide();
+    $('#stats').hide();
+    $('#weeks').show();
+  }
+
+
+=render 'header'
+
+=render partial: 'stats', locals: {user: @user, todays: @todays, this_weeks: @this_weeks, this_months: @this_months}
+
+=render partial: 'todays', locals: {user: @user, todays: @todays, time: @time}
+
+=render partial: 'weeks', locals: {user: @user, this_weeks: @this_weeks, time: @time}

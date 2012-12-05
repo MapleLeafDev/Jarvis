@@ -1,0 +1,28 @@
+%div{id: "weeks", hidden: true}
+  .span8
+    %ul.nav.nav-tabs
+      %li
+        = link_to 'Stats', user_path
+      %li
+        = link_to 'Todays', '#', onclick: "showTodays();"
+      %li.active
+        = link_to 'Weeks', '#', onclick: "showWeeks();"
+      %li
+        = link_to 'Months', '#'
+      %li
+        = link_to 'All', '#'
+  .span7
+    %h4 This Weeks Chores
+    %table.table
+      - this_weeks.each do |task|
+        %tr
+          %td
+            .span5
+              %a{class: "badge badge-#{if task.period == 1 then 'info' elsif task.period == 2 then 'success' elsif task.period == 3 then 'warning' end}"}
+                = if task.period == 1 then 'M' elsif task.period == 2 then 'N' elsif task.period == 3 then 'E' else 'U' end
+              = link_to task.title, task
+            .span1{ id: "task-#{task.id}" }
+              -if Completion.find_by_user_id_and_task_id_and_completed(user.id, task.id, time)
+                = link_to '', '#', class: "i icon-ok btn btn-block btn-success"
+              -else
+                = link_to '', complete_task_path(task: task.id, user: user.id), class: "i icon-ok btn btn-block", remote: true

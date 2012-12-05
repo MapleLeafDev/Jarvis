@@ -18,7 +18,7 @@
       .nav-collapse
         %ul.nav
           -if current_user
-            %li= link_to "Chores", '/chores'
+            %li= link_to "My Chores", user_path(current_user)
             %li= link_to "Family Members", users_path
             %li= link_to "Store", items_path
     .container{style: "position:fixed; top:50px; right:10px; opacity:0.8; width:300px;"}
