@@ -1,20 +1,34 @@
 :javascript
-  function showStats(){
-    $('#stats').show();
-    $('#todays').hide();
-    $('#weeks').hide();
-  };
-
   function showTodays(){
     $('#todays').show();
     $('#stats').hide();
     $('#weeks').hide();
+    $('#months').hide();
+    $('#all').hide();
   }
 
   function showWeeks(){
     $('#todays').hide();
     $('#stats').hide();
     $('#weeks').show();
+    $('#months').hide();
+    $('#all').hide();
+  }
+
+  function showMonths(){
+    $('#todays').hide();
+    $('#stats').hide();
+    $('#weeks').hide();
+    $('#months').show();
+    $('#all').hide();
+  }
+
+  function showAll(){
+    $('#todays').hide();
+    $('#stats').hide();
+    $('#weeks').hide();
+    $('#months').hide();
+    $('#all').show();
   }
 
 
@@ -25,3 +39,7 @@
 =render partial: 'todays', locals: {user: @user, todays: @todays, time: @time}
 
 =render partial: 'weeks', locals: {user: @user, this_weeks: @this_weeks, time: @time}
+
+=render partial: 'months', locals: {user: @user, this_months: @this_months, time: @time}
+
+=render partial: 'all', locals: {user: @user, all: @all, time: @time}

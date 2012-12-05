@@ -1,10 +1,12 @@
-.span8.well
-  %h3= @task.title
-  = @task.description
-  .lead
-    Assigned to:
-    %b= @task.user.name
-  .lead
+.span6.well.lead
+  %div{align: "center"}
+    %h3
+      %em= @task.title
+    .muted= @task.description
+  %br
+    Belongs to:
+    = link_to @task.user.name, @task.user
+  %p
     Occurs:
     %b
       = 'Daily' if @task.daily
@@ -17,28 +19,27 @@
       = 'Thursday' if @task.thursday
       = 'Friday' if @task.friday
       = 'Saturday' if @task.saturday
-  -if @task.period != 0
-    .lead
+  %p
+    -if @task.period != 0
       When:
       %b
         = 'Morning' if @task.period == 1
         = 'Noon' if @task.period == 2
         = 'Evening' if @task.period == 3
-  .lead
-    = 'Every ' + @task.how_often.to_s + ' days.' if @task.how_often
-  .lead
-    = 'Credits:'
+  %p
+    Credits:
     %b
       = @task.points.to_s if @task.points
-  .lead Last completed...
-  -if @completions != []
-    %table.table
-      - @completions.each do |completion|
-        %tr{ id: "completion-#{completion.id}" }
-          %td= completion.completed
-          %td= link_to ' Clear', completion, method: :delete, class: "i icon-remove btn btn-small", remote: true
-  -else
-    .muted Chore has not been done
+  %p
+    %em Last completed...
+    -if @completions != []
+      %table.table
+        - @completions.each do |completion|
+          %tr{ id: "completion-#{completion.id}" }
+            %td= completion.completed
+            %td= link_to ' Clear', completion, method: :delete, class: "i icon-remove btn btn-small", remote: true
+    -else
+      .muted Chore has not been done
     %br
   %p
     = link_to 'Back', :back, class: "btn btn-small"

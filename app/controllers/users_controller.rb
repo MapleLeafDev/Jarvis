@@ -17,29 +17,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.where(parent_id: current_user.id)
-    @users << current_user
-    
-    @todays = Array.new
-    @this_weeks = Array.new
-    @this_months = Array.new
-
-    date = Date.parse(Date.today.to_s).strftime("%A").downcase
-
-    @users.each do |user|
-      Task.where(daily: true, user_id: user.id).each do |task|
-        @todays << task
-      end
-      Task.where(user_id: user.id, date.intern => true).each do |task|
-        @todays << task
-      end
-      Task.where(weekly: true, user_id: user.id).each do |task|
-        @this_weeks << task
-      end
-      Task.where(monthly: true, user_id: user.id).each do |task|
-        @this_months << task
-      end
-    end
+    @users = family
 
     respond_to do |format|
       format.html # index.html.erb
@@ -50,14 +28,22 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
 
-    @todays = Task.where(daily: true, user_id: @user.id)
+    @todays = Array.new
+    @time = Date.today.to_s
 
+    date = Date.parse(@time).strftime("%A").downcase
+
+    Task.where(daily: true, user_id: @user.id).each do |task|
+      @todays << task
+    end
+    Task.where(user_id: @user.id, date.intern => true).each do |task|
+      @todays << task
+    end
     @this_weeks = Task.where(weekly: true, user_id: @user.id)
-
     @this_months = Task.where(monthly: true, user_id: @user.id)
 
-    @time = Date.today.to_s
-    
+    @all = Task.where(user_id: @user.id)
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @user }

@@ -5,8 +5,6 @@
     %a{class: "badge badge-inverse"}
       = if task.monthly then 'M' elsif task.weekly then 'W' else 'D' end
     = link_to task.title, task
-  .span2
-    = link_to task.user.name, user_tasks_path(task.user)
 .row
   .span6.muted
     = 'Sun ' if task.sunday
