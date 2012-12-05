@@ -1,18 +1,6 @@
 %div{id: "stats"}
   .span8
-    %ul.nav.nav-tabs
-      %li.active
-        = link_to 'Stats', user_path
-      %li
-        = link_to 'Todays', '#', onclick: "showTodays();"
-      %li
-        = link_to 'Weeks', '#', onclick: "showWeeks();"
-      %li
-        = link_to 'Months', '#', onclick: "showMonths();"
-      %li
-        = link_to 'All', '#', onclick: "showAll();"
-  .span8
-    %h4 Completion Stats
+    %h4 Completion Progress
     %table.table{align: "center"}
       %tr
         %td Today

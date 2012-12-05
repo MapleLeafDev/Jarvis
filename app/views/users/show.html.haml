@@ -1,34 +1,59 @@
 :javascript
   function showTodays(){
-    $('#todays').show();
+    event.preventDefault();
     $('#stats').hide();
+    $('#todays').show();
     $('#weeks').hide();
     $('#months').hide();
     $('#all').hide();
+    $('#stats-tab').removeClass('active');
+    $('#todays-tab').addClass('active');
+    $('#weeks-tab').removeClass('active');
+    $('#months-tab').removeClass('active');
+    $('#all-tab').removeClass('active');
+
   }
 
   function showWeeks(){
-    $('#todays').hide();
+    event.preventDefault();
     $('#stats').hide();
+    $('#todays').hide();
     $('#weeks').show();
     $('#months').hide();
     $('#all').hide();
+    $('#stats-tab').removeClass('active');
+    $('#todays-tab').removeClass('active');
+    $('#weeks-tab').addClass('active');
+    $('#months-tab').removeClass('active');
+    $('#all-tab').removeClass('active');
   }
 
   function showMonths(){
-    $('#todays').hide();
+    event.preventDefault()
     $('#stats').hide();
+    $('#todays').hide();
     $('#weeks').hide();
     $('#months').show();
     $('#all').hide();
+    $('#stats-tab').removeClass('active');
+    $('#todays-tab').removeClass('active');
+    $('#weeks-tab').removeClass('active');
+    $('#months-tab').addClass('active');
+    $('#all-tab').removeClass('active');
   }
 
   function showAll(){
-    $('#todays').hide();
+    event.preventDefault()
     $('#stats').hide();
+    $('#todays').hide();
     $('#weeks').hide();
     $('#months').hide();
     $('#all').show();
+    $('#stats-tab').removeClass('active');
+    $('#todays-tab').removeClass('active');
+    $('#weeks-tab').removeClass('active');
+    $('#months-tab').removeClass('active');
+    $('#all-tab').addClass('active');
   }
 
 

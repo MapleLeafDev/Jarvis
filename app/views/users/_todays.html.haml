@@ -1,16 +1,4 @@
 %div{id: "todays", hidden: true}
-  .span8
-    %ul.nav.nav-tabs
-      %li
-        = link_to 'Stats', user_path
-      %li.active
-        = link_to 'Todays', '#', onclick: "showTodays();"
-      %li
-        = link_to 'Weeks', '#', onclick: "showWeeks();"
-      %li
-        = link_to 'Months', '#', onclick: "showMonths();"
-      %li
-        = link_to 'All', '#', onclick: "showAll();"
   .span7
     %h4 Todays Chores
     %table.table
