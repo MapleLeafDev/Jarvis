@@ -90,28 +90,39 @@
         Monthly
       %dd
         %br
-        = f.check_box :sunday, id: "sunday", onclick: "setSelectOccurance();"
-        Sunday
-        = f.check_box :monday, id: "monday", onclick: "setSelectOccurance();"
-        Monday
-        = f.check_box :tuesday, id: "tuesday", onclick: "setSelectOccurance();"
-        Tuesday
-        = f.check_box :wednesday, id: "wednesday", onclick: "setSelectOccurance();"
-        Wednesday
-        = f.check_box :thursday, id: "thursday", onclick: "setSelectOccurance();"
-        Thursday
-        = f.check_box :friday, id: "friday", onclick: "setSelectOccurance();"
-        Friday
-        = f.check_box :saturday, id: "saturday", onclick: "setSelectOccurance();"
-        Saturday
+        %p
+          = f.check_box :sunday, id: "sunday", onclick: "setSelectOccurance();"
+          Sunday
+        %p
+          = f.check_box :monday, id: "monday", onclick: "setSelectOccurance();"
+          Monday
+        %p
+          = f.check_box :tuesday, id: "tuesday", onclick: "setSelectOccurance();"
+          Tuesday
+        %p
+          = f.check_box :wednesday, id: "wednesday", onclick: "setSelectOccurance();"
+          Wednesday
+        %p
+          = f.check_box :thursday, id: "thursday", onclick: "setSelectOccurance();"
+          Thursday
+        %p
+          = f.check_box :friday, id: "friday", onclick: "setSelectOccurance();"
+          Friday
+        %p
+          = f.check_box :saturday, id: "saturday", onclick: "setSelectOccurance();"
+          Saturday
       %dd
         %br
+        %p
         = f.radio_button :period, 0
         %div.label Not Set
+        %p
         = f.radio_button :period, 1
         %div.label.label-info Morning
+        %p
         = f.radio_button :period, 2
         %div.label.label-success Noon
+        %p
         = f.radio_button :period, 3
         %div.label.label-warning Evening
       .actions{align: "right"}
