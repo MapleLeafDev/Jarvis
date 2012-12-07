@@ -13,7 +13,11 @@ class UsersController < ApplicationController
         @user.credits = @credits
         @user.save
       end
-    end    
+    end   
+
+    respond_to do |format|
+      format.js
+    end 
   end
 
   def index

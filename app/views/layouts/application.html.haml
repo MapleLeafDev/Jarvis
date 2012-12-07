@@ -21,7 +21,7 @@
             %li= link_to "My Chores", user_path(current_user)
             %li= link_to "Family Members", users_path
             %li= link_to "Store", items_path
-    .container{style: "position:fixed; top:50px; right:10px; opacity:0.8; width:300px;"}
+    .container{style: "position:fixed; top:50px; right:10px; width:300px;"}
       -if flash.count > 0
         .alert.fade.in.alert-success{align: "center"}
           -flash.each do |name, msg|

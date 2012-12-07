@@ -7,17 +7,17 @@
         = current_user.credits
         credits
   .row
-    %ul.nav.nav-tabs
-      %li.active
-        %a{:href => "#"} Items
-      %li
-        = link_to 'Purchases', purchases_path
+    .span8
+      %ul.nav.nav-tabs
+        %li.active
+          %a{:href => "#"} Items
+        %li
+          = link_to 'Purchases', purchases_path
   .row
     .span2
-      = link_to " Item", new_item_path, class: "i icon-plus btn btn-success btn-small"
+      = link_to "New Item", new_item_path, class: "btn btn-small"
       %p
   .row
-    .span7
-      %p
-        -@items.each do |item|
-          =render partial: 'item', locals: { item: item }
+    %p
+      -@items.each do |item|
+        =render partial: 'item', locals: { item: item }

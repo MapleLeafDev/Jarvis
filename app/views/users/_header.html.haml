@@ -11,9 +11,11 @@
       .lead
         = @user.credits
         credits
-  .row
-    .span2
-      = link_to " Chore", new_task_path, class: "i icon-plus btn btn-success btn-small"
+  -if current_user.facebook_id != "" && current_user.facebook_id != nil
+    .row.span7{align: "right"}
+      = link_to "New Chore", new_task_path, class: "btn btn-small"
+      = link_to 'Edit', edit_user_path(@user), class: "btn btn-small"
+      = link_to 'Delete', @user, confirm: 'Are you sure?', method: :delete, class: "btn btn-small"
   %p
 .span8
   %ul.nav.nav-tabs.visible-desktop.visible-tablet

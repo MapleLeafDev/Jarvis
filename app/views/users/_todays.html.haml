@@ -1,16 +1,17 @@
 %div{id: "todays", hidden: true}
   .span7
     %h4 Todays Chores
-    %table.table
-      - todays.sort_by{ |t| t.period }.each do |task|
-        %tr
-          %td
-            .span5
-              %a{class: "badge badge-#{if task.period == 1 then 'info' elsif task.period == 2 then 'success' elsif task.period == 3 then 'warning' end}"}
-                = if task.period == 1 then 'M' elsif task.period == 2 then 'N' elsif task.period == 3 then 'E' else 'U' end
-              = link_to task.title, task
-            .span1{ id: "task-#{task.id}" }
-              -if Completion.find_by_user_id_and_task_id_and_completed(user.id, task.id, time)
-                = link_to '', '#', class: "i icon-ok btn btn-block btn-success"
-              -else
-                = link_to '', complete_task_path(task: task.id, user: user.id), class: "i icon-ok btn btn-block", remote: true
+    - todays.group_by(&:period).sort.each do |key, tasks|
+      - period = tasks.first.period
+      = if period == 1 then 'Morning' elsif period == 2 then 'Noon' elsif period == 3 then 'Evening' else 'Anytime' end
+      %table.table
+        -tasks.each do |task|
+          %tr
+            %td
+              .span5
+                = link_to task.title, task
+              .span1{ id: "task-#{task.id}" }
+                -if Completion.find_by_user_id_and_task_id_and_completed(user.id, task.id, time)
+                  = link_to '', '#', class: "i icon-ok btn btn-block btn-success"
+                -else
+                  = link_to '', complete_task_path(task: task.id, user: user.id), class: "i icon-ok btn btn-block", remote: true

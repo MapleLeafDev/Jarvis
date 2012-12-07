@@ -68,7 +68,7 @@ class TasksController < ApplicationController
     @task.destroy
 
     respond_to do |format|
-      format.html { redirect_to user_tasks_path(@task.user) }
+      format.html { redirect_to user_path(@task.user) }
       format.json { head :no_content }
     end
   end

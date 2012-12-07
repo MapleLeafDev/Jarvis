@@ -10,29 +10,17 @@
 
 .span8
   %div.well.well-small
-    %table
-      %tr
+    .row
+      .span2
         -if user.thumbnail == ""
-          %td= image_tag('no_profile.png', :class => 'img-rounded', :size => "50x50")
+          = image_tag('no_profile.png', :class => 'img-rounded', :size => "50x50")
         -else
-          %td= image_tag(user.thumbnail, :class => 'img-rounded', :size => "50x50")
-        %td
-          .span4
-            %h2.lead
-              = link_to user.name, user_path(user)
-          .span2{id: "credits-#{user.id}"}
-            -if user.credits
-              %h2.lead
-                = user.credits
-                credits
-    %div{align: "right"}
-      = link_to 'Credits', '#', class: "btn btn-small", onclick: "showManageCredits(#{user.id});"
-      = link_to '', edit_user_path(user), class: "i icon-edit btn btn-info btn-small"
-      = link_to '', user, confirm: 'Are you sure?', method: :delete, class: "i icon-remove btn btn-danger btn-small"
-  %div.well.well-small.span4{id: 'manageCredits-' + user.id.to_s, hidden: true, align: "center"}
-    %p
-      Manually award or remove credits
-      = form_tag({controller: "users", action: "award_credits", user: user.id}, {remote: true}) do
-        = submit_tag "Award", name: "award", class: "i icon-plus btn btn-success"
-        = text_field_tag(:credits, '', size: "5", class: "input-mini")
-        = submit_tag "Remove", name: "remove", class: "i icon-minus btn btn-danger"
+          = image_tag(user.thumbnail, :class => 'img-rounded', :size => "50x50")
+      .span3
+        %h2.lead
+          = link_to user.name, user_path(user)
+      .span2{id: "credits-#{user.id}"}
+        -if user.credits
+          %h2.lead
+            = user.credits
+            credits

@@ -7,20 +7,22 @@
         = current_user.credits
         credits
   .row
-    %ul.nav.nav-tabs
-      %li
-        = link_to 'Items', items_path
-      %li.active
-        %a{:href => "#"} Purchases
+    .span8
+      %ul.nav.nav-tabs
+        %li
+          = link_to 'Items', items_path
+        %li.active
+          %a{:href => "#"} Purchases
   .row
     .lead Recent Purchases
   .row
-    %table.table
-      -@purchases.each do |purchase|
-        %tr{id: "purchase-#{purchase.id}"}
-          %td
-            .span2= purchase.item.name
-            .span2= purchase.user.name
-            .span2= Date.parse(purchase.created_at.to_s)
-            .span1
-              = link_to 'Refund', purchase, method: :delete, class: "btn btn-small", remote: true
+    .span8
+      %table.table
+        -@purchases.each do |purchase|
+          %tr{id: "purchase-#{purchase.id}"}
+            %td
+              .span2= purchase.item.name
+              .span2= purchase.user.name
+              .span2= Date.parse(purchase.created_at.to_s)
+              .span1
+                = link_to 'Refund', purchase, method: :delete, class: "btn btn-small", remote: true

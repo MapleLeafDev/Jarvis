@@ -1,25 +1,30 @@
-.span8{align: "center"}
-  %div.well.well-small{id: "item-#{item.id}"}
-    .row
-      .span1
-        -if item.thumbnail == ""
-          = image_tag('product.png', :class => 'img-rounded', :size => "50x50")
-        -else
-          = image_tag(item.thumbnail, :class => 'img-rounded', :size => "50x50")
-      .span3
-        .lead= item.name
-      .span2
-        .lead
-          = item.price
-          credits
-      .span1
-        = link_to 'Buy', buy_item_path(item: item.id, user: current_user.id), class: "btn", remote: true
-        %div{id: "item-#{item.id}"}
-          .badge.badge-inverse= Purchase.where(item_id: item.id).count
-    .row
-      .span6
-        .muted= item.description
-      -if current_user.facebook_id != "" && current_user.facebook_id != nil
-        .span1{align: "right"}
-          = link_to '', edit_item_path(item), class: "i icon-edit btn btn-info btn-mini"
-          = link_to '', item, confirm: 'Are you sure?', method: :delete, class: "i icon-remove btn btn-danger btn-mini", remote: true
+%div{id: "item-#{item.id}"}
+  .span7{align: "center"}
+    %div.well.well-small
+      .row
+        .span1
+          -if item.thumbnail == ""
+            = image_tag('product.png', :class => 'img-rounded', :size => "50x50")
+          -else
+            = image_tag(item.thumbnail, :class => 'img-rounded', :size => "50x50")
+        .span2
+          .lead= item.name
+        .span2
+          .lead
+            = item.price
+            credits
+        .span1
+          = link_to 'Buy', buy_item_path(item: item.id, user: current_user.id), class: "btn", remote: true
+          %div{id: "itemCount-#{item.id}"}
+            .badge.badge-inverse= Purchase.where(item_id: item.id).count
+      .row
+        .span6
+          .muted= item.description
+
+  -if current_user.facebook_id != "" && current_user.facebook_id != nil
+    .span1
+      %div.well.well-small
+        = link_to 'Edit', edit_item_path(item), class: "btn btn-mini"
+        %p
+        = link_to 'Delete', item, confirm: 'Are you sure?', method: :delete, class: "btn btn-mini", remote: true
+    %p

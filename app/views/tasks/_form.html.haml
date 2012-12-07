@@ -9,6 +9,7 @@
       $('#wednesday').attr("checked", false);
       $('#thursday').attr("checked", false);
       $('#friday').attr("checked", false);
+      $('#anytime').attr("checked", true);
       return $('#saturday').attr("checked", false);
     }
   };
@@ -23,6 +24,7 @@
       $('#wednesday').attr("checked", false);
       $('#thursday').attr("checked", false);
       $('#friday').attr("checked", false);
+      $('#anytime').attr("checked", true);
       return $('#saturday').attr("checked", false);
     }
   };
@@ -114,8 +116,8 @@
       %dd
         %br
         %p
-        = f.radio_button :period, 0
-        %div.label Not Set
+        = f.radio_button :period, 0, id: "anytime"
+        %div.label Anytime
         %p
         = f.radio_button :period, 1
         %div.label.label-info Morning

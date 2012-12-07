@@ -16,6 +16,10 @@ class PurchasesController < ApplicationController
 
       @purchases = Purchase.where(item_id: @item.id).count
     end
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   def index
