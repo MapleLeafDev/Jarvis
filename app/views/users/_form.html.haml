@@ -15,6 +15,11 @@
       = f.text_field :name, placeholder: "Name"
     %dt
       .field
+      %h5 Email
+    %dd
+      = f.text_field :email, placeholder: "Email"
+    %dt
+      .field
         %h5 ID
     %dd
       = f.text_field :facebook_id, disabled: true
@@ -23,17 +28,13 @@
         %h5 Parent ID
     %dd
       = f.text_field :parent_id, placeholder: "Link to parent", value: (if @user.facebook_id != current_user.facebook_id then "#{current_user.facebook_id}" end)
-    -if @user.facebook_id == "" || @user.facebook_id == nil
-      %dt
-        .field
-          %h5 Profile Photo
-      %dd
-        .field
-          = f.radio_button :thumbnail, "User1.png"
-          = image_tag('User1.png', :class => 'img-rounded', :size => "50x50")
-          = f.radio_button :thumbnail, "User2.png"
-          = image_tag('User2.png', :class => 'img-rounded', :size => "50x50")
-          = f.radio_button :thumbnail, "User3.png"
-          = image_tag('User3.png', :class => 'img-rounded', :size => "50x50")
+    %dt
+      .field
+        %h5 Profile Photo
+    %dd
+      -if @user.email == nil && @user.name == nil
+        Will be pulled from Gravatar or auto generated.
+      -else
+        = image_tag(gravatar_for(@user.email ? @user.email : @user.name))
     .actions{align: "right"}
       = f.submit "Save", class: "btn btn-small btn-success"

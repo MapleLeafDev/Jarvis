@@ -1,10 +1,7 @@
 .span8{align: "center"}
   .row
     .span2
-      -if @user.thumbnail == ""
-        = image_tag('no_profile.png', :class => 'img-rounded', :size => "75x75")
-      -else
-        = image_tag(@user.thumbnail, :class => 'img-rounded', :size => "75x75")
+      = image_tag(gravatar_for(@user.email ? @user.email : @user.name))
     .span3
       %h2.lead= @user.name
     .span2.well.well-small{id: "credits"}

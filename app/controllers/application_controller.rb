@@ -2,8 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   helper_method :current_user
   helper_method :family
-
-  private
+  helper_method :gravatar_for
 
   def current_user
     if ENV['RAILS_ENV'] == 'development'
@@ -28,5 +27,11 @@ class ApplicationController < ActionController::Base
       users << User.find_by_id(current_user.parent_id)
     end
     return users
+  end
+
+  def gravatar_for(email)
+    id = Digest::MD5::hexdigest email.strip.downcase
+    url = 'http://www.gravatar.com/avatar/' + id + '?d=retro'
+    return url
   end
 end

@@ -12,10 +12,7 @@
   %div.well.well-small
     .row
       .span2
-        -if user.thumbnail == ""
-          = image_tag('no_profile.png', :class => 'img-rounded', :size => "50x50")
-        -else
-          = image_tag(user.thumbnail, :class => 'img-rounded', :size => "50x50")
+        = image_tag(gravatar_for(user.email ? user.email : user.name))
       .span3
         %h2.lead
           = link_to user.name, user_path(user)

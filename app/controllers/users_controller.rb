@@ -90,12 +90,10 @@ class UsersController < ApplicationController
 
     @user.name = params[:user][:name]
 
+    @user.email = params[:user][:email]
+
     if params[:user][:parent_id]
       @user.parent_id = User.find_by_facebook_id(params[:user][:parent_id]).id
-    end
-
-    if params[:user][:thumbnail]
-      @user.thumbnail = params[:user][:thumbnail]
     end
 
     respond_to do |format|
