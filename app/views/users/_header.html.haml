@@ -1,7 +1,7 @@
 .span8{align: "center"}
   .row
     .span2
-      = image_tag(gravatar_for(@user.email != "" ? @user.email : @user.name))
+      = image_tag(gravatar_for(@user.email == nil || @user.email == "" ? @user.name : @user.email))
     .span3
       %h2.lead= @user.name
     .span2.well.well-small{id: "credits"}

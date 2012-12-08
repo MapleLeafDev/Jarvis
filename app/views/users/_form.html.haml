@@ -30,6 +30,6 @@
       -if @user.email == nil && @user.name == nil
         Will be pulled from Gravatar or auto generated.
       -else
-        = image_tag(gravatar_for(@user.email != "" ? @user.email : @user.name))
+        = image_tag(gravatar_for(@user.email == nil || @user.email == "" ? @user.name : @user.email))
     .actions{align: "right"}
       = f.submit "Save", class: "btn btn-small btn-success"
