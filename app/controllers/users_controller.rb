@@ -68,11 +68,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params[:user])
-
-    if params[:user][:parent_id]
-      @user.parent_id = User.find_by_facebook_id(params[:user][:parent_id]).id
-    end
+    @user = User.new(params[:user])    
 
     respond_to do |format|
       if @user.save
@@ -88,16 +84,8 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
 
-    @user.name = params[:user][:name]
-
-    @user.email = params[:user][:email]
-
-    if params[:user][:parent_id]
-      @user.parent_id = User.find_by_facebook_id(params[:user][:parent_id]).id
-    end
-
     respond_to do |format|
-      if @user.save
+      if @user.update_attributes(params[:user])
         format.html { redirect_to users_path, notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else

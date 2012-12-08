@@ -19,11 +19,11 @@ class ApplicationController < ActionController::Base
   end
 
   def family
-    if current_user.parent_id == nil || current_user.parent_id == ""
+    if current_user.parent_id == nil
       users = User.where(parent_id: current_user.id)
       users << current_user
     else
-      users = User.where(parent_id: current_user.parent_id)
+      users = User.where(parent_id: current_user.id)
       users << User.find_by_id(current_user.parent_id)
     end
     return users
