@@ -12,21 +12,19 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def family
+    users = Array.new
+    memberships = FamilyMember.where(family_id: current_user.family.id)
+    memberships.each do |membership|
+      users << User.find_by_id(membership.user_id)
+    end
+    return users
+  end
+
   def user_check
     if current_user == nil
       redirect_to root_url
     end
-  end
-
-  def family
-    if current_user.parent_id == nil
-      users = User.where(parent_id: current_user.id)
-      users << current_user
-    else
-      users = User.where(parent_id: current_user.id)
-      users << User.find_by_id(current_user.parent_id)
-    end
-    return users
   end
 
   def gravatar_for(email)

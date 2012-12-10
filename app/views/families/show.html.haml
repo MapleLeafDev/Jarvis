@@ -1,0 +1,14 @@
+.span8{align: "center"}
+  %h2.lead
+    = @family.name
+    Family
+  .muted= @access_url
+  -if current_user.user_type >= 10
+    .row
+      .span2
+        = link_to "New Member", new_user_path, class: "btn btn-small"
+.row
+  .span7
+    %p
+      -@users.sort_by{|x| x.facebook_id.to_i }.reverse.each do |user|
+        =render partial: 'card', locals: { user: user }

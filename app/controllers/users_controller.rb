@@ -70,8 +70,16 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])    
 
+    family = Family.find_by_id(FamilyMember.find_by_user_id(current_user.id).family_id)
+    
+    @user.user_type = 0
+    @user.credits = 0
     respond_to do |format|
       if @user.save
+        if family
+          FamilyMember.create(family_id: family.id, user_id: @user.id)
+          format.html { redirect_to family_path(family), notice: 'Family member was added.' }
+        end
         format.html { redirect_to users_path, notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
       else
@@ -86,7 +94,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to users_path, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

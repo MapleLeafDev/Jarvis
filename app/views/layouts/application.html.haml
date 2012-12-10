@@ -19,8 +19,12 @@
         %ul.nav
           -if current_user
             %li= link_to "My Chores", user_path(current_user)
-            %li= link_to "Family Members", users_path
-            %li= link_to "Store", items_path
+            - family_member = FamilyMember.find_by_user_id(current_user.id)
+            -if family_member
+              %li= link_to "Manage Family", family_path(Family.find_by_id(family_member.family_id))
+              %li= link_to "Store", items_path
+            -else
+              %li= link_to "Create Family", new_family_path
     .container{style: "position:fixed; top:50px; right:10px; width:300px;"}
       -if flash.count > 0
         .alert.fade.in.alert-success{align: "center"}

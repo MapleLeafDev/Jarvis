@@ -1,0 +1,17 @@
+= form_for(@family) do |f|
+  - if @family.errors.any?
+    .text-error
+      #error_explanation
+        = pluralize(@family.errors.count, "error")
+        prohibited this family from being saved:
+        %ul
+          - @family.errors.full_messages.each do |msg|
+            %li= msg
+  %dl{class: "dl-horizontal"}
+    %dt
+      .field
+      %h5 Name
+    %dd
+      = f.text_field :name
+    .actions{align: "right"}
+      = f.submit "Save", class: "btn btn-small btn-success"

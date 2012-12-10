@@ -20,15 +20,18 @@
       = f.text_field :email, placeholder: "Email"
     %dt
       .field
-        %h5 Parent ID
+      %h5 Parent
     %dd
-      = f.text_field :parent_id, placeholder: "Link to parent", value: (if @user.id == current_user.id then nil  else current_user.id end)
+      = f.check_box :user_type
     %dt
       .field
-        %h5 Profile Photo
+        %h5 Avatar
     %dd
       -if @user.email == nil && @user.name == nil
-        Will be pulled from Gravatar or auto generated.
+        .muted
+          Will be pulled from
+          = link_to 'Gravatar', 'http://gravatar.com'
+          using the provided email address or auto generated.
       -else
         = image_tag(gravatar_for(@user.email == nil || @user.email == "" ? @user.name : @user.email))
     .actions{align: "right"}

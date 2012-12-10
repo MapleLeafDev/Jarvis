@@ -5,7 +5,6 @@ gem 'pg'
 gem 'json'
 gem 'haml'
 gem 'awesome_print'
-gem 'omniauth-facebook', '1.4.1'
 gem 'therubyracer'
 # Gems used only for assets and not required
 # in production environments by default.

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121208033012) do
+ActiveRecord::Schema.define(:version => 20121210143700) do
 
   create_table "completions", :force => true do |t|
     t.integer  "user_id"
@@ -21,6 +21,21 @@ ActiveRecord::Schema.define(:version => 20121208033012) do
     t.string   "completed"
   end
 
+  create_table "families", :force => true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "family_members", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "family_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.boolean  "admin"
+  end
+
   create_table "items", :force => true do |t|
     t.string   "name"
     t.text     "description"
@@ -28,7 +43,7 @@ ActiveRecord::Schema.define(:version => 20121208033012) do
     t.string   "thumbnail"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.integer  "user_id"
+    t.integer  "family_id"
   end
 
   create_table "purchases", :force => true do |t|
@@ -64,13 +79,12 @@ ActiveRecord::Schema.define(:version => 20121208033012) do
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "facebook_id"
-    t.string   "thumbnail"
-    t.integer  "parent_id"
     t.integer  "theme_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.integer  "credits"
     t.string   "email"
+    t.integer  "user_type"
   end
 
 end

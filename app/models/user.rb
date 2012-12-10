@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :name, :facebook_id, :thumbnail, :parent_id, :theme_id, :email
+  has_one :family_member
+  has_one :family, :through => :family_member
   has_many :tasks, :dependent => :destroy
   has_many :completions, :dependent => :destroy
   has_many :purchases, :dependent => :destroy
@@ -10,6 +12,7 @@ class User < ActiveRecord::Base
       user.facebook_id = auth['uid']
       user.name = auth['info']['name']
       user.thumbnail = auth['info']['image']
+      user.type = 10
     end
   end
 end

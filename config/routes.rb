@@ -1,5 +1,7 @@
 HomeManager::Application.routes.draw do
   
+  resources :families
+
   resources :items do 
     resources :purchases
   end
@@ -24,6 +26,7 @@ HomeManager::Application.routes.draw do
   match '/signout' => 'sessions#destroy', :as => :signout
   match '/chores' => 'tasks#chores'
   match '/complete_task' => 'completions#complete_task', :as => :complete_task
+  match '/make_parent' => 'family_members#make_parent', :as => :make_parent
   match '/buy_item' => 'purchases#buy_item', :as => :buy_item
   match '/award_credits' => 'users#award_credits', :as => :award_credits
 end
