@@ -21,7 +21,7 @@
         .span6
           .muted= item.description
 
-  -if current_user.facebook_id != "" && current_user.facebook_id != nil
+  -if current_user.user_type >= 10
     .span1
       %div.well.well-small
         = link_to 'Edit', edit_item_path(item), class: "btn btn-mini"

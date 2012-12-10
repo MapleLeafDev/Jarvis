@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121210143700) do
+ActiveRecord::Schema.define(:version => 20121210193204) do
 
   create_table "completions", :force => true do |t|
     t.integer  "user_id"
@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(:version => 20121210143700) do
     t.integer  "credits"
     t.string   "email"
     t.integer  "user_type"
+    t.integer  "pin"
   end
 
 end

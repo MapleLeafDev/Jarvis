@@ -72,7 +72,12 @@ class UsersController < ApplicationController
 
     family = Family.find_by_id(FamilyMember.find_by_user_id(current_user.id).family_id)
     
-    @user.user_type = 0
+    if params[:user][:user_type] == "0"
+      @user.user_type = 0
+    else
+      @user.user_type = 10
+    end
+
     @user.credits = 0
     respond_to do |format|
       if @user.save
@@ -91,9 +96,18 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    
+    @user.name = params[:user][:name]
+    @user.email = params[:user][:email]
+
+    if params[:user][:user_type] == "0"
+      @user.user_type = 0
+    else
+      @user.user_type = 10
+    end
 
     respond_to do |format|
-      if @user.update_attributes(params[:user])
+      if @user.save
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else

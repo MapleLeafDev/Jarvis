@@ -1,6 +1,5 @@
 class FamiliesController < ApplicationController
-  # GET /families
-  # GET /families.json
+
   def index
     @families = Family.all
 
@@ -10,8 +9,6 @@ class FamiliesController < ApplicationController
     end
   end
 
-  # GET /families/1
-  # GET /families/1.json
   def show
     @family = Family.find(params[:id])
 
@@ -28,8 +25,6 @@ class FamiliesController < ApplicationController
     end
   end
 
-  # GET /families/new
-  # GET /families/new.json
   def new
     @family = Family.new
 
@@ -39,13 +34,10 @@ class FamiliesController < ApplicationController
     end
   end
 
-  # GET /families/1/edit
   def edit
     @family = Family.find(params[:id])
   end
 
-  # POST /families
-  # POST /families.json
   def create
     @family = Family.new(params[:family])
 
@@ -64,8 +56,6 @@ class FamiliesController < ApplicationController
     end
   end
 
-  # PUT /families/1
-  # PUT /families/1.json
   def update
     @family = Family.find(params[:id])
 
@@ -80,14 +70,12 @@ class FamiliesController < ApplicationController
     end
   end
 
-  # DELETE /families/1
-  # DELETE /families/1.json
   def destroy
     @family = Family.find(params[:id])
     @family.destroy
 
     respond_to do |format|
-      format.html { redirect_to families_url }
+      format.html { redirect_to current_user }
       format.json { head :no_content }
     end
   end

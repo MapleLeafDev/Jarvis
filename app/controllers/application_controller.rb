@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :family
   helper_method :gravatar_for
+  helper_method :family_url
 
   def current_user
     if ENV['RAILS_ENV'] == 'development'
