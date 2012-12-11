@@ -10,8 +10,15 @@
   %dl{class: "dl-horizontal"}
     %dt
       .field
-      %h5 Name
+      %h5 New Family Name
     %dd
       = f.text_field :name
+    %dd
+      or
+    %dt
+      .field
+      %h5 Existing Family ID
+    %dd
+      = f.text_field :url
     .actions{align: "right"}
       = f.submit "Save", class: "btn btn-small btn-success"

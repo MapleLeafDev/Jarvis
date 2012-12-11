@@ -2,7 +2,7 @@
   %div.well.well-small
     .row
       .span1
-        = image_tag(gravatar_for(user.email == nil || user.email == "" ? user.name : user.email))
+        = link_to (image_tag(gravatar_for(user.email == nil || user.email == "" ? user.name : user.email))), user_path(user)
       .span4
         .lead= link_to user.name, user_path(user)
         -if user.user_type >= 10

@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_filter :user_check
+  before_filter :authorize
 
   def show
     @task = Task.find(params[:id])

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121210193204) do
+ActiveRecord::Schema.define(:version => 20121211171759) do
 
   create_table "completions", :force => true do |t|
     t.integer  "user_id"
@@ -78,14 +78,14 @@ ActiveRecord::Schema.define(:version => 20121210193204) do
 
   create_table "users", :force => true do |t|
     t.string   "name"
-    t.string   "facebook_id"
     t.integer  "theme_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.integer  "credits"
     t.string   "email"
     t.integer  "user_type"
     t.integer  "pin"
+    t.string   "password_digest"
   end
 
 end

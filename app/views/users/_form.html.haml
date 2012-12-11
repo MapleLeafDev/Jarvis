@@ -20,14 +20,25 @@
       = f.text_field :email, placeholder: "Email"
     %dt
       .field
-      %h5 Pin
+      %h5 Password
     %dd
-      = f.text_field :pin, placeholder: "4 digit pin", :maxlength => 4
+      = f.password_field :password, placeholder: "Password"
     %dt
       .field
-      %h5 Parent
+      %h5 Password Confirmation
     %dd
-      = f.check_box :user_type
+      = f.password_field :password_confirmation, placeholder: "Confirm Password"
+    -if current_user
+      %dt
+        .field
+        %h5 Pin
+      %dd
+        = f.text_field :pin, placeholder: "4 digit pin", :maxlength => 4
+      %dt
+        .field
+        %h5 Parent
+      %dd
+        = f.check_box :user_type
     %dt
       .field
         %h5 Avatar

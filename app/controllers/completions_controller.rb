@@ -1,5 +1,5 @@
 class CompletionsController < ApplicationController
-  before_filter :user_check
+  before_filter :authorize
 
   def complete_task
     @completion = Completion.new

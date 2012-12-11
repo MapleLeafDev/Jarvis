@@ -1,9 +1,18 @@
 .span8
   .hero-unit{align: "center"}
-    %h1 Chore Chart
-    %p Make chores at home fun and productive.
+    %h1 Jarvis
+    %p Home management system.
     %p
       -if current_user
         = link_to 'Sign Out', signout_path, :class => 'btn btn-large btn-danger'
       -else
-        = link_to 'Sign In', "/auth/facebook", :class => 'btn btn-large btn-success'
+        = form_tag sessions_path do
+          .field
+            = label_tag :email
+            = text_field_tag :email, params[:email]
+          .field
+            = label_tag :password
+            = password_field_tag :password
+          .actions
+            = submit_tag "Log In", class: "btn"
+        = link_to "Sign Up", signup_path

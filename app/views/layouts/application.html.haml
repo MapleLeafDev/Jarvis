@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title Chore Chart
+    %title Jarvis
     <!--[if IE]><script scr="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script><![endif]-->
     = stylesheet_link_tag "application", :media => "all"
     = javascript_include_tag "application"
@@ -14,17 +14,18 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      %a.brand{:href => "#{root_url}"} Chore Chart
+      %a.brand{:href => "#{root_url}"} Jarvis
       .nav-collapse
         %ul.nav
           -if current_user
-            %li= link_to "My Chores", user_path(current_user)
+            %li= link_to "My Profile", user_path(current_user)
             - family_member = FamilyMember.find_by_user_id(current_user.id)
             -if family_member
-              %li= link_to "Manage Family", family_path(Family.find_by_id(family_member.family_id))
+              %li= link_to current_user.family.name + " Family", family_path(Family.find_by_id(family_member.family_id))
               %li= link_to "Store", items_path
             -else
               %li= link_to "Create Family", new_family_path
+            %li= link_to '| Sign Out |', signout_path
     .container{style: "position:fixed; top:50px; right:10px; width:300px;"}
       -if flash.count > 0
         .alert.fade.in.alert-success{align: "center"}

@@ -1,7 +1,10 @@
 .span6
   .well
     %h2.lead{align: "center"}
-      New Family Member
+      -if current_user
+        New Family Member
+      -else
+        New User
     =render 'form'
   %p
     = link_to 'Back', :back, class: "btn btn-small"

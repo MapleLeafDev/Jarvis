@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :user_check
+  before_filter :authorize, only: [:edit, :update]
 
   def award_credits
     @user = User.find_by_id(params[:user])
@@ -70,8 +70,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])    
 
-    family = Family.find_by_id(FamilyMember.find_by_user_id(current_user.id).family_id)
-    
     if params[:user][:user_type] == "0"
       @user.user_type = 0
     else
@@ -81,12 +79,17 @@ class UsersController < ApplicationController
     @user.credits = 0
     respond_to do |format|
       if @user.save
-        if family
-          FamilyMember.create(family_id: family.id, user_id: @user.id)
-          format.html { redirect_to family_path(family), notice: 'Family member was added.' }
+        if !current_user
+          session[:user_id] = @user.id
+          format.html { redirect_to @user, notice: "Thank you for signing up!" }
+        else
+          family = Family.find_by_id(FamilyMember.find_by_user_id(current_user.id).family_id)
+
+          if family
+            FamilyMember.create(family_id: family.id, user_id: @user.id)
+            format.html { redirect_to family_path(family), notice: 'Family member was added.' }
+          end
         end
-        format.html { redirect_to users_path, notice: 'User was successfully created.' }
-        format.json { render json: @user, status: :created, location: @user }
       else
         format.html { render action: "new" }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -122,8 +125,7 @@ class UsersController < ApplicationController
     @user.destroy
 
     respond_to do |format|
-      format.html { redirect_to users_url }
-      format.json { head :no_content }
+      format.html { redirect_to root_url }
     end
   end
 end

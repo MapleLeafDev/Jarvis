@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_filter :user_check
+  before_filter :authorize
 
   def index
     @items = Item.where(family_id: current_user.family.id)
