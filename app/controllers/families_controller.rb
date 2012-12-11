@@ -1,14 +1,5 @@
 class FamiliesController < ApplicationController
 
-  def index
-    @families = Family.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @families }
-    end
-  end
-
   def show
     @family = Family.find(params[:id])
 
