@@ -1,5 +1,5 @@
 class Family < ActiveRecord::Base
-  attr_accessible :name
+  attr_accessible :name, :url
   has_many :family_members, :dependent => :destroy
   has_many :users, :through => :family_members
   

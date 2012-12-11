@@ -34,26 +34,21 @@ class FamiliesController < ApplicationController
 
     if @family
       FamilyMember.create(family_id: @family.id, user_id: current_user.id)
-      existing = true
+      respond_to do |format|
+        format.html { redirect_to @family, notice: 'Added to existing family.' }
+      end
     else
       @family = Family.new(params[:family])
       random_id = Random.new()
       @family.url = random_id.rand(1000000000..10000000000).to_s
-      existing = false
-    end
 
-    respond_to do |format|
-      if @family
-        if existing = false
-          @family.save
-          FamilyMember.create(user_id: current_user.id, family_id: @family.id, admin: true)
+      respond_to do |format|
+        if @family.save
+          FamilyMember.create(user_id: current_user.id, family_id: @family.id)
           format.html { redirect_to @family, notice: 'Family was successfully created.' }
         else
           format.html { redirect_to @family, notice: 'Added to existing family.' }
         end
-      else
-        format.html { render action: "new" }
-        format.json { render json: @family.errors, status: :unprocessable_entity }
       end
     end
   end
