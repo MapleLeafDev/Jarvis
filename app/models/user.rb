@@ -8,5 +8,4 @@ class User < ActiveRecord::Base
   has_many :completions, :dependent => :destroy
   has_many :purchases, :dependent => :destroy
   validates_presence_of :name
-  validates_uniqueness_of :email
 end

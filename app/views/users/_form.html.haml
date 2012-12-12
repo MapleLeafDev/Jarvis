@@ -18,16 +18,17 @@
       %h5 Email
     %dd
       = f.text_field :email, placeholder: "Email"
-    %dt
-      .field
-      %h5 Password
-    %dd
-      = f.password_field :password, placeholder: "Password"
-    %dt
-      .field
-      %h5 Password Confirmation
-    %dd
-      = f.password_field :password_confirmation, placeholder: "Confirm Password"
+    %div{hidden: current_user ? true : false}
+      %dt
+        .field
+        %h5 Password
+      %dd
+        = f.password_field :password, placeholder: "Password"
+      %dt
+        .field
+        %h5 Password Confirmation
+      %dd
+        = f.password_field :password_confirmation, placeholder: "Confirm Password"
     -if current_user
       %dt
         .field

@@ -3,7 +3,7 @@ class FamiliesController < ApplicationController
   def show
     @family = Family.find(params[:id])
 
-    @access_url = "http://chore-chart.heroku.app.com/family/" + @family.url
+    @access_url = "http://chore-chart.herokuapp.com/family/" + @family.url
 
     @users = Array.new
     FamilyMember.where(family_id: @family.id).each do |member|
@@ -40,7 +40,7 @@ class FamiliesController < ApplicationController
     else
       @family = Family.new(params[:family])
       random_id = Random.new()
-      @family.url = random_id.rand(1000000000..10000000000).to_s
+      @family.url = @family.name + "-" + random_id.rand(1000000000..10000000000).to_s
 
       respond_to do |format|
         if @family.save
@@ -69,6 +69,16 @@ class FamiliesController < ApplicationController
 
   def destroy
     @family = Family.find(params[:id])
+
+    members = FamilyMember.where(family_id: @family.id)
+
+    members.each do |member|
+      user = User.find_by_id(member.user_id)
+      if user.user_type == 0
+        user.destroy
+      end
+    end
+
     @family.destroy
 
     respond_to do |format|

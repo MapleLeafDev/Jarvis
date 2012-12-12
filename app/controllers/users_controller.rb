@@ -70,10 +70,20 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])    
 
+    if User.find_by_email(@user.email)
+      redirect_to new_user_path, notice: "Email address already used" and return
+    end
+
     if params[:user][:user_type] == "0"
       @user.user_type = 0
     else
       @user.user_type = 10
+    end
+
+    if current_user
+      @user.email = nil
+      @user.password = current_user.family.url
+      @user.password_confirmation = current_user.family.url
     end
 
     @user.credits = 0
