@@ -4,16 +4,16 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by_email(params[:email])
-
     if params[:pin]
-      if User.find_by_id_and_pin(params[:id], params[:pin].to_i)
+      user = User.find_by_id_and_pin(params[:id], params[:pin].to_i)
+      if user
         session[:user_id] = user.id
         redirect_to user_path(user), notice: "Logged in!"
       else
         redirect_to :back, notice: "Email or password is invalid"
       end
     else
+      user = User.find_by_email(params[:email])
       if user && user.authenticate(params[:password])
         session[:user_id] = user.id
         redirect_to user_path(user), notice: "Logged in!"
