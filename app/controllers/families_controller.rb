@@ -3,7 +3,7 @@ class FamiliesController < ApplicationController
   def show
     @family = Family.find(params[:id])
 
-    @access_url = "http://chore-chart.herokuapp.com/family/" + @family.url
+    @access_url = "http://chore-chart.herokuapp.com/my_family/" + @family.url
 
     @users = Array.new
     FamilyMember.where(family_id: @family.id).each do |member|
@@ -13,6 +13,25 @@ class FamiliesController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @family }
+    end
+  end
+
+  def my_family
+    @family = Family.find_by_url(params[:url])
+
+    respond_to do |format|
+      if @family
+        @users = Array.new
+        FamilyMember.where(family_id: @family.id).each do |member|
+          user = User.find_by_id(member.user_id)
+          if user.user_type < 10
+            @users << user
+          end
+        end
+        format.html
+      else
+        format.html { redirect_to root_url }
+      end
     end
   end
 
