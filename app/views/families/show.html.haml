@@ -1,17 +1,61 @@
-.span8{align: "center"}
-  %h2.lead
-    = @family.name
-    Family
-  .muted= link_to 'Link for child login', @access_url
-  %br
-  -if current_user.user_type >= 10
-    .row
-      .span3
-        = link_to "New Member", new_user_path, class: "btn btn-small"
-        = link_to "Edit", edit_family_path(@family), class: "btn btn-small"
-        = link_to 'Delete', @family, confirm: 'Are you sure you want to delete this family?  All child accounts will be deleted as well.', method: :delete, class: "btn btn-small"
-.row
-  .span7
-    %p
-      -@users.sort_by{|x| x.user_type.to_i }.reverse.each do |user|
-        =render partial: 'card', locals: { user: user }
+=form_for @family do |f|
+  -if @family.errors.any?
+    .text-error
+      #error_explanation
+        = pluralize(@family.errors.count, "error")
+        prohibited this family from being saved:
+        %ul
+          - @family.errors.full_messages.each do |msg|
+            %li= msg
+
+  .span8{align: "center"}
+    %h3.lead
+      %span.title.active-content
+        =@family.name
+      %span.title.hidden-content
+        =f.text_field :name
+      %span.edit{style: "font-size: 12px"}=link_to "(edit family)", edit_family_path(@family), class: 'activate-edit'
+      .muted.family-url{style: "font-size: 14px"}= @access_url
+    -if current_user.user_type >= 10
+      .row
+        .span3
+          = link_to "New Member", new_user_path
+  .row
+    .span7
+      %p
+        -@users.sort_by{|x| x.user_type.to_i }.reverse.each do |user|
+          =render partial: 'card', locals: { user: user }
+
+:javascript
+  $('.hidden-content').hide();
+  $('a.activate-edit').live('click', activateEdit);
+  $('a.deactivate-edit').live('click', deactivateEdit);
+  $('a#delete-user').live('click', deleteUser)
+  function activateEdit(e){
+    e.preventDefault();
+    $(this).parent().html("<a href='#' class='deactivate-edit'>(done editing?)</a>")
+    switchContent();
+  };
+  function deactivateEdit(e){
+    e.preventDefault();
+    $(this).parent().html("<a href='#' class='activate-edit'>(edit family)</a>")
+    $('form.edit_family').submit();
+    switchContent();
+  };
+  function switchContent(){
+    formHtml = $('.title.hidden-content').html();
+    titleHtml = $('.title.active-content').html();
+    $('.title.active-content').html(formHtml);
+    $('.title.hidden-content').html(titleHtml);
+  };
+  function deleteUser(e){
+    current_card = $(this).closest('.family-card')
+    e.preventDefault();
+    $.ajax({
+      url: $(this).attr('href'),
+      type: 'DELETE',
+      success: function(){
+        current_card.slideUp()
+      }
+    });
+  };

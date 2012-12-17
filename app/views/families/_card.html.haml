@@ -1,14 +1,20 @@
-.span8{align: "center"}
+.span8.family-card{align: "center"}
   %div.well.well-small
     .row
       .span2
-        = link_to (image_tag(gravatar_for(user.email == nil || user.email == "" ? user.name : user.email))), user_path(user)
-      .span3
+        =link_to (image_tag(gravatar_for(user.email == nil || user.email == "" ? user.name : user.email))), user_path(user)
+      .span3.user-title
         .lead= link_to user.name, user_path(user)
         -if user.user_type >= 10
           .muted (Parent)
+        -else
+          .muted (Child)
       .span2{id: "credits-#{user.id}"}
         -if user.credits
           %h2.lead
             = user.credits
             credits
+      .span.edit-content
+        =ilink_to 'plus', 'Chore', new_task_path, class: "btn btn-small btn-comment"  
+        =ilink_to 'edit', 'Edit', edit_user_path(user), class: "btn btn-small btn-comment"
+        =ilink_to 'trash', 'Delete', user, confirm: 'Are you sure?', class: "btn btn-small btn-comment", id: 'delete-user'

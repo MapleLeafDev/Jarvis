@@ -8,4 +8,7 @@ class User < ActiveRecord::Base
   has_many :completions, :dependent => :destroy
   has_many :purchases, :dependent => :destroy
   validates_presence_of :name
+
+  # user types 0:children 10:parent 20:family_admin 100:super_admin
+
 end
