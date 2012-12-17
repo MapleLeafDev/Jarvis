@@ -1,4 +1,4 @@
-.span8.family-cards{align: "center"}
+.span8.family-card{align: "center"}
   %div.well.well-small
     .row
       .span2
@@ -17,4 +17,4 @@
       .span.edit-content
         =ilink_to 'plus', 'Chore', new_task_path, class: "btn btn-small btn-comment"  
         =ilink_to 'edit', 'Edit', edit_user_path(user), class: "btn btn-small btn-comment"
-        =ilink_to 'trash', 'Delete', user, confirm: 'Are you sure?', method: :delete, class: "btn btn-small btn-comment"
+        =ilink_to 'trash', 'Delete', user, confirm: 'Are you sure?', class: "btn btn-small btn-comment", id: 'delete-user'

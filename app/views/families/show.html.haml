@@ -16,10 +16,10 @@
         =f.text_field :name
       %span.edit{style: "font-size: 12px"}=link_to "(edit family)", edit_family_path(@family), class: 'activate-edit'
       .muted.family-url{style: "font-size: 14px"}= @access_url
-    / -if current_user.user_type >= 10
-    /   .row
-    /     .span3
-    /       = link_to "New Member", new_user_path
+    -if current_user.user_type >= 10
+      .row
+        .span3
+          = link_to "New Member", new_user_path
   .row
     .span7
       %p
@@ -28,18 +28,16 @@
 
 :javascript
   $('.hidden-content').hide();
-  $('.edit-content').hide();
   $('a.activate-edit').live('click', activateEdit);
   $('a.deactivate-edit').live('click', deactivateEdit);
+  $('a#delete-user').live('click', deleteUser)
   function activateEdit(e){
     e.preventDefault();
-    $('.edit-content').slideDown('fast');
     $(this).parent().html("<a href='#' class='deactivate-edit'>(done editing?)</a>")
     switchContent();
   };
   function deactivateEdit(e){
     e.preventDefault();
-    $('.edit-content').slideUp('fast');
     $(this).parent().html("<a href='#' class='activate-edit'>(edit family)</a>")
     $('form.edit_family').submit();
     switchContent();
@@ -49,4 +47,15 @@
     titleHtml = $('.title.active-content').html();
     $('.title.active-content').html(formHtml);
     $('.title.hidden-content').html(titleHtml);
-  }
+  };
+  function deleteUser(e){
+    current_card = $(this).closest('.family-card')
+    e.preventDefault();
+    $.ajax({
+      url: $(this).attr('href'),
+      type: 'DELETE',
+      success: function(){
+        current_card.slideUp()
+      }
+    });
+  };
