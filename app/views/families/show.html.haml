@@ -21,7 +21,7 @@
         .span3
           = link_to "New Member", new_user_path
   .row
-    .span7
+    .span8
       %p
         -@users.sort_by{|x| x.user_type.to_i }.reverse.each do |user|
           =render partial: 'card', locals: { user: user }
