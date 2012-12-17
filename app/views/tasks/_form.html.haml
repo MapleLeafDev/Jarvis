@@ -66,7 +66,7 @@
       %dd
         Name
       %dd
-        = f.collection_select :user_id, @users, :id, :name, value: ""
+        = f.collection_select :user_id, @users, :id, :name, selected: params[:user_id]
     %dt
       %h5 What?
       %dd

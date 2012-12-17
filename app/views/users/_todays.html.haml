@@ -1,5 +1,5 @@
 %div{id: "todays", hidden: true}
-  .span7
+  .span8
     %h4 Todays Chores
     - todays.group_by(&:period).sort.each do |key, tasks|
       - period = tasks.first.period

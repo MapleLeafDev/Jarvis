@@ -1,4 +1,5 @@
 class FamiliesController < ApplicationController
+  before_filter :is_parent, except: [:my_family]
 
   def show
     @family = Family.find(params[:id])

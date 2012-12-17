@@ -4,11 +4,16 @@ class ApplicationController < ActionController::Base
   helper_method :family
   helper_method :gravatar_for
   helper_method :family_url
+  helper_method :is_parent
 
   private
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+
+  def is_parent
+    redirect_to current_user, alert: "Not authorized" if !current_user.parent
   end
 
   def authorize

@@ -11,4 +11,12 @@ class User < ActiveRecord::Base
 
   # user types 0:children 10:parent 20:family_admin 100:super_admin
 
+  def parent
+    if self.user_type >= 10
+      return true
+    else
+      return false
+    end
+  end
+
 end
