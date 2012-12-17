@@ -18,13 +18,13 @@
       .nav-collapse
         %ul.nav.pull-right
           -if current_user
-            %li.dropdown
-              %a#userdrop.dropdown-toggle{"data-toggle" => "dropdown", :href => "#", :role => "button"}
+            %li.dropdown.userdrop
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
                 %i.icon-user
                 = image_tag(gravatar_for(current_user.email == nil || current_user.email == "" ? current_user.name : current_user.email), size: "30x30")
                 = current_user.name
                 %i.icon-caret-down
-              %ul.dropdown-menu{"aria-labelledby" => "userdrop", :role => "menu"}
+              %ul.dropdown-menu
                 %li
                   =link_to 'Settings', edit_user_path(current_user)
                 %li
@@ -41,3 +41,6 @@
         = render 'layouts/sidebar'
     .span10
       = yield
+
+:javascript
+  $('.dropdown-toggle').dropdown()
