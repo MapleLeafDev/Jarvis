@@ -1,0 +1,40 @@
+.tabbable.tabs-left.hidden-phone
+  %ul.nav.nav-tabs
+    -if params[:controller] == 'users'
+      %li.active
+        =link_to 'Profile', current_user
+    -else
+      %li
+        =link_to 'Profile', current_user
+    -if params[:controller] == 'families'
+      %li.active
+        =link_to 'Family', family_path(current_user.family)
+    -else
+      %li
+        =link_to 'Family', family_path(current_user.family)
+    -if params[:controller] == 'items' || params[:controller] == 'purchases'
+      %li.active
+        =link_to 'Store', items_path
+    -else
+      %li
+        =link_to 'Store', items_path
+.tabtopnav.visible-phone
+  %ul.nav.nav-tabs
+    -if params[:controller] == 'users'
+      %li.active
+        =link_to 'Profile', current_user
+    -else
+      %li
+        =link_to 'Profile', current_user
+    -if params[:controller] == 'families'
+      %li.active
+        =link_to 'Family', family_path(current_user.family)
+    -else
+      %li
+        =link_to 'Family', family_path(current_user.family)
+    -if params[:controller] == 'items' || params[:controller] == 'purchases'
+      %li.active
+        =link_to 'Store', items_path
+    -else
+      %li
+        =link_to 'Store', items_path
