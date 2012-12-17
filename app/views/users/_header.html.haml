@@ -10,7 +10,7 @@
         credits
   -if current_user.user_type >= 10
     .row.span7{align: "right"}
-      =ilink_to 'plus', 'Chore', new_user_task_path(@user), class: "btn btn-small btn-comment"  
+      = link_to ' Chore', new_user_task_path(@user), class: "i icon-plus btn btn-small btn-comment"  
 
   %p
 .span8
