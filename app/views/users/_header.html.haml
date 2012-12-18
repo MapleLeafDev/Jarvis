@@ -14,25 +14,26 @@
 
   %p
 .span8
-  %ul.nav.nav-tabs.visible-desktop.visible-tablet
-    %li.active{id: "stats-tab"}
-      = link_to 'Progress', user_path
-    %li{id: "todays-tab"}
-      = link_to 'Todays', '#', onclick: "showTodays();"
-    %li{id: "weeks-tab"}
-      = link_to 'Weeks', '#', onclick: "showWeeks();"
-    %li{id: "months-tab"}
-      = link_to 'Months', '#', onclick: "showMonths();"
-    %li{id: "all-tab"}
-      = link_to 'All', '#', onclick: "showAll();"
-  %ul.nav.nav-tabs.visible-phone
-    %li.active{id: "s-tab"}
-      = link_to 'P', user_path
-    %li{id: "t-tab"}
-      = link_to 'T', '#', onclick: "showTodays();"
-    %li{id: "w-tab"}
-      = link_to 'W', '#', onclick: "showWeeks();"
-    %li{id: "m-tab"}
-      = link_to 'M', '#', onclick: "showMonths();"
-    %li{id: "a-tab"}
-      = link_to 'A', '#', onclick: "showAll();"
+  .row
+    %ul.nav.nav-tabs.visible-desktop.visible-tablet
+      %li.active{id: "stats-tab"}
+        = link_to 'Progress', user_path
+      %li{id: "todays-tab"}
+        = link_to 'Todays', '#', onclick: "showTodays();"
+      %li{id: "weeks-tab"}
+        = link_to 'Weeks', '#', onclick: "showWeeks();"
+      %li{id: "months-tab"}
+        = link_to 'Months', '#', onclick: "showMonths();"
+      %li{id: "all-tab"}
+        = link_to 'All', '#', onclick: "showAll();"
+    %ul.nav.nav-tabs.visible-phone
+      %li.active{id: "s-tab"}
+        = link_to 'P', user_path
+      %li{id: "t-tab"}
+        = link_to 'T', '#', onclick: "showTodays();"
+      %li{id: "w-tab"}
+        = link_to 'W', '#', onclick: "showWeeks();"
+      %li{id: "m-tab"}
+        = link_to 'M', '#', onclick: "showMonths();"
+      %li{id: "a-tab"}
+        = link_to 'A', '#', onclick: "showAll();"

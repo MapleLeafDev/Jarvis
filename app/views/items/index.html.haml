@@ -6,19 +6,19 @@
       .lead
         = current_user.credits
         credits
+    -if current_user.user_type >= 10
+      .row.span7{align: "right"}
+        = link_to " Item", new_item_path, class: "i icon-plus btn btn-small btn-comment"
   .row
-    .span8
+    .span10
       %ul.nav.nav-tabs
         %li.active
           %a{:href => "#"} Items
         %li
           = link_to 'Purchases', purchases_path
-  -if current_user.user_type >= 10
-    .row
-      .span2
-        = link_to "New Item", new_item_path, class: "btn btn-small"
-        %p
-  .row
+.row
+  .span10
+    %h4 Items
     %p
       -@items.each do |item|
         =render partial: 'item', locals: { item: item }
