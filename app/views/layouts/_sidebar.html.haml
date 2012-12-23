@@ -3,41 +3,65 @@
     %ul.nav.nav-tabs
       -if params[:controller] == 'users'
         %li.active
-          =link_to 'Profile', current_user
+          %a{href: "#{user_path(current_user)}"}
+            %i.icon-user
+            Profile
       -else
         %li
-          =link_to 'Profile', current_user
+          %a{href: "#{user_path(current_user)}"}
+            %i.icon-user
+            Profile
       -if current_user.parent
         -if params[:controller] == 'families'
           %li.active
-            =link_to 'Family', family_path(current_user.family)
+            %a{href: "#{family_path(current_user.family)}"}
+              %i.icon-home
+              Family
         -else
           %li
-            =link_to 'Family', family_path(current_user.family)
+            %a{href: "#{family_path(current_user.family)}"}
+              %i.icon-home
+              Family
       -if params[:controller] == 'items' || params[:controller] == 'purchases'
         %li.active
-          =link_to 'Store', items_path
+          %a{href: "#{items_path}"}
+            %i.icon-gift
+            Store
       -else
         %li
-          =link_to 'Store', items_path
+          %a{href: "#{items_path}"}
+            %i.icon-gift
+            Store
   .tabtopnav.visible-phone
     %ul.nav.nav-tabs
       -if params[:controller] == 'users'
         %li.active
-          =link_to 'Profile', current_user
+          %a{href: "#{user_path(current_user)}"}
+            %i.icon-user
+            Profile
       -else
         %li
-          =link_to 'Profile', current_user
+          %a{href: "#{user_path(current_user)}"}
+            %i.icon-user
+            Profile
       -if current_user.parent
         -if params[:controller] == 'families'
           %li.active
-            =link_to 'Family', family_path(current_user.family)
+            %a{href: "#{family_path(current_user.family)}"}
+              %i.icon-home
+              Family
         -else
           %li
-            =link_to 'Family', family_path(current_user.family)
+            %a{href: "#{family_path(current_user.family)}"}
+              %i.icon-home
+              Family
       -if params[:controller] == 'items' || params[:controller] == 'purchases'
         %li.active
-          =link_to 'Store', items_path
+          %a{href: "#{items_path}"}
+            %i.icon-gift
+            Store
       -else
         %li
-          =link_to 'Store', items_path
+          %a{href: "#{items_path}"}
+            %i.icon-gift
+            Store
