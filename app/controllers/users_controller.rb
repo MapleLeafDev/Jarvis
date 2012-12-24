@@ -68,10 +68,14 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params[:user])    
+    @user = User.new(params[:user])
 
-    if User.find_by_email(@user.email)
-      redirect_to new_user_path, notice: "Email address already used" and return
+    @user.email = @user.email.downcase
+
+    if @user.email != ""
+      if User.find_by_email(@user.email)
+        redirect_to new_user_path, notice: "Email address already used" and return
+      end
     end
 
     if params[:user][:user_type] == "0"
