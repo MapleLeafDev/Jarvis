@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_filter :authorize
-  before_filter :is_parent, except: [:show]
+  # before_filter :authorize, except: [:new]
+  # before_filter :is_parent, except: [:show, :new]
 
   def show
     @user = User.find(params[:id])
@@ -93,6 +93,7 @@ class UsersController < ApplicationController
     @user.email = params[:user][:email]
     @user.password = params[:user][:password]
     @user.password_confirmation = params[:user][:password_confirmation]
+    @user.credits = params[:user][:credits]
 
     if @user.user_type < 20
       if params[:user][:user_type] == "0"
@@ -104,8 +105,13 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { head :no_content }
+        if current_user.family
+          format.html { redirect_to family_path(current_user.family), notice: 'User was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html { redirect_to @user, notice: 'User was successfully updated.' }
+          format.json { head :no_content }
+        end
       else
         format.html { render action: "edit" }
         format.json { render json: @user.errors, status: :unprocessable_entity }
