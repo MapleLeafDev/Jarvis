@@ -1,5 +1,6 @@
 class PurchasesController < ApplicationController
-
+  before_filter :authorize
+  
   def buy_item
     @purchase = Purchase.new
 

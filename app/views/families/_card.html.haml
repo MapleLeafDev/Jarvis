@@ -18,6 +18,7 @@
             .muted (Child)
         %td{align: "right"}
           .span.edit-content
-            =link_to ' Chore', new_user_task_path(user), class: "i icon-plus btn"  
-            =link_to ' Edit', edit_user_path(user), class: "i icon-edit btn"
-            =link_to ' Delete', user, confirm: 'Are you sure?', class: "i icon-trash btn", id: 'delete-user'
+            =link_to ' Chore', new_user_task_path(user), class: "i icon-plus btn"
+            -if current_user.user_type >= 20  
+              =link_to ' Edit', edit_user_path(user), class: "i icon-edit btn"
+              =link_to ' Delete', user, confirm: 'Are you sure?', class: "i icon-trash btn", id: 'delete-user'

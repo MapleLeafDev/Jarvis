@@ -1,5 +1,6 @@
 class FamiliesController < ApplicationController
-  before_filter :is_parent, except: [:my_family]
+  before_filter :authorize, except: [:my_family]
+  before_filter :is_parent, except: [:my_family, :show]
 
   def show
     @family = Family.find(params[:id])
@@ -25,7 +26,7 @@ class FamiliesController < ApplicationController
         @users = Array.new
         FamilyMember.where(family_id: @family.id).each do |member|
           user = User.find_by_id(member.user_id)
-          if user.user_type < 10
+          if user.user_type < 20
             @users << user
           end
         end

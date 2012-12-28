@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_filter :authorize
+  before_filter :is_parent, except: [:show, :index]
 
   def index
     @items = Item.where(family_id: current_user.family.id)

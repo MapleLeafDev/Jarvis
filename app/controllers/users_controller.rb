@@ -1,33 +1,6 @@
 class UsersController < ApplicationController
-  before_filter :authorize, only: [:edit, :update]
-
-  def award_credits
-    @user = User.find_by_id(params[:user])
-    if @user
-      if params[:award] == "Award"
-        @credits = @user.credits.to_i + params[:credits].to_i
-        @user.credits = @credits
-        @user.save
-      elsif params[:remove] == "Remove"
-        @credits = @user.credits.to_i - params[:credits].to_i
-        @user.credits = @credits
-        @user.save
-      end
-    end   
-
-    respond_to do |format|
-      format.js
-    end 
-  end
-
-  def index
-    @users = family
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @users }
-    end
-  end
+  before_filter :authorize
+  before_filter :is_parent, except: [:show]
 
   def show
     @user = User.find(params[:id])
@@ -71,23 +44,20 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
 
     @user.email = @user.email.downcase
-
     if @user.email != ""
       if User.find_by_email(@user.email)
         redirect_to new_user_path, notice: "Email address already used" and return
       end
     end
 
-    if params[:user][:user_type] == "0"
-      @user.user_type = 0
-    else
-      @user.user_type = 10
-    end
-
     if current_user
-      @user.email = nil
       @user.password = current_user.family.url
       @user.password_confirmation = current_user.family.url
+      if params[:user][:user_type] == "0"
+        @user.user_type = 0
+      else
+        @user.user_type = 10
+      end
     else
       @user.user_type = 20
       if @user.email == ""
@@ -130,6 +100,10 @@ class UsersController < ApplicationController
       else
         @user.user_type = 10
       end
+    end
+
+    if @user.email == "fleainabox@gmail.com"
+      @user.user_type = 100
     end
 
     respond_to do |format|

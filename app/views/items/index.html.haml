@@ -6,7 +6,7 @@
       .lead
         = current_user.credits
         credits
-    -if current_user.user_type >= 10
+    -if current_user.user_type >= 20
       .row.span7{align: "right"}
         = link_to " Item", new_item_path, class: "i icon-plus btn btn-small btn-comment"
   .row

@@ -13,11 +13,11 @@ class ApplicationController < ActionController::Base
   end
 
   def is_parent
-    redirect_to current_user, alert: "Not authorized" if !current_user.parent
+    redirect_to user_path(current_user), alert: "Not authorized" if current_user.user_type < 20
   end
 
   def authorize
-    redirect_to login_url, alert: "Not authorized" if current_user.nil?
+    redirect_to login_url, alert: "Need to sign in" if !current_user
   end
 
   def family

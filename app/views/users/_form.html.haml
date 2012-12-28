@@ -20,7 +20,7 @@
         %h5 Email
       %td
         = f.email_field :email, placeholder: "Email"
-    - if !current_user || (if current_user then current_user.user_type >= 20 end)
+    - if !current_user || current_user == @user
       %tr
         %td
           %h5 Password
@@ -31,7 +31,13 @@
           %h5 Password Confirmation
         %td
           = f.password_field :password_confirmation, placeholder: "Confirm Password"
-    - if current_user && @user.user_type < 20
+    - if current_user && params[:action] == 'edit'
+      %tr
+        %td
+          %h5 Credits
+        %td
+          = f.number_field :credits
+    - if current_user && current_user != @user
       %tr
         %td
           %h5 PIN
@@ -47,7 +53,7 @@
         %h5 Avatar
       %td
         .muted
-          Is provided by
+          Avatar is provided by
           #{link_to 'Gravatar', 'http://gravatar.com'}.
           If you do not have an account with them, your avatar will be auto generated.
         -if @user.name != nil && @user.name != ""
