@@ -16,27 +16,44 @@
         %span.icon-bar
       = link_to image_tag("jarvis.png"), '#', class: "brand"
       .nav-collapse
-        %ul.nav.pull-right
-          -if current_user
-            %li.dropdown.userdrop
-              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-                = current_user.name
-                %i.icon-chevron-down
-                = image_tag(gravatar_for(current_user.email == nil || current_user.email == "" ? current_user.name : current_user.email), size: "30x30")
-              %ul.dropdown-menu
-                %li
-                  %a{href: "#{user_path(current_user)}"}
-                    %i.icon-user
-                    Profile
-                -if current_user.parent
+        %div.hidden-phone
+          %ul.nav.pull-right
+            -if current_user
+              %li.dropdown.userdrop
+                %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                  = current_user.name
+                  %i.icon-chevron-down
+                  = image_tag(gravatar_for(current_user.email == nil || current_user.email == "" ? current_user.name : current_user.email), size: "30x30")
+                %ul.dropdown-menu
                   %li
-                    %a{href: "#{edit_user_path(current_user)}"}
-                      %i.icon-edit
-                      Settings
+                    %a{href: "#{user_path(current_user)}"}
+                      %i.icon-user
+                      Profile
+                  -if current_user.parent
+                    %li
+                      %a{href: "#{edit_user_path(current_user)}"}
+                        %i.icon-edit
+                        Settings
+                  %li
+                    %a{href: "#{signout_path}"}
+                      %i.icon-road
+                      Sign Out
+        %div.visible-phone
+          %ul.nav
+            -if current_user
+              %li
+                %a{href: "#{user_path(current_user)}"}
+                  %i.icon-user
+                  Profile
+              -if current_user.parent
                 %li
-                  %a{href: "#{signout_path}"}
-                    %i.icon-road
-                    Sign Out
+                  %a{href: "#{edit_user_path(current_user)}"}
+                    %i.icon-edit
+                    Settings
+              %li
+                %a{href: "#{signout_path}"}
+                  %i.icon-road
+                  Sign Out
     .container{style: "position:fixed; top:55px; right:100px; width:300px;"}
       -if flash.count > 0
         .alert.fade.in.alert-danger{align: "center"}

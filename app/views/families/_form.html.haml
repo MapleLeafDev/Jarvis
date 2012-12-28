@@ -7,18 +7,24 @@
         %ul
           - @family.errors.full_messages.each do |msg|
             %li= msg
-  %dl{class: "dl-horizontal"}
-    %dt
-      .field
-      %h5 New Family Name
-    %dd
-      = f.text_field :name
-    %dd
-      or
-    %dt
-      .field
-      %h5 Existing Family ID
-    %dd
-      = f.text_field :url
-    .actions{align: "right"}
-      = f.submit "Save", class: "btn btn-small btn-success"
+  %table{with: "100%"}
+    %col{width: "40%"}
+    %col{width: "60%"}
+    %tr
+      %td
+        %h5 New Family Name
+      %td
+        = f.text_field :name
+  %h2.lead{align: "center"} Join Existing Family
+  %table{with: "100%"}
+    %col{width: "40%"}
+    %col{width: "60%"}
+    %tr
+      %td
+        %h5 Existing Famiy ID
+      %td
+        = f.text_field :url
+    %tr
+      %td
+      %td
+        = f.submit "Save", class: "btn btn-small btn-success"

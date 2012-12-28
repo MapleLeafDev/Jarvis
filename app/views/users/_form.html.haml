@@ -7,50 +7,52 @@
         %ul
           - @user.errors.full_messages.each do |msg|
             %li= msg
-  %dl{class: "dl-horizontal"}
-    %dt
-      .field
-      %h5 Name
-    %dd
-      = f.text_field :name, placeholder: "Name"
-    %dt
-      .field
-      %h5 Email
-    %dd
-      = f.email_field :email, placeholder: "Email"
-    %div{hidden: current_user ? true : false}
-      %dt
-        .field
-        %h5 Password
-      %dd
-        = f.password_field :password, placeholder: "Password"
-      %dt
-        .field
-        %h5 Password Confirmation
-      %dd
-        = f.password_field :password_confirmation, placeholder: "Confirm Password"
-    -if current_user
-      -if !@user.parent
-        %dt
-          .field
-          %h5 Pin
-        %dd
+  %table{align: "center", width: "100%"}
+    %col{:width => "20%"}
+    %col{:width => "80%"}
+    %tr
+      %td
+        %h5 Name
+      %td
+        = f.text_field :name, placeholder: "Name"
+    %tr
+      %td
+        %h5 Email
+      %td
+        = f.email_field :email, placeholder: "Email"
+    - if !current_user || (if current_user then current_user.user_type >= 20 end)
+      %tr
+        %td
+          %h5 Password
+        %td
+          = f.password_field :password, placeholder: "Password"
+      %tr
+        %td
+          %h5 Password Confirmation
+        %td
+          = f.password_field :password_confirmation, placeholder: "Confirm Password"
+    - if current_user && @user.user_type < 20
+      %tr
+        %td
+          %h5 PIN
+        %td
           = f.text_field :pin, placeholder: "4 digit pin", :maxlength => 4
-        %dt
-          .field
+      %tr
+        %td
           %h5 Parent
-        %dd
+        %td
           = f.check_box :user_type
-    %dt
-      .field
+    %tr
+      %td
         %h5 Avatar
-    %dd
-      -if @user.email == nil && @user.name == nil
+      %td
         .muted
-          Will be pulled from
-          = link_to 'Gravatar', 'http://gravatar.com'
-          using the provided email address or auto generated.
-      -else
-        = image_tag(gravatar_for(@user.email == nil || @user.email == "" ? @user.name : @user.email))
-    .actions{align: "right"}
-      = f.submit "Save", class: "btn btn-small btn-success"
+          Is provided by
+          #{link_to 'Gravatar', 'http://gravatar.com'}.
+          If you do not have an account with them, your avatar will be auto generated.
+        -if @user.name != nil && @user.name != ""
+          = image_tag(gravatar_for(@user.email == nil || @user.email == "" ? @user.name : @user.email))
+    %tr
+      %td
+      %td
+        = f.submit "Save", class: "btn btn-small btn-success"

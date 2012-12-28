@@ -1,20 +1,23 @@
 .family-card{align: "center"}
   %div.well.well-small
-    .row
-      .span2
-        =link_to (image_tag(gravatar_for(user.email == nil || user.email == "" ? user.name : user.email))), user_path(user)
-      .span3.user-title
-        .lead= link_to user.name, user_path(user)
-        -if user.user_type >= 10
-          .muted (Parent)
-        -else
-          .muted (Child)
-      .span2{id: "credits-#{user.id}"}
-        -if user.credits
-          %h2.lead
+    %table{align: "center", width: "100%"}
+      %tr
+        %td{rowspan: "2"}
+          =link_to (image_tag(gravatar_for(user.email == nil || user.email == "" ? user.name : user.email))), user_path(user)
+        %td
+          .lead= link_to user.name, user_path(user)
+        %td{align: "right"}
+          .lead
             = user.credits
             credits
-      .span.edit-content
-        =link_to ' Chore', new_user_task_path(user), class: "i icon-plus btn"  
-        =link_to ' Edit', edit_user_path(user), class: "i icon-edit btn"
-        =link_to ' Delete', user, confirm: 'Are you sure?', class: "i icon-trash btn", id: 'delete-user'
+      %tr
+        %td
+          -if user.user_type >= 10
+            .muted (Parent)
+          -else
+            .muted (Child)
+        %td{align: "right"}
+          .span.edit-content
+            =link_to ' Chore', new_user_task_path(user), class: "i icon-plus btn"  
+            =link_to ' Edit', edit_user_path(user), class: "i icon-edit btn"
+            =link_to ' Delete', user, confirm: 'Are you sure?', class: "i icon-trash btn", id: 'delete-user'

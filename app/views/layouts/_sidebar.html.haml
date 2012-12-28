@@ -1,7 +1,7 @@
 -if params[:controller] != 'home' && params[:action] != 'my_family'
   .tabbable.tabs-left.hidden-phone
     %ul.nav.nav-tabs
-      -if params[:controller] == 'users'
+      -if params[:controller] == 'users' || params[:controller] == 'tasks'
         %li.active
           %a{href: "#{user_path(current_user)}"}
             %i.icon-user
@@ -46,7 +46,7 @@
               Create Family
   .tabtopnav.visible-phone
     %ul.nav.nav-tabs
-      -if params[:controller] == 'users'
+      -if params[:controller] == 'users' || params[:controller] == 'tasks'
         %li.active
           %a{href: "#{user_path(current_user)}"}
             %i.icon-user

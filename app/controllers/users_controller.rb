@@ -88,6 +88,11 @@ class UsersController < ApplicationController
       @user.email = nil
       @user.password = current_user.family.url
       @user.password_confirmation = current_user.family.url
+    else
+      @user.user_type = 20
+      if @user.email == ""
+        redirect_to new_user_path, notice: "Email address required for new accounts" and return
+      end
     end
 
     @user.credits = 0
@@ -116,11 +121,15 @@ class UsersController < ApplicationController
     
     @user.name = params[:user][:name]
     @user.email = params[:user][:email]
+    @user.password = params[:user][:password]
+    @user.password_confirmation = params[:user][:password_confirmation]
 
-    if params[:user][:user_type] == "0"
-      @user.user_type = 0
-    else
-      @user.user_type = 10
+    if @user.user_type < 20
+      if params[:user][:user_type] == "0"
+        @user.user_type = 0
+      else
+        @user.user_type = 10
+      end
     end
 
     respond_to do |format|
