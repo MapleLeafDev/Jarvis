@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_filter :authorize
-  before_filter :is_parent, except: [:show]
+  # before_filter :authorize
+  # before_filter :is_parent, except: [:show]
 
   def show
     @user = User.find(params[:id])
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
     @user.email = @user.email.downcase
     if @user.email != ""
       if User.find_by_email(@user.email)
-        redirect_to new_user_path, notice: "Email address already used" and return
+        redirect_to new_user_path, notice: "Email address already used." and return
       end
     end
 
@@ -61,7 +61,7 @@ class UsersController < ApplicationController
     else
       @user.user_type = 20
       if @user.email == ""
-        redirect_to new_user_path, notice: "Email address required for new accounts" and return
+        redirect_to new_user_path, notice: "Email address required for new accounts." and return
       end
     end
 
@@ -70,7 +70,7 @@ class UsersController < ApplicationController
       if @user.save
         if !current_user
           session[:user_id] = @user.id
-          format.html { redirect_to @user, notice: "Thank you for signing up!" }
+          format.html { redirect_to @user, notice: "Thank you for signing up." }
         else
           family = Family.find_by_id(FamilyMember.find_by_user_id(current_user.id).family_id)
 
