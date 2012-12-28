@@ -102,8 +102,8 @@ class UsersController < ApplicationController
       end
     end
 
-    if @user.email == "fleainabox@gmail.com"
-      @user.user_type = 100
+    if @user.email == "mizisaac79@gmail.com"
+      @user.user_type = 20
     end
 
     respond_to do |format|
