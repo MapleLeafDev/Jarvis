@@ -22,8 +22,7 @@ class TasksController < ApplicationController
   end
 
   def edit
-    @users = User.where(parent_id: current_user.id)
-    @users << current_user
+    @users = family
     @task = Task.find(params[:id])
   end
 

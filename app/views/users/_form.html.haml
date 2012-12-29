@@ -62,7 +62,7 @@
       %td
         %h5 Time Zone
       %td
-        = f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones
+        = f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones, default: ( current_user ? current_user.time_zone : nil)
     %tr
       %td
       %td

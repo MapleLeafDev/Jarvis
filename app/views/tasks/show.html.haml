@@ -43,5 +43,5 @@
     %br
   %p
     = link_to 'Back', :back, class: "btn btn-small"
-    = link_to '', edit_task_path(@task), class: "i icon-edit btn btn-info btn-small"
-    = link_to '', @task, confirm: 'Are you sure?', method: :delete, class: "i icon-remove btn btn-danger btn-small"
+    = link_to ' Edit', edit_task_path(@task), class: "i icon-edit btn"
+    = link_to ' Delete', @task, confirm: 'Are you sure?', method: :delete, class: "i icon-trash btn"
