@@ -9,9 +9,9 @@ class CompletionsController < ApplicationController
 
     @completion.user_id = user.id
     @completion.task_id = task.id
-    @completion.completed = Date.today
+    @completion.completed = Time.zone.today
 
-    if Completion.find_by_user_id_and_task_id_and_completed(user.id, task.id, Date.today) == nil
+    if Completion.find_by_user_id_and_task_id_and_completed(user.id, task.id, Time.zone.today) == nil
       if @completion.save
         user.credits = user.credits.to_i + task.points.to_i
         user.save

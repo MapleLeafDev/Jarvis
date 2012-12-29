@@ -60,5 +60,10 @@
           = image_tag(gravatar_for(@user.email == nil || @user.email == "" ? @user.name : @user.email))
     %tr
       %td
+        %h5 Time Zone
+      %td
+        = f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones
+    %tr
+      %td
       %td
         = f.submit "Save", class: "btn btn-small btn-success"

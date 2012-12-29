@@ -1,13 +1,11 @@
 class UsersController < ApplicationController
-  # before_filter :authorize, except: [:new]
-  # before_filter :is_parent, except: [:show, :new]
+  before_filter :authorize, except: [:new, :create]
 
   def show
     @user = User.find(params[:id])
 
     @todays = Array.new
-    @time = Date.today.to_s
-
+    @time = Time.zone.today.to_s
     date = Date.parse(@time).strftime("%A").downcase
 
     Task.where(daily: true, user_id: @user.id).each do |task|
@@ -94,6 +92,7 @@ class UsersController < ApplicationController
     @user.password = params[:user][:password]
     @user.password_confirmation = params[:user][:password_confirmation]
     @user.credits = params[:user][:credits]
+    @user.time_zone = params[:user][:time_zone]
 
     if @user.user_type < 20
       if params[:user][:user_type] == "0"

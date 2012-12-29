@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121211171759) do
+ActiveRecord::Schema.define(:version => 20121229183711) do
 
   create_table "completions", :force => true do |t|
     t.integer  "user_id"
@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(:version => 20121211171759) do
     t.integer  "user_type"
     t.integer  "pin"
     t.string   "password_digest"
+    t.string   "time_zone"
   end
 
 end

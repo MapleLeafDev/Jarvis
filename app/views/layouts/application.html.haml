@@ -65,7 +65,7 @@
               .alert.fade.in.alert-danger{align: "center"}
                 =content_tag :div, msg, :id => "flash_#{name}"
     %div.visible-phone
-      .container{style: "position:fixed; top:55px; width:auto;"}
+      .container{style: "position:fixed; width:98%;"}
         -if flash.count > 0
           -flash.each do |name, msg|
             -if flash[:notice]

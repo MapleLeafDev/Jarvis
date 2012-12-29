@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  before_filter :set_timezone
+
   helper_method :current_user
   helper_method :family
   helper_method :gravatar_for
@@ -37,5 +39,11 @@ class ApplicationController < ActionController::Base
     id = Digest::MD5::hexdigest email.strip.downcase
     url = 'http://www.gravatar.com/avatar/' + id + '?d=retro'
     return url
+  end
+
+  def set_timezone
+    if current_user
+      Time.zone = current_user.time_zone
+    end
   end
 end
