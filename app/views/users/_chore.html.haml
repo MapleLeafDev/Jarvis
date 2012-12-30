@@ -1,19 +1,23 @@
-.span8{align: "center"}
-  .row
-    .span1
-      %a{class: "badge badge-inverse"}
-        = if task.monthly then 'Monthly' elsif task.weekly then 'Weekly' else 'Daily' end
-    .span1
-      %a{class: "badge badge-#{if task.period == 1 then 'info' elsif task.period == 2 then 'success' elsif task.period == 3 then 'warning' end}"}
-        = if task.period == 1 then 'Morning' elsif task.period == 2 then 'Noon' elsif task.period == 3 then 'Evening' else 'Anytime' end
-    .span5
-      = link_to task.title, task
-  .row
-    .span5.offset2.muted
-      = 'Sun ' if task.sunday
-      = 'Mon ' if task.monday
-      = 'Tue ' if task.tuesday
-      = 'Wed ' if task.wednesday
-      = 'Thu ' if task.thursday
-      = 'Fri ' if task.friday
-      = 'Sat' if task.saturday
+%div.well.well-small{onclick: "location.href='#{task_path(task)}'"}
+  %table{align: "center", width: "100%"}
+    %col{width: "10%"}
+    %col{width: "90%"}
+    %tr
+      %td{align: "center"}
+        %a{class: "badge badge-#{if task.period == 1 then 'info' elsif task.period == 2 then 'success' elsif task.period == 3 then 'warning' end}"}
+          = if task.period == 1 then 'Morning' elsif task.period == 2 then 'Noon' elsif task.period == 3 then 'Evening' else 'Anytime' end
+      %td{align: "center"}
+        = link_to task.title, task
+    %tr
+      %td{align: "center"}
+        %a{class: "badge badge-inverse"}
+          = if task.monthly then 'Monthly' elsif task.weekly then 'Weekly' else 'Daily' end
+      %td{align: "center"}
+        .muted
+          = 'Sun ' if task.sunday
+          = 'Mon ' if task.monday
+          = 'Tue ' if task.tuesday
+          = 'Wed ' if task.wednesday
+          = 'Thu ' if task.thursday
+          = 'Fri ' if task.friday
+          = 'Sat' if task.saturday
