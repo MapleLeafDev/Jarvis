@@ -5,7 +5,7 @@
       %tr
         %td Today
         %td
-          - today_complete = Completion.where(completed: Date.today.to_s, user_id: user.id, task_id: todays.collect(&:id)).count
+          - today_complete = Completion.where(completed: Time.zone.today.to_s, user_id: user.id, task_id: todays.collect(&:id)).count
           = today_complete
           = "/"
           - today_total = todays.select {|t| t[:user_id] == user.id }.count
@@ -17,7 +17,7 @@
       %tr
         %td This Week
         %td
-          - this_week_complete = Completion.where(completed: Date.today.to_s, user_id: user.id, task_id: this_weeks.collect(&:id)).count
+          - this_week_complete = Completion.where(completed: Time.zone.today.to_s, user_id: user.id, task_id: this_weeks.collect(&:id)).count
           = this_week_complete
           = "/"
           - this_week_total = this_weeks.select {|t| t[:user_id] == user.id }.count
@@ -29,7 +29,7 @@
       %tr
         %td This Month
         %td
-          - this_month_complete = Completion.where(completed: Date.today.to_s, user_id: user.id, task_id: this_months.collect(&:id)).count
+          - this_month_complete = Completion.where(completed: Time.zone.today.to_s, user_id: user.id, task_id: this_months.collect(&:id)).count
           = this_month_complete
           = "/"
           - this_month_total = this_months.select {|t| t[:user_id] == user.id }.count
