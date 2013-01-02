@@ -1,5 +1,5 @@
 -if params[:controller] != 'home' && params[:action] != 'my_family'
-  .tabbable.tabs-left.hidden-phone
+  .tabbable.tabs-left.visible-desktop
     %ul.nav.nav-tabs
       -if params[:controller] == 'users' || params[:controller] == 'tasks'
         %li.active
@@ -44,7 +44,7 @@
             %a{href: "#{new_family_path}"}
               %i.icon-home
               Create Family
-  .tabtopnav.visible-phone
+  .tabtopnav.visible-phone.visible-tablet
     %ul.nav.nav-tabs
       -if params[:controller] == 'users' || params[:controller] == 'tasks'
         %li.active

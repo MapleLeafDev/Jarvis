@@ -16,7 +16,7 @@
         %span.icon-bar
       = link_to image_tag("jarvis.png"), '#', class: "brand"
       .nav-collapse
-        %div.hidden-phone
+        %div.visible-desktop
           %ul.nav.pull-right
             -if current_user
               %li.dropdown.userdrop
@@ -38,7 +38,7 @@
                     %a{href: "#{signout_path}"}
                       %i.icon-road
                       Sign Out
-        %div.visible-phone
+        %div.visible-phone.visible-tablet
           %ul.nav
             -if current_user
               %li
@@ -54,7 +54,7 @@
                 %a{href: "#{signout_path}"}
                   %i.icon-road
                   Sign Out
-    %div.hidden-phone
+    %div.visible-desktop
       .container{style: "position:fixed; top:55px; right:55px; width:auto;"}
         -if flash.count > 0
           -flash.each do |name, msg|
@@ -64,7 +64,7 @@
             -else
               .alert.fade.in.alert-danger{align: "center"}
                 =content_tag :div, msg, :id => "flash_#{name}"
-    %div.visible-phone
+    %div.visible-phone.visible-tablet
       .container{style: "position:fixed; width:98%;"}
         -if flash.count > 0
           -flash.each do |name, msg|

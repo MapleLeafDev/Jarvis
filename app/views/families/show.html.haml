@@ -19,9 +19,7 @@
         %span.edit{style: "font-size: 12px"}=link_to "(edit family)", edit_family_path(@family), class: 'activate-edit'
     %a.btn.btn-small{"data-content" => "#{@access_url}", :href => "#", :rel => "popover", "data-placement" => "bottom", "data-animate" => "true", :title => "Use the URL below for child accounts"} Family Access URL
     -if current_user.user_type >= 20
-      .row
-        .span3
-          = link_to "New Member", new_user_path
+      = link_to "New Member", new_user_path, class: 'btn btn-small'
   .row
     .span8
       %p

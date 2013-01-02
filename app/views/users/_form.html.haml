@@ -7,7 +7,7 @@
         %ul
           - @user.errors.full_messages.each do |msg|
             %li= msg
-  %table{align: "center", width: "100%"}
+  %table.visible-desktop{align: "center", width: "100%"}
     %col{:width => "20%"}
     %col{:width => "80%"}
     %tr
@@ -65,5 +65,72 @@
         = f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones, default: ( current_user ? current_user.time_zone : nil)
     %tr
       %td
+      %td
+        = f.submit "Save", class: "btn btn-small btn-success"
+
+  %table.visible-phone.visible-tablet{align: "center", width: "100%"}
+    %tr
+      %td
+        %h5 Name
+    %tr
+      %td
+        = f.text_field :name, placeholder: "Name"
+    %tr
+      %td
+        %h5 Email
+    %tr
+      %td
+        = f.email_field :email, placeholder: "Email"
+    - if !current_user || current_user == @user
+      %tr
+        %td
+          %h5 Password
+      %tr
+        %td
+          = f.password_field :password, placeholder: "Password"
+      %tr
+        %td
+          %h5 Password Confirmation
+      %tr
+        %td
+          = f.password_field :password_confirmation, placeholder: "Confirm Password"
+    - if current_user && params[:action] == 'edit'
+      %tr
+        %td
+          %h5 Credits
+      %tr
+        %td
+          = f.number_field :credits
+    - if current_user && current_user != @user
+      %tr
+        %td
+          %h5 PIN
+      %tr
+        %td
+          = f.text_field :pin, placeholder: "4 digit pin", :maxlength => 4
+      %tr
+        %td
+          %h5 Parent
+      %tr
+        %td
+          = f.check_box :user_type
+    %tr
+      %td
+        %h5 Avatar
+    %tr
+      %td
+        .muted
+          Avatar is provided by
+          #{link_to 'Gravatar', 'http://gravatar.com'}.
+          If you do not have an account with them, your avatar will be auto generated.
+        -if @user.name != nil && @user.name != ""
+          = image_tag(gravatar_for(@user.email == nil || @user.email == "" ? @user.name : @user.email))
+    %tr
+      %td
+        %h5 Time Zone
+    %tr
+      %td
+        = f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones, default: ( current_user ? current_user.time_zone : nil)
+    %tr
       %td
         = f.submit "Save", class: "btn btn-small btn-success"
