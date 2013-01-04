@@ -1,0 +1,9 @@
+.span6
+  %div.well.well-small{align: "center"}
+    %h3.lead
+      %em= @event.name
+    .muted= @event.description
+  %p
+    = link_to 'Back', :back, class: "btn btn-small"
+    = link_to ' Edit', edit_event_path(@event), class: "i icon-edit btn"
+    = link_to ' Delete', @event, confirm: 'Are you sure?', method: :delete, class: "i icon-trash btn"

@@ -7,6 +7,8 @@ gem 'haml'
 gem 'awesome_print'
 gem 'therubyracer'
 gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'jquery-rails'
+gem "simple_calendar", "~> 0.1.1"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -20,8 +22,6 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
-
-gem 'jquery-rails'
 
 group :development do
   gem 'sqlite3'

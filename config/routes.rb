@@ -20,6 +20,8 @@ HomeManager::Application.routes.draw do
     resources :purchases
   end
 
+  resources :events
+
   resources :sessions
   
   root :to => 'home#index'

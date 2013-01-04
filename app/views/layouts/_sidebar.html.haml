@@ -44,48 +44,58 @@
             %a{href: "#{new_family_path}"}
               %i.icon-home
               Create Family
+      -if params[:controller] == 'events'
+        %li.active
+          %a{href: "#{events_path}"}
+            %i.icon-calendar
+            Calendar
+      -else
+        %li
+          %a{href: "#{events_path}"}
+            %i.icon-calendar
+            Calendar
   .tabtopnav.visible-phone.visible-tablet
     %ul.nav.nav-tabs
       -if params[:controller] == 'users' || params[:controller] == 'tasks'
         %li.active
           %a{href: "#{user_path(current_user)}"}
             %i.icon-user
-            Profile
       -else
         %li
           %a{href: "#{user_path(current_user)}"}
             %i.icon-user
-            Profile
       -if current_user.family
         -if current_user.parent
           -if params[:controller] == 'families'
             %li.active
               %a{href: "#{family_path(current_user.family)}"}
                 %i.icon-home
-                Family
           -else
             %li
               %a{href: "#{family_path(current_user.family)}"}
                 %i.icon-home
-                Family
         -if params[:controller] == 'items' || params[:controller] == 'purchases'
           %li.active
             %a{href: "#{items_path}"}
               %i.icon-gift
-              Store
         -else
           %li
             %a{href: "#{items_path}"}
               %i.icon-gift
-              Store
       -else
         -if params[:controller] == 'families'
           %li.active
             %a{href: "#{new_family_path}"}
               %i.icon-home
-              Create Family
         -else
           %li
             %a{href: "#{new_family_path}"}
               %i.icon-home
-              Create Family
+      -if params[:controller] == 'events'
+        %li.active
+          %a{href: "#{events_path}"}
+            %i.icon-calendar
+      -else
+        %li
+          %a{href: "#{events_path}"}
+            %i.icon-calendar

@@ -1,0 +1,32 @@
+= form_for(@event) do |f|
+  - if @event.errors.any?
+    .text-error
+      #error_explanation
+        = pluralize(@event.errors.count, "error")
+        prohibited this event from being saved:
+        %ul
+          - @event.errors.full_messages.each do |msg|
+            %li= msg
+  %dl{class: "dl-horizontal"}
+    %dt
+      .field
+      %h5 Name
+    %dd
+      = f.text_field :name
+    %dt
+      .field
+        %h5 Description
+    %dd
+      = f.text_area :description, rows: "3", maxlength: "255"
+    %dt
+      .field
+        %h5 For
+    %dd
+      = f.collection_select :user_id, @users, :id, :name, selected: params[:user_id]
+    %dt
+      .field
+        %h5 When
+    %dd
+      = f.datetime_select :start_time
+    .actions{align: "right"}
+      = f.submit "Save", class: "btn btn-small btn-success"

@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :tasks, :dependent => :destroy
   has_many :completions, :dependent => :destroy
   has_many :purchases, :dependent => :destroy
+  has_many :events, :dependent => :destroy
   validates_presence_of :name
   validates_presence_of :time_zone
 

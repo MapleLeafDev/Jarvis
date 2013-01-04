@@ -1,0 +1,21 @@
+:javascript
+  function toggle_visibility(name) {
+    var e = document.getElementsByName(name);
+    $(e).toggle();
+  }
+
+.span8
+  = calendar @events, {prev_text: "< ", next_text: " >"} do |event|
+    %div{name: "#{event.user_id}", onclick: "location.href='#{event_path(event)}'", class: "label"}
+      = event.start_time.strftime("%l:%M %p")
+      %br
+      = event.name
+    %p
+.span2
+  = link_to ' Event', new_event_path, class: "i icon-plus btn"
+  %p
+  - family.each do |member|
+    %div.label
+      %input{type: "checkbox", checked: "", onclick: "toggle_visibility(#{member.id});"}
+      = member.name
+    %p
