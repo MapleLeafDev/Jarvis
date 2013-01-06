@@ -6,7 +6,7 @@
 
 .span8
   = calendar @events, {prev_text: "< ", next_text: " >"} do |event|
-    %div{name: "#{event.user_id}", onclick: "location.href='#{event_path(event)}'", class: "label"}
+    %div{name: "#{event.user_id}", onclick: "location.href='#{event_path(event)}'", class: "label label-#{(if event.user_id == family[0].id then "success" elsif event.user_id == family[1].id then "warning" elsif event.user_id == family[2].id then "important" elsif event.user_id == family[3].id then "info" elsif event.user_id == family[4].id then "inverse" else "" end)}"}
       = event.start_time.strftime("%l:%M %p")
       %br
       = event.name
@@ -14,8 +14,9 @@
 .span2
   = link_to ' Event', new_event_path, class: "i icon-plus btn"
   %p
-  - family.each do |member|
-    %div.label
-      %input{type: "checkbox", checked: "", onclick: "toggle_visibility(#{member.id});"}
-      = member.name
-    %p
+  %div.well.well-small
+    - family.each do |member|
+      %div{class: "label label-#{(if member.id == family[0].id then "success" elsif member.id == family[1].id then "warning" elsif member.id == family[2].id then "important" elsif member.id == family[3].id then "info" elsif member.id == family[4].id then "inverse" else "" end)}"}
+        %input{type: "checkbox", checked: "", onclick: "toggle_visibility(#{member.id});"}
+        = member.name
+      %p

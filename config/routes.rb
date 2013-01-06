@@ -18,6 +18,7 @@ HomeManager::Application.routes.draw do
     resources :tasks
     resources :completions
     resources :purchases
+    resources :events
   end
 
   resources :events
