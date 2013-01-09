@@ -27,4 +27,7 @@
             .span2= purchase.user.name
             .span2= Date.parse(purchase.created_at.to_s)
             .span1
-              = link_to 'Refund', purchase, method: :delete, class: "btn btn-small", remote: true
+              -if current_user.user_type >= 10
+                = link_to 'Refund', purchase, method: :delete, class: "btn btn-small", remote: true
+              -else
+                = link_to 'Refund', '#', class: "btn btn-small", disabled: true

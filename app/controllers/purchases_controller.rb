@@ -7,19 +7,23 @@ class PurchasesController < ApplicationController
     user = User.find_by_id(params[:user])
     @item = Item.find_by_id(params[:item])
 
-    @purchase.user_id = user.id
-    @purchase.item_id = @item.id
+    if user.credits > @item.price
+      @purchase.user_id = user.id
+      @purchase.item_id = @item.id
 
-    if @purchase.save
-      @credits = user.credits.to_i - @item.price.to_i
-      user.credits = @credits
-      user.save
+      if @purchase.save
+        @credits = user.credits.to_i - @item.price.to_i
+        user.credits = @credits
+        user.save
 
-      @purchases = Purchase.where(item_id: @item.id).count
-    end
+        @purchases = Purchase.where(item_id: @item.id).count
+      end
 
-    respond_to do |format|
-      format.js
+      respond_to do |format|
+        format.js
+      end
+    else
+      render items_path
     end
   end
 

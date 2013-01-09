@@ -1,17 +1,16 @@
-.span6.well.well-small.lead
+.span6.well.well-small
   %div{align: "center"}
     %h3
       %em= @task.title
     .muted= @task.description
   %br
-    Belongs to:
-    = link_to @task.user.name, @task.user
-  %p
-    Occurs:
+    This chore has been assigned to
+    %b= link_to @task.user.name, @task.user
+    and is to be completed
     %b
-      = 'Daily' if @task.daily
-      = 'Weekly' if @task.weekly
-      = 'Monthly' if @task.monthly
+      = 'daily' if @task.daily
+      = 'weekly' if @task.weekly
+      = 'monthly' if @task.monthly
       = 'Sunday' if @task.sunday
       = 'Monday' if @task.monday
       = 'Tuesday' if @task.tuesday
@@ -19,18 +18,25 @@
       = 'Thursday' if @task.thursday
       = 'Friday' if @task.friday
       = 'Saturday' if @task.saturday
-  %p
-    -if @task.period != 0
-      When:
-      %b
-        = 'Morning' if @task.period == 1
-        = 'Noon' if @task.period == 2
-        = 'Evening' if @task.period == 3
-  %p
-    Credits:
-    %b
-      = @task.points.to_s if @task.points
-  %p
+    -if @task.period == 0
+      at
+      %b anytime.
+    -elsif @task.period == 1
+      in the
+      %b morning.
+    -elsif @task.period == 2
+      at
+      %b noon.
+    -elsif @task.period == 3
+      in the
+      %b evening.
+    -if @task.points > 0
+      Upon completion,
+      = @task.user.name
+      will be awarded
+      %b= @task.points
+      credits.
+  %br
     %em Last completed...
     -if @completions != []
       %table.table
@@ -39,7 +45,7 @@
             %td= completion.completed
             %td= link_to ' Clear', completion, method: :delete, class: "i icon-remove btn btn-small", remote: true
     -else
-      .muted Chore has not been done
+      .muted This chore has not been completed yet.
     %br
   %p
     = link_to 'Back', :back, class: "btn btn-small"

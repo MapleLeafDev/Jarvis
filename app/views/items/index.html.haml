@@ -20,5 +20,5 @@
   .span10
     %h4 Items
     %p
-      -@items.each do |item|
+      -@items.sort_by{ |t| t.price }.each do |item|
         =render partial: 'item', locals: { item: item }

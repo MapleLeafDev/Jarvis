@@ -22,11 +22,11 @@
       .field
         %h5 For
     %dd
-      = f.collection_select :user_id, @users, :id, :name, selected: params[:user_id]
+      = f.collection_select :user_id, (current_user.user_type >= 10 ? @users : [current_user]), :id, :name, selected: params[:user_id]
     %dt
       .field
         %h5 When
     %dd
-      = f.datetime_select :start_time
+      = f.datetime_select :start_time, :default => {:hour => 8, :minute => 0}
     .actions{align: "right"}
       = f.submit "Save", class: "btn btn-small btn-success"

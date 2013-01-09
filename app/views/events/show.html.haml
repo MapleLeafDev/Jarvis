@@ -1,9 +1,17 @@
-.span6
-  %div.well.well-small{align: "center"}
-    %h3.lead
+.span6.well.well-small
+  %div{align: "center"}
+    %h3
       %em= @event.name
     .muted= @event.description
-  %p
+  %br
+    This event is for
+    %b= link_to @event.user.name, @event.user
+    and is on the calendar for
+    %b= @event.start_time.strftime("%A, %B %d")
+    at
+    %b= @event.start_time.strftime("%l:%M %p")
+
+  %br
     = link_to 'Back', :back, class: "btn btn-small"
     = link_to ' Edit', edit_event_path(@event), class: "i icon-edit btn"
     = link_to ' Delete', @event, confirm: 'Are you sure?', method: :delete, class: "i icon-trash btn"
