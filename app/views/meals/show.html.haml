@@ -1,0 +1,18 @@
+.span6.well.well-small
+  %div{align: "center"}
+    %h3
+      %em= @meal.name
+  = link_to ' Ingredient', new_ingredient_path, class: "i icon-plus btn btn-small"
+  %p
+  Ingredients
+  %table.table
+    %tr
+      %th Name
+      %th Quantity
+    - @ingredients.each do |ingredient|
+      %tr
+        %td= ingredient.name
+        %td= ingredient.quantity
+  %p
+  = link_to 'Back', meals_path, class: "btn btn-small"
+  = link_to ' Edit', edit_meal_path(@meal), class: "i icon-edit btn"

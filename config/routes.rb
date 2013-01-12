@@ -1,5 +1,11 @@
 HomeManager::Application.routes.draw do
   
+  resources :ingredients
+
+  resources :meals do
+    resources :ingredients
+  end
+
   resources :families
 
   resources :items do 

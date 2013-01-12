@@ -23,8 +23,6 @@
       -@purchases.each do |purchase|
         %tr{id: "purchase-#{purchase.id}"}
           %td
-            .span2= purchase.item.name
-            .span2= purchase.user.name
             .span2= Date.parse(purchase.created_at.to_s)
             .span1
               -if current_user.user_type >= 10
