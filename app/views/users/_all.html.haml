@@ -1,5 +1,0 @@
-%div{id: "all", hidden: true}
-  .span8
-    %h4 All Chores
-    - all.sort_by{ |t| t.period }.each do |task|
-      = render partial: 'chore', locals: { task: task }

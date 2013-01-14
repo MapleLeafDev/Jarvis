@@ -5,19 +5,42 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     @todays = Array.new
+    @this_weeks = Array.new
+    @this_months = Array.new
+    @all = Array.new
     @time = Time.zone.today.to_s
     date = Date.parse(@time).strftime("%A").downcase
 
-    Task.where(daily: true, user_id: @user.id).each do |task|
-      @todays << task
-    end
-    Task.where(user_id: @user.id, date.intern => true).each do |task|
-      @todays << task
-    end
-    @this_weeks = Task.where(weekly: true, user_id: @user.id)
-    @this_months = Task.where(monthly: true, user_id: @user.id)
+    if @user.user_type >= 10
+      parents.each do |user|
+        Task.where(daily: true, user_id: user.id).each do |task|
+          @todays << task
+        end
+        Task.where(user_id: user.id, date.intern => true).each do |task|
+          @todays << task
+        end
+        Task.where(weekly: true, user_id: user.id).each do |task|
+          @this_weeks << task
+        end
+        Task.where(monthly: true, user_id: user.id).each do |task|
+          @this_months << task
+        end
+        Task.where(user_id: user.id).each do |task|
+          @all << task
+        end
+      end
+    else
+      Task.where(daily: true, user_id: @user.id).each do |task|
+        @todays << task
+      end
+      Task.where(user_id: @user.id, date.intern => true).each do |task|
+        @todays << task
+      end
+      @this_weeks = Task.where(weekly: true, user_id: @user.id)
+      @this_months = Task.where(monthly: true, user_id: @user.id)
 
-    @all = Task.where(user_id: @user.id)
+      @all = Task.where(user_id: @user.id)
+    end
 
     respond_to do |format|
       format.html # show.html.erb

@@ -25,10 +25,6 @@
                   %i.icon-chevron-down
                   = image_tag(gravatar_for(current_user.email == nil || current_user.email == "" ? current_user.name : current_user.email), size: "30x30")
                 %ul.dropdown-menu
-                  %li
-                    %a{href: "#{user_path(current_user)}"}
-                      %i.icon-user
-                      Profile
                   -if current_user.user_type >= 20
                     %li
                       %a{href: "#{edit_user_path(current_user)}"}
@@ -41,10 +37,6 @@
         %div.visible-phone.visible-tablet
           %ul.nav
             -if current_user
-              %li
-                %a{href: "#{user_path(current_user)}"}
-                  %i.icon-user
-                  Profile
               -if current_user.user_type >= 20
                 %li
                   %a{href: "#{edit_user_path(current_user)}"}

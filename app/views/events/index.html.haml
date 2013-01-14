@@ -11,10 +11,13 @@
       %br
       = event.name
     %p
-.span2
-  = link_to ' Event', new_event_path, class: "i icon-plus btn"
-  = link_to ' Meal', meals_path, class: "i icon-plus btn"
+.span2{align: "center"}
   %p
+  = link_to ' Event', new_event_path, class: "i icon-plus btn"
+  -if current_user.user_type >= 10
+    = link_to ' Meal', meals_path, class: "i icon-plus btn"
+  %p
+  .lead Events for...
   %div.well.well-small
     - family.each do |member|
       %div{class: "label label-#{(if member.id == family[0].id then "success" elsif member.id == family[1].id then "warning" elsif member.id == family[2].id then "important" elsif member.id == family[3].id then "info" elsif member.id == family[4].id then "inverse" else "" end)}"}

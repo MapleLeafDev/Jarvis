@@ -20,6 +20,15 @@
       = f.text_area :description, rows: "3", maxlength: "255"
     %dt
       .field
+        %h5 Type
+    %dd
+      = f.radio_button :used_by, "user"
+      Individual
+      = f.radio_button :used_by, "family"
+      Family
+    %br
+    %dt
+      .field
         %h5 Price
     %dd
       = f.text_field :price, class: "input-mini"

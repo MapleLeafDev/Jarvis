@@ -7,7 +7,18 @@ class PurchasesController < ApplicationController
     user = User.find_by_id(params[:user])
     @item = Item.find_by_id(params[:item])
 
-    if user.credits > @item.price
+    if @item.used_by == "family"
+      @purchase.user_id = 0
+      @purchase.item_id = @item.id
+      if @purchase.save
+        children.each do |child|
+          @credits = child.credits.to_i - (@item.price.to_i / children.count)
+          child.credits = @credits
+          child.save
+        end
+        @purchases = Purchase.where(item_id: @item.id).count
+      end
+    elsif user.credits > @item.price
       @purchase.user_id = user.id
       @purchase.item_id = @item.id
 

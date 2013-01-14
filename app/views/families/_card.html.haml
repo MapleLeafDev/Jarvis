@@ -8,8 +8,9 @@
           .lead= link_to user.name, user_path(user)
         %td{align: "right"}
           .lead
-            = user.credits
-            credits
+            -if user.user_type < 10
+              = user.credits
+              credits
       %tr
         %td{align: "center"}
           -if user.user_type >= 10

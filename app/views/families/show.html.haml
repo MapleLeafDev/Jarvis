@@ -15,16 +15,18 @@
         Family
       %span.title.hidden-content
         =f.text_field :name
+      %br
       -if current_user.user_type >= 20
         %span.edit{style: "font-size: 12px"}=link_to "(edit family)", edit_family_path(@family), class: 'activate-edit'
-    %a.btn.btn-small{"data-content" => "#{@access_url}", :href => "#", :rel => "popover", "data-placement" => "bottom", "data-animate" => "true", :title => "Use the URL below for child accounts"} Family Access URL
-    -if current_user.user_type >= 20
-      = link_to "New Member", new_user_path, class: 'btn btn-small'
-  .row
-    .span8
+    =link_to ' Family Access', @access_url, class: "i icon-share-alt btn"
+    .row
       %p
         -@users.sort_by{|x| x.user_type.to_i }.reverse.each do |user|
           =render partial: 'card', locals: { user: user }
+  .span2{align: "center"}
+    %p
+    -if current_user.user_type >= 20
+      = link_to " Member", new_user_path, class: 'i icon-plus btn'
 
 :javascript
   $('.hidden-content').hide();

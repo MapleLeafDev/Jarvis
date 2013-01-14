@@ -1,33 +1,35 @@
 .span8{align: "center"}
-  .row
-    .span5
-      %h2.lead Store
-    .span2.well.well-small{id: "credits"}
+  %h2.lead Store
+  %ul.nav.nav-tabs
+    %li
+      = link_to 'Items', items_path
+    %li.active
+      %a{:href => "#"} Purchases
+  %table.table
+    -@purchases.each do |purchase|
+      %tr{id: "purchase-#{purchase.id}"}
+        %td
+          .span2= purchase.item.name
+          .span2= purchase.user.name
+          .span2= Date.parse(purchase.created_at.to_s)
+          .span1
+            -if current_user.user_type >= 10
+              = link_to 'Refund', purchase, method: :delete, class: "btn btn-small", remote: true
+            -else
+              = link_to 'Refund', '#', class: "btn btn-small", disabled: true
+.span2{align: "center"}
+  %p
+  -if current_user.user_type >= 20
+    = link_to " Item", new_item_path, class: "i icon-plus btn"
+    %p
+  .lead Credits
+  %div.well.well-small
+    -if current_user.user_type < 10
       .lead
-        = current_user.credits
-        credits
-    -if current_user.user_type >= 20
-      .row.span7{align: "right"}
-        = link_to " Item", new_item_path, class: "i icon-plus btn btn-small btn-comment"
-  .row
-    .span10
-      %ul.nav.nav-tabs
-        %li
-          = link_to 'Items', items_path
-        %li.active
-          %a{:href => "#"} Purchases
-.row
-  .span10
-    %h4 Recent Purchases
-    %table.table
-      -@purchases.each do |purchase|
-        %tr{id: "purchase-#{purchase.id}"}
-          %td
-            .span2= purchase.item.name
-            .span2= purchase.user.name
-            .span2= Date.parse(purchase.created_at.to_s)
-            .span1
-              -if current_user.user_type >= 10
-                = link_to 'Refund', purchase, method: :delete, class: "btn btn-small", remote: true
-              -else
-                = link_to 'Refund', '#', class: "btn btn-small", disabled: true
+        =current_user.credits
+    -else
+      %table{width: "100%"}
+        -children.each do |member|
+          %tr
+            %td=member.name
+            %td=member.credits

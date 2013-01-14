@@ -76,15 +76,129 @@
     $('#a-tab').addClass('active');
   }
 
-
-=render 'header'
-
-=render partial: 'stats', locals: {user: @user, todays: @todays, this_weeks: @this_weeks, this_months: @this_months}
-
-=render partial: 'todays', locals: {user: @user, todays: @todays, time: @time}
-
-=render partial: 'weeks', locals: {user: @user, this_weeks: @this_weeks, time: @time}
-
-=render partial: 'months', locals: {user: @user, this_months: @this_months, time: @time}
-
-=render partial: 'all', locals: {user: @user, all: @all, time: @time}
+.span8
+  %div{align: "center"}
+    = image_tag(gravatar_for(@user.email == nil || @user.email == "" ? @user.name : @user.email))
+    .lead= @user.name
+  .row
+    %p
+    %ul.nav.nav-tabs.visible-desktop.visible-tablet
+      %li.active{id: "stats-tab"}
+        = link_to 'Progress', user_path
+      %li{id: "todays-tab"}
+        = link_to 'Todays', '#', onclick: "showTodays();"
+      %li{id: "weeks-tab"}
+        = link_to 'Weeks', '#', onclick: "showWeeks();"
+      %li{id: "months-tab"}
+        = link_to 'Months', '#', onclick: "showMonths();"
+      %li{id: "all-tab"}
+        = link_to 'All', '#', onclick: "showAll();"
+    %ul.nav.nav-tabs.visible-phone
+      %li.active{id: "s-tab"}
+        = link_to 'P', user_path
+      %li{id: "t-tab"}
+        = link_to 'T', '#', onclick: "showTodays();"
+      %li{id: "w-tab"}
+        = link_to 'W', '#', onclick: "showWeeks();"
+      %li{id: "m-tab"}
+        = link_to 'M', '#', onclick: "showMonths();"
+      %li{id: "a-tab"}
+        = link_to 'A', '#', onclick: "showAll();"
+  %div{id: "stats"}
+    %h4 Completion Progress
+    %table.table{align: "center"}
+      %tr
+        %td Today
+        %td
+          - today_complete = Completion.where(completed: Time.zone.today.to_s, user_id: @user.id, task_id: @todays.collect(&:id)).count
+          = today_complete
+          = "/"
+          = @todays.count
+      %tr
+        %td{:colspan => "2"}
+          .progress.progress
+            .bar{:style => "width: #{today_complete.to_f/@todays.count.to_f*100}%;"}
+      %tr
+        %td This Week
+        %td
+          - this_week_complete = Completion.where(completed: Time.zone.today.to_s, user_id: @user.id, task_id: @this_weeks.collect(&:id)).count
+          = this_week_complete
+          = "/"
+          = @this_weeks.count
+      %tr
+        %td{:colspan => "2"}
+          .progress.progress
+            .bar{:style => "width: #{this_week_complete.to_f/@this_weeks.count.to_f*100}%;"}
+      %tr
+        %td This Month
+        %td
+          - this_month_complete = Completion.where(completed: Time.zone.today.to_s, user_id: @user.id, task_id: @this_months.collect(&:id)).count
+          = this_month_complete
+          = "/"
+          = @this_months.count
+      %tr
+        %td{:colspan => "2"}
+          .progress.progress
+            .bar{:style => "width: #{this_month_complete.to_f/@this_months.count.to_f*100}%;"}
+  %div{id: "todays", hidden: true}
+    %h4 Todays Chores
+    - @todays.group_by(&:period).sort.each do |key, tasks|
+      - period = tasks.first.period
+      = if period == 1 then 'Morning' elsif period == 2 then 'Noon' elsif period == 3 then 'Evening' else 'Anytime' end
+      %table.table
+        -tasks.each do |task|
+          %tr
+            %td
+              .span5
+                = link_to task.title, task
+              .span1{ id: "task-#{task.id}" }
+                -if Completion.find_by_user_id_and_task_id_and_completed(@user.id, task.id, @time)
+                  = link_to '', '#', class: "i icon-ok btn btn-block btn-success"
+                -else
+                  = link_to '', complete_task_path(task: task.id, user: @user.id), class: "i icon-ok btn btn-block", remote: true
+  %div{id: "weeks", hidden: true}
+    %h4 This Weeks Chores
+    %table.table
+      - @this_weeks.each do |task|
+        %tr
+          %td
+            .span5
+              = link_to task.title, task
+            .span1{ id: "task-#{task.id}" }
+              -if Completion.find_by_user_id_and_task_id_and_completed(@user.id, task.id, @time)
+                = link_to '', '#', class: "i icon-ok btn btn-block btn-success"
+              -else
+                = link_to '', complete_task_path(task: task.id, user: @user.id), class: "i icon-ok btn btn-block", remote: true
+  %div{id: "months", hidden: true}
+    %h4 This Months Chores
+    %table.table
+      - @this_months.each do |task|
+        %tr
+          %td
+            .span5
+              = link_to task.title, task
+            .span1{ id: "task-#{task.id}" }
+              -if Completion.find_by_user_id_and_task_id_and_completed(@user.id, task.id, @time)
+                = link_to '', '#', class: "i icon-ok btn btn-block btn-success"
+              -else
+                = link_to '', complete_task_path(task: task.id, user: @user.id), class: "i icon-ok btn btn-block", remote: true
+  %div{id: "all", hidden: true}
+    %h4 All Chores
+    - @all.sort_by{ |t| t.period }.each do |task|
+      = render partial: 'chore', locals: { task: task }
+.span2{align: "center"}
+  %p
+  -if current_user.user_type >= 20
+    = link_to " Chore", new_task_path, class: "i icon-plus btn"
+    %p
+  .lead Credits
+  %div.well.well-small
+    -if current_user.user_type < 10
+      .lead
+        =current_user.credits
+    -else
+      %table{width: "100%"}
+        -children.each do |member|
+          %tr
+            %td=member.name
+            %td=member.credits

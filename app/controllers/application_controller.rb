@@ -7,11 +7,17 @@ class ApplicationController < ActionController::Base
   helper_method :gravatar_for
   helper_method :family_url
   helper_method :is_parent
+  helper_method :children
+  helper_method :parents
 
   private
 
   def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    if session[:user_id]
+      if User.find_by_id(session[:user_id]) != nil
+        @current_user = User.find_by_id(session[:user_id])
+      end
+    end
   end
 
   def is_parent
@@ -28,6 +34,36 @@ class ApplicationController < ActionController::Base
       memberships = FamilyMember.where(family_id: current_user.family.id)
       memberships.each do |membership|
         users << User.find_by_id(membership.user_id)
+      end
+    else
+      users << current_user
+    end
+    return users
+  end
+
+  def children
+    users = Array.new
+    if current_user.family
+      memberships = FamilyMember.where(family_id: current_user.family.id)
+      memberships.each do |membership|
+        member = User.find_by_id(membership.user_id)
+        if member.user_type < 10
+          users << member
+        end
+      end
+    end
+    return users
+  end
+
+  def parents
+    users = Array.new
+    if current_user.family
+      memberships = FamilyMember.where(family_id: current_user.family.id)
+      memberships.each do |membership|
+        member = User.find_by_id(membership.user_id)
+        if member.user_type >= 10
+          users << member
+        end
       end
     else
       users << current_user
