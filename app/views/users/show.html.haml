@@ -153,9 +153,9 @@
                 = link_to task.title, task
               .span1{ id: "task-#{task.id}" }
                 -if Completion.find_by_user_id_and_task_id_and_completed(@user.id, task.id, @time)
-                  = link_to '', '#', class: "i icon-ok btn btn-block btn-success"
+                  = link_to '', '#', class: "i icon-ok btn btn-success"
                 -else
-                  = link_to '', complete_task_path(task: task.id, user: @user.id), class: "i icon-ok btn btn-block", remote: true
+                  = link_to '', complete_task_path(task: task.id, user: @user.id), class: "i icon-ok btn", remote: true
   %div{id: "weeks", hidden: true}
     %h4 This Weeks Chores
     %table.table
@@ -166,9 +166,9 @@
               = link_to task.title, task
             .span1{ id: "task-#{task.id}" }
               -if Completion.find_by_user_id_and_task_id_and_completed(@user.id, task.id, @time)
-                = link_to '', '#', class: "i icon-ok btn btn-block btn-success"
+                = link_to '', '#', class: "i icon-ok btn btn-success"
               -else
-                = link_to '', complete_task_path(task: task.id, user: @user.id), class: "i icon-ok btn btn-block", remote: true
+                = link_to '', complete_task_path(task: task.id, user: @user.id), class: "i icon-ok btn", remote: true
   %div{id: "months", hidden: true}
     %h4 This Months Chores
     %table.table
@@ -179,9 +179,9 @@
               = link_to task.title, task
             .span1{ id: "task-#{task.id}" }
               -if Completion.find_by_user_id_and_task_id_and_completed(@user.id, task.id, @time)
-                = link_to '', '#', class: "i icon-ok btn btn-block btn-success"
+                = link_to '', '#', class: "i icon-ok btn btn-success"
               -else
-                = link_to '', complete_task_path(task: task.id, user: @user.id), class: "i icon-ok btn btn-block", remote: true
+                = link_to '', complete_task_path(task: task.id, user: @user.id), class: "i icon-ok btn", remote: true
   %div{id: "all", hidden: true}
     %h4 All Chores
     - @all.sort_by{ |t| t.period }.each do |task|
