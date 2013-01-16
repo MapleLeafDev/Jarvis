@@ -28,6 +28,10 @@ class CompletionsController < ApplicationController
     if @completion.destroy
       user.credits = user.credits.to_i - task.points.to_i
       user.save
+
+      respond_to do |format|
+        format.js { render js: @completion }
+      end
     end
   end
 end
