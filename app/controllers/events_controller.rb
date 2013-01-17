@@ -22,6 +22,10 @@ class EventsController < ApplicationController
     @event = Event.new
     @users = family
 
+    if params[:start_time]
+      @event.start_time = "#{params[:start_time]} 8:00AM"
+    end
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @event }
