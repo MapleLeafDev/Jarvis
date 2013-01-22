@@ -4,9 +4,11 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
 
+    @as_needed = Hash.new
     @todays = Array.new
-    @as_needed = Array.new
+    temp = Array.new
     @all = Array.new
+    @overdue = Array.new
     @time = Time.zone.today.to_s
     date = Date.parse(@time).strftime("%A").downcase
 
@@ -19,10 +21,10 @@ class UsersController < ApplicationController
           @todays << task
         end
         Task.where(weekly: true, user_id: user.id).each do |task|
-          @as_needed << task
+          temp << task
         end
         Task.where(monthly: true, user_id: user.id).each do |task|
-          @as_needed << task
+          temp << task
         end
         Task.where(user_id: user.id).each do |task|
           @all << task
@@ -36,12 +38,30 @@ class UsersController < ApplicationController
         @todays << task
       end
       Task.where(weekly: true, user_id: user.id).each do |task|
-        @as_needed << task
+        temp << task
       end
       Task.where(monthly: true, user_id: user.id).each do |task|
-        @as_needed << task
+        temp << task
       end
       @all = Task.where(user_id: @user.id)
+    end
+
+    temp.each do |task|
+      if task.completions.count > 0
+        completed = task.completions.last.completed
+        @as_needed["#{completed}-#{task.id}"] = task
+        last_done = (Date.today - Date.parse(completed)).to_i
+        if (task.monthly && last_done > 30) || (task.weekly && last_done > 7)
+          @overdue << task
+        end
+      else
+        @as_needed["9999-99-99-#{task.id}"] = task
+        completed = task.created_at.to_s
+        last_done = (Date.today - Date.parse(completed)).to_i
+        if (task.monthly && last_done > 30) || (task.weekly && last_done > 7)
+          @overdue << task
+        end
+      end
     end
 
     respond_to do |format|

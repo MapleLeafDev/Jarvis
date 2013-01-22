@@ -73,19 +73,27 @@
       %li{id: "a-tab"}
         = link_to 'All', '#', onclick: "showAll();"
   %div{id: "stats"}
-    %h4 Completion Progress
-    %table.table{align: "center"}
+    %h4 Progress for Today
+    %div
+      - today_complete = Completion.where(completed: Time.zone.today.to_s, user_id: @user.id, task_id: @todays.collect(&:id)).count
+      - percent_done = today_complete.to_f/@todays.count.to_f*100
+      = today_complete
+      = "/"
+      = @todays.count
+      %p
+        .progress{class: "progress progress-striped progress-#{if percent_done <= 33 then 'danger' elsif percent_done > 33 && percent_done <= 66 then 'warning' else 'success' end}"}
+          .bar{:style => "width: #{percent_done}%;"}
+    %h4 Overdue
+    %table.table
+      %col{:width => "25%"}
+      %col{:width => "75%"}
       %tr
-        %td Today
-        %td
-          - today_complete = Completion.where(completed: Time.zone.today.to_s, user_id: @user.id, task_id: @todays.collect(&:id)).count
-          = today_complete
-          = "/"
-          = @todays.count
-      %tr
-        %td{:colspan => "2"}
-          .progress.progress
-            .bar{:style => "width: #{today_complete.to_f/@todays.count.to_f*100}%;"}
+        %th Days
+        %th Chore
+      - @overdue.sort.each do |task|
+        %tr
+          %td= if task.completions.count > 0 then (Date.today - Date.parse(task.completions.last.completed)).to_i else (Date.today - Date.parse(task.created_at)).to_i  end
+          %td= link_to task.title, task
   %div{id: "todays", hidden: true}
     %h4 Todays Chores
     - @todays.group_by(&:period).sort.each do |key, tasks|
@@ -105,16 +113,20 @@
   %div{id: "needed", hidden: true}
     %h4 As Needed Chores
     %table.table
-      - @as_needed.each do |task|
+      %col{:width => "25%"}
+      %col{:width => "75%"}
+      %tr
+        %th Days
+        %th Chore
+      - @as_needed.sort.each do |task|
         %tr
           %td
-            .span5
-              = link_to task.title, task
-            .span1{ id: "task-#{task.id}" }
-              -if Completion.find_by_user_id_and_task_id_and_completed(@user.id, task.id, @time)
-                = link_to '', '#', class: "i icon-ok btn btn-success"
-              -else
-                = link_to '', complete_task_path(task: task.id, user: @user.id), class: "i icon-ok btn", remote: true
+            = if task[1].completions.count > 0 then (Date.today - Date.parse(task[0]) ).to_i else 'Not Done' end
+          %td
+            .span4
+              = link_to task[1].title, task[1]
+            .span1{ id: "task-#{task[1].id}" }
+              = link_to '', complete_task_path(task: task[1].id, user: @user.id), class: "i icon-ok btn", remote: true
   %div{id: "all", hidden: true}
     %h4 All Chores
     - @all.sort_by{ |t| t.period }.each do |task|
