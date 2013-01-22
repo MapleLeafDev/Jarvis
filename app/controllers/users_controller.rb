@@ -37,10 +37,10 @@ class UsersController < ApplicationController
       Task.where(user_id: @user.id, date.intern => true).each do |task|
         @todays << task
       end
-      Task.where(weekly: true, user_id: user.id).each do |task|
+      Task.where(weekly: true, user_id: @user.id).each do |task|
         temp << task
       end
-      Task.where(monthly: true, user_id: user.id).each do |task|
+      Task.where(monthly: true, user_id: @user.id).each do |task|
         temp << task
       end
       @all = Task.where(user_id: @user.id)
