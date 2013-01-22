@@ -1,3 +1,8 @@
+:javascript
+  $(document).ready(function(){
+    $("#start_time").datepicker({ dateFormat: 'yy-mm-dd' });
+  });
+
 = form_for(@event) do |f|
   - if @event.errors.any?
     .text-error
@@ -27,6 +32,6 @@
       .field
         %h5 When
     %dd
-      = f.datetime_select :start_time, :default => {:hour => 8, :minute => 0}
+      = f.text_field :start_time
     .actions{align: "right"}
       = f.submit "Save", class: "btn btn-small btn-success"

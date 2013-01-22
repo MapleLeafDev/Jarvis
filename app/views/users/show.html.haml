@@ -3,57 +3,32 @@
     event.preventDefault();
     $('#stats').hide();
     $('#todays').show();
-    $('#weeks').hide();
-    $('#months').hide();
+    $('#needed').hide();
     $('#all').hide();
     $('#stats-tab').removeClass('active');
     $('#todays-tab').addClass('active');
-    $('#weeks-tab').removeClass('active');
-    $('#months-tab').removeClass('active');
+    $('#needed-tab').removeClass('active');
     $('#all-tab').removeClass('active');
     $('#s-tab').removeClass('active');
     $('#t-tab').addClass('active');
-    $('#w-tab').removeClass('active');
-    $('#m-tab').removeClass('active');
+    $('#n-tab').removeClass('active');
     $('#a-tab').removeClass('active');
 
   }
 
-  function showWeeks(){
+  function showNeeded(){
     event.preventDefault();
     $('#stats').hide();
     $('#todays').hide();
-    $('#weeks').show();
-    $('#months').hide();
+    $('#needed').show();
     $('#all').hide();
     $('#stats-tab').removeClass('active');
     $('#todays-tab').removeClass('active');
-    $('#weeks-tab').addClass('active');
-    $('#months-tab').removeClass('active');
+    $('#needed-tab').addClass('active');
     $('#all-tab').removeClass('active');
     $('#s-tab').removeClass('active');
     $('#t-tab').removeClass('active');
-    $('#w-tab').addClass('active');
-    $('#m-tab').removeClass('active');
-    $('#a-tab').removeClass('active');
-  }
-
-  function showMonths(){
-    event.preventDefault()
-    $('#stats').hide();
-    $('#todays').hide();
-    $('#weeks').hide();
-    $('#months').show();
-    $('#all').hide();
-    $('#stats-tab').removeClass('active');
-    $('#todays-tab').removeClass('active');
-    $('#weeks-tab').removeClass('active');
-    $('#months-tab').addClass('active');
-    $('#all-tab').removeClass('active');
-    $('#s-tab').removeClass('active');
-    $('#t-tab').removeClass('active');
-    $('#w-tab').removeClass('active');
-    $('#m-tab').addClass('active');
+    $('#n-tab').addClass('active');
     $('#a-tab').removeClass('active');
   }
 
@@ -61,18 +36,15 @@
     event.preventDefault()
     $('#stats').hide();
     $('#todays').hide();
-    $('#weeks').hide();
-    $('#months').hide();
+    $('#needed').hide();
     $('#all').show();
     $('#stats-tab').removeClass('active');
     $('#todays-tab').removeClass('active');
-    $('#weeks-tab').removeClass('active');
-    $('#months-tab').removeClass('active');
+    $('#needed-tab').removeClass('active');
     $('#all-tab').addClass('active');
     $('#s-tab').removeClass('active');
     $('#t-tab').removeClass('active');
-    $('#w-tab').removeClass('active');
-    $('#m-tab').removeClass('active');
+    $('#n-tab').removeClass('active');
     $('#a-tab').addClass('active');
   }
 
@@ -84,26 +56,22 @@
     %p
     %ul.nav.nav-tabs.visible-desktop.visible-tablet
       %li.active{id: "stats-tab"}
-        = link_to 'Progress', user_path
+        = link_to 'Status', user_path
       %li{id: "todays-tab"}
         = link_to 'Todays', '#', onclick: "showTodays();"
-      %li{id: "weeks-tab"}
-        = link_to 'Weeks', '#', onclick: "showWeeks();"
-      %li{id: "months-tab"}
-        = link_to 'Months', '#', onclick: "showMonths();"
+      %li{id: "needed-tab"}
+        = link_to 'As Needed', '#', onclick: "showNeeded();"
       %li{id: "all-tab"}
         = link_to 'All', '#', onclick: "showAll();"
     %ul.nav.nav-tabs.visible-phone
       %li.active{id: "s-tab"}
-        = link_to 'P', user_path
+        = link_to 'Status', user_path
       %li{id: "t-tab"}
-        = link_to 'T', '#', onclick: "showTodays();"
-      %li{id: "w-tab"}
-        = link_to 'W', '#', onclick: "showWeeks();"
-      %li{id: "m-tab"}
-        = link_to 'M', '#', onclick: "showMonths();"
+        = link_to 'Todays', '#', onclick: "showTodays();"
+      %li{id: "n-tab"}
+        = link_to 'Needed', '#', onclick: "showNeeded();"
       %li{id: "a-tab"}
-        = link_to 'A', '#', onclick: "showAll();"
+        = link_to 'All', '#', onclick: "showAll();"
   %div{id: "stats"}
     %h4 Completion Progress
     %table.table{align: "center"}
@@ -118,28 +86,6 @@
         %td{:colspan => "2"}
           .progress.progress
             .bar{:style => "width: #{today_complete.to_f/@todays.count.to_f*100}%;"}
-      %tr
-        %td This Week
-        %td
-          - this_week_complete = Completion.where(completed: Time.zone.today.to_s, user_id: @user.id, task_id: @this_weeks.collect(&:id)).count
-          = this_week_complete
-          = "/"
-          = @this_weeks.count
-      %tr
-        %td{:colspan => "2"}
-          .progress.progress
-            .bar{:style => "width: #{this_week_complete.to_f/@this_weeks.count.to_f*100}%;"}
-      %tr
-        %td This Month
-        %td
-          - this_month_complete = Completion.where(completed: Time.zone.today.to_s, user_id: @user.id, task_id: @this_months.collect(&:id)).count
-          = this_month_complete
-          = "/"
-          = @this_months.count
-      %tr
-        %td{:colspan => "2"}
-          .progress.progress
-            .bar{:style => "width: #{this_month_complete.to_f/@this_months.count.to_f*100}%;"}
   %div{id: "todays", hidden: true}
     %h4 Todays Chores
     - @todays.group_by(&:period).sort.each do |key, tasks|
@@ -156,23 +102,10 @@
                   = link_to '', '#', class: "i icon-ok btn btn-success"
                 -else
                   = link_to '', complete_task_path(task: task.id, user: @user.id), class: "i icon-ok btn", remote: true
-  %div{id: "weeks", hidden: true}
-    %h4 This Weeks Chores
+  %div{id: "needed", hidden: true}
+    %h4 As Needed Chores
     %table.table
-      - @this_weeks.each do |task|
-        %tr
-          %td
-            .span5
-              = link_to task.title, task
-            .span1{ id: "task-#{task.id}" }
-              -if Completion.find_by_user_id_and_task_id_and_completed(@user.id, task.id, @time)
-                = link_to '', '#', class: "i icon-ok btn btn-success"
-              -else
-                = link_to '', complete_task_path(task: task.id, user: @user.id), class: "i icon-ok btn", remote: true
-  %div{id: "months", hidden: true}
-    %h4 This Months Chores
-    %table.table
-      - @this_months.each do |task|
+      - @as_needed.each do |task|
         %tr
           %td
             .span5

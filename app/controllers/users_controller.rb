@@ -5,8 +5,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     @todays = Array.new
-    @this_weeks = Array.new
-    @this_months = Array.new
+    @as_needed = Array.new
     @all = Array.new
     @time = Time.zone.today.to_s
     date = Date.parse(@time).strftime("%A").downcase
@@ -20,10 +19,10 @@ class UsersController < ApplicationController
           @todays << task
         end
         Task.where(weekly: true, user_id: user.id).each do |task|
-          @this_weeks << task
+          @as_needed << task
         end
         Task.where(monthly: true, user_id: user.id).each do |task|
-          @this_months << task
+          @as_needed << task
         end
         Task.where(user_id: user.id).each do |task|
           @all << task
@@ -36,9 +35,12 @@ class UsersController < ApplicationController
       Task.where(user_id: @user.id, date.intern => true).each do |task|
         @todays << task
       end
-      @this_weeks = Task.where(weekly: true, user_id: @user.id)
-      @this_months = Task.where(monthly: true, user_id: @user.id)
-
+      Task.where(weekly: true, user_id: user.id).each do |task|
+        @as_needed << task
+      end
+      Task.where(monthly: true, user_id: user.id).each do |task|
+        @as_needed << task
+      end
       @all = Task.where(user_id: @user.id)
     end
 
