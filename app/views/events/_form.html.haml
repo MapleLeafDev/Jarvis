@@ -1,4 +1,11 @@
 :javascript
+  $(function() {
+    $('#datetimepicker2').datetimepicker({
+      language: 'en',
+      pick24HourFormat: true
+    });
+  });
+
   $(document).ready(function(){
     $('#datepicker').datepicker();
   });
@@ -44,9 +51,9 @@
       .field
       %h5 When
     %dd
-      #datepicker.date{"data-date" => "dateValue: Event.Date", "data-date-format" => "yyyy/mm/dd"}
+      #datetimepicker2.input-append
         %span.add-on
-          %i.icon-calendar
-        %input{name: 'start_time', :type => "text", value: (@event ? @event.start_time : params['start_time'])}/
+          %i{"data-date-icon" => "icon-calendar", "data-time-icon" => "icon-time"}
+        %input{name: "start_time", "data-format" => "yyyy-MM-dd HH:mm:ss PP", :type => "text", value: (@event ? @event.start_time : (params['start_time'] ? Date.parse(params['start_time']) : ''))}
     .actions{align: "right"}
       = f.submit "Save", class: "btn btn-small btn-success"

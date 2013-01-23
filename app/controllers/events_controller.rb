@@ -41,12 +41,13 @@ class EventsController < ApplicationController
     @event = Event.new(params[:event])
 
     @event.start_time = params[:start_time]
-    
+
     respond_to do |format|
       if @event.save
         format.html { redirect_to events_path, notice: 'Event was successfully created.' }
         format.json { render json: @event, status: :created, location: @event }
       else
+        @users = family
         format.html { render action: "new" }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
@@ -70,6 +71,6 @@ class EventsController < ApplicationController
   def destroy
     @event = Event.find(params[:id])
     @event.destroy
-
+    redirect_to events_path
   end
 end
