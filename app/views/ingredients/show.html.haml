@@ -1,0 +1,18 @@
+.span6.well.well-small
+  %div{align: "center"}
+    %h3
+      %em= @ingredient.name
+  %p
+    %b Name:
+    = @ingredient.name
+  %p
+    %b Category:
+    = @ingredient.category
+  %p
+    %b Quantity:
+    = @ingredient.quantity
+  %p
+    %b Meal:
+    = @ingredient.meal_id
+  = link_to 'Edit', edit_ingredient_path(@ingredient)
+  = link_to 'Back', ingredients_path

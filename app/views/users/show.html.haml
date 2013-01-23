@@ -83,17 +83,23 @@
       %p
         .progress{class: "progress progress-striped progress-#{if percent_done <= 33 then 'danger' elsif percent_done > 33 && percent_done <= 66 then 'warning' else 'success' end}"}
           .bar{:style => "width: #{percent_done}%;"}
-    %h4 Overdue
-    %table.table
-      %col{:width => "25%"}
-      %col{:width => "75%"}
-      %tr
-        %th Days
-        %th Chore
-      - @overdue.sort.each do |task|
+    - if @overdue.count > 0
+      %h4 Overdue
+      %table.table
+        %col{:width => "10%"}
+        %col{:width => "10%"}
+        %col{:width => "80%"}
         %tr
-          %td= if task.completions.count > 0 then (Date.today - Date.parse(task.completions.last.completed)).to_i else (Date.today - Date.parse(task.created_at)).to_i  end
-          %td= link_to task.title, task
+          %th Days
+          %th
+          %th Chore
+        - @overdue.sort.each do |task|
+          %tr
+            %td= if task.completions.count > 0 then (Date.today - Date.parse(task.completions.last.completed)).to_i else (Date.today - Date.parse(task.created_at)).to_i  end
+            %td
+              %a{class: "badge badge-inverse"}
+                = if task.monthly then 'Monthly' else 'Weekly' end
+            %td= link_to task.title, task
   %div{id: "todays", hidden: true}
     %h4 Todays Chores
     - @todays.group_by(&:period).sort.each do |key, tasks|
@@ -113,15 +119,20 @@
   %div{id: "needed", hidden: true}
     %h4 As Needed Chores
     %table.table
-      %col{:width => "25%"}
-      %col{:width => "75%"}
+      %col{:width => "10%"}
+      %col{:width => "10%"}
+      %col{:width => "80%"}
       %tr
         %th Days
+        %th
         %th Chore
       - @as_needed.sort.each do |task|
         %tr
           %td
             = if task[1].completions.count > 0 then (Date.today - Date.parse(task[0]) ).to_i else 'Not Done' end
+          %td
+            %a{class: "badge badge-inverse"}
+              = if task[1].monthly then 'Monthly' else 'Weekly' end
           %td
             .span4
               = link_to task[1].title, task[1]

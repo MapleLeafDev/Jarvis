@@ -26,8 +26,6 @@ class PurchasesController < ApplicationController
         @credits = user.credits.to_i - @item.price.to_i
         user.credits = @credits
         user.save
-
-        @purchases = Purchase.where(item_id: @item.id).count
       end
 
       respond_to do |format|

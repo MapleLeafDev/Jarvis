@@ -31,6 +31,10 @@
   %p
   .lead Events for...
   %div.well.well-small
+    %div{class: "label"}
+      %input{type: "checkbox", checked: "", onclick: "toggle_visibility('meal');"}
+        Meals
+    %p
     - family.each do |member|
       %div{class: "label label-#{(if member.id == family[0].id then "success" elsif member.id == family[1].id then "warning" elsif member.id == family[2].id then "important" elsif member.id == family[3].id then "info" elsif member.id == family[4].id then "inverse" else "" end)}"}
         %input{type: "checkbox", checked: "", onclick: "toggle_visibility(#{member.id});"}

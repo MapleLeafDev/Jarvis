@@ -1,0 +1,13 @@
+.span8
+  .lead{align: "center"} Recipe Box
+  %table.table
+    %col{:width => "60%"}
+    %col{:width => "40%"}
+    - @meals.each do |meal|
+      %tr
+        %td= link_to meal.name, meal
+        %td{align: "center"}
+          = link_to ' Edit', edit_meal_path(meal), class: "i icon-edit btn btn-small"
+          = link_to ' Delete', meal, confirm: 'Are you sure?', method: :delete, class: "i icon-trash btn btn-small"
+.span2
+  = link_to ' Meal', new_meal_path, class: "i icon-plus btn"

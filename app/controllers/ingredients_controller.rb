@@ -1,10 +1,4 @@
 class IngredientsController < ApplicationController
-  # GET /ingredients
-  # GET /ingredients.json
-
-  def add_ingredient
-    
-  end
   
   def index
     @ingredients = Ingredient.all
@@ -15,8 +9,6 @@ class IngredientsController < ApplicationController
     end
   end
 
-  # GET /ingredients/1
-  # GET /ingredients/1.json
   def show
     @ingredient = Ingredient.find(params[:id])
 
@@ -26,10 +18,10 @@ class IngredientsController < ApplicationController
     end
   end
 
-  # GET /ingredients/new
-  # GET /ingredients/new.json
   def new
     @ingredient = Ingredient.new
+
+    @ingredient.meal_id = params[:meal]
 
     respond_to do |format|
       format.html # new.html.erb
@@ -37,19 +29,16 @@ class IngredientsController < ApplicationController
     end
   end
 
-  # GET /ingredients/1/edit
   def edit
     @ingredient = Ingredient.find(params[:id])
   end
 
-  # POST /ingredients
-  # POST /ingredients.json
   def create
     @ingredient = Ingredient.new(params[:ingredient])
 
     respond_to do |format|
       if @ingredient.save
-        format.html { redirect_to @ingredient, notice: 'Ingredient was successfully created.' }
+        format.html { redirect_to @ingredient.meal, notice: 'Ingredient was successfully created.' }
         format.json { render json: @ingredient, status: :created, location: @ingredient }
       else
         format.html { render action: "new" }
@@ -58,8 +47,6 @@ class IngredientsController < ApplicationController
     end
   end
 
-  # PUT /ingredients/1
-  # PUT /ingredients/1.json
   def update
     @ingredient = Ingredient.find(params[:id])
 
@@ -74,8 +61,6 @@ class IngredientsController < ApplicationController
     end
   end
 
-  # DELETE /ingredients/1
-  # DELETE /ingredients/1.json
   def destroy
     @ingredient = Ingredient.find(params[:id])
     @ingredient.destroy

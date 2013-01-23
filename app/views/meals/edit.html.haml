@@ -1,0 +1,8 @@
+.span6
+  .well
+    %h2.lead{align: "center"}
+      Editing:
+      %em=@meal.name
+    =render 'form'
+  %p
+    = link_to 'Back', :back, class: "btn btn-small"

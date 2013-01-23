@@ -2,12 +2,12 @@
   %div{align: "center"}
     %h3
       %em= @meal.name
-  = link_to ' Ingredient', new_ingredient_path, class: "i icon-plus btn btn-small"
+    .muted= @meal.description
+  = link_to ' Ingredient', new_ingredient_path(meal: @meal), class: "i icon-plus btn btn-small"
   %p
-  Ingredients
   %table.table
     %tr
-      %th Name
+      %th Ingredient
       %th Quantity
     - @ingredients.each do |ingredient|
       %tr
