@@ -8,7 +8,7 @@
       alert("meal");
     };
   };
-
+-binding.pry
 = form_for(@event) do |f|
   - if @event.errors.any?
     .text-error
@@ -44,7 +44,9 @@
       .field
       %h5 When
     %dd
-      %input.date#datepicker{:type => "text", :name => "datepicker", :class => 'date'}
-      = f.text_field :start_time
+      #datepicker.date{"data-date" => "dateValue: Event.Date", "data-date-format" => "yyyy/mm/dd"}
+        %input{name: 'start_time', :type => "text", value: (params['start_time'])}/
+        %span.add-on
+          %i.icon-calendar
     .actions{align: "right"}
       = f.submit "Save", class: "btn btn-small btn-success"
