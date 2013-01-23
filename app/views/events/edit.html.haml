@@ -6,3 +6,4 @@
     =render 'form'
   %p
     = link_to 'Back', :back, class: "btn btn-small"
+    = link_to ' Delete', @event, confirm: 'Are you sure?', method: :delete, class: "i icon-remove btn btn-small"
