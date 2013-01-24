@@ -7,36 +7,40 @@
         %ul
           - @item.errors.full_messages.each do |msg|
             %li= msg
-  %dl{class: "dl-horizontal"}
-    %dt
-      .field
-      %h5 Name
-    %dd
-      = f.text_field :name
-    %dt
-      .field
-        %h5 Description
-    %dd
-      = f.text_area :description, rows: "3", maxlength: "255"
-    %dt
-      .field
-        %h5 Type
-    %dd
-      = f.radio_button :used_by, "user"
-      Individual
-      = f.radio_button :used_by, "family"
-      Family
-    %br
-    %dt
-      .field
-        %h5 Price
-    %dd
-      = f.text_field :price, class: "input-mini"
-      credits
-    %dt
-      .field
-        %h5 Item Image
-    %dd
-      = f.text_field :thumbnail
+  %table.table
+    %tr
+      %td
+        .span3
+          Name
+        .span3
+          = f.text_field :name
+    %tr
+      %td
+        .span3
+          Description
+        .span3
+          = f.text_area :description, rows: "3", maxlength: "255"
+    %tr
+      %td
+        .span3
+          Type
+        .span3
+          = f.radio_button :used_by, "user", checked: "checked"
+          Child
+          = f.radio_button :used_by, "family"
+          Family
+    %tr
+      %td
+        .span3
+          Price
+        .span3
+          = f.text_field :price, class: "input-mini"
+          credits
+    %tr
+      %td
+        .span3
+          Item Thumbnail
+        .span3
+          = f.text_field :thumbnail
     .actions{align: "right"}
       = f.submit "Save", class: "btn btn-small btn-success"

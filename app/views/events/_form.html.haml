@@ -11,9 +11,11 @@
   });
 
   function mealSelected(){
-    if ($('#meal').is(':checked')) {
-      alert("meal");
-    };
+    
+  };
+
+  function eventSelected(){
+    
   };
 
 = form_for(@event) do |f|
@@ -25,35 +27,42 @@
         %ul
           - @event.errors.full_messages.each do |msg|
             %li= msg
-  %dl.dl-horizontal
-    %dt
-      .field
-      %h5 Type
-    %dd
-      = check_box_tag 'event_type', id: 'meal', onclick: "mealSelected();"
-      Meal
-    %dt
-      .field
-      %h5 Name
-    %dd
-      = f.text_field :name
-    %dt
-      .field
-      %h5 Description
-    %dd
-      = f.text_area :description, rows: "3", maxlength: "255"
-    %dt
-      .field
-      %h5 For
-    %dd
-      = f.collection_select :user_id, (current_user.user_type >= 10 ? @users : [current_user]), :id, :name, selected: params[:user_id]
-    %dt
-      .field
-      %h5 When
-    %dd
-      #datetimepicker2.input-append
-        %span.add-on
-          %i{"data-date-icon" => "icon-calendar", "data-time-icon" => "icon-time"}
-        %input{name: "start_time", "data-format" => "yyyy-MM-dd HH:mm:ss PP", :type => "text", value: (@event ? @event.start_time : (params['start_time'] ? Date.parse(params['start_time']) : ''))}
-    .actions{align: "right"}
-      = f.submit "Save", class: "btn btn-small btn-success"
+  %table.table
+    %tr
+      %td
+        .span3
+          %h5 Type
+        .span3
+          %input{name: 'event_type', id: 'meal', type: 'radio', value: "event", checked: "checked", onclick: "eventSelected();"}
+          Event
+          %input{name: 'event_type', id: 'meal', type: 'radio', value: "meal", onclick: "mealSelected();"}
+          Meal
+    %tr
+      %td
+        .span3
+          %h5 Name
+        .span3
+          = f.text_field :name
+    %tr
+      %td
+        .span3
+          %h5 Description
+        .span3
+          = f.text_area :description, rows: "3", maxlength: "255"
+    %tr
+      %td
+        .span3
+          %h5 For
+        .span3
+          = f.collection_select :user_id, (current_user.user_type >= 10 ? @users : [current_user]), :id, :name, selected: params[:user_id]
+    %tr
+      %td
+        .span3
+          %h5 When
+        .span3
+          #datetimepicker2.input-append
+            %span.add-on
+              %i{"data-date-icon" => "icon-calendar", "data-time-icon" => "icon-time"}
+            %input.input-medium{name: "start_time", "data-format" => "yyyy-MM-dd HH:mm PP", :type => "text", value: (@event ? @event.start_time : (params['start_time'] ? Date.parse(params['start_time']) : ''))}
+  .actions{align: "right"}
+    = f.submit "Save", class: "btn btn-small btn-success"

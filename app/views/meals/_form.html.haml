@@ -7,11 +7,18 @@
       %ul
         - @meal.errors.full_messages.each do |msg|
           %li= msg
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label 'Info'
-    = f.text_area :description, rows: "3", maxlength: "255"
+  %table.table
+    %tr
+      %td
+        .span3
+          = f.label :name
+        .span3
+          = f.text_field :name
+    %tr
+      %td
+        .span3
+          = f.label 'Info'
+        .span3
+          = f.text_area :description, rows: "3", maxlength: "255"
   .actions{align: "right"}
     = f.submit "Save", class: "btn btn-small btn-success"

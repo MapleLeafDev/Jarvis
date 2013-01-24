@@ -7,15 +7,25 @@
       %ul
         - @ingredient.errors.full_messages.each do |msg|
           %li= msg
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :category
-    = f.text_field :category
-  .field
-    = f.label :quantity
-    = f.number_field :quantity
+  %table.table
+    %tr
+      %td
+        .span3
+          = f.label :name
+        .span3
+          = f.text_field :name
+    %tr
+      %td
+        .span3
+          = f.label :category
+        .span3
+          = f.text_field :category
+    %tr
+      %td
+        .span3
+          = f.label :quantity
+        .span3
+          = f.number_field :quantity
   .field.hidden
     = f.label :meal_id
     = f.number_field :meal_id

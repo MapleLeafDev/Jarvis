@@ -52,7 +52,7 @@
         -if flash.count > 0
           -flash.each do |name, msg|
             -if flash[:notice]
-              .alert.fade.in.alert-success{align: "center"}
+              .alert.fade.in.alert-info{align: "center"}
                 =content_tag :div, msg, :id => "flash_#{name}"
             -else
               .alert.fade.in.alert-danger{align: "center"}
@@ -62,7 +62,7 @@
         -if flash.count > 0
           -flash.each do |name, msg|
             -if flash[:notice]
-              .alert.fade.in.alert-success{align: "center"}
+              .alert.fade.in.alert-info{align: "center"}
                 =content_tag :div, msg, :id => "flash_#{name}"
             -else
               .alert.fade.in.alert-danger{align: "center"}
