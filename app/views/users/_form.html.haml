@@ -7,63 +7,68 @@
         %ul
           - @user.errors.full_messages.each do |msg|
             %li= msg
-  %table{align: "center", width: "100%"}
-    %col{:width => "20%"}
-    %col{:width => "80%"}
+  %table.table
     %tr
       %td
-        %h5 Name
-      %td
-        = f.text_field :name, placeholder: "Name"
+        .span3
+          Name
+        .span3
+          = f.text_field :name, placeholder: "Name"
     %tr
       %td
-        %h5 Email
-      %td
-        = f.email_field :email, placeholder: "Email"
+        .span3
+          Email
+        .span3
+          = f.email_field :email, placeholder: "Email"
     - if !current_user || current_user == @user
       %tr
         %td
-          %h5 Password
-        %td
-          = f.password_field :password, placeholder: "Password"
+          .span3
+            Password
+          .span3
+            = f.password_field :password, placeholder: "Password"
       %tr
         %td
-          %h5 Password Confirmation
-        %td
-          = f.password_field :password_confirmation, placeholder: "Confirm Password"
+          .span3
+            Password Confirmation
+          .span3
+            = f.password_field :password_confirmation, placeholder: "Confirm Password"
     - if current_user && params[:action] == 'edit'
       %tr
         %td
-          %h5 Credits
-        %td
-          = f.number_field :credits
+          .span3
+            Credits
+          .span3
+            = f.number_field :credits
     - if current_user && current_user != @user
       %tr
         %td
-          %h5 PIN
-        %td
-          = f.text_field :pin, placeholder: "4 digit pin", :maxlength => 4
+          .span3
+            PIN
+          .span3
+            = f.text_field :pin, placeholder: "4 digit pin", :maxlength => 4
       %tr
         %td
-          %h5 Parent
-        %td
-          = f.check_box :user_type
+          .span3
+            Parent
+          .span3
+            = f.check_box :user_type
     %tr
       %td
-        %h5 Avatar
-      %td
-        .muted
-          Avatar is provided by
-          #{link_to 'Gravatar', 'http://gravatar.com'}.
-          If you do not have an account with them, your avatar will be auto generated.
-        -if @user.name != nil && @user.name != ""
-          = image_tag(gravatar_for(@user.email == nil || @user.email == "" ? @user.name : @user.email))
+        .span3
+          Avatar
+        .span3
+          .muted
+            Avatar is provided by
+            #{link_to 'Gravatar', 'http://gravatar.com'}.
+            If you do not have an account with them, your avatar will be auto generated.
+          -if @user.name != nil && @user.name != ""
+            = image_tag(gravatar_for(@user.email == nil || @user.email == "" ? @user.name : @user.email))
     %tr
       %td
-        %h5 Time Zone
-      %td
-        = f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones, default: ( current_user ? current_user.time_zone : nil)
-    %tr
-      %td
-      %td
-        = f.submit "Save", class: "btn btn-small btn-success"
+        .span3
+          Time Zone
+        .span3
+          = f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones, default: ( current_user ? current_user.time_zone : nil)
+  .actions{align: "right"}
+    = f.submit "Save", class: "btn btn-small btn-success"

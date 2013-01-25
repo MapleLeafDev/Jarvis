@@ -60,72 +60,77 @@
         %ul
           - @task.errors.full_messages.each do |msg|
             %li= msg
-  %dl.dl-horizontal
-    %dt
-      %h5 Who?
-      %dd
-        Name
-      %dd
-        = f.collection_select :user_id, @users, :id, :name, selected: params[:user_id]
-    %dt
-      %h5 What?
-      %dd
-        Title
-      %dd
-        = f.text_field :title
-      %dd
-        Description
-      %dd
-        = f.text_area :description, rows: "3", maxlength: "255"
-      %dd
-        Credits
-      %dd
-        = f.text_field :points, class: "input-mini"
-    %dt
-      %h5 When?
-      %dd
-        = f.check_box :daily, id: "daily", onclick: "setDailyOccurance();"
-        Daily
-        = f.check_box :weekly, id: "weekly", onclick: "setWeeklyOccurance();"
-        Weekly
-        = f.check_box :monthly, id: "monthly", onclick: "setMonthlyOccurance();"
-        Monthly
-      %dd
-        %br
-        %p
-          = f.check_box :sunday, id: "sunday", onclick: "setSelectOccurance();"
-          Sunday
-        %p
-          = f.check_box :monday, id: "monday", onclick: "setSelectOccurance();"
-          Monday
-        %p
-          = f.check_box :tuesday, id: "tuesday", onclick: "setSelectOccurance();"
-          Tuesday
-        %p
-          = f.check_box :wednesday, id: "wednesday", onclick: "setSelectOccurance();"
-          Wednesday
-        %p
-          = f.check_box :thursday, id: "thursday", onclick: "setSelectOccurance();"
-          Thursday
-        %p
-          = f.check_box :friday, id: "friday", onclick: "setSelectOccurance();"
-          Friday
-        %p
-          = f.check_box :saturday, id: "saturday", onclick: "setSelectOccurance();"
-          Saturday
-      %dd
-        %br
-        %p
-        = f.radio_button :period, 0, id: "anytime"
-        %div.label Anytime
-        %p
-        = f.radio_button :period, 1
-        %div.label.label-info Morning
-        %p
-        = f.radio_button :period, 2
-        %div.label.label-success Noon
-        %p
-        = f.radio_button :period, 3
-        %div.label.label-warning Evening
-      .actions{align: "right"}
-        = f.submit "Save", class: "btn btn-success btn-small"
+  %table.table
+    %tr
+      %td
+        .span3
+          Name
+        .span3
+          = f.collection_select :user_id, @users, :id, :name, selected: params[:user_id]
+    %tr
+      %td
+        .span3
+          Title
+        .span3
+          = f.text_field :title
+    %tr
+      %td
+        .span3
+          Description
+        .span3
+          = f.text_area :description, rows: "3", maxlength: "255"
+    %tr
+      %td
+        .span3
+          Credits
+        .span3
+          = f.text_field :points, class: "input-mini"
+    %tr
+      %td
+        .span3
+          When
+        .span3
+          %div.well.well-small
+            = f.check_box :daily, id: "daily", onclick: "setDailyOccurance();"
+            Daily
+            %p
+            = f.check_box :weekly, id: "weekly", onclick: "setWeeklyOccurance();"
+            Weekly
+            %p
+            = f.check_box :monthly, id: "monthly", onclick: "setMonthlyOccurance();"
+            Monthly
+          %div.well.well-small
+            = f.check_box :sunday, id: "sunday", onclick: "setSelectOccurance();"
+            Sunday
+            %p
+            = f.check_box :monday, id: "monday", onclick: "setSelectOccurance();"
+            Monday
+            %p
+            = f.check_box :tuesday, id: "tuesday", onclick: "setSelectOccurance();"
+            Tuesday
+            %p
+            = f.check_box :wednesday, id: "wednesday", onclick: "setSelectOccurance();"
+            Wednesday
+            %p
+            = f.check_box :thursday, id: "thursday", onclick: "setSelectOccurance();"
+            Thursday
+            %p
+            = f.check_box :friday, id: "friday", onclick: "setSelectOccurance();"
+            Friday
+            %p
+            = f.check_box :saturday, id: "saturday", onclick: "setSelectOccurance();"
+            Saturday
+          %div.well.well-small
+            = f.radio_button :period, 0, id: "anytime"
+            %div.label Anytime
+            %p
+            = f.radio_button :period, 1
+            %div.label.label-info Morning
+            %p
+            = f.radio_button :period, 2
+            %div.label.label-success Noon
+            %p
+            = f.radio_button :period, 3
+            %div.label.label-warning Evening
+  .actions{align: "right"}
+    = f.submit "Save", class: "btn btn-success btn-small"
