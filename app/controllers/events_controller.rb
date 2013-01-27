@@ -22,6 +22,8 @@ class EventsController < ApplicationController
     @event = Event.new
     @users = family
 
+    @meals = Meal.where(user_id: (family.collect(&:id))).collect(&:name)
+
     if params[:start_time]
       @event.start_time = "#{params[:start_time]} 8:00AM"
     end
@@ -35,12 +37,16 @@ class EventsController < ApplicationController
   def edit
     @event = Event.find(params[:id])
     @users = family
+    @meals = Meal.where(user_id: (family.collect(&:id))).collect(&:name)
   end
 
   def create
     @event = Event.new(params[:event])
-
     @event.start_time = params[:start_time]
+    @event.event_type = params[:event_type]
+    if @event.event_type == "meal"
+      @event.name = params[:meal_name]
+    end
 
     respond_to do |format|
       if @event.save
@@ -56,6 +62,11 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
+    @event.start_time = params[:start_time]
+    @event.event_type = params[:event_type]
+    if @event.event_type == "meal"
+      @event.name = params[:meal_name]
+    end
 
     respond_to do |format|
       if @event.update_attributes(params[:event])

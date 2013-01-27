@@ -10,8 +10,6 @@ class MealsController < ApplicationController
     end
   end
 
-  # GET /meals/1
-  # GET /meals/1.json
   def show
     @meal = Meal.find(params[:id])
     @ingredients = @meal.ingredients
@@ -23,8 +21,6 @@ class MealsController < ApplicationController
     end
   end
 
-  # GET /meals/new
-  # GET /meals/new.json
   def new
     @meal = Meal.new
 
@@ -34,15 +30,14 @@ class MealsController < ApplicationController
     end
   end
 
-  # GET /meals/1/edit
   def edit
     @meal = Meal.find(params[:id])
   end
 
-  # POST /meals
-  # POST /meals.json
   def create
     @meal = Meal.new(params[:meal])
+
+    @meal.user_id = current_user.id
 
     respond_to do |format|
       if @meal.save
@@ -55,10 +50,12 @@ class MealsController < ApplicationController
     end
   end
 
-  # PUT /meals/1
-  # PUT /meals/1.json
   def update
     @meal = Meal.find(params[:id])
+
+    if @meal.user_id == nil
+      @meal.user_id == current_user.id
+    end
 
     respond_to do |format|
       if @meal.update_attributes(params[:meal])
@@ -71,8 +68,6 @@ class MealsController < ApplicationController
     end
   end
 
-  # DELETE /meals/1
-  # DELETE /meals/1.json
   def destroy
     @meal = Meal.find(params[:id])
     @meal.destroy

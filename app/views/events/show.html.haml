@@ -4,9 +4,14 @@
       %em= @event.name
     .muted= @event.description
   %br
-    This event is for
-    %b= link_to @event.user.name, @event.user
-    and is on the calendar for
+    -if @event.event_type == "meal"
+      Will be prepared for the 
+      %b= @event.user.family.name
+      family on
+    -else
+      This event is for
+      %b= link_to @event.user.name, @event.user
+      and is on the calendar for
     %b= @event.start_time.strftime("%A, %B %d")
     at
     %b= @event.start_time.strftime("%l:%M %p")

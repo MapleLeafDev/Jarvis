@@ -18,7 +18,7 @@
 
 .span8
   = calendar @events.sort_by{ |t| t.start_time }, {prev_text: "< ", next_text: " >"} do |event|
-    %div{name: "#{event.user_id}", onclick: "showEvent(#{event.id});", class: "label label-#{(if event.user_id == family[0].id then "success" elsif event.user_id == family[1].id then "warning" elsif event.user_id == family[2].id then "important" elsif event.user_id == family[3].id then "info" elsif event.user_id == family[4].id then "inverse" else "" end)}", style: "cursor: pointer"}
+    %div{name: "#{if event.event_type == "meal" then "meal" else event.user_id end}", onclick: "showEvent(#{event.id});", class: "label label-#{(if event.event_type == "meal" then "" elsif event.user_id == family[0].id then "success" elsif event.user_id == family[1].id then "warning" elsif event.user_id == family[2].id then "important" elsif event.user_id == family[3].id then "info" elsif event.user_id == family[4].id then "inverse" else "" end)}", style: "cursor: pointer"}
       = event.start_time.strftime("%l:%M %p")
       %br
       = event.name
@@ -27,7 +27,7 @@
   %p
   = link_to ' Event', new_event_path, class: "i icon-plus btn"
   -if current_user.user_type >= 10
-    = link_to ' Meal', meals_path, class: "i icon-plus btn"
+    = link_to 'Meals', meals_path, class: "btn"
   %p
   .lead Events for...
   %div.well.well-small

@@ -1,21 +1,23 @@
 :javascript
-  $(function() {
+  $(document).ready(function(){
     $('#datetimepicker2').datetimepicker({
       language: 'en',
       pick24HourFormat: true
     });
   });
 
-  $(document).ready(function(){
-    $('#datepicker').datepicker();
-  });
-
-  function mealSelected(){
-    
-  };
-
-  function eventSelected(){
-    
+  function typeSelected(obj){
+    if(obj.value == "event"){
+      $("#meal-select").hide();
+      $("#event-name").show();
+      $("#event-for").show();
+      $("#event-desc").show();
+    } else {
+      $("#meal-select").show();
+      $("#event-name").hide();
+      $("#event-for").hide();
+      $("#event-desc").hide();
+    }
   };
 
 = form_for(@event) do |f|
@@ -33,23 +35,29 @@
         .span3
           %h5 Type
         .span3
-          %input{name: 'event_type', id: 'meal', type: 'radio', value: "event", checked: "checked", onclick: "eventSelected();"}
+          %input{name: 'event_type', id: 'meal', type: 'radio', value: "event", checked: "checked", onclick: "typeSelected(this);"}
           Event
-          %input{name: 'event_type', id: 'meal', type: 'radio', value: "meal", onclick: "mealSelected();"}
+          %input{name: 'event_type', id: 'meal', type: 'radio', value: "meal", checked: (if @event.event_type == "meal" then "checked" end), onclick: "typeSelected(this);"}
           Meal
-    %tr
+    %tr#meal-select{hidden: true}
+      %td
+        .span3
+          %h5 Meal
+        .span3
+          = select_tag :meal_name, options_for_select(@meals)
+    %tr#event-name
       %td
         .span3
           %h5 Name
         .span3
           = f.text_field :name
-    %tr
+    %tr#event-desc{hidden: (@event.event_type == "meal" ? true : false)}
       %td
         .span3
           %h5 Description
         .span3
           = f.text_area :description, rows: "3", maxlength: "255"
-    %tr
+    %tr#event-for{hidden: (@event.event_type == "meal" ? true : false)}
       %td
         .span3
           %h5 For
