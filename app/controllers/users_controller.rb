@@ -54,13 +54,6 @@ class UsersController < ApplicationController
         if (task.monthly && last_done > 30) || (task.weekly && last_done > 7)
           @overdue << task
         end
-      else
-        @as_needed["9999-99-99-#{task.id}"] = task
-        completed = task.created_at.to_s
-        last_done = (Date.today - Date.parse(completed)).to_i
-        if (task.monthly && last_done > 30) || (task.weekly && last_done > 7)
-          @overdue << task
-        end
       end
     end
 
