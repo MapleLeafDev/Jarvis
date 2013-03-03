@@ -44,4 +44,5 @@ HomeManager::Application.routes.draw do
   match '/make_parent' => 'family_members#make_parent', :as => :make_parent
   match '/buy_item' => 'purchases#buy_item', :as => :buy_item
   match '/award_credits' => 'users#award_credits', :as => :award_credits
+  match '/assign_meal' => 'meals#assign_meal', :as => :assign_meal
 end

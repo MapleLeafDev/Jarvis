@@ -1,1 +1,0 @@
-$("#credits").html "<div class=\"lead\" id=\"credits\"><%= @credits %> credits</div>"

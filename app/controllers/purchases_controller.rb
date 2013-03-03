@@ -37,9 +37,8 @@ class PurchasesController < ApplicationController
   end
 
   def index
-    users = family
     @purchases = Array.new
-    users.each do |user|
+    family.each do |user|
       Purchase.where(user_id: user.id).each do |purchase|
         @purchases << purchase
       end
@@ -54,13 +53,13 @@ class PurchasesController < ApplicationController
   def destroy
     @purchase = Purchase.find(params[:id])
 
-    user = User.find_by_id(@purchase.user_id)
+    @user = User.find_by_id(@purchase.user_id)
     item = Item.find_by_id(@purchase.item_id)
 
     if @purchase.destroy
-      @credits = user.credits.to_i + item.price.to_i
-      user.credits = @credits
-      user.save
+      @credits = @user.credits.to_i + item.price.to_i
+      @user.credits = @credits
+      @user.save
     end
   end
 end

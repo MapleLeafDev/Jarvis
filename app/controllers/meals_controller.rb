@@ -2,7 +2,7 @@ class MealsController < ApplicationController
   # GET /meals
   # GET /meals.json
   def index
-    @meals = Meal.all
+    @meals = Meal.where(user_id: family.collect(&:id))
 
     respond_to do |format|
       format.html # index.html.erb
@@ -75,6 +75,25 @@ class MealsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to meals_url }
       format.json { head :no_content }
+    end
+  end
+
+  def assign_meal
+    @meal = Meal.find_by_id(params[:id])
+
+    if @meal
+      @old_meal = Meal.find_by_menu_day(params[:menu_day])
+      if @old_meal
+        @old_meal.menu_day = nil
+        @old_meal.save
+      end
+      @old_day = @meal.menu_day
+      @meal.menu_day = params[:menu_day]
+      @meal.save
+    end
+
+    respond_to do |format|
+      format.js
     end
   end
 end

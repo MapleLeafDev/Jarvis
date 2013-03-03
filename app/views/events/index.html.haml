@@ -26,8 +26,6 @@
 .span2{align: "center"}
   %p
   = link_to ' Event', new_event_path, class: "i icon-plus btn"
-  -if current_user.user_type >= 10
-    = link_to 'Meals', meals_path, class: "btn"
   %p
   .lead Events for...
   %div.well.well-small

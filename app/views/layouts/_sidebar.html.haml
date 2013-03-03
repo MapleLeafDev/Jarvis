@@ -44,7 +44,7 @@
             %a{href: "#{new_family_path}"}
               %i.icon-home
               Create Family
-      -if params[:controller] == 'events' || params[:controller] == 'meals' || params[:controller] == 'ingredients'
+      -if params[:controller] == 'events'
         %li.active
           %a{href: "#{events_path}"}
             %i.icon-calendar
@@ -54,6 +54,16 @@
           %a{href: "#{events_path}"}
             %i.icon-calendar
             Calendar
+      -if params[:controller] == 'meals' || params[:controller] == 'ingredients'
+        %li.active
+          %a{href: "#{meals_path}"}
+            %i.icon-th-list
+            Menu
+      -else
+        %li
+          %a{href: "#{meals_path}"}
+            %i.icon-th-list
+            Menu
   .tabtopnav.visible-phone.visible-tablet
     %ul.nav.nav-tabs
       -if params[:controller] == 'users' || params[:controller] == 'tasks'
@@ -91,7 +101,7 @@
           %li
             %a{href: "#{new_family_path}"}
               %i.icon-home
-      -if params[:controller] == 'events' || params[:controller] == 'meals' || params[:controller] == 'ingredients'
+      -if params[:controller] == 'events'
         %li.active
           %a{href: "#{events_path}"}
             %i.icon-calendar
@@ -99,3 +109,11 @@
         %li
           %a{href: "#{events_path}"}
             %i.icon-calendar
+      -if params[:controller] == 'meals' || params[:controller] == 'ingredients'
+        %li.active
+          %a{href: "#{meals_path}"}
+            %i.icon-th-list
+      -else
+        %li
+          %a{href: "#{meals_path}"}
+            %i.icon-th-list

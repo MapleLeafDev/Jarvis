@@ -15,7 +15,7 @@
           -if current_user.credits < item.price || (current_user.user_type < 10 && item.used_by == "family")
             = link_to 'Buy', '#', class: "btn", disabled: true
           -else
-            = link_to 'Buy', buy_item_path(item: item.id, user: current_user.id), class: "btn", remote: true        
+            = link_to 'Buy', buy_item_path(item: item.id, user: current_user.id), class: "btn", remote: true
       %tr
         %td{colspan: "2", align: "center"}
           .muted= item.description
