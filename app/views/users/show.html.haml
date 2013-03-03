@@ -148,7 +148,7 @@
     = link_to " Chore", new_task_path, class: "i icon-plus btn"
     %p
   .lead Credits
-  %div.well.well-small
+  %div.well.well-small#credits
     -if current_user.user_type < 10
       .lead
         =current_user.credits

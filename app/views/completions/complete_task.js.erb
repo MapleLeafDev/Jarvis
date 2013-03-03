@@ -1,1 +1,2 @@
 $("#task-<%= @completion.task_id %>").html('<a href="#" class="i icon-ok btn btn-success"></a>');
+$("#credits").html("<div class='lead' id='credits'><%= @completion.user.credits %></div>");
