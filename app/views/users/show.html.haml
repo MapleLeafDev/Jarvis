@@ -1,50 +1,11 @@
 :javascript
-  function showTodays(){
-    event.preventDefault();
-    $('#stats').hide();
-    $('#todays').show();
-    $('#needed').hide();
-    $('#all').hide();
-    $('#stats-tab').removeClass('active');
-    $('#todays-tab').addClass('active');
-    $('#needed-tab').removeClass('active');
-    $('#all-tab').removeClass('active');
-    $('#s-tab').removeClass('active');
-    $('#t-tab').addClass('active');
-    $('#n-tab').removeClass('active');
-    $('#a-tab').removeClass('active');
-
-  }
-
-  function showNeeded(){
-    event.preventDefault();
-    $('#stats').hide();
-    $('#todays').hide();
-    $('#needed').show();
-    $('#all').hide();
-    $('#stats-tab').removeClass('active');
-    $('#todays-tab').removeClass('active');
-    $('#needed-tab').addClass('active');
-    $('#all-tab').removeClass('active');
-    $('#s-tab').removeClass('active');
-    $('#t-tab').removeClass('active');
-    $('#n-tab').addClass('active');
-    $('#a-tab').removeClass('active');
-  }
-
   function showAll(){
     event.preventDefault()
     $('#stats').hide();
-    $('#todays').hide();
-    $('#needed').hide();
     $('#all').show();
     $('#stats-tab').removeClass('active');
-    $('#todays-tab').removeClass('active');
-    $('#needed-tab').removeClass('active');
     $('#all-tab').addClass('active');
     $('#s-tab').removeClass('active');
-    $('#t-tab').removeClass('active');
-    $('#n-tab').removeClass('active');
     $('#a-tab').addClass('active');
   }
 
@@ -57,57 +18,36 @@
     %ul.nav.nav-tabs.visible-desktop.visible-tablet
       %li.active{id: "stats-tab"}
         = link_to 'Status', user_path
-      %li{id: "todays-tab"}
-        = link_to 'Todays', '#', onclick: "showTodays();"
-      %li{id: "needed-tab"}
-        = link_to 'As Needed', '#', onclick: "showNeeded();"
       %li{id: "all-tab"}
-        = link_to 'All', '#', onclick: "showAll();"
+        = link_to 'All Chores', '#', onclick: "showAll();"
     %ul.nav.nav-tabs.visible-phone
       %li.active{id: "s-tab"}
         = link_to 'Status', user_path
-      %li{id: "t-tab"}
-        = link_to 'Todays', '#', onclick: "showTodays();"
-      %li{id: "n-tab"}
-        = link_to 'Needed', '#', onclick: "showNeeded();"
       %li{id: "a-tab"}
-        = link_to 'All', '#', onclick: "showAll();"
+        = link_to 'All Chores', '#', onclick: "showAll();"
   %div{id: "stats"}
-    %h4 Progress for Today
-    %div
-      - today_complete = Completion.where(completed: Time.zone.today.to_s, user_id: @user.id, task_id: @todays.collect(&:id)).count
-      - percent_done = today_complete.to_f/@todays.count.to_f*100
-      = today_complete
-      = "/"
-      = @todays.count
-      %p
-        .progress{class: "progress progress-striped progress-#{if percent_done <= 33 then 'danger' elsif percent_done > 33 && percent_done <= 66 then 'warning' else 'success' end}"}
-          .bar{:style => "width: #{percent_done}%;"}
-    - if @overdue.count > 0
-      %h4 Overdue
+    %div.well.well-small
+      %h4 Progress
+      %div
+        - today_complete = Completion.where(completed: Time.zone.today.to_s, user_id: @user.id, task_id: @todays.collect(&:id)).count
+        - percent_done = today_complete.to_f/@todays.count.to_f*100
+        = today_complete
+        = "/"
+        = @todays.count
+        %p
+          .progress{class: "progress progress-striped progress-#{if percent_done <= 33 then 'danger' elsif percent_done > 33 && percent_done <= 66 then 'warning' else 'success' end}"}
+            .bar{:style => "width: #{percent_done}%;"}
+    %div.well.well-small
+      %h4 Todays
       %table.table
-        %col{:width => "10%"}
-        %col{:width => "10%"}
-        %col{:width => "80%"}
+        %col{:width => "20%"}
+        %col{:width => "70%"}
         %tr
-          %th Days
-          %th
+          %th When
           %th Chore
-        - @overdue.sort.each do |task|
+        -@todays.sort_by(&:period).each do |task|
           %tr
-            %td= if task.completions.count > 0 then (Date.today - Date.parse(task.completions.last.completed)).to_i else (Date.today - Date.parse(task.created_at)).to_i  end
-            %td
-              %a{class: "badge badge-inverse"}
-                = if task.monthly then 'Monthly' else 'Weekly' end
-            %td= link_to task.title, task
-  %div{id: "todays", hidden: true}
-    %h4 Todays Chores
-    - @todays.group_by(&:period).sort.each do |key, tasks|
-      - period = tasks.first.period
-      = if period == 1 then 'Morning' elsif period == 2 then 'Noon' elsif period == 3 then 'Evening' else 'Anytime' end
-      %table.table
-        -tasks.each do |task|
-          %tr
+            %td=if task.period == 1 then 'Morning' elsif task.period == 2 then 'Noon' elsif task.period == 3 then 'Evening' else 'Anytime' end
             %td
               .span5
                 = link_to task.title, task
@@ -116,31 +56,50 @@
                   = link_to '', '#', class: "i icon-ok btn btn-success"
                 -else
                   = link_to '', complete_task_path(task: task.id, user: @user.id), class: "i icon-ok btn", remote: true
-  %div{id: "needed", hidden: true}
-    %h4 As Needed Chores
-    %table.table
-      %col{:width => "10%"}
-      %col{:width => "10%"}
-      %col{:width => "80%"}
-      %tr
-        %th Days
-        %th
-        %th Chore
-      - @as_needed.sort.each do |task|
-        %tr
-          %td
-            = if task[1].completions.count > 0 then (Date.today - Date.parse(task[0]) ).to_i else 'Not Done' end
-          %td
-            %a{class: "badge badge-inverse"}
-              = if task[1].monthly then 'Monthly' else 'Weekly' end
-          %td
-            .span4
-              = link_to task[1].title, task[1]
-            .span1{ id: "task-#{task[1].id}" }
-              = link_to '', complete_task_path(task: task[1].id, user: @user.id), class: "i icon-ok btn", remote: true
+    -if @as_needed.count > 0
+      %div.well.well-small
+        %h4 As Needed
+        %table.table
+          %col{:width => "20%"}
+          %col{:width => "70%"}
+          %tr
+            %th Days
+            %th Chore
+          -@as_needed.each do |task|
+            %tr
+              %td= task.completions.count > 0 ? (Time.now - task.completions.last.created_at).to_i / 1.day : 'No Completions'
+              %td
+                .span5
+                  = link_to task.title, task
+                .span1{ id: "task-#{task.id}" }
+                  -if Completion.find_by_user_id_and_task_id_and_completed(@user.id, task.id, @time)
+                    = link_to '', '#', class: "i icon-ok btn btn-success"
+                  -else
+                    = link_to '', complete_task_path(task: task.id, user: @user.id), class: "i icon-ok btn", remote: true
+    -if @family_chores.count > 0
+      %div.well.well-small
+        %h4 Family
+        %table.table
+          %col{:width => "20%"}
+          %col{:width => "70%"}
+          %tr
+            %th Days
+            %th Chore
+          -@family_chores.each do |task|
+            %tr
+              %td= task.completions.count > 0 ? (Time.now - task.completions.last.created_at).to_i / 1.day : 'No Completions'
+              %td
+                .span5
+                  = link_to task.title, task
+                .span1{ id: "task-#{task.id}" }
+                  -if Completion.find_by_user_id_and_task_id_and_completed(@user.id, task.id, @time)
+                    = link_to '', '#', class: "i icon-ok btn btn-success"
+                  -else
+                    = link_to '', complete_task_path(task: task.id, user: @user.id), class: "i icon-ok btn", remote: true
+
   %div{id: "all", hidden: true}
     %h4 All Chores
-    - @all.sort_by{ |t| t.period }.each do |task|
+    - @user.tasks.sort_by{ |t| t.period }.each do |task|
       = render partial: 'chore', locals: { task: task }
 .span2{align: "center"}
   %p

@@ -4,58 +4,19 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
 
-    @as_needed = Hash.new
-    @todays = Array.new
-    temp = Array.new
-    @all = Array.new
-    @overdue = Array.new
     @time = Time.zone.today.to_s
-    date = Date.parse(@time).strftime("%A").downcase
+
+    if @user.family
+      @family_chores = Task.family_chores(@user)
+    end
 
     if @user.user_type >= 10
-      parents.each do |user|
-        Task.where(daily: true, user_id: user.id).each do |task|
-          @todays << task
-        end
-        Task.where(user_id: user.id, date.intern => true).each do |task|
-          @todays << task
-        end
-        Task.where(weekly: true, user_id: user.id).each do |task|
-          temp << task
-        end
-        Task.where(monthly: true, user_id: user.id).each do |task|
-          temp << task
-        end
-        Task.where(user_id: user.id).each do |task|
-          @all << task
-        end
-      end
+      @todays = Task.parent_chores(parents)
     else
-      Task.where(daily: true, user_id: @user.id).each do |task|
-        @todays << task
-      end
-      Task.where(user_id: @user.id, date.intern => true).each do |task|
-        @todays << task
-      end
-      Task.where(weekly: true, user_id: @user.id).each do |task|
-        temp << task
-      end
-      Task.where(monthly: true, user_id: @user.id).each do |task|
-        temp << task
-      end
-      @all = Task.where(user_id: @user.id)
+      @todays = Task.daily_chores(@user)
     end
 
-    temp.each do |task|
-      if task.completions.count > 0
-        completed = task.completions.last.completed
-        @as_needed["#{completed}-#{task.id}"] = task
-        last_done = (Date.today - Date.parse(completed)).to_i
-        if (task.monthly && last_done > 30) || (task.weekly && last_done > 7)
-          @overdue << task
-        end
-      end
-    end
+    @as_needed = Task.as_needed_chores(@user)
 
     respond_to do |format|
       format.html # show.html.erb

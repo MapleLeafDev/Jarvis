@@ -29,8 +29,12 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(params[:task])
 
-    if params[:task][:period] == nil
-      @task.period = 0
+    if params[:task][:assigned] == "0"
+      @task.user_id = current_user.id
+    end
+
+    if current_user.family
+      @task.family_id = current_user.family.id
     end
 
     if params[:task][:points] == ""
@@ -51,8 +55,22 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
 
+    @task.update_attributes(params[:task])
+
+    if params[:task][:assigned] == "0"
+      @task.user_id = current_user.id
+    end
+
+    if current_user.family
+      @task.family_id = current_user.family.id
+    end
+
+    if params[:task][:points] == ""
+      @task.points = 0
+    end
+
     respond_to do |format|
-      if @task.update_attributes(params[:task])
+      if @task.save
         format.html { redirect_to @task, notice: 'Chore was successfully updated.' }
         format.json { head :no_content }
       else

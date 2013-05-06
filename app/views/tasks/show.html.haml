@@ -4,13 +4,14 @@
       %em= @task.title
     .muted= @task.description
   %br
-    This chore has been assigned to
-    %b= link_to @task.user.name, @task.user
+    -if @task.user
+      This chore has been assigned to
+      %b= link_to @task.user.name, @task.user
+    -else
+      This chore is unassigned
     and is to be completed
     %b
       = 'daily' if @task.daily
-      = 'weekly' if @task.weekly
-      = 'monthly' if @task.monthly
       = 'Sunday' if @task.sunday
       = 'Monday' if @task.monday
       = 'Tuesday' if @task.tuesday
@@ -18,6 +19,7 @@
       = 'Thursday' if @task.thursday
       = 'Friday' if @task.friday
       = 'Saturday' if @task.saturday
+      = 'at least once every ' + @task.how_often.to_s + ' days' if @task.as_needed
     -if @task.period == 0
       at
       %b anytime.
@@ -48,6 +50,6 @@
       .muted This chore has not been completed yet.
     %br
   %p
-    = link_to 'Back', :back, class: "btn btn-small"
+    = link_to ' Back', :back, class: "i icon-arrow-left btn"
     = link_to ' Edit', edit_task_path(@task), class: "i icon-edit btn"
     = link_to ' Delete', @task, confirm: 'Are you sure?', method: :delete, class: "i icon-trash btn"

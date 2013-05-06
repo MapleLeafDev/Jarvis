@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130303170852) do
+ActiveRecord::Schema.define(:version => 20130506165001) do
 
   create_table "completions", :force => true do |t|
     t.integer  "user_id"
@@ -103,6 +103,9 @@ ActiveRecord::Schema.define(:version => 20130303170852) do
     t.integer  "points"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.boolean  "as_needed"
+    t.boolean  "assigned"
+    t.integer  "family_id"
   end
 
   create_table "users", :force => true do |t|

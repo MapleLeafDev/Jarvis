@@ -1,44 +1,32 @@
 :javascript
-  function setMonthlyOccurance(){
-    if ($('#monthly').is(':checked')) {
-      $('#weekly').attr("checked", false);
-      $('#daily').attr("checked", false);
-      $('#sunday').attr("checked", false);
-      $('#monday').attr("checked", false);
-      $('#tuesday').attr("checked", false);
-      $('#wednesday').attr("checked", false);
-      $('#thursday').attr("checked", false);
-      $('#friday').attr("checked", false);
-      $('#anytime').attr("checked", true);
-      return $('#saturday').attr("checked", false);
-    }
-  };
-
-  function setWeeklyOccurance(){
-    if ($('#weekly').is(':checked')) {
-      $('#monthly').attr("checked", false);
-      $('#daily').attr("checked", false);
-      $('#sunday').attr("checked", false);
-      $('#monday').attr("checked", false);
-      $('#tuesday').attr("checked", false);
-      $('#wednesday').attr("checked", false);
-      $('#thursday').attr("checked", false);
-      $('#friday').attr("checked", false);
-      $('#anytime').attr("checked", true);
-      return $('#saturday').attr("checked", false);
-    }
-  };
+  function setAssigned(){
+    $('#assignee').toggle();
+  }
 
   function setDailyOccurance(){
     if ($('#daily').is(':checked')) {
-      $('#weekly').attr("checked", false);
-      $('#monthly').attr("checked", false);
+      $('#as_needed').attr("checked", false);
       $('#sunday').attr("checked", false);
       $('#monday').attr("checked", false);
       $('#tuesday').attr("checked", false);
       $('#wednesday').attr("checked", false);
       $('#thursday').attr("checked", false);
       $('#friday').attr("checked", false);
+      $('#anytime').attr("checked", true);
+      return $('#saturday').attr("checked", false);
+    }
+  };
+
+  function setAsNeededOccurance(){
+    if ($('#as_needed').is(':checked')) {
+      $('#daily').attr("checked", false);
+      $('#sunday').attr("checked", false);
+      $('#monday').attr("checked", false);
+      $('#tuesday').attr("checked", false);
+      $('#wednesday').attr("checked", false);
+      $('#thursday').attr("checked", false);
+      $('#friday').attr("checked", false);
+      $('#anytime').attr("checked", true);
       return $('#saturday').attr("checked", false);
     }
   };
@@ -46,8 +34,7 @@
   function setSelectOccurance(){
     if ($('#sunday').is(':checked') || $('#monday').is(':checked') || $('#tuesday').is(':checked') || $('#wednesday').is(':checked') || $('#thursday').is(':checked') || $('#friday').is(':checked') || $('#saturday').is(':checked')) {
       $('#daily').attr("checked", false);
-      $('#weekly').attr("checked", false);
-      return $('#monthly').attr("checked", false);
+      return $('#as_needed').attr("checked", false);
     }
   };
 
@@ -64,9 +51,13 @@
     %tr
       %td
         .span3
-          Name
-        .span3
-          = f.collection_select :user_id, @users, :id, :name, selected: params[:user_id]
+          Assignee
+        .span4
+          %p
+            = f.check_box :assigned, id: "assigned", checked: true, onclick: "setAssigned();"
+            Assigned
+          %p#assignee
+            = f.collection_select :user_id, @users, :id, :name, selected: params[:user_id]
     %tr
       %td
         .span3
@@ -87,18 +78,15 @@
           = f.text_field :points, class: "input-mini"
     %tr
       %td
-        .span3
+        .span
           When
-        .span3
+        .span
           %div.well.well-small
             = f.check_box :daily, id: "daily", onclick: "setDailyOccurance();"
             Daily
             %p
-            = f.check_box :weekly, id: "weekly", onclick: "setWeeklyOccurance();"
-            Weekly
-            %p
-            = f.check_box :monthly, id: "monthly", onclick: "setMonthlyOccurance();"
-            Monthly
+            = f.check_box :as_needed, id: "as_needed", onclick: "setAsNeededOccurance();"
+            As needed.  At least once every #{f.number_field :how_often, id: 'how_often', class: 'input-mini'} days.
           %div.well.well-small
             = f.check_box :sunday, id: "sunday", onclick: "setSelectOccurance();"
             Sunday
@@ -121,7 +109,7 @@
             = f.check_box :saturday, id: "saturday", onclick: "setSelectOccurance();"
             Saturday
           %div.well.well-small
-            = f.radio_button :period, 0, id: "anytime"
+            = f.radio_button :period, 0, id: "anytime", checked: true
             %div.label Anytime
             %p
             = f.radio_button :period, 1
