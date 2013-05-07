@@ -18,6 +18,9 @@ class UsersController < ApplicationController
 
     @as_needed = Task.as_needed_chores(@user)
 
+    @today_complete = Completion.where(completed: Time.zone.today.to_s, user_id: @user.id, task_id: @todays.collect(&:id)).count
+    @percent_done = @today_complete.to_f/@todays.count.to_f*100
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @user }

@@ -15,6 +15,10 @@ class CompletionsController < ApplicationController
       if @completion.save
         user.credits = user.credits.to_i + task.points.to_i
         user.save
+
+        @todays = params[:task_ids]
+        @today_complete = Completion.where(completed: Time.zone.today.to_s, user_id: user.id, task_id: @todays).count
+        @percent_done = @today_complete.to_f/@todays.count.to_f*100
       end
     end
   end

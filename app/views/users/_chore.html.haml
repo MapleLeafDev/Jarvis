@@ -4,12 +4,3 @@
       = task.as_needed ? 'As Needed' : 'Daily'
   .span5{align: "center"}
     = link_to task.title, task
-  .span8{align: "center"}
-    .muted
-      = 'Sun ' if task.sunday
-      = 'Mon ' if task.monday
-      = 'Tue ' if task.tuesday
-      = 'Wed ' if task.wednesday
-      = 'Thu ' if task.thursday
-      = 'Fri ' if task.friday
-      = 'Sat' if task.saturday

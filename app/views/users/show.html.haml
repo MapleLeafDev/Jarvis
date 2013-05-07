@@ -28,74 +28,18 @@
   %div{id: "stats"}
     %div.well.well-small
       %h4 Progress
-      %div
-        - today_complete = Completion.where(completed: Time.zone.today.to_s, user_id: @user.id, task_id: @todays.collect(&:id)).count
-        - percent_done = today_complete.to_f/@todays.count.to_f*100
-        = today_complete
+      %div#progress
+        = @today_complete
         = "/"
         = @todays.count
         %p
-          .progress{class: "progress progress-striped progress-#{if percent_done <= 33 then 'danger' elsif percent_done > 33 && percent_done <= 66 then 'warning' else 'success' end}"}
-            .bar{:style => "width: #{percent_done}%;"}
-    %div.well.well-small
-      %h4 Todays
-      %table.table
-        %col{:width => "20%"}
-        %col{:width => "70%"}
-        %tr
-          %th When
-          %th Chore
-        -@todays.sort_by(&:period).each do |task|
-          %tr
-            %td=if task.period == 1 then 'Morning' elsif task.period == 2 then 'Noon' elsif task.period == 3 then 'Evening' else 'Anytime' end
-            %td
-              .span5
-                = link_to task.title, task
-              .span1{ id: "task-#{task.id}" }
-                -if Completion.find_by_user_id_and_task_id_and_completed(@user.id, task.id, @time)
-                  = link_to '', '#', class: "i icon-ok btn btn-success"
-                -else
-                  = link_to '', complete_task_path(task: task.id, user: @user.id), class: "i icon-ok btn", remote: true
+          .progress.progress-success
+            .bar{:style => "width: #{@percent_done}%;"}
+    = render partial: 'chore_list', locals: { tasks: @todays, section: "Todays" }
     -if @as_needed.count > 0
-      %div.well.well-small
-        %h4 As Needed
-        %table.table
-          %col{:width => "20%"}
-          %col{:width => "70%"}
-          %tr
-            %th Days
-            %th Chore
-          -@as_needed.each do |task|
-            %tr
-              %td= task.completions.count > 0 ? (Time.now - task.completions.last.created_at).to_i / 1.day : 'No Completions'
-              %td
-                .span5
-                  = link_to task.title, task
-                .span1{ id: "task-#{task.id}" }
-                  -if Completion.find_by_user_id_and_task_id_and_completed(@user.id, task.id, @time)
-                    = link_to '', '#', class: "i icon-ok btn btn-success"
-                  -else
-                    = link_to '', complete_task_path(task: task.id, user: @user.id), class: "i icon-ok btn", remote: true
+      = render partial: 'chore_list', locals: { tasks: @as_needed, section: "As Needed" }
     -if @family_chores.count > 0
-      %div.well.well-small
-        %h4 Family
-        %table.table
-          %col{:width => "20%"}
-          %col{:width => "70%"}
-          %tr
-            %th Days
-            %th Chore
-          -@family_chores.each do |task|
-            %tr
-              %td= task.completions.count > 0 ? (Time.now - task.completions.last.created_at).to_i / 1.day : 'No Completions'
-              %td
-                .span5
-                  = link_to task.title, task
-                .span1{ id: "task-#{task.id}" }
-                  -if Completion.find_by_user_id_and_task_id_and_completed(@user.id, task.id, @time)
-                    = link_to '', '#', class: "i icon-ok btn btn-success"
-                  -else
-                    = link_to '', complete_task_path(task: task.id, user: @user.id), class: "i icon-ok btn", remote: true
+      = render partial: 'chore_list', locals: { tasks: @family_chores, section: "Family" }
 
   %div{id: "all", hidden: true}
     %h4 All Chores
