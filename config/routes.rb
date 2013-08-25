@@ -1,5 +1,7 @@
 HomeManager::Application.routes.draw do
   
+  resources :command_line
+
   resources :ingredients
 
   resources :meals do
@@ -45,4 +47,5 @@ HomeManager::Application.routes.draw do
   match '/buy_item' => 'purchases#buy_item', :as => :buy_item
   match '/award_credits' => 'users#award_credits', :as => :award_credits
   match '/assign_meal' => 'meals#assign_meal', :as => :assign_meal
+  match '/run' => 'command_line#run', :as => :run_command
 end
