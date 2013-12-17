@@ -8,15 +8,15 @@ class SessionsController < ApplicationController
       user = User.find_by_id_and_pin(params[:id], params[:pin].to_i)
       if user
         session[:user_id] = user.id
-        redirect_to user_path(user), notice: "Logged in!"
+        redirect_to user_path(user), notice: "Signed in"
       else
-        redirect_to :back, notice: "Email or password is invalid"
+        redirect_to :back, notice: "PIN does not match user"
       end
     else
       user = User.find_by_email(params[:email])
       if user && user.authenticate(params[:password])
         session[:user_id] = user.id
-        redirect_to user_path(user), notice: "Logged in!"
+        redirect_to user_path(user), notice: "Signed in"
       else
         redirect_to root_url, notice: "Email or password is invalid"
       end
@@ -25,6 +25,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_url, notice: "Logged out!"
+    redirect_to root_url, notice: "Signed out"
   end
 end

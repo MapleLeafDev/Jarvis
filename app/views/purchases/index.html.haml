@@ -6,7 +6,7 @@
     %li.active
       %a{:href => "#"} Purchases
   %table.table
-    -@purchases.sort_by{|x| x.created_at}.reverse.each do |purchase|
+    -@purchases.sort_by{|x| x.created_at}.reverse.take(20).each do |purchase|
       %tr{id: "purchase-#{purchase.id}"}
         %td
           .span2= purchase.item.name
