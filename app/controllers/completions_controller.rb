@@ -4,8 +4,9 @@ class CompletionsController < ApplicationController
   def complete_task
     @completion = Completion.new(user_id: params[:user], task_id: params[:task], completed: Time.zone.today)
 
-    unless Completion.find_by_user_id_and_task_id_and_completed(user.id, task.id, Time.zone.today)
+    unless Completion.find_by_user_id_and_task_id_and_completed(params[:user], params[:task], Time.zone.today)
       if @completion.save
+        task = Task.find_by_id(params[:task])
         user = User.find_by_id(params[:user])
         user.credits = user.credits.to_i + task.points.to_i
         user.save
