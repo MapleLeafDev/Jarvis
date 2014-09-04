@@ -1,0 +1,19 @@
+var el = $('.errors');
+
+<% if @user.errors.any? %>
+  
+  // Create a list of errors
+  var errors = $('<ul />');
+
+  <% @user.errors.full_messages.each do |error| %>
+    errors.append("<li><%= escape_javascript( error ) %></li>");
+  <% end %>
+  // Display errors on form
+  el.html(errors);
+  el.addClass('alert alert-danger');
+
+<% else %>
+
+  window.location.replace("<%= user_path(@user) %>");
+    
+<% end %>

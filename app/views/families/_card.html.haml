@@ -1,49 +1,20 @@
-.family-card{align: "center"}
-  %div.well.well-small.visible-desktop
-    %table{align: "center", width: "100%"}
-      %tr
-        %td{rowspan: "2"}
-          =link_to (image_tag(gravatar_for(user.email == nil || user.email == "" ? user.name : user.email))), user_path(user)
-        %td{align: "center"}
-          .lead= link_to user.name, user_path(user)
-        %td{align: "right"}
-          .lead
-            -if user.user_type < 10
-              = user.credits
-              credits
-      %tr
-        %td{align: "center"}
-          -if user.user_type >= 10
-            .muted (Parent)
-          -else
-            .muted (Child)
-        %td{align: "right"}
-          .span.edit-content
-            =link_to ' Chore', new_user_task_path(user), class: "i icon-plus btn"
-            -if current_user.user_type >= 20  
-              =link_to ' Edit', edit_user_path(user), class: "i icon-edit btn"
-              =link_to ' Delete', user, confirm: 'Are you sure?', class: "i icon-trash btn", id: 'delete-user'
-  %div.well.well-small.visible-phone.visible-tablet
-    %table{align: "center", width: "100%"}
-      %tr
-        %td{rowspan: "2"}
-          =link_to (image_tag(gravatar_for(user.email == nil || user.email == "" ? user.name : user.email))), user_path(user)
-        %td
-          .lead= link_to user.name, user_path(user)
-        %td{align: "right"}
-          .lead
-            = user.credits
-            credits
-      %tr
-        %td
-          -if user.user_type >= 10
-            .muted (Parent)
-          -else
-            .muted (Child)
-      %tr
-        %td{colspan: "3", align: "right"}
-          .span.edit-content
-            =link_to ' Chore', new_user_task_path(user), class: "i icon-plus btn btn-small"
-            -if current_user.user_type >= 20  
-              =link_to ' Edit', edit_user_path(user), class: "i icon-edit btn btn-small"
-              =link_to ' Delete', user, confirm: 'Are you sure?', class: "i icon-trash btn btn-small", id: 'delete-user'
+%div.well.well-small
+  %table{align: "center", width: "100%"}
+    %tr
+      %td{rowspan: "2"}
+        =link_to image_tag(gravatar_for(user)), user_path(user)
+      %td{align: "center"}
+        .lead= link_to user.name, user_path(user)
+      %td{align: "right"}
+        .lead
+          -if user.child?
+            = "#{user.credits || 0} #{t('views.credits')}"
+    %tr
+      %td{align: "center"}
+        %em= user.parent? ? t('views.parent') : t('views.child')
+      %td{align: "right"}
+        .span.edit-content
+          =link_to " #{t('views.task')}", new_user_task_path(user), class: "glyphicon glyphicon-edit btn btn-default"
+          -if current_user.parent? 
+            =link_to " #{t('views.edit')}", edit_user_path(user), remote: true, class: "glyphicon glyphicon-edit btn btn-default"
+            =link_to " #{t('views.delete')}", user, data: {confirm: t('views.are_you_sure')}, class: "glyphicon glyphicon-trash btn btn-default"

@@ -1,9 +1,13 @@
 class Family < ActiveRecord::Base
-  attr_accessible :name, :url
-  has_many :family_members, :dependent => :destroy
-  has_many :users, :through => :family_members
+
+  has_many :users
+  has_many :events, dependent: :destroy
+  has_many :tasks, dependent: :destroy
   
-  validates_presence_of :name
-  validates_uniqueness_of :url
+  validates_presence_of :name, :url
+
+  def email
+    name
+  end
 
 end

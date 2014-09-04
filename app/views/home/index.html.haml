@@ -1,18 +1,9 @@
-.span8
-  .hero-unit{align: "center"}
-    %h1 Jarvis
-    %p Home management system.
-    %br
-      -if current_user
-        = link_to 'Sign Out', signout_path, :class => 'btn btn-large btn-danger'
-      -else
-        = form_tag sessions_path do
-          .field
-            = label_tag :email
-            = email_field_tag :email, params[:email], class: "input-medium"
-          .field
-            = label_tag :password
-            = password_field_tag :password, '', class: "input-medium"
-          .actions
-            = submit_tag "Log In", class: "btn"
-            = link_to "Sign Up", signup_path, class: "btn"
+.jumbotron{align: "center"}
+  %p.lead JARVIS
+  = form_tag sessions_path do
+    .form-group
+      = email_field_tag :email, '', placeholder: t('views.email'), class: "form-control"
+    .form-group
+      = password_field_tag :password, '', placeholder: t('views.password'), class: "form-control"
+    %button.btn.btn-primary.btn-sm{:type => "submit"}= t('views.sign_in')
+    = link_to t('views.sign_up'), signup_path, class: 'btn btn-success btn-sm', remote: true

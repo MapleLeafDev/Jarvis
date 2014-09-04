@@ -12,5 +12,20 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require twitter/bootstrap
+//= require mobile
+//= require bootstrap
 //= require_tree .
+
+$(document).bind("mobileinit", function(){
+  $.mobile.loadingMessage = false;
+});
+
+$(document).ready(function(){
+  setTimeout(function(){$('.alert').fadeOut("1000ms")},2000);
+
+  $('.carousel').each(function(){
+      $(this).carousel({
+          interval: false
+      });
+  });
+});

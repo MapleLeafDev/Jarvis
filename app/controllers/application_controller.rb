@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :set_timezone
 
   helper_method :current_user
   helper_method :family
@@ -9,6 +8,33 @@ class ApplicationController < ActionController::Base
   helper_method :is_parent
   helper_method :children
   helper_method :parents
+
+  before_filter :user_agent_detect
+
+  def user_agent_detect
+    if request.user_agent =~ /iPad/
+      request.variant = :tablet
+    elsif request.user_agent =~ /iPhone/
+      request.variant = :phone
+    end
+  end
+
+  def resolve_layout
+    case action_name
+    when "my_family"
+      if request.variant && request.variant.include?(:phone)
+        "my_family_m"
+      else
+        "my_family"
+      end
+    else
+      if request.variant && request.variant.include?(:phone)
+        "application_m"
+      else
+        "application"
+      end
+    end
+  end
 
   private
 
@@ -21,11 +47,11 @@ class ApplicationController < ActionController::Base
   end
 
   def is_parent
-    redirect_to user_path(current_user), alert: "Not authorized" if current_user.user_type < 20
+    redirect_to user_path(current_user), alert: t('controllers.not_authorized') unless current_user.parent?
   end
 
   def authorize
-    redirect_to login_url, alert: "Need to sign in" if !current_user
+    redirect_to login_url, alert: t('controllers.need_to_sign_in') if !current_user
   end
 
   def family
@@ -71,15 +97,11 @@ class ApplicationController < ActionController::Base
     return users
   end
 
-  def gravatar_for(email)
-    id = Digest::MD5::hexdigest email.strip.downcase
+  def gravatar_for(user, size = nil)
+    id = Digest::MD5::hexdigest (user.email || user.name).strip.downcase
     url = 'http://www.gravatar.com/avatar/' + id + '?d=retro'
+    url += "&s=#{size}" if size
     return url
   end
 
-  def set_timezone
-    if current_user
-      Time.zone = current_user.time_zone
-    end
-  end
 end

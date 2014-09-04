@@ -1,74 +1,16 @@
-= form_for(@user) do |f|
-  - if @user.errors.any?
-    .text-error
-      #error_explanation
-        = pluralize(@user.errors.count, "error")
-        prohibited this user from being saved:
-        %ul
-          - @user.errors.full_messages.each do |msg|
-            %li= msg
-  %table.table
-    %tr
-      %td
-        .span3
-          Name
-        .span3
-          = f.text_field :name, placeholder: "Name"
-    %tr
-      %td
-        .span3
-          Email
-        .span3
-          = f.email_field :email, placeholder: "Email"
+.modal-body
+  = bootstrap_form_for(@user, layout: :horizontal, label_col: "col-sm-3", control_col: "col-sm-7", remote: true) do |f|
+    .errors
+    = f.text_field :name, label: t('views.name')
+    = f.email_field :email, label: t('views.email')
     - if !current_user || current_user == @user
-      %tr
-        %td
-          .span3
-            Password
-          .span3
-            = f.password_field :password, placeholder: "Password"
-      %tr
-        %td
-          .span3
-            Password Confirmation
-          .span3
-            = f.password_field :password_confirmation, placeholder: "Confirm Password"
-    - if current_user && params[:action] == 'edit'
-      %tr
-        %td
-          .span3
-            Credits
-          .span3
-            = f.number_field :credits
-    - if current_user && current_user != @user
-      %tr
-        %td
-          .span3
-            PIN
-          .span3
-            = f.text_field :pin, placeholder: "4 digit pin", :maxlength => 4
-      %tr
-        %td
-          .span3
-            Parent
-          .span3
-            = f.check_box :user_type
-    %tr
-      %td
-        .span3
-          Avatar
-        .span3
-          .muted
-            Avatar is provided by
-            #{link_to 'Gravatar', 'http://gravatar.com'}.
-            If you do not have an account with them, your avatar will be auto generated.
-          -if @user.name != nil && @user.name != ""
-            = image_tag(gravatar_for(@user.email == nil || @user.email == "" ? @user.name : @user.email))
-    %tr
-      %td
-        .span3
-          Time Zone
-        .span3
-          = f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones, default: ( current_user ? current_user.time_zone : nil)
-  .actions{align: "right"}
-    = f.submit "Save", class: "btn btn-small btn-success"
+      = f.password_field :password, label: t('views.password')
+      = f.password_field :password_confirmation, label: t('views.confirm_password')
+    - if params[:action] == 'edit'
+      = f.number_field :credits, placeholder: 0
+    - if current_user != @user
+      = f.number_field :pin, :maxlength => 4
+      = f.form_group :parent do
+        = f.check_box :parent
+    = f.submit class: "btn btn-primary"
+    = link_to "Cancel", "", class: "btn btn-default", data: {dismiss: "modal"}

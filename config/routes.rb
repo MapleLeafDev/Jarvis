@@ -1,14 +1,10 @@
 HomeManager::Application.routes.draw do
   
-  resources :command_line
+  resources :meals
 
-  resources :ingredients
-
-  resources :meals do
-    resources :ingredients
+  resources :families do
+    resources :tasks
   end
-
-  resources :families
 
   resources :items do 
     resources :purchases
@@ -27,25 +23,32 @@ HomeManager::Application.routes.draw do
     resources :completions
     resources :purchases
     resources :events
+    resources :social_media
   end
 
   resources :events
 
   resources :sessions
+
+  resources :instagram do
+    collection do 
+      get 'connect'
+      get 'callback'
+    end
+  end
   
   root :to => 'home#index'
 
-  match '/my_family/:url', to: 'families#my_family', as: :my_family
+  get '/my_family/:url', to: 'families#my_family', as: :my_family
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
-  match '/auth/facebook/callback' => 'sessions#create'
-  match '/signout' => 'sessions#destroy', :as => :signout
-  match '/chores' => 'tasks#chores'
-  match '/complete_task' => 'completions#complete_task', :as => :complete_task
-  match '/make_parent' => 'family_members#make_parent', :as => :make_parent
-  match '/buy_item' => 'purchases#buy_item', :as => :buy_item
-  match '/award_credits' => 'users#award_credits', :as => :award_credits
-  match '/assign_meal' => 'meals#assign_meal', :as => :assign_meal
-  match '/run' => 'command_line#run', :as => :run_command
+  get '/auth/facebook/callback' => 'sessions#create'
+  get '/signout' => 'sessions#destroy', :as => :signout
+  get '/chores' => 'tasks#chores'
+  get '/complete_task' => 'completions#complete_task', :as => :complete_task
+  get '/make_parent' => 'family_members#make_parent', :as => :make_parent
+  get '/buy_item' => 'purchases#buy_item', :as => :buy_item
+  get '/award_credits' => 'users#award_credits', :as => :award_credits
+  get '/assign_meal' => 'meals#assign_meal', :as => :assign_meal
 end

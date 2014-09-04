@@ -1,63 +1,20 @@
-=form_for @family do |f|
-  -if @family.errors.any?
-    .text-error
-      #error_explanation
-        = pluralize(@family.errors.count, "error")
-        prohibited this family from being saved:
-        %ul
-          - @family.errors.full_messages.each do |msg|
-            %li= msg
+%div{align: "center"}
+  %table.table
+    %tr
+      %td.col-md-2{rowspan: "2"}
+        = image_tag(gravatar_for(@family))
+      %td
+        .lead
+          .pull-right
+            = link_to " #{t('views.family_link')}", @access_url, class: "glyphicon glyphicon-share btn btn-default"
+            -if current_user.parent?
+              = link_to " #{t('views.member')}", new_user_path, remote: true, class: 'glyphicon glyphicon-plus btn btn-default'
+              = link_to " ", edit_family_path(@family), remote: true, class: 'glyphicon glyphicon-edit btn btn-default'
+          = t('views.blank_family', family: @family.name)
+    %tr
+      %td
 
-  .span8{align: "center"}
-    %h3.lead
-      %span.title.active-content
-        =@family.name
-        Family
-      %span.title.hidden-content
-        =f.text_field :name
-      %br
-      -if current_user.user_type >= 20
-        %span.edit{style: "font-size: 12px"}=link_to "(edit family)", edit_family_path(@family), class: 'activate-edit'
-    =link_to ' Family Access', @access_url, class: "i icon-share-alt btn"
-    .row
-      %p
-        -@users.sort_by{|x| x.user_type.to_i }.reverse.each do |user|
-          =render partial: 'card', locals: { user: user }
-  .span2{align: "center"}
-    %p
-    -if current_user.user_type >= 20
-      = link_to " Member", new_user_path, class: 'i icon-plus btn'
+-@family.users.each do |user|
+  =render partial: 'card', locals: { user: user }
 
-:javascript
-  $('.hidden-content').hide();
-  $('a.activate-edit').live('click', activateEdit);
-  $('a.deactivate-edit').live('click', deactivateEdit);
-  $('a#delete-user').live('click', deleteUser)
-  function activateEdit(e){
-    e.preventDefault();
-    $(this).parent().html("<a href='#' class='deactivate-edit'>(done editing?)</a>")
-    switchContent();
-  };
-  function deactivateEdit(e){
-    e.preventDefault();
-    $(this).parent().html("<a href='#' class='activate-edit'>(edit family)</a>")
-    $('form.edit_family').submit();
-    switchContent();
-  };
-  function switchContent(){
-    formHtml = $('.title.hidden-content').html();
-    titleHtml = $('.title.active-content').html();
-    $('.title.active-content').html(formHtml);
-    $('.title.hidden-content').html(titleHtml);
-  };
-  function deleteUser(e){
-    current_card = $(this).closest('.family-card')
-    e.preventDefault();
-    $.ajax({
-      url: $(this).attr('href'),
-      type: 'DELETE',
-      success: function(){
-        current_card.slideUp()
-      }
-    });
-  };
+= render partial: 'users/tasks', locals: { tasks: @family.tasks, section: t('views.tasks') }

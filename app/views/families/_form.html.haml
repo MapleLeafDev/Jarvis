@@ -1,24 +1,7 @@
-= form_for(@family) do |f|
-  - if @family.errors.any?
-    .text-error
-      #error_explanation
-        = pluralize(@family.errors.count, "error")
-        prohibited this family from being saved:
-        %ul
-          - @family.errors.full_messages.each do |msg|
-            %li= msg
-  %table.table
-    %tr
-      %td
-        .span3
-          New Family Name
-        .span3
-          = f.text_field :name
-    %tr
-      %td
-        .span3
-          Existing Famiy ID
-        .span3
-          = f.text_field :url
-  .actions{align: "right"}
-    = f.submit "Save", class: "btn btn-small btn-success"
+.modal-body
+  = bootstrap_form_for(@family, layout: :horizontal, label_col: "col-sm-3", control_col: "col-sm-7", remote: true) do |f|
+    .errors
+    = f.text_field :name, label: t('views.name')
+    = f.text_field :url, label: t('views.family_id')
+    = f.submit class: "btn btn-primary"
+    = link_to "Cancel", "", class: "btn btn-default", data: {dismiss: "modal"}

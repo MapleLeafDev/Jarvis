@@ -1,46 +1,30 @@
-:javascript
-  function showAll(){
-    event.preventDefault()
-    $('#stats').hide();
-    $('#all').show();
-    $('#stats-tab').removeClass('active');
-    $('#all-tab').addClass('active');
-    $('#s-tab').removeClass('active');
-    $('#a-tab').addClass('active');
-  }
+%div{align: "center"}
+  %table.table
+    %tr
+      %td.col-md-2{rowspan: "2"}
+        = image_tag(gravatar_for(@user))
+      %td
+        .lead
+          -if @user.credits
+            .pull-right.lead.label.label-success
+              = "#{@user.credits} #{t('views.credits')}"
+          = @user.name
+    %tr
+      %td
+        -if @user.social_medium.any?
+          .lead Social Media
+          %div.well.well-small
+            %table
+              -@user.social_medium.each do |feed|
+                %tr
+                  %td= link_to MediaFeed::TYPE_NAME[feed.feed_type], user_media_feed_path(@user, feed)
+        = t('views.social_media')
 
-.span8
-  %div{align: "center"}
-    = image_tag(gravatar_for(@user.email == nil || @user.email == "" ? @user.name : @user.email))
-    .lead= @user.name
-  .row
-    %p
-    %ul.nav.nav-tabs.visible-desktop.visible-tablet
-      %li.active{id: "stats-tab"}
-        = link_to 'Status', user_path
-      %li{id: "all-tab"}
-        = link_to 'All Chores', '#', onclick: "showAll();"
-    %ul.nav.nav-tabs.visible-phone
-      %li.active{id: "s-tab"}
-        = link_to 'Status', user_path
-      %li{id: "a-tab"}
-        = link_to 'All Chores', '#', onclick: "showAll();"
-  %div{id: "stats"}
-    %div.well.well-small
-      %h4 Progress
-      %div#progress
-        = @today_complete
-        = "/"
-        = @todays.count
-        %p
-          .progress.progress-success
-            .bar{:style => "width: #{@percent_done}%;"}
-    = render partial: 'chore_list', locals: { tasks: @todays, section: "Todays" }
-    -if @as_needed.count > 0
-      = render partial: 'chore_list', locals: { tasks: @as_needed, section: "As Needed" }
-    -if @family_chores.count > 0
-      = render partial: 'chore_list', locals: { tasks: @family_chores, section: "Family" }
+= render partial: 'tasks', locals: { tasks: @tasks, section: t('views.my_tasks') }
+-if @user.family
+  = render partial: 'tasks', locals: { tasks: @user.family.tasks, section: t('views.family_tasks') }
 
+<<<<<<< Updated upstream
   %div{id: "all", hidden: true}
     %h4 All Chores
     - @user.tasks.sort_by{ |t| t.period }.each do |task|
@@ -61,3 +45,6 @@
           %tr
             %td=member.name
             %td=member.credits
+=======
+= render partial: 'events', locals: { events: @user.events }
+>>>>>>> Stashed changes

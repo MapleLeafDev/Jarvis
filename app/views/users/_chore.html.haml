@@ -1,6 +1,0 @@
-%div.well.well-small{onclick: "location.href='#{task_path(task)}'"}
-  .span3{align: "center"}
-    %a{class: "badge badge-inverse"}
-      = task.as_needed ? 'As Needed' : 'Daily'
-  .span5{align: "center"}
-    = link_to task.title, task

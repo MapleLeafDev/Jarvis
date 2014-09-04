@@ -1,0 +1,19 @@
+%div.well.well-small
+  -if current_user.parent?
+    .pull-right= link_to " #{t('views.event')}", new_event_path, class: "glyphicon glyphicon-plus btn btn-default"
+
+  %h4= t('views.events')
+  -if events.any?
+    %table.table
+      -events.each do |event|
+        %tr
+          %td
+            .span5
+              = link_to task.title, task
+            .span1{ id: "task-#{task.id}" }
+              -if Completion.find_by_user_id_and_task_id_and_completed(@user.id, task.id, @time)
+                = link_to '', '#', class: "i icon-ok btn btn-success"
+              -else
+                = link_to '', complete_task_path(task: task.id, user: @user.id, task_ids: tasks.collect(&:id)), class: "i icon-ok btn", remote: true
+  -else
+    %em= t('views.no_events')

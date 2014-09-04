@@ -22,7 +22,7 @@
 .lead{align: "center"}
   = t('views.blank_family', family: @family.name)
 
-.well.well-small{align: "center"}
+%div{align: "center"}
   = form_tag sessions_path do
     = hidden_field_tag :id, params[:id], value: @users.first.id
     #child-login.carousel.slide{"data-ride" => "carousel"}
@@ -36,14 +36,8 @@
       .carousel-inner
         -@users.each do |user|
           .item{id: "#{user.id}", class: "#{'active' if user == @users.first}"}
-            %img{:alt => "...", :src => "#{gravatar_for(user, 400)}"}/
-
-      / Controls
-      %a.left.carousel-control{"data-slide" => "prev", :href => "#child-login", :role => "button"}
-        %span.glyphicon.glyphicon-chevron-left
-      %a.right.carousel-control{"data-slide" => "next", :href => "#child-login", :role => "button"}
-        %span.glyphicon.glyphicon-chevron-right
+            %img{:alt => "...", :src => "#{gravatar_for(user, 640)}"}/
     / Carousel
     .form-group
       = password_field_tag :pin, '', placeholder: t('views.pin'), class: "form-control"
-    %button.btn.btn-primary.btn-sm{:type => "submit"}= t('views.sign_in')
+    %button.btn.btn-primary{:type => "submit"}= t('views.sign_in')

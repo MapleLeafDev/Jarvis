@@ -1,7 +1,9 @@
 class Task < ActiveRecord::Base
-  attr_accessible :user_id, :title, :description, :points, :daily, :sunday, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :period, :how_often, :as_needed, :assigned, :family_id
+  
   belongs_to :user
+  belongs_to :family
   has_many :completions
+
   validates_presence_of :title
 
   def self.family_chores(user)

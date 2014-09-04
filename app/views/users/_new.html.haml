@@ -1,0 +1,7 @@
+.modal-header
+  .lead
+    -if current_user
+      = t('views.add_family_member')
+    -else
+      = t('views.create_account')
+= render "form"
