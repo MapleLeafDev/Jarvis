@@ -23,28 +23,3 @@
 = render partial: 'tasks', locals: { tasks: @tasks, section: t('views.my_tasks') }
 -if @user.family
   = render partial: 'tasks', locals: { tasks: @user.family.tasks, section: t('views.family_tasks') }
-
-<<<<<<< Updated upstream
-  %div{id: "all", hidden: true}
-    %h4 All Chores
-    - @user.tasks.sort_by{ |t| t.period }.each do |task|
-      = render partial: 'chore', locals: { task: task }
-.span2{align: "center"}
-  %p
-  -if current_user.user_type >= 20
-    = link_to " Chore", new_task_path, class: "i icon-plus btn"
-    %p
-  .lead Credits
-  %div.well.well-small#credits
-    -if current_user.user_type < 10
-      .lead
-        =current_user.credits
-    -else
-      %table{width: "100%"}
-        -children.each do |member|
-          %tr
-            %td=member.name
-            %td=member.credits
-=======
-= render partial: 'events', locals: { events: @user.events }
->>>>>>> Stashed changes
