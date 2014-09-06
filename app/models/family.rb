@@ -10,4 +10,8 @@ class Family < ActiveRecord::Base
     name
   end
 
+  def todays_tasks
+     day = User::DAYS_OF_WEEK[Time.now.wday]
+     tasks.where("daily = 't' OR #{day} = 't'")
+  end
 end

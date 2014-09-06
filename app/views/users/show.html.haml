@@ -2,7 +2,7 @@
   %table.table
     %tr
       %td.col-md-2{rowspan: "2"}
-        = image_tag(gravatar_for(@user))
+        = image_tag(gravatar_for(@user), class: "img-rounded")
       %td
         .lead
           .pull-right
@@ -23,6 +23,6 @@
                   %td= link_to MediaFeed::TYPE_NAME[feed.feed_type], user_media_feed_path(@user, feed)
         = t('views.social_media')
 
-= render partial: 'tasks', locals: { family: nil, user: @user, tasks: @user.tasks, section: t('views.my_tasks') }
+= render partial: 'tasks', locals: { family: nil, user: @user, tasks: @user.todays_tasks, section: t('views.my_tasks') }
 -if @user.family
-  = render partial: 'tasks', locals: { family: @user.family, user: nil, tasks: @user.family.tasks, section: t('views.family_tasks') }
+  = render partial: 'tasks', locals: { family: @user.family, user: nil, tasks: @user.family.todays_tasks, section: t('views.family_tasks') }

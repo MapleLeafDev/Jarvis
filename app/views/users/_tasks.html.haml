@@ -11,7 +11,7 @@
         %tr
           %td
             .pull-right{id: "task-#{task.id}"}
-              -if Completion.find_by_task_id(task.id)
+              -if task.completed?
                 %btn.btn.btn-sm.btn-success.glyphicon.glyphicon-check
               -else
                 = link_to '', complete_task_path(task: task.id), class: "glyphicon glyphicon-unchecked btn btn-sm btn-default", remote: true

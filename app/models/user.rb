@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   validates_presence_of :name
   validates_uniqueness_of :email, allow_blank: true
 
+  DAYS_OF_WEEK = ["sunday","monday","tuesday","wednesday","thursday","friday","saturday"]
+
   def parent?
     parent
   end
@@ -20,6 +22,14 @@ class User < ActiveRecord::Base
   end
 
   def todays_tasks
-    []
+     day = DAYS_OF_WEEK[Time.now.wday]
+     tasks.where("daily = 't' OR #{day} = 't'")
+  end
+
+  def task_progress
+    total = todays_tasks.count.to_f
+    completed = todays_tasks.select{|x| x.completed?}.count.to_f
+
+    ((completed / total) * 100)
   end
 end

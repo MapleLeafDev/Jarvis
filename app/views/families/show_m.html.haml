@@ -2,7 +2,7 @@
   %table.table
     %tr
       %td.col-md-1{rowspan: "2"}
-        = image_tag(gravatar_for(@family, 40))
+        = image_tag(gravatar_for(@family, 40), class: "img-rounded")
       %td
         .lead
           .pull-right
@@ -16,4 +16,4 @@
 -@family.users.each do |user|
   =render partial: 'card_m', locals: { user: user }
 
-= render partial: 'users/tasks', locals: { family: @family, user: nil, tasks: @family.tasks, section: t('views.tasks') }
+= render partial: 'users/tasks', locals: { family: @family, user: nil, tasks: @family.todays_tasks, section: t('views.tasks') }
