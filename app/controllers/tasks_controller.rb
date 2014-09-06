@@ -1,4 +1,6 @@
 class TasksController < ApplicationController
+  respond_to :html, :js
+
   before_filter :authorize
 
   def show
@@ -12,72 +14,31 @@ class TasksController < ApplicationController
   end
 
   def new
-    @task = Task.new
-    @users = family
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @task }
+    if params[:family_id]
+      @task = Family.find_by_id(params[:family_id]).tasks.new()
+    else
+      @task = User.find_by_id(params[:user_id]).tasks.new()
     end
   end
 
   def edit
-    @users = family
     @task = Task.find(params[:id])
   end
 
   def create
-    @task = Task.new(params[:task])
+    @task = Task.new(task_params)
 
-    if params[:task][:assigned] == "0"
-      @task.user_id = current_user.id
+    if @task.save
+      flash[:notice] = t('controllers.task_created', task: @task.title)
     end
-
-    if current_user.family
-      @task.family_id = current_user.family.id
-    end
-
-    if params[:task][:points] == ""
-      @task.points = 0
-    end
-
-    respond_to do |format|
-      if @task.save
-        format.html { redirect_to @task, notice: 'Chore was successfully created.' }
-        format.json { render json: @task, status: :created, location: @task }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
-      end
-    end
+    respond_with @task
   end
 
   def update
     @task = Task.find(params[:id])
 
-    @task.update_attributes(params[:task])
-
-    if params[:task][:assigned] == "0"
-      @task.user_id = current_user.id
-    end
-
-    if current_user.family
-      @task.family_id = current_user.family.id
-    end
-
-    if params[:task][:points] == ""
-      @task.points = 0
-    end
-
-    respond_to do |format|
-      if @task.save
-        format.html { redirect_to @task, notice: 'Chore was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
-      end
-    end
+    flash[:notice] = t('controllers.task_updated', task: @task.title) if @task.update_attributes(task_params)
+    respond_with @task
   end
 
   def destroy
@@ -88,5 +49,11 @@ class TasksController < ApplicationController
       format.html { redirect_to user_path(@task.user) }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  def task_params
+    params.require(:task).permit!
   end
 end

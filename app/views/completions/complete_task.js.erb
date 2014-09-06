@@ -1,3 +1,2 @@
-$("#task-<%= @completion.task_id %>").html('<a href="#" class="i icon-ok btn btn-success"></a>');
-$("#credits").html("<div class='lead' id='credits'><%= @completion.user.credits %></div>");
-$("#progress").html("<div><%= @today_complete %> / <%= @todays.count %><p></p> <div class='progress progress-success' id='progress'><div class='bar' style='width: <%= @percent_done %>%'></div></div><p></p></div>")
+$("#task-<%= @completion.task_id %>").html('<btn class="btn btn-sm btn-success glyphicon glyphicon-check"></btn>');
+$("#credits").text("<%= @user.credits.to_s + ' ' + t('views.credits') %>");

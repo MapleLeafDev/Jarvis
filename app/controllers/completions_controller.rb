@@ -7,13 +7,9 @@ class CompletionsController < ApplicationController
     unless Completion.find_by_user_id_and_task_id_and_completed(params[:user], params[:task], Time.zone.today)
       if @completion.save
         task = Task.find_by_id(params[:task])
-        user = User.find_by_id(params[:user])
-        user.credits = user.credits.to_i + task.points.to_i
-        user.save
-
-        @todays = params[:task_ids]
-        @today_complete = Completion.where(completed: Time.zone.today.to_s, user_id: user.id, task_id: @todays).count
-        @percent_done = @today_complete.to_f/@todays.count.to_f*100
+        @user = current_user
+        @user.credits = @user.credits.to_i + task.points.to_i
+        @user.save
       end
     end
   end

@@ -1,8 +1,8 @@
 %div{align: "center"}
   %table.table
     %tr
-      %td.col-md-2{rowspan: "2"}
-        = image_tag(gravatar_for(@user))
+      %td.col-md-1{rowspan: "2"}
+        = image_tag(gravatar_for(@user, 40))
       %td
         .lead
           .pull-right
@@ -13,7 +13,7 @@
                 = "#{@user.credits} #{t('views.credits')}"
           = @user.name
     %tr
-      %td
+      %td{colspan: "2"}
         -if @user.social_medium.any?
           .lead Social Media
           %div.well.well-small

@@ -7,9 +7,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
 
-    @tasks = @user.todays_tasks
-
     respond_to do |format|
+      format.html.phone { render template: "users/show_m" }
       format.html
     end
   end
@@ -43,6 +42,11 @@ class UsersController < ApplicationController
 
     flash[:notice] = t('controllers.user_updated', user: @user.name) if @user.update_attributes(user_params)
     respond_with @user
+  end
+
+  def multi
+    @user = User.find(params[:id])
+    @task = @user.tasks.new()
   end
 
   def destroy

@@ -17,20 +17,6 @@
     }
   };
 
-  function setAsNeededOccurance(){
-    if ($('#as_needed').is(':checked')) {
-      $('#daily').attr("checked", false);
-      $('#sunday').attr("checked", false);
-      $('#monday').attr("checked", false);
-      $('#tuesday').attr("checked", false);
-      $('#wednesday').attr("checked", false);
-      $('#thursday').attr("checked", false);
-      $('#friday').attr("checked", false);
-      $('#anytime').attr("checked", true);
-      return $('#saturday').attr("checked", false);
-    }
-  };
-
   function setSelectOccurance(){
     if ($('#sunday').is(':checked') || $('#monday').is(':checked') || $('#tuesday').is(':checked') || $('#wednesday').is(':checked') || $('#thursday').is(':checked') || $('#friday').is(':checked') || $('#saturday').is(':checked')) {
       $('#daily').attr("checked", false);
@@ -38,87 +24,24 @@
     }
   };
 
-= form_for(@task) do |f|
-  - if @task.errors.any?
-    .text-error
-      #error_explanation
-        = pluralize(@task.errors.count, "error")
-        prohibited this chore from being saved:
-        %ul
-          - @task.errors.full_messages.each do |msg|
-            %li= msg
-  %table.table
-    %tr
-      %td
-        .span3
-          Assignee
-        .span4
-          %p
-            = f.check_box :assigned, id: "assigned", checked: true, onclick: "setAssigned();"
-            Assigned
-          %p#assignee
-            = f.collection_select :user_id, @users, :id, :name, selected: params[:user_id]
-    %tr
-      %td
-        .span3
-          Title
-        .span3
-          = f.text_field :title
-    %tr
-      %td
-        .span3
-          Description
-        .span3
-          = f.text_area :description, rows: "3", maxlength: "255"
-    %tr
-      %td
-        .span3
-          Credits
-        .span3
-          = f.text_field :points, class: "input-mini"
-    %tr
-      %td
-        .span
-          When
-        .span
-          %div.well.well-small
-            = f.check_box :daily, id: "daily", onclick: "setDailyOccurance();"
-            Daily
-            %p
-            = f.check_box :as_needed, id: "as_needed", onclick: "setAsNeededOccurance();"
-            As needed.  At least once every #{f.number_field :how_often, id: 'how_often', class: 'input-mini'} days.
-          %div.well.well-small
-            = f.check_box :sunday, id: "sunday", onclick: "setSelectOccurance();"
-            Sunday
-            %p
-            = f.check_box :monday, id: "monday", onclick: "setSelectOccurance();"
-            Monday
-            %p
-            = f.check_box :tuesday, id: "tuesday", onclick: "setSelectOccurance();"
-            Tuesday
-            %p
-            = f.check_box :wednesday, id: "wednesday", onclick: "setSelectOccurance();"
-            Wednesday
-            %p
-            = f.check_box :thursday, id: "thursday", onclick: "setSelectOccurance();"
-            Thursday
-            %p
-            = f.check_box :friday, id: "friday", onclick: "setSelectOccurance();"
-            Friday
-            %p
-            = f.check_box :saturday, id: "saturday", onclick: "setSelectOccurance();"
-            Saturday
-          %div.well.well-small
-            = f.radio_button :period, 0, id: "anytime", checked: true
-            %div.label Anytime
-            %p
-            = f.radio_button :period, 1
-            %div.label.label-info Morning
-            %p
-            = f.radio_button :period, 2
-            %div.label.label-success Noon
-            %p
-            = f.radio_button :period, 3
-            %div.label.label-warning Evening
-  .actions{align: "right"}
-    = f.submit "Save", class: "btn btn-success btn-small"
+.modal-body
+  = bootstrap_form_for(@task, layout: :horizontal, label_col: "col-sm-3", control_col: "col-sm-7", remote: true) do |f|
+    .errors
+    = f.hidden_field :user_id
+    = f.hidden_field :family_id
+    = f.text_field :title
+    = f.text_area :description, rows: "3", maxlength: "255"
+    = f.text_field :points, label: t('views.credits')
+    = f.form_group :daily do
+      = f.check_box :daily, id: "daily", onclick: "setDailyOccurance();"
+      = f.check_box :sunday, id: "sunday", onclick: "setSelectOccurance();"
+      = f.check_box :monday, id: "monday", onclick: "setSelectOccurance();"
+      = f.check_box :tuesday, id: "tuesday", onclick: "setSelectOccurance();"
+      = f.check_box :wednesday, id: "wednesday", onclick: "setSelectOccurance();"
+      = f.check_box :thursday, id: "thursday", onclick: "setSelectOccurance();"
+      = f.check_box :friday, id: "friday", onclick: "setSelectOccurance();"
+      = f.check_box :saturday, id: "saturday", onclick: "setSelectOccurance();"
+    = f.submit t('views.save'),class: "btn btn-primary"
+    = link_to t('views.cancel'), "", class: "btn btn-default", data: {dismiss: "modal"}
+    -if params[:action] == "edit"
+      = link_to t('views.delete'), @task, method: :delete, data: {confirm: t('views.are_you_sure')}, class: "btn btn-danger"

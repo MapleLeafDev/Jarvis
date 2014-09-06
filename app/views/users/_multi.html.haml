@@ -1,0 +1,18 @@
+.modal-header
+  %h3= @user.name
+
+%ul.nav.nav-tabs{:role => "tablist"}
+  %li.active
+    %a{"data-toggle" => "tab", :href => "#info", :role => "tab"} Info
+  %li
+    %a{"data-toggle" => "tab", :href => "#edit", :role => "tab"} Edit
+  %li
+    %a{"data-toggle" => "tab", :href => "#task", :role => "tab"} Task
+
+.tab-content
+  #info.tab-pane.fade.in.active
+    = render "info"
+  #edit.tab-pane.fade
+    = render "form"
+  #task.tab-pane.fade
+    = render "tasks/form"

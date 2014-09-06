@@ -19,6 +19,9 @@ HomeManager::Application.routes.draw do
   end
 
   resources :users do
+    collection do
+      get 'multi'
+    end
     resources :tasks
     resources :completions
     resources :purchases

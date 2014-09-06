@@ -11,6 +11,7 @@ class FamiliesController < ApplicationController
     @access_url = "http://#{Rails.env.development? ? 'localhost:3000' : 'chore-chart.herokuapp.com'}/my_family/" + @family.url
 
     respond_to do |format|
+      format.html.phone { render template: "families/show_m" }
       format.html # show.html.erb
       format.json { render json: @family }
     end

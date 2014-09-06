@@ -12,5 +12,5 @@
       = f.number_field :pin, :maxlength => 4
       = f.form_group :parent do
         = f.check_box :parent
-    = f.submit class: "btn btn-primary"
+    = f.submit t('views.save'), class: "btn btn-primary"
     = link_to "Cancel", "", class: "btn btn-default", data: {dismiss: "modal"}
