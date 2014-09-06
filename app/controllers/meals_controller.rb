@@ -2,7 +2,8 @@ class MealsController < ApplicationController
   # GET /meals
   # GET /meals.json
   def index
-    @meals = Meal.where(user_id: family.collect(&:id))
+    @family = current_user.family.users
+    @meals = Meal.where(user_id: @family.collect(&:id))
 
     respond_to do |format|
       format.html # index.html.erb

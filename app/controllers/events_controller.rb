@@ -2,7 +2,8 @@ class EventsController < ApplicationController
 
   def index
     @events = Array.new
-    family.each do |member|
+    @family = current_user.family.users
+    @family.each do |member|
       Event.where(user_id: member.id).each do |event|
         @events << event
       end
