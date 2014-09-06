@@ -14,3 +14,5 @@
         = f.check_box :parent
     = f.submit t('views.save'), class: "btn btn-primary"
     = link_to "Cancel", "", class: "btn btn-default", data: {dismiss: "modal"}
+    -if params[:action] == "multi"
+      = link_to t('views.delete'), @user, method: :delete, data: {confirm: t('views.are_you_sure')}, class: "btn btn-danger"

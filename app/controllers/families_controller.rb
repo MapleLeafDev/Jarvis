@@ -82,10 +82,14 @@ class FamiliesController < ApplicationController
     end
   end
 
+  def multi
+    @family = Family.find(params[:id])
+    @task = @family.tasks.new()
+    @user = @family.users.new()
+  end
+
   def destroy
     @family = Family.find(params[:id])
-
-    members = FamilyMember.where(family_id: @family.id)
 
     members.each do |member|
       user = User.find_by_id(member.user_id)

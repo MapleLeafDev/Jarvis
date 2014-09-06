@@ -8,8 +8,7 @@
           .pull-right
             = link_to "", @access_url, class: "glyphicon glyphicon-new-window btn btn-default"
             -if current_user.parent?
-              = link_to " #{t('views.member')}", new_user_path, remote: true, class: 'glyphicon glyphicon-plus btn btn-default'
-              = link_to " ", edit_family_path(@family), remote: true, class: 'glyphicon glyphicon-edit btn btn-default'
+              =link_to "", multi_families_path(id: @family.id), remote: true, class: "glyphicon glyphicon-cog btn btn-default"
           = t('views.blank_family', family: @family.name)
     %tr
       %td

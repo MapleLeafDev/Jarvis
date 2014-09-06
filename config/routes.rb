@@ -3,6 +3,9 @@ HomeManager::Application.routes.draw do
   resources :meals
 
   resources :families do
+    collection do
+      get 'multi'
+    end
     resources :tasks
   end
 
