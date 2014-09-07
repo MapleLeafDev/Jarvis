@@ -1,5 +1,6 @@
 class SocialMediumController < ApplicationController
-
+  respond_to :html, :js
+  
   def show
     @feed = SocialMedia.find_by_id(params[:id])
     case @feed.feed_type
