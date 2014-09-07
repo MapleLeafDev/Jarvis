@@ -15,10 +15,8 @@
     %tr
       %td
         -if @user.social_medium.any?
-          %table
-            -@user.social_medium.each do |feed|
-              %tr
-                %td= link_to image_tag("#{SocialMedia::TYPE_NAME[feed.feed_type].downcase}.png", size: "40x40"), user_social_medium_path(@user, feed), remote: true
+          -@user.social_medium.each do |feed|
+            = link_to image_tag("#{SocialMedia::TYPE_NAME[feed.feed_type].downcase}.png", size: "40x40"), user_social_medium_path(@user, feed), remote: true
 = render partial: 'tasks', locals: { family: nil, user: @user, tasks: @user.todays_tasks, section: t('views.my_tasks') }
 -if @user.family
   = render partial: 'tasks', locals: { family: @user.family, user: nil, tasks: @user.family.todays_tasks, section: t('views.family_tasks') }
