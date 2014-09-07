@@ -15,9 +15,9 @@
             =post.likes[:count]
           = Time.at(post.created_time.to_i).strftime("%B %d, %Y")
       .panel-body
-        = image_tag(post.images.low_resolution.url)
-        = image_tag(post.images.thumbnail.url)
-        %p= post.caption.text
+        %div{align: "center"}
+          = image_tag(post.images.low_resolution.url)
+          %p= post.caption.text
         - post[:comments][:data].each do |comment|
           .media
             %a.pull-left{:href => "http://instagram.com/#{comment.from[:username]}"}

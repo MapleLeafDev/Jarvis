@@ -2,9 +2,12 @@
   .pull-right= link_to "", "", class: "glyphicon glyphicon-remove", data: {dismiss: "modal"}
   %p= SocialMedia::TYPE_NAME[@feed.feed_type]
   .well.well-small
-    = image_tag(@feed.picture, size: '40x40', class: "img-rounded")
-    = @feed.full_name
-    = " ( #{@feed.username} )"
+    %table{width: "100%"}
+      %tr
+        %td{rowspan: "2"}= image_tag(@feed.picture, size: '40x40', class: "img-rounded")
+        %td= @feed.full_name
+      %tr
+        %td= " ( #{@feed.username} )"
 - if @results.any?
   - @results.each do |post|
     .panel.panel-default
@@ -15,8 +18,9 @@
             =post.likes[:count]
           = Time.at(post.created_time.to_i).strftime("%B %d, %Y")
       .panel-body
-        = image_tag(post.images.thumbnail.url)
-        %p= post.caption.text
+        %div{align: "center"}
+          = image_tag(post.images.thumbnail.url)
+          %p= post.caption.text
         - post[:comments][:data].each do |comment|
           .media
             %a.pull-left{:href => "http://instagram.com/#{comment.from[:username]}"}
