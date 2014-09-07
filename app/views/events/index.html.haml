@@ -18,23 +18,23 @@
 
 .span8
   = calendar @events.sort_by{ |t| t.start_time }, {prev_text: "< ", next_text: " >"} do |event|
-    %div{name: "#{if event.event_type == "meal" then "meal" else event.user_id end}", onclick: "showEvent(#{event.id});", class: "label label-#{(if event.event_type == "meal" then "" elsif event.user_id == family[0].id then "success" elsif event.user_id == family[1].id then "warning" elsif event.user_id == family[2].id then "important" elsif event.user_id == family[3].id then "info" elsif event.user_id == family[4].id then "inverse" else "" end)}", style: "cursor: pointer"}
+    %div{name: "#{event.event_type == "meal" ? "meal" : event.user_id }", onclick: "showEvent(#{event.id});", class: "label label-#{event_label(event, @family)}", style: "cursor: pointer"}
       = event.start_time.strftime("%l:%M %p")
       %br
       = event.name
     %p
 .span2{align: "center"}
   %p
-  = link_to ' Event', new_event_path, class: "i icon-plus btn"
+  = link_to " #{t('views.event')}", new_event_path, remote: true, class: "glyphicon glyphicon-plus btn btn-default"
   %p
-  .lead Events for...
+  .lead= t('views.events_for')
   %div.well.well-small
-    %div{class: "label"}
+    %div{class: "label label-info"}
       %input{type: "checkbox", checked: "", onclick: "toggle_visibility('meal');"}
-        Meals
+        = t('views.meals')
     %p
     - @family.each do |member|
-      %div{class: "label label-#{(if member.id == @family[0].id then "success" elsif member.id == @family[1].id then "warning" elsif member.id == @family[2].id then "important" elsif member.id == @family[3].id then "info" elsif member.id == @family[4].id then "inverse" else "" end)}"}
+      %div{class: "label label-#{member_label(member, @family)}"}
         %input{type: "checkbox", checked: "", onclick: "toggle_visibility(#{member.id});"}
         = member.name
       %p

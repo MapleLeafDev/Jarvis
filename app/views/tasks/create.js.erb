@@ -13,9 +13,5 @@ var el = $('.errors');
   el.addClass('alert alert-danger');
 
 <% else %>
-  <% if @task.user_id %>
-    window.location.replace("<%= user_path(@task.user) %>");
-  <% else %>
-    window.location.replace("<%= family_path(@task.family) %>");
-  <% end %>
+  location.reload(true);
 <% end %>

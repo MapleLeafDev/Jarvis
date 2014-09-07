@@ -32,4 +32,12 @@ class User < ActiveRecord::Base
 
     ((completed / total) * 100)
   end
+
+  def instagram?
+    social_medium.where(feed_type: 1).any?
+  end
+
+  def instagram
+    social_medium.where(feed_type: 1).first
+  end
 end

@@ -5,15 +5,19 @@
 
 %ul.nav.nav-tabs{:role => "tablist"}
   %li.active
-    %a{"data-toggle" => "tab", :href => "#info", :role => "tab"} Info
+    %a{"data-toggle" => "tab", :href => "#info", :role => "tab"}= t('views.info')
   %li
-    %a{"data-toggle" => "tab", :href => "#edit", :role => "tab"} Edit
+    %a{"data-toggle" => "tab", :href => "#social", :role => "tab"}= t('views.social_media')
   %li
-    %a{"data-toggle" => "tab", :href => "#task", :role => "tab"} Task
+    %a{"data-toggle" => "tab", :href => "#edit", :role => "tab"}= t('views.edit')
+  %li
+    %a{"data-toggle" => "tab", :href => "#task", :role => "tab"}= t('views.task')
 
 .tab-content
   #info.tab-pane.fade.in.active
     = render "info"
+  #social.tab-pane.fade
+    = render "social_medium"
   #edit.tab-pane.fade
     = render "form"
   #task.tab-pane.fade

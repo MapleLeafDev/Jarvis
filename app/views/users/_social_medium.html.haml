@@ -1,0 +1,11 @@
+%table.table
+  %tr
+    %td
+      = image_tag("ig-badge-48.png")
+    %td
+      .pull-right
+        -if @user.instagram?
+          = link_to "", user_social_medium_path(@user, @user.instagram), class: "glyphicon glyphicon-play btn btn-success"
+        -else
+          = link_to "", connect_instagram_index_path, class: "glyphicon glyphicon-plus btn btn-default"
+      .lead= Instagram

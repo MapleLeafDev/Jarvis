@@ -85,4 +85,10 @@ class EventsController < ApplicationController
     @event.destroy
     redirect_to events_path
   end
+
+  private
+
+  def event_params
+    params.require(:event).permit!
+  end
 end

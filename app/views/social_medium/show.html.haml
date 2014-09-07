@@ -1,6 +1,6 @@
 .span10
   .lead{align: "center"}
-    %p= MediaFeed::TYPE_NAME[@feed.feed_type]
+    %p= SocialMedia::TYPE_NAME[@feed.feed_type]
     .well.well-small
       = image_tag(@feed.picture, size: '40x40')
       = @feed.full_name

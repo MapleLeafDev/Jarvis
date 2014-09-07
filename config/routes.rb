@@ -29,7 +29,7 @@ HomeManager::Application.routes.draw do
     resources :completions
     resources :purchases
     resources :events
-    resources :social_media
+    resources :social_medium
   end
 
   resources :events

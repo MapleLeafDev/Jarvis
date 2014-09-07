@@ -48,3 +48,7 @@ en:
     no_events: "(no events scheduled)"
     are_you_sure: "Are you sure?"
     profile: "Profile"
+    events_for: "Events for..."
+    meals: "Meals"
+    enable: "Enable"
+    info: "Info"
