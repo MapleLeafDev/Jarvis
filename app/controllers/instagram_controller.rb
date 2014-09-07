@@ -1,11 +1,11 @@
 class InstagramController < ApplicationController
 
   def connect
-    redirect_to Instagram.authorize_url(:redirect_uri => "http://localhost:3000/instagram/callback")
+    redirect_to Instagram.authorize_url(:redirect_uri => SocialMedia.instagram_redirect_uri)
   end
 
   def callback
-    response = Instagram.get_access_token(params[:code], redirect_uri: "http://localhost:3000/instagram/callback")
+    response = Instagram.get_access_token(params[:code], redirect_uri: SocialMedia.instagram_redirect_uri)
     if feed = current_user.instagram
       feed.update_attribute(:token, response.access_token)
     else

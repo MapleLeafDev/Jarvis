@@ -21,6 +21,14 @@ class SocialMedia < ActiveRecord::Base
     end
   end
 
+  def self.instagram_redirect_uri
+    if Rails.env.development?
+      "http://localhost:3000/instagram/callback"
+    else
+      "http://chore-chart.herokuapp.com/instagram/callback"
+    end
+  end
+
   private
 
   def instagram_client(token)
