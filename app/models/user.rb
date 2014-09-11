@@ -40,4 +40,12 @@ class User < ActiveRecord::Base
   def instagram
     social_medium.where(feed_type: 1).first
   end
+
+  def facebook?
+    social_medium.where(feed_type: 2).any?
+  end
+
+  def facebook
+    social_medium.where(feed_type: 2).first
+  end
 end

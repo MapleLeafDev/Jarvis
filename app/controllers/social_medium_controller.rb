@@ -7,6 +7,8 @@ class SocialMediumController < ApplicationController
     case @feed.feed_type
     when 1
       @results = @feed.instagram_media(params[:type])
+    when 2
+      @results = @feed.facebook_media(params[:type])
     end
 
     respond_to do |format|

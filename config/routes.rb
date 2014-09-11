@@ -42,6 +42,13 @@ HomeManager::Application.routes.draw do
       get 'callback'
     end
   end
+
+  resources :facebook do
+    collection do 
+      get 'connect'
+      get 'callback'
+    end
+  end
   
   root :to => 'home#index'
 
