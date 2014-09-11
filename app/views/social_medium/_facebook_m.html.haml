@@ -4,12 +4,6 @@
   .well.well-small
     = image_tag(@feed.picture, size: '40x40', class: "img-rounded")
     = @feed.full_name
-    %p
-      %ul.nav.nav-pills
-        %li{class: "#{'active' unless params[:type]}"}
-          = link_to t('views.home'), user_social_medium_path(@user, @feed), remote: true
-        %li{class: "#{'active' if params[:type]}"}
-          = link_to t('views.profile'), user_social_medium_path(@user, @feed, type: "recent"), remote: true
 #results
   - if @results.any?
     - @results.each do |post|
@@ -17,7 +11,7 @@
         .panel-heading
           %h3.panel-title
             .pull-right
-              = post['created_time']
+              = time_ago_in_words(Time.at(DateTime.parse(post['created_time'])))
             - post_pic = post['from']['id'] == @feed.username ? @feed.picture : post['picture']
             = image_tag(post_pic, size: '30x30', class: "img-rounded")
             = post['from']['name']
