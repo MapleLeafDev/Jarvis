@@ -2,10 +2,11 @@ class SocialMediumController < ApplicationController
   respond_to :html, :js
   
   def show
+    @user = User.find_by_id(params[:user_id])
     @feed = SocialMedia.find_by_id(params[:id])
     case @feed.feed_type
     when 1
-      @results = @feed.instagram_recent_media
+      @results = @feed.instagram_media(params[:type])
     end
 
     respond_to do |format|

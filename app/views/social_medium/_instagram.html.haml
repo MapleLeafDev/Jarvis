@@ -5,25 +5,34 @@
     = image_tag(@feed.picture, size: '40x40', class: "img-rounded")
     = @feed.full_name
     = " ( #{@feed.username} )"
-- if @results.any?
-  - @results.each do |post|
-    .panel.panel-default
-      .panel-heading
-        %h3.panel-title
-          .pull-right
-            %span.glyphicon.glyphicon-heart
-            =post.likes[:count]
-          = Time.at(post.created_time.to_i).strftime("%B %d, %Y")
-      .panel-body
-        %div{align: "center"}
-          = image_tag(post.images.low_resolution.url)
-          %p= post.caption.text
-        - post[:comments][:data].each do |comment|
-          .media
-            %a.pull-left{:href => "http://instagram.com/#{comment.from[:username]}"}
-              = image_tag(comment.from[:profile_picture], size: "30x30", class: "img-rounded media-object")
-            .media-body
-              %h4.media-heading=link_to comment.from[:username], "http://instagram.com/#{comment.from[:username]}"
-              = comment.text
--else
-  No Results
+    %p
+      %ul.nav.nav-pills
+        %li{class: "#{'active' unless params[:type]}"}
+          = link_to t('views.home'), user_social_medium_path(@user, @feed), remote: true
+        %li{class: "#{'active' if params[:type]}"}
+          = link_to t('views.profile'), user_social_medium_path(@user, @feed, type: "recent"), remote: true
+#results
+  - if @results.any?
+    - @results.each do |post|
+      .panel.panel-default
+        .panel-heading
+          %h3.panel-title
+            .pull-right
+              = time_ago_in_words(Time.zone.at(post.created_time.to_i))
+              %span.glyphicon.glyphicon-heart
+              =post.likes[:count]
+            = image_tag(post.user.profile_picture, size: '30x30', class: "img-rounded")
+            = post.user.username
+        .panel-body
+          %div
+            = image_tag(post.images.standard_resolution.url, class: "feed-img")
+            %p= post.caption.text if post.caption
+          - post[:comments][:data].each do |comment|
+            .media
+              %a.pull-left{:href => "http://instagram.com/#{comment.from[:username]}"}
+                = image_tag(comment.from[:profile_picture], size: "30x30", class: "img-rounded media-object")
+              .media-body
+                %h4.media-heading=link_to comment.from[:username], "http://instagram.com/#{comment.from[:username]}"
+                = comment.text
+  -else
+    No Results

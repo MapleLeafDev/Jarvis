@@ -12,10 +12,14 @@ class SocialMedia < ActiveRecord::Base
     client.tag_search('cat')
   end
 
-  def instagram_recent_media
+  def instagram_media(type)
     client = instagram_client(self.token)
     begin
-      client.user_recent_media
+      if type == 'recent'
+        client.user_recent_media
+      else
+        client.user_media_feed(777)
+      end
     rescue
       []
     end
