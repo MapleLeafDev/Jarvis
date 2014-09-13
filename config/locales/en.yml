@@ -53,3 +53,6 @@ en:
     enable: "Enable"
     info: "Info"
     home: "Home"
+    posts: "posts"
+    followers: "followers"
+    following: "following"

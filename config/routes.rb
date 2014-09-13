@@ -29,7 +29,11 @@ HomeManager::Application.routes.draw do
     resources :completions
     resources :purchases
     resources :events
-    resources :social_medium
+    resources :social_medium do
+      collection do
+        get 'relationships'
+      end
+    end
   end
 
   resources :events
@@ -49,6 +53,13 @@ HomeManager::Application.routes.draw do
       get 'callback'
     end
   end
+
+  resources :tumblr do
+    collection do
+      get 'callback'
+    end
+  end
+  get '/auth/tumblr/callback' => 'tumblr#callback'
   
   root :to => 'home#index'
 

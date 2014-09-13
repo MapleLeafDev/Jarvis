@@ -48,4 +48,12 @@ class User < ActiveRecord::Base
   def facebook
     social_medium.where(feed_type: 2).first
   end
+
+  def tumblr?
+    social_medium.where(feed_type: 3).any?
+  end
+
+  def tumblr
+    social_medium.where(feed_type: 3).first
+  end
 end

@@ -1,0 +1,21 @@
+.lead{align: "center"}
+  .pull-right= link_to "", "", class: "glyphicon glyphicon-remove", data: {dismiss: "modal"}
+  %p= @info['username']
+.well.well-small
+  %table{width: "100%"}
+    %tr
+      %td= image_tag(@info['profile_picture'], size: '50x50', class: "img-rounded")
+      %td{align: "right"}
+        = link_to "#{@info['counts']['media']} #{t('views.posts')}", user_social_medium_path(@user, @feed, type: "recent"), remote: true, class: 'btn btn-default'
+        = link_to "#{@info['counts']['followed_by']} #{t('views.followers')}", relationships_user_social_medium_index_path(@user, feed_id: @feed.id, rel_type: 'followers'), remote: true, class: 'btn btn-default'
+        = link_to "#{@info['counts']['follows']} #{t('views.following')}", relationships_user_social_medium_index_path(@user, feed_id: @feed.id, rel_type: 'following'), remote: true, class: 'btn btn-default'
+    %tr
+      %td{colspan: '2'}= @info['full_name']
+    %tr
+      %td{colspan: '2'}= @info['bio']
+    %tr
+      %td{colspan: '2'}= link_to @info['website'], @info['website']
+  %p
+    = link_to '', user_social_medium_path(@user, @feed, type: "home"), remote: true, class: "glyphicon glyphicon-home btn btn-default"
+    = link_to '', user_social_medium_path(@user, @feed, type: "recent"), remote: true, class: "glyphicon glyphicon-user btn btn-default"
+    = link_to '', user_social_medium_path(@user, @feed, type: "direct"), remote: true, class: "glyphicon glyphicon-envelope btn btn-default"

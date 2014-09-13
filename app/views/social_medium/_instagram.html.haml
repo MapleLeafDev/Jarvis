@@ -1,16 +1,4 @@
-.lead{align: "center"}
-  .pull-right= link_to "", "", class: "glyphicon glyphicon-remove", data: {dismiss: "modal"}
-  %p= SocialMedia::TYPE_NAME[@feed.feed_type]
-  .well.well-small
-    = image_tag(@feed.picture, size: '40x40', class: "img-rounded")
-    = @feed.full_name
-    = " ( #{@feed.username} )"
-    %p
-      %ul.nav.nav-pills
-        %li{class: "#{'active' unless params[:type]}"}
-          = link_to t('views.home'), user_social_medium_path(@user, @feed), remote: true
-        %li{class: "#{'active' if params[:type]}"}
-          = link_to t('views.profile'), user_social_medium_path(@user, @feed, type: "recent"), remote: true
+= render 'instagram_header'
 #results
   - if @results.any?
     - @results.each do |post|
@@ -22,7 +10,7 @@
               %span.glyphicon.glyphicon-heart
               =post.likes[:count]
             = image_tag(post.user.profile_picture, size: '30x30', class: "img-rounded")
-            = post.user.username
+            = link_to post.user.username, "http://instagram.com/#{post.user.username}"
         .panel-body
           %div
             = image_tag(post.images.standard_resolution.url, class: "feed-img")

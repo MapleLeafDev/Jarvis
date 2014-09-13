@@ -18,6 +18,9 @@ gem 'coffee-rails', '4.0.1'
 gem 'uglifier', '2.5.3'
 gem 'jquery-rails', '3.1.1'
 gem 'koala', '~> 1.10.0rc'
+gem 'tumblr_client'
+gem 'omniauth-tumblr'
+gem 'rest-client'
 
 group :development do
   gem 'sqlite3'

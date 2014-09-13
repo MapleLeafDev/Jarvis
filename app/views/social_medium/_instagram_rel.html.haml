@@ -1,0 +1,8 @@
+= render 'instagram_header'
+- @results.each do |result|
+  .media
+    %a.pull-left{:href => "http://instagram.com/#{result['username']}"}
+      = image_tag(result['profile_picture'], size: "40x40", class: "img-rounded media-object")
+    .media-body
+      %h4.media-heading=link_to result['username'], "http://instagram.com/#{result['username']}"
+      = result['full_name']
