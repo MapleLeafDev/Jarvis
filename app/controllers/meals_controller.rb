@@ -1,9 +1,15 @@
 class MealsController < ApplicationController
-  # GET /meals
-  # GET /meals.json
+  respond_to :html, :js
+
+  before_filter :authorize
+
   def index
-    @family = current_user.family.users
-    @meals = Meal.where(user_id: @family.collect(&:id))
+    @family = current_user.family
+    @meals = @family.meals
+
+    @today = Date.today
+    @this_week = (@today.at_beginning_of_week..@today.at_end_of_week).to_a
+    @next_week = ((@today + 7.days).at_beginning_of_week..(@today + 7.days).at_end_of_week).to_a
 
     respond_to do |format|
       format.html # index.html.erb
@@ -11,24 +17,9 @@ class MealsController < ApplicationController
     end
   end
 
-  def show
-    @meal = Meal.find(params[:id])
-    @ingredients = @meal.ingredients
-    @all_ingredients = Ingredient.all
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @meal }
-    end
-  end
-
   def new
-    @meal = Meal.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @meal }
-    end
+    family = current_user.family
+    @meal = family.meals.new()
   end
 
   def edit
@@ -36,37 +27,19 @@ class MealsController < ApplicationController
   end
 
   def create
-    @meal = Meal.new(params[:meal])
+    @meal = Meal.new(meal_params)
 
-    @meal.user_id = current_user.id
-
-    respond_to do |format|
-      if @meal.save
-        format.html { redirect_to @meal, notice: 'Meal was successfully created.' }
-        format.json { render json: @meal, status: :created, location: @meal }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @meal.errors, status: :unprocessable_entity }
-      end
+    if @meal.save
+      flash[:notice] = t('controllers.meal_created', meal: @meal.name)
     end
+    respond_with @meal
   end
 
   def update
     @meal = Meal.find(params[:id])
 
-    if @meal.user_id == nil
-      @meal.user_id == current_user.id
-    end
-
-    respond_to do |format|
-      if @meal.update_attributes(params[:meal])
-        format.html { redirect_to @meal, notice: 'Meal was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @meal.errors, status: :unprocessable_entity }
-      end
-    end
+    flash[:notice] = t('controllers.meal_updated', meal: @meal.title) if @meal.update_attributes(meal_params)
+    respond_with @meal
   end
 
   def destroy
@@ -90,11 +63,19 @@ class MealsController < ApplicationController
       end
       @old_day = @meal.menu_day
       @meal.menu_day = params[:menu_day]
-      @meal.save
+      if @meal.save
+        @meal.add_activity
+      end
     end
 
     respond_to do |format|
       format.js
     end
+  end
+
+  private
+
+  def meal_params
+    params.require(:meal).permit!
   end
 end

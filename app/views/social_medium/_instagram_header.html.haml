@@ -1,7 +1,7 @@
 .lead{align: "center"}
   .pull-right= link_to "", "", class: "glyphicon glyphicon-remove", data: {dismiss: "modal"}
   %p= @info['username']
-.well.well-small
+.well.well-sm
   %table{width: "100%"}
     %tr
       %td= image_tag(@info['profile_picture'], size: '50x50', class: "img-rounded")

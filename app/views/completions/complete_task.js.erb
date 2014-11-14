@@ -1,2 +1,2 @@
-$("#task-<%= @completion.task_id %>").html('<btn class="btn btn-sm btn-success glyphicon glyphicon-check"></btn>');
+$("#task-<%= @task.id %>").html('<btn class="btn btn-sm btn-success glyphicon glyphicon-check"></btn>');
 $("#credits").text("<%= @user.credits.to_s + ' ' + t('views.credits') %>");

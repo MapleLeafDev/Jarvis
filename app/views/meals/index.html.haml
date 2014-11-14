@@ -7,33 +7,28 @@
     })
   };
 
-.span7
-  .lead{align: "center"} Menu
-  %table.table.table-bordered{width: "100%"}
-    %col{width: "50%"}
-    %col{width: "50%"}
-    -count = 1
-    -while count < 8
-      %tr{height: "100px"}
-        %td{id: "day-#{count}"}
-          -if @meals.select{|x| x.menu_day == count}.first
-            = render partial: 'menu_entry', locals: {meal: @meals.select{|x| x.menu_day == count}.first}
-          -else
-            =count
-        %td{id: "day-#{count + 7}"}
-          -if @meals.select{|x| x.menu_day == count + 7}.first
-            = render partial: 'menu_entry', locals: {meal: @meals.select{|x| x.menu_day == count + 7}.first}
-          -else
-            =count + 7
-      -count = count + 1
-.span3
-  .lead{align: "center"} Recipe Box
-  = link_to ' Meal', new_meal_path, class: "i icon-plus btn"
-  %table.table
-    %col{:width => "60%"}
-    %col{:width => "40%"}
-    - @meals.each do |meal|
-      %tr
-        %td
-          = link_to meal.name, meal
-          =select_tag "select-#{meal.id}", options_for_select(["",1,2,3,4,5,6,7,8,9,10,11,12,13,14], (meal.menu_day? ? meal.menu_day : "")), onchange: "assignMeal(#{meal.id});" ,class: "input-mini pull-right"
+.span12
+  .lead{align: "center"} MENU
+  -[@this_week, @next_week].each do |week|
+    .span3
+      -week.each do |day|
+        .panel.panel-default
+          .panel-heading
+            .pull-right= Date.parse(day.to_s).strftime("%A")
+            = day
+          .panel-body{align: "center"}
+            %em{id: "day-#{day}"}
+              - if meal = Meal.find_by_menu_day_and_family_id(day, @family.id)
+                = link_to meal.name, edit_meal_path(meal), remote: true
+  .span5
+    .panel.panel-default
+      .panel-heading
+        .pull-right= link_to '', new_meal_path, remote: true, class: "glyphicon glyphicon-plus btn btn-default btn-sm"
+        = t('views.recipe_box')
+      .panel-body
+        %table.table
+          - @meals.each do |meal|
+            %tr
+              %td
+                = link_to meal.name, edit_meal_path(meal), remote: true
+                =select_tag "select-#{meal.id}", options_for_select(([""] + @this_week + @next_week), (meal.menu_day? ? meal.menu_day : "")), onchange: "assignMeal(#{meal.id});" ,class: "input-mini pull-right"

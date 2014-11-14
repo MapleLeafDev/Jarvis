@@ -3,6 +3,8 @@ class Family < ActiveRecord::Base
   has_many :users
   has_many :events, dependent: :destroy
   has_many :tasks, dependent: :destroy
+  has_many :activities, dependent: :destroy
+  has_many :meals, dependent: :destroy
   
   validates_presence_of :name, :url
 

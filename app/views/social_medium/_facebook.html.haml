@@ -1,7 +1,7 @@
 .lead{align: "center"}
   .pull-right= link_to "", "", class: "glyphicon glyphicon-remove", data: {dismiss: "modal"}
   %p= SocialMedia::TYPE_NAME[@feed.feed_type]
-  .well.well-small
+  .well.well-sm
     = image_tag(@feed.picture, size: '40x40', class: "img-rounded")
     = @feed.full_name
 #results

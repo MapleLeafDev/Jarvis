@@ -1,2 +1,2 @@
-$("#day-<%= @meal.menu_day %>").html('<%= escape_javascript(render(:partial => 'menu_entry', :locals => {meal: @meal})) %>');
-$("#day-<%= @old_day %>").html("<%= @old_day %>");
+$("#day-<%= @meal.menu_day %>").html('<%= link_to @meal.name, edit_meal_path(@meal), remote: true %>');
+$("#day-<%= @old_day %>").html("");

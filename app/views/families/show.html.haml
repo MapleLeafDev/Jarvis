@@ -13,7 +13,19 @@
     %tr
       %td
 
--@family.users.each do |user|
-  =render partial: 'card', locals: { user: user }
+%ul.nav.nav-tabs{:role => "tablist"}
+  %li.active
+    %a{"data-toggle" => "tab", :href => "#members", :role => "tab"}= t('views.members')
+  %li
+    %a{"data-toggle" => "tab", :href => "#activity", :role => "tab"}= t('views.activity')
+  %li
+    %a{"data-toggle" => "tab", :href => "#tasks", :role => "tab"}= t('views.tasks')
 
-= render partial: 'users/tasks', locals: { family: @family, user: nil, tasks: @family.todays_tasks, section: t('views.tasks') }
+.tab-content
+  #members.tab-pane.fade.in.active
+    -@family.users.each do |user|
+      =render partial: 'card', locals: { user: user }
+  #activity.tab-pane.fade
+    = render partial: 'activities', locals: { activities: @family.activities.reverse }
+  #tasks.tab-pane.fade
+    = render partial: 'users/tasks', locals: { family: @family, user: @current_user, tasks: @family.todays_tasks, section: t('views.tasks') }

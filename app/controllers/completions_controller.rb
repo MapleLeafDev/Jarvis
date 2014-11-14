@@ -2,14 +2,14 @@ class CompletionsController < ApplicationController
   before_filter :authorize
 
   def complete_task
-    @completion = Completion.new(user_id: params[:user], task_id: params[:task], completed: Time.zone.today)
+    @task = Task.find_by_id(params[:task])
+    @user = User.find_by_id(params[:user])
 
-    unless Completion.find_by_user_id_and_task_id_and_completed(params[:user], params[:task], Time.zone.today)
-      if @completion.save
-        task = Task.find_by_id(params[:task])
-        @user = current_user
-        @user.credits = @user.credits.to_i + task.points.to_i
-        @user.save
+    if @task && @user
+      unless @task.completed?
+        if Completion.create(user_id: @user.id, task_id: @task.id, completed: Time.zone.today)
+          @user.update_attribute(:credits, @user.credits.to_i + @task.points.to_i)
+        end
       end
     end
   end

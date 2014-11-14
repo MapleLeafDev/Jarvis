@@ -22,7 +22,7 @@
 .lead{align: "center"}
   = t('views.blank_family', family: @family.name)
 
-.well.well-small{align: "center"}
+.well.well-sm{align: "center"}
   = form_tag sessions_path do
     = hidden_field_tag :id, params[:id], value: @users.first.id
     #child-login.carousel.slide{"data-ride" => "carousel"}

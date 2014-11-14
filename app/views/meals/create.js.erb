@@ -1,0 +1,17 @@
+var el = $('.errors');
+
+<% if @meal.errors.any? %>
+  
+  // Create a list of errors
+  var errors = $('<ul />');
+
+  <% @meal.errors.full_messages.each do |error| %>
+    errors.append("<li><%= escape_javascript( error ) %></li>");
+  <% end %>
+  // Display errors on form
+  el.html(errors);
+  el.addClass('alert alert-danger');
+
+<% else %>
+  location.reload(true);
+<% end %>
