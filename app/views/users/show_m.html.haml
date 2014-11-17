@@ -20,4 +20,4 @@
 
 = render partial: 'tasks', locals: { family: nil, user: @user, tasks: @user.todays_tasks, section: t('views.my_tasks') }
 -if @user.family
-  = render partial: 'tasks', locals: { family: @user.family, user: nil, tasks: @user.family.todays_tasks, section: t('views.family_tasks') }
+  = render partial: 'tasks', locals: { family: @user.family, user: @user, tasks: @user.family.todays_tasks, section: t('views.family_tasks') }
