@@ -12,3 +12,73 @@
  *= require bootstrap
  *= require_tree .
  */
+
+html.login { 
+  background: url(/assets/background.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#wrapper {
+  padding-left: 0;
+}
+
+#page-wrapper {
+    width: 100%;
+    padding: 0;
+}
+
+@media(min-width:768px) {
+  .side-nav {
+    position: fixed;
+    top: 63px;
+    left: 0px;
+    width: 175px;
+    margin-left: -200px;
+    border: none;
+    border-radius: 0;
+    overflow-y: auto;
+    background-color: #3e3f3a;
+    margin-bottom: -5000px;
+    padding-bottom: 5000px; 
+  }
+
+  .side-nav>li>a {
+    width: 200px;
+  }
+
+  .side-nav li a:hover,
+  .side-nav li a:focus {
+    outline: none;
+  }
+
+  #page-wrapper {
+    padding-left: 200px;
+  }
+
+}
+
+.side-nav>li>ul {
+  padding: 0;
+}
+
+.side-nav>li>ul>li>a {
+  display: block;
+  padding: 10px 15px 10px 38px;
+  text-decoration: none;
+  color: #999;
+}
+
+.side-nav>li>ul>li>a:hover {
+  color: #fff;
+}
+
+.week {
+  height: 100px;
+}
+
+.menu-panel {
+  height: 50px;
+}

@@ -63,7 +63,7 @@ class MealsController < ApplicationController
       end
       @old_day = @meal.menu_day
       @meal.menu_day = params[:menu_day]
-      if @meal.save
+      if @meal.save && @meal.menu_day
         @meal.add_activity
       end
     end

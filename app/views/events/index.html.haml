@@ -15,29 +15,26 @@
     url = "/events/" + e;
     window.location = url;
   }
+.col-lg-12
+  .panel.panel-default
+    .panel-heading
+      .pull-right
+        = link_to " #{t('views.event')}", new_event_path, remote: true, class: "glyphicon glyphicon-plus btn btn-default btn-sm"
+      = t('views.events_for')
+    .panel-body
+      %div{class: "label label-info", style: "margin-right:10px;"}
+        %input{type: "checkbox", checked: "", onclick: "toggle_visibility('meal');"}
+          = t('views.meals')
+      - @family.each do |member|
+        %div{class: "label label-#{member_label(member, @family)}", style: "margin-right:10px;"}
+          %input{type: "checkbox", checked: "", onclick: "toggle_visibility(#{member.id});"}
+          = member.name
 
-.span8
-  = calendar @events.sort_by{ |t| t.start_time }, {prev_text: "< ", next_text: " >"} do |event|
+  = calendar @events.sort_by{ |t| t.start_time }, {prev_text: "<span class='glyphicon glyphicon-chevron-left'></span>".html_safe, next_text: "<span class='glyphicon glyphicon-chevron-right'></span>".html_safe} do |event|
     %div{name: "#{event.event_type == "meal" ? "meal" : event.user_id }", onclick: "showEvent(#{event.id});", class: "label label-#{event_label(event, @family)}", style: "cursor: pointer"}
       = event.start_time.strftime("%l:%M %p")
-      %br
       = event.name
     %p
-.span2{align: "center"}
-  %p
-  = link_to " #{t('views.event')}", new_event_path, remote: true, class: "glyphicon glyphicon-plus btn btn-default"
-  %p
-  .lead= t('views.events_for')
-  %div.well.well-small
-    %div{class: "label label-info"}
-      %input{type: "checkbox", checked: "", onclick: "toggle_visibility('meal');"}
-        = t('views.meals')
-    %p
-    - @family.each do |member|
-      %div{class: "label label-#{member_label(member, @family)}"}
-        %input{type: "checkbox", checked: "", onclick: "toggle_visibility(#{member.id});"}
-        = member.name
-      %p
 
 :javascript
   $("td").attr("onclick", "addEvent(this);");

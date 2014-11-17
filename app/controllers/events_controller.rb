@@ -21,9 +21,7 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
-    @users = family
-
-    @meals = Meal.where(user_id: (family.collect(&:id))).collect(&:name)
+    @users = current_user.family.users
 
     if params[:start_time]
       @event.start_time = "#{params[:start_time]} 8:00AM"
@@ -42,7 +40,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(params[:event])
+    @event = Event.new(event_params)
     @event.start_time = params[:start_time]
     @event.event_type = params[:event_type]
     if @event.event_type == "meal"

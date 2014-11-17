@@ -10,25 +10,17 @@
     %link{:href => "//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css", :rel => "stylesheet"}/
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
 %body
-  .navbar.navbar-default.navbar-fixed-top{:role => "navigation"}
-    .container
+  #wrapper
+    .navbar.navbar-default.navbar-fixed-top{:role => "navigation"}
       .navbar-header
         %button.navbar-toggle.collapsed{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
           %span.sr-only
           %span.icon-bar
           %span.icon-bar
           %span.icon-bar
-        %a.navbar-brand= image_tag("jarvis.png")
+        %a.navbar-brand{href: ""}= image_tag("jarvis.png")
       .collapse.navbar-collapse
-        %ul.nav.navbar-nav
-          %li
-            -if current_user.family
-              = link_to t('views.family'), family_path(current_user.family)
-            -else
-              = link_to t('views.family'), new_family_path, remote: true
-          %li= link_to t('views.calendar'), events_path
-          %li= link_to t('views.menu'), meals_path
-        %ul.nav.navbar-nav.navbar-right
+        %ul.nav.navbar-nav.navbar-right{style: "margin-right:20px;"}
           %li.dropdown
             %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
               = current_user.name
@@ -39,21 +31,36 @@
                 %li= link_to t('views.settings'), edit_user_path(current_user), remote: true
                 %li.divider
               %li= link_to t('views.sign_out'), signout_path
-  .container
-    .row-fluid
-      .col-md-10.col-md-offset-1
-        = yield
+        .collapse.navbar-collapse.navbar-ex1-collapse
+        %ul.nav.navbar-nav.side-nav
+          %li{class: "#{'active' if params[:controller] == 'families'}"}
+            -if current_user.family
+              = link_to t('views.family'), family_path(current_user.family)
+            -else
+              = link_to t('views.family'), new_family_path, remote: true
+          %li{class: "#{'active' if params[:controller] == 'activities'}"}
+            = link_to t('views.activity'), activities_path
+          %li{class: "#{'active' if params[:controller] == 'tasks'}"}
+            = link_to t('views.tasks'), tasks_path
+          %li{class: "#{'active' if params[:controller] == 'events'}"}
+            = link_to t('views.calendar'), events_path
+          %li{class: "#{'active' if params[:controller] == 'meals'}"}
+            = link_to t('views.menu'), meals_path
+    #page-wrapper
+      .container-fluid
+        .row
+          = yield
 
-  .container{style: "position:fixed; top:70px; right:0px; width:35%;"}
-    -if flash.count > 0
-      -flash.each do |name, msg|
-        -if flash[:notice]
-          .flash.alert.alert-info{align: "center"}
-            =content_tag :div, msg, :id => "flash_#{name}"
-        -else
-          .flash.alert.alert-danger{align: "center"}
-            =content_tag :div, msg, :id => "flash_#{name}"
+    .container{style: "position:fixed; top:70px; right:0px; width:25%;"}
+      -if flash.count > 0
+        -flash.each do |name, msg|
+          -if flash[:notice]
+            .flash.alert.alert-info{align: "center"}
+              =content_tag :div, msg, :id => "flash_#{name}"
+          -else
+            .flash.alert.alert-danger{align: "center"}
+              =content_tag :div, msg, :id => "flash_#{name}"
 
-  #modal.modal.fade
-    .modal-dialog
-      #inner-modal.modal-content
+    #modal.modal.fade
+      .modal-dialog
+        #inner-modal.modal-content

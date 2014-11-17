@@ -3,14 +3,9 @@ class TasksController < ApplicationController
 
   before_filter :authorize
 
-  def show
-    @task = Task.find(params[:id])
-    @completions = Completion.where(task_id: @task.id).order("completed DESC").limit(5)
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @task }
-    end
+  def index
+    @family = current_user.family
+    @members = @family.users
   end
 
   def new

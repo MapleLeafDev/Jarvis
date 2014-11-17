@@ -1,2 +1,2 @@
-$("#day-<%= @meal.menu_day %>").html('<%= link_to @meal.name, edit_meal_path(@meal), remote: true %>');
+$("#day-<%= @meal.menu_day %>").html('<%= link_to @meal.name, edit_meal_path(@meal), remote: true, class: "label label-info" %>');
 $("#day-<%= @old_day %>").html("");

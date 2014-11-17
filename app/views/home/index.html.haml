@@ -6,4 +6,3 @@
     .form-group
       = password_field_tag :password, '', placeholder: t('views.password'), class: "form-control"
     %button.btn.btn-primary.btn-sm{:type => "submit"}= t('views.sign_in')
-    = link_to t('views.sign_up'), signup_path, class: 'btn btn-success btn-sm', remote: true

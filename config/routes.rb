@@ -38,6 +38,8 @@ HomeManager::Application.routes.draw do
 
   resources :events
 
+  resources :activities
+
   resources :sessions
 
   resources :instagram do

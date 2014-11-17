@@ -30,21 +30,6 @@
           - @event.errors.full_messages.each do |msg|
             %li= msg
   %table.table
-    %tr
-      %td
-        .span3
-          %h5 Type
-        .span3
-          %input{name: 'event_type', id: 'meal', type: 'radio', value: "event", checked: "checked", onclick: "typeSelected(this);"}
-          Event
-          %input{name: 'event_type', id: 'meal', type: 'radio', value: "meal", checked: (if @event.event_type == "meal" then "checked" end), onclick: "typeSelected(this);"}
-          Meal
-    %tr#meal-select{hidden: true}
-      %td
-        .span3
-          %h5 Meal
-        .span3
-          = select_tag :meal_name, options_for_select(@meals)
     %tr#event-name
       %td
         .span3
@@ -62,7 +47,7 @@
         .span3
           %h5 For
         .span3
-          = f.collection_select :user_id, (current_user.user_type >= 10 ? @users : [current_user]), :id, :name, selected: params[:user_id]
+          = f.collection_select :user_id, (current_user.parent? ? @users : [current_user]), :id, :name, selected: params[:user_id]
     %tr
       %td
         .span3

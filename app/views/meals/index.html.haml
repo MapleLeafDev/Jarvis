@@ -7,28 +7,34 @@
     })
   };
 
-.span12
-  .lead{align: "center"} MENU
-  -[@this_week, @next_week].each do |week|
-    .span3
-      -week.each do |day|
-        .panel.panel-default
-          .panel-heading
-            .pull-right= Date.parse(day.to_s).strftime("%A")
-            = day
-          .panel-body{align: "center"}
-            %em{id: "day-#{day}"}
-              - if meal = Meal.find_by_menu_day_and_family_id(day, @family.id)
-                = link_to meal.name, edit_meal_path(meal), remote: true
-  .span5
-    .panel.panel-default
-      .panel-heading
-        .pull-right= link_to '', new_meal_path, remote: true, class: "glyphicon glyphicon-plus btn btn-default btn-sm"
-        = t('views.recipe_box')
-      .panel-body
-        %table.table
-          - @meals.each do |meal|
-            %tr
-              %td
-                = link_to meal.name, edit_meal_path(meal), remote: true
-                =select_tag "select-#{meal.id}", options_for_select(([""] + @this_week + @next_week), (meal.menu_day? ? meal.menu_day : "")), onchange: "assignMeal(#{meal.id});" ,class: "input-mini pull-right"
+.lead{align: "center"} MENU
+-[@this_week, @next_week].each do |week|
+  .col-md-4
+    -week.each do |day|
+      .panel.panel-default
+        .panel-heading
+          .pull-right= Date.parse(day.to_s).strftime("%A")
+          = day
+        .panel-body.menu-panel{align: "center"}
+          %em.lead{id: "day-#{day}"}
+            - if meal = Meal.find_by_menu_day_and_family_id(day, @family.id)
+              = link_to meal.name, edit_meal_path(meal), remote: true, class: "label label-info"
+.col-md-4
+  .panel.panel-default
+    .panel-heading
+      .pull-right= link_to '', new_meal_path, remote: true, class: "glyphicon glyphicon-plus btn btn-default btn-sm"
+      = t('views.recipe_box')
+    .panel-body
+      #accordion.panel-group{"aria-multiselectable" => "true", role: "tablist"}
+        - @meals.each do |meal|
+          .panel.panel-default
+            .panel-heading{id: "heading-#{meal.id}", role: "tab"}
+              %h4.panel-title
+                .pull-right
+                  =select_tag "select-#{meal.id}", options_for_select(([""] + @this_week + @next_week), (meal.menu_day? ? meal.menu_day : "")), onchange: "assignMeal(#{meal.id});" ,class: "input-mini"
+                  = link_to '', edit_meal_path(meal), remote: true, class: "glyphicon glyphicon-cog btn btn-default btn-sm"
+                %a{class: "#{'collapsed' unless meal == @meals.first}", "aria-controls" => "collapse-#{meal.id}", "aria-expanded" => "#{meal == @meals.first ? 'true' : 'false'}", "data-parent" => "#accordion", "data-toggle" => "collapse", href: "#collapse-#{meal.id}"}
+                  = meal.name
+            .panel-collapse.collapse{id: "collapse-#{meal.id}", "aria-labelledby" => "heading-#{meal.id}", role: "tabpanel"}
+              .panel-body.menu-panel
+                = meal.description
