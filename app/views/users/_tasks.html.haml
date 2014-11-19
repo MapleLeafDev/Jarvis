@@ -1,9 +1,9 @@
 %div.well.well-sm
   -if current_user.parent?
     -if family
-      .pull-right= link_to "", new_task_path(family_id: family.id), remote: true, class: "glyphicon glyphicon-plus btn btn-default"
+      .pull-right= link_to "", new_task_path(family_id: family.id), remote: true, class: "glyphicon glyphicon-plus btn btn-default btn-sm"
     -else
-      .pull-right= link_to "", new_task_path(user_id: user.id), remote: true, class: "glyphicon glyphicon-plus btn btn-default"
+      .pull-right= link_to "", new_task_path(user_id: user.id), remote: true, class: "glyphicon glyphicon-plus btn btn-default btn-sm"
   %h4= section
   -if tasks.any?
     -tasks.each do |task|

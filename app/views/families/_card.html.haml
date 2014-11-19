@@ -16,7 +16,7 @@
       %td
         .pull-right
           -if current_user.parent?
-            =link_to "", multi_users_path(id: user.id), remote: true, class: "glyphicon glyphicon-cog btn btn-default"
+            =link_to "", multi_users_path(id: user.id), remote: true, class: "glyphicon glyphicon-cog btn btn-default btn-sm"
         - progress = user.task_progress
         %div{style: "margin-right:60px;"}
           .progress

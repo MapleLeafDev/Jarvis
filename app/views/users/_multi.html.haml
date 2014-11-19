@@ -1,24 +1,20 @@
 .modal-header
   %h3
-    = image_tag(gravatar_for(@user, 40))
+    = image_tag(gravatar_for(@user, 40), class: "img-rounded")
     = @user.name
 
 %ul.nav.nav-tabs{:role => "tablist"}
   %li.active
-    %a{"data-toggle" => "tab", :href => "#info", :role => "tab"}= t('views.info')
+    %a{"data-toggle" => "tab", :href => "#task", :role => "tab"}= t('views.add_task')
   %li
     %a{"data-toggle" => "tab", :href => "#social", :role => "tab"}= t('views.social_media')
   %li
     %a{"data-toggle" => "tab", :href => "#edit", :role => "tab"}= t('views.edit')
-  %li
-    %a{"data-toggle" => "tab", :href => "#task", :role => "tab"}= t('views.task')
 
 .tab-content
-  #info.tab-pane.fade.in.active
-    = render "info"
+  #task.tab-pane.fade.in.active
+    = render "tasks/form"
   #social.tab-pane.fade
     = render "social_medium"
   #edit.tab-pane.fade
     = render "form"
-  #task.tab-pane.fade
-    = render "tasks/form"

@@ -1,24 +1,19 @@
-.well.well-small
-  %table{width: "100%"}
-    %tr
-      %td
-        = image_tag("instagram.png")
-      %td
-        .pull-right
-          -if @user.instagram?
-            = link_to "", user_social_medium_path(@user, @user.instagram), remote: true, class: "glyphicon glyphicon-play btn btn-success"
-          -else
-            = link_to "", connect_instagram_index_path, class: "glyphicon glyphicon-plus btn btn-default"
-        .lead Instagram
-.well.well-small
-  %table{width: "100%"}
-    %tr
-      %td
-        = image_tag("facebook.png")
-      %td
-        .pull-right
-          -if @user.facebook?
-            = link_to "", user_social_medium_path(@user, @user.facebook), remote: true, class: "glyphicon glyphicon-play btn btn-success"
-          -else
-            = link_to "", connect_facebook_index_path, class: "glyphicon glyphicon-plus btn btn-default"
-        .lead Facebook
+%table.table
+  %tr
+    %td
+      .lead Instagram
+    %td
+      .pull-right
+        -if @user.instagram?
+          = link_to "", user_social_medium_path(@user, @user.instagram), remote: true, class: "glyphicon glyphicon-play btn btn-success btn-sm"
+        -else
+          = link_to "", connect_instagram_index_path, class: "glyphicon glyphicon-plus btn btn-default btn-sm"
+  %tr
+    %td
+      .lead Facebook
+    %td
+      .pull-right
+        -if @user.facebook?
+          = link_to "", user_social_medium_path(@user, @user.facebook), remote: true, class: "glyphicon glyphicon-play btn btn-success btn-sm"
+        -else
+          = link_to "", connect_facebook_index_path, class: "glyphicon glyphicon-plus btn btn-default btn-sm"

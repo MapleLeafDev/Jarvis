@@ -12,6 +12,7 @@ en:
   views:
     editing_task: "Editing '%{task}'"
     new_task: "New Task"
+    add_task: "Add Task"
     pin: "PIN"
     parent: "Parent"
     child: "Child"
@@ -29,6 +30,7 @@ en:
     editing_user: "Editing '%{user}'"
     create_account: "Create Account"
     add_family_member: "Add Family Member"
+    edit_family: "Edit Family"
     name: "Name"
     email: "Email"
     password: "Password"
