@@ -1,61 +1,11 @@
-:javascript
-  $(document).ready(function(){
-    $('#datetimepicker2').datetimepicker({
-      language: 'en',
-      pick24HourFormat: true
-    });
-  });
-
-  function typeSelected(obj){
-    if(obj.value == "event"){
-      $("#meal-select").hide();
-      $("#event-name").show();
-      $("#event-for").show();
-      $("#event-desc").show();
-    } else {
-      $("#meal-select").show();
-      $("#event-name").hide();
-      $("#event-for").hide();
-      $("#event-desc").hide();
-    }
-  };
-
-= form_for(@event) do |f|
-  - if @event.errors.any?
-    .text-error
-      #error_explanation
-        = pluralize(@event.errors.count, "error")
-        prohibited this event from being saved:
-        %ul
-          - @event.errors.full_messages.each do |msg|
-            %li= msg
-  %table.table
-    %tr#event-name
-      %td
-        .span3
-          %h5 Name
-        .span3
-          = f.text_field :name
-    %tr#event-desc{hidden: (@event.event_type == "meal" ? true : false)}
-      %td
-        .span3
-          %h5 Description
-        .span3
-          = f.text_area :description, rows: "3", maxlength: "255"
-    %tr#event-for{hidden: (@event.event_type == "meal" ? true : false)}
-      %td
-        .span3
-          %h5 For
-        .span3
-          = f.collection_select :user_id, (current_user.parent? ? @users : [current_user]), :id, :name, selected: params[:user_id]
-    %tr
-      %td
-        .span3
-          %h5 When
-        .span3
-          #datetimepicker2.input-append
-            %span.add-on
-              %i{"data-date-icon" => "icon-calendar", "data-time-icon" => "icon-time"}
-            %input.input-medium{name: "start_time", "data-format" => "yyyy-MM-dd HH:mm PP", :type => "text", value: (@event ? @event.start_time : (params['start_time'] ? Date.parse(params['start_time']) : ''))}
-  .actions{align: "right"}
-    = f.submit "Save", class: "btn btn-small btn-success"
+.modal-body
+  = bootstrap_form_for(@event, layout: :horizontal, label_col: "col-sm-3", control_col: "col-sm-7", remote: true) do |f|
+    .errors
+    = f.text_field :name
+    = f.text_area :description, rows: "3", maxlength: "255"
+    = f.collection_select :user_id, (current_user.parent? ? @users : [current_user]), :id, :name, selected: params[:user_id]
+    = f.datetime_select :start_time
+    = f.submit t('views.save'),class: "btn btn-primary"
+    = link_to t('views.cancel'), "", class: "btn btn-default", data: {dismiss: "modal"}
+    -if params[:action] == "edit"
+      = link_to t('views.delete'), @meal, method: :delete, data: {confirm: t('views.are_you_sure')}, class: "btn btn-danger"

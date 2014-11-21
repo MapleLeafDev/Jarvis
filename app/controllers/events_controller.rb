@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  respond_to :html, :js
 
   def index
     @events = Array.new
@@ -10,27 +11,9 @@ class EventsController < ApplicationController
     end
   end
 
-  def show
-    @event = Event.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @event }
-    end
-  end
-
   def new
     @event = Event.new
     @users = current_user.family.users
-
-    if params[:start_time]
-      @event.start_time = "#{params[:start_time]} 8:00AM"
-    end
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @event }
-    end
   end
 
   def edit
@@ -41,41 +24,21 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    @event.start_time = params[:start_time]
-    @event.event_type = params[:event_type]
+
     if @event.event_type == "meal"
       @event.name = params[:meal_name]
     end
 
-    respond_to do |format|
-      if @event.save
-        format.html { redirect_to events_path, notice: 'Event was successfully created.' }
-        format.json { render json: @event, status: :created, location: @event }
-      else
-        @users = family
-        format.html { render action: "new" }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+    if @event.save
+      flash[:notice] = t('controllers.event_created', event: @event.name)
     end
+    respond_with @event
   end
 
   def update
-    @event = Event.find(params[:id])
-    @event.start_time = params[:start_time]
-    @event.event_type = params[:event_type]
-    if @event.event_type == "meal"
-      @event.name = params[:meal_name]
-    end
-
-    respond_to do |format|
-      if @event.update_attributes(params[:event])
-        format.html { redirect_to events_path, notice: 'Event was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
-    end
+    @event = Meal.find(params[:id])
+    flash[:notice] = t('controllers.event_updated', event: @event.name) if @event.update_attributes(event_params)
+    respond_with @meal
   end
 
   def destroy

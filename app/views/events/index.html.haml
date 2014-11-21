@@ -15,6 +15,11 @@
     url = "/events/" + e;
     window.location = url;
   }
+
+  function showPopover(e) {
+    event.stopPropagation();
+    $('#event-' + e).popover('show');
+  }
 .col-lg-12
   .panel.panel-default
     .panel-heading
@@ -24,17 +29,18 @@
     .panel-body
       %div{class: "label label-info", style: "margin-right:10px;"}
         %input{type: "checkbox", checked: "", onclick: "toggle_visibility('meal');"}
-          = t('views.meals')
+          = t('views.menu')
       - @family.each do |member|
         %div{class: "label label-#{member_label(member, @family)}", style: "margin-right:10px;"}
           %input{type: "checkbox", checked: "", onclick: "toggle_visibility(#{member.id});"}
           = member.name
 
-  = calendar @events.sort_by{ |t| t.start_time }, {prev_text: "<span class='glyphicon glyphicon-chevron-left'></span>".html_safe, next_text: "<span class='glyphicon glyphicon-chevron-right'></span>".html_safe} do |event|
-    %div{name: "#{event.event_type == "meal" ? "meal" : event.user_id }", onclick: "showEvent(#{event.id});", class: "label label-#{event_label(event, @family)}", style: "cursor: pointer"}
-      = event.start_time.strftime("%l:%M %p")
-      = event.name
-    %p
+  .calendar
+    = month_calendar events: @events, table: {class: events_table}, previous_link: events_previous_link, next_link: events_next_link do |date, events|
+      %em= date.day
+      %br
+      - events.each do |event|
+        %a{name: "#{event.event_type == "meal" ? "meal" : event.user_id }", id: "event-#{event.id}", "data-content" => event.description, "data-toggle" => "popover", "data-trigger" => "focus", :href => "#", :role => "button", :tabindex => "0", :title => event.name, onclick: "showPopover(#{event.id});", class: "label label-#{event_label(event, @family)}"}= event.start_time.strftime("%l:%M %p")
 
 :javascript
   $("td").attr("onclick", "addEvent(this);");

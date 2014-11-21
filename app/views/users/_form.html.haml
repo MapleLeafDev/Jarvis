@@ -3,15 +3,12 @@
     .errors
     = f.text_field :name, label: t('views.name')
     = f.email_field :email, label: t('views.email')
-    - if !current_user || current_user == @user
-      = f.password_field :password, label: t('views.password')
-      = f.password_field :password_confirmation, label: t('views.confirm_password')
-    - if params[:action] == 'edit'
-      = f.number_field :credits, placeholder: 0
-    - if current_user != @user
-      = f.number_field :pin, :maxlength => 4
-      = f.form_group :parent do
-        = f.check_box :parent
+    = f.password_field :password, label: t('views.password')
+    = f.password_field :password_confirmation, label: t('views.confirm_password')
+    = f.number_field :credits, placeholder: 0
+    = f.number_field :pin, :maxlength => 4
+    = f.form_group :parent do
+      = f.check_box :parent
     = f.submit t('views.save'), class: "btn btn-primary"
     = link_to "Cancel", "", class: "btn btn-default", data: {dismiss: "modal"}
     -if params[:action] == "multi"

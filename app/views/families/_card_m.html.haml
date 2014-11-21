@@ -1,7 +1,8 @@
+.col-lg-12
 %div.well.well-sm
   %table{width: "100%"}
     %tr
-      %td.col-sm-1{rowspan: "2"}
+      %td.col-md-1
         =link_to image_tag(gravatar_for(user, 40), class: "img-rounded"), user_path(user)
       %td
         .lead
@@ -10,14 +11,14 @@
               .label.label-primary= t('views.parent')
             -else
               .label.label-success{id: "credits"}
-                = "#{user.credits || 0} #{t('views.credits')}"
+                = number_to_currency("#{user.credits || "0"}")
           = link_to user.name, user_path(user)
     %tr
-      %td
+      %td{colspan: "2"}
+        - p = user.task_progress
+        - wp = user.weekly_task_progress
+        .label{class: p[0] == p[1] ? "label-success" : "label-default"}= "Today #{p[0]}/#{p[1]}"
+        .label{class: wp[0] == wp[1] ? "label-success" : "label-default"}= "Weekly #{wp[0]}/#{wp[1]}"
         .pull-right
           -if current_user.parent?
             =link_to "", multi_users_path(id: user.id), remote: true, class: "glyphicon glyphicon-cog btn btn-default btn-sm"
-        - progress = (user.task_progress < 1 ? 10 : user.task_progress)
-        %div{style: "margin-right:60px;"}
-          .progress
-            .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "#{progress}", :role => "progressbar", :style => "width: #{progress}%;"}

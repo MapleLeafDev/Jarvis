@@ -10,7 +10,8 @@
     .panel-body
       = image_tag(gravatar_for(@family), class: "img-rounded")
 
-  -@family.users.each do |user|
-    =render partial: 'card', locals: { user: user }
+-@members.each do |user|
+  =render partial: 'card', locals: { user: user }
 
+.col-lg-12
   = render partial: 'users/tasks', locals: { family: @family, user: @current_user, tasks: @family.todays_tasks, section: t('views.tasks') }

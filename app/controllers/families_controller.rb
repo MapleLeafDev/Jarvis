@@ -8,6 +8,8 @@ class FamiliesController < ApplicationController
   def show
     @family = Family.find(params[:id])
 
+    @members = @family.parents + @family.children
+
     @access_url = "http://#{Rails.env.development? ? 'localhost:3000' : 'chore-chart.herokuapp.com'}/my_family/" + @family.url
 
     respond_to do |format|

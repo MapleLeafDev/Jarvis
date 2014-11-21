@@ -1,19 +1,15 @@
-%div{align: "center"}
-  %table.table
-    %tr
-      %td.col-md-1{rowspan: "2"}
-        = image_tag(gravatar_for(@family, 40), class: "img-rounded")
-      %td
-        .lead
-          .pull-right
-            = link_to "", @access_url, class: "glyphicon glyphicon-new-window btn btn-default"
-            -if current_user.parent?
-              =link_to "", multi_families_path(id: @family.id), remote: true, class: "glyphicon glyphicon-cog btn btn-default"
-          = t('views.blank_family', family: @family.name)
-    %tr
-      %td
+.panel.panel-default
+  .panel-heading
+    %h4
+      .pull-right
+        = link_to "", @access_url, class: "glyphicon glyphicon-new-window btn btn-default btn-sm"
+        -if current_user.parent?
+          =link_to "", multi_families_path(id: @family.id), remote: true, class: "glyphicon glyphicon-cog btn btn-default btn-sm"
+      = @family.name
+  .panel-body
+    = image_tag(gravatar_for(@family), class: "img-rounded")
 
--@family.users.each do |user|
-  =render partial: 'card', locals: { user: user }
+-@members.each do |user|
+  =render partial: 'card_m', locals: { user: user }
 
 = render partial: 'users/tasks', locals: { family: @family, user: @current_user, tasks: @family.todays_tasks, section: t('views.tasks') }

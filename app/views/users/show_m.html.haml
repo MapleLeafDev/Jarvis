@@ -1,22 +1,19 @@
-%div{align: "center"}
-  %table.table
-    %tr
-      %td.col-md-1
-        = image_tag(gravatar_for(@user, 40), class: "img-rounded")
-      %td
-        .lead
-          .pull-right
-            -if @user.parent?
-              .label.label-primary= t('views.parent')
-            -elsif @user.credits
-              .label.label-success{id: "credits"}
-                = "#{@user.credits} #{t('views.credits')}"
-          = @user.name
-    %tr
-      %td{colspan: "2"}
-        -if @user.social_medium.any?
-          -@user.social_medium.each do |feed|
-            = link_to image_tag("#{SocialMedia::TYPE_NAME[feed.feed_type].downcase}.png", size: "40x40"), user_social_medium_path(@user, feed), remote: true
+.panel.panel-default
+  .panel-heading
+    %h4
+      .pull-right
+        -if @user.parent?
+          .label.label-primary= t('views.parent')
+        -else
+          .label.label-success{id: "credits"}
+            = number_to_currency("#{@user.credits || "0"}")
+      = @user.name
+  .panel-body
+    = image_tag(gravatar_for(@user), class: "img-rounded")
+    .pull-right
+      -if @user.social_medium.any?
+        -@user.social_medium.each do |feed|
+          = link_to content_tag(:i,nil, class: "fa fa-#{SocialMedia::TYPE_NAME[feed.feed_type].downcase} fa-2x"), user_social_medium_path(@user, feed), remote: true, class: "btn btn-sm btn-#{SocialMedia::TYPE_NAME[feed.feed_type].downcase}"
 
 = render partial: 'tasks', locals: { family: nil, user: @user, tasks: @user.todays_tasks, section: t('views.my_tasks') }
 -if @user.family

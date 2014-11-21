@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   validates_presence_of :name
   validates_uniqueness_of :email, allow_blank: true
 
+  scope :default_order, -> {order('parent')}
+
   DAYS_OF_WEEK = ["sunday","monday","tuesday","wednesday","thursday","friday","saturday"]
 
   def parent?
@@ -28,10 +30,21 @@ class User < ActiveRecord::Base
   end
 
   def task_progress
-    total = todays_tasks.count.to_f
-    completed = todays_tasks.select{|x| x.completed?}.count.to_f
+    total = todays_tasks.count
+    completed = todays_tasks.select{|x| x.completed?}.count
 
-    ((completed / total) * 100)
+    [completed, total]
+  end
+
+  def weekly_task_progress
+    completed = 0
+    total = (tasks.where(daily: true).count * 7) + tasks.where(daily: false).count
+
+    tasks.each do |task|
+      completed += task.completions.where("completed > ?", Date.today.beginning_of_week.to_s).count
+    end
+
+    [completed, total]
   end
 
   def instagram?

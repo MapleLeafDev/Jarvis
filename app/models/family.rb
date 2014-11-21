@@ -8,6 +8,14 @@ class Family < ActiveRecord::Base
   
   validates_presence_of :name, :url
 
+  def parents
+    users.where(parent: true)
+  end
+
+  def children
+    users.where(parent: false)
+  end
+
   def email
     name
   end

@@ -1,19 +1,10 @@
-%table.table
-  %tr
-    %td
-      .lead Instagram
-    %td
-      .pull-right
-        -if @user.instagram?
-          = link_to "", user_social_medium_path(@user, @user.instagram), remote: true, class: "glyphicon glyphicon-play btn btn-success btn-sm"
-        -else
-          = link_to "", connect_instagram_index_path, class: "glyphicon glyphicon-plus btn btn-default btn-sm"
-  %tr
-    %td
-      .lead Facebook
-    %td
-      .pull-right
-        -if @user.facebook?
-          = link_to "", user_social_medium_path(@user, @user.facebook), remote: true, class: "glyphicon glyphicon-play btn btn-success btn-sm"
-        -else
-          = link_to "", connect_facebook_index_path, class: "glyphicon glyphicon-plus btn btn-default btn-sm"
+.well.well-sm
+  -if @user.instagram?
+    = link_to content_tag(:i,nil, class: "fa fa-instagram fa-3x"), user_social_medium_path(@user, @user.instagram), remote: true, class: "btn btn-sm btn-instagram"
+  -else
+    = link_to content_tag(:i,nil, class: "fa fa-instagram fa-3x"), connect_instagram_index_path, class: "btn btn-default btn-sm"
+
+  -if @user.facebook?
+    = link_to content_tag(:i,nil, class: "fa fa-facebook fa-3x"), user_social_medium_path(@user, @user.facebook), remote: true, class: "btn btn-sm btn-facebook"
+  -else
+    = link_to content_tag(:i,nil, class: "fa fa-facebook fa-3x"), connect_facebook_index_path, class: "btn btn-default btn-sm"

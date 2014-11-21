@@ -8,6 +8,8 @@ en:
     task_created: "Task '%{task}' was created."
     meal_updated: "Meal '%{meal}' was updated."
     meal_created: "Meal '%{meal}' was created."
+    event_updated: "Event '%{event}' was updated."
+    event_created: "Event '%{event}' was created."
 
   views:
     editing_task: "Editing '%{task}'"
@@ -29,7 +31,7 @@ en:
     family_id: "Existing Family ID"
     editing_user: "Editing '%{user}'"
     create_account: "Create Account"
-    add_family_member: "Add Family Member"
+    add_family_member: "Add Member"
     edit_family: "Edit Family"
     name: "Name"
     email: "Email"
@@ -69,3 +71,9 @@ en:
     new_meal: "New Meal"
     editing_meal: "Editing '%{meal}'"
     recipe_box: "Recipe Box"
+
+  number:
+    currency:
+      format:
+        format: "%u%n"
+        unit: "$"

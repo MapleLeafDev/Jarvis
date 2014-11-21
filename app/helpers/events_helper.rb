@@ -37,4 +37,16 @@ module EventsHelper
       "info"
     end
   end
+
+    def events_previous_link
+    ->(param, date_range) { link_to "<span class='glyphicon glyphicon-chevron-left'></span>".html_safe, {param => date_range.first - 1.day} }
+  end
+
+  def events_next_link
+    ->(param, date_range) { link_to "<span class='glyphicon glyphicon-chevron-right'></span>".html_safe, {param => date_range.last + 1.day} }
+  end
+
+  def events_table
+    "table table-striped table-bordered"
+  end
 end
