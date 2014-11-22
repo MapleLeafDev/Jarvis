@@ -49,4 +49,5 @@ module EventsHelper
   def events_table
     "table table-striped table-bordered"
   end
+
 end

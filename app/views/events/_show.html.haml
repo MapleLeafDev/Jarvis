@@ -1,0 +1,10 @@
+.modal-header
+  %h3
+    .pull-right= @event.start_time.strftime("%m/%d/%Y at %l:%M %p")
+    = @event.user.name
+.modal-body
+  .lead= @event.name
+  %p= @event.description
+  = link_to t('views.edit'), edit_event_path(@event), remote: true, class: "btn btn-sm btn-primary"
+  = link_to t('views.cancel'), "", class: "btn btn-default btn-sm", data: {dismiss: "modal"}
+  = link_to t('views.delete'), @event, method: :delete, data: {confirm: t('views.are_you_sure')}, class: "btn btn-sm btn-danger"

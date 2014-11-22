@@ -4,22 +4,6 @@
     $(e).toggle();
   }
 
-  function addEvent(day) {
-    hostAddress= top.location.host.toString();
-    url = "http://" + hostAddress + "/events/new?start_time=" + day.dataset.date;
-    window.location = url;
-  }
-
-  function showEvent(e) {
-    event.stopPropagation();
-    url = "/events/" + e;
-    window.location = url;
-  }
-
-  function showPopover(e) {
-    event.stopPropagation();
-    $('#event-' + e).popover('show');
-  }
 .col-lg-12
   .panel.panel-default
     .panel-heading
@@ -40,7 +24,4 @@
       %em= date.day
       %br
       - events.each do |event|
-        %a{name: "#{event.event_type == "meal" ? "meal" : event.user_id }", id: "event-#{event.id}", "data-content" => event.description, "data-toggle" => "popover", "data-trigger" => "focus", :href => "#", :role => "button", :tabindex => "0", :title => event.name, onclick: "showPopover(#{event.id});", class: "label label-#{event_label(event, @family)}"}= event.start_time.strftime("%l:%M %p")
-
-:javascript
-  $("td").attr("onclick", "addEvent(this);");
+        = link_to event.start_time.strftime("%l:%M %p"), event_path(event), remote: true, class: "label label-#{event_label(event, @family)}", name: "#{event.event_type == "meal" ? "meal" : event.user_id }"

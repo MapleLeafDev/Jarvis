@@ -11,6 +11,10 @@ class EventsController < ApplicationController
     end
   end
 
+  def show
+    @event = Event.find(params[:id])
+  end
+
   def new
     @event = Event.new
     @users = current_user.family.users
@@ -18,8 +22,8 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
-    @users = family
-    @meals = Meal.where(user_id: (family.collect(&:id))).collect(&:name)
+    @users = current_user.family.users
+    # @meals = Meal.where(user_id: (family.collect(&:id))).collect(&:name)
   end
 
   def create
