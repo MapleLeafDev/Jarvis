@@ -8,13 +8,24 @@
           -else
             .label.label-success{id: "credits"}
               = number_to_currency(@user.credits || 0)
+          -if current_user.parent?
+            %span{style: "padding-left:10px;"}
+              =link_to "", multi_users_path(id: @user.id), remote: true, class: "glyphicon glyphicon-cog btn btn-default btn-sm"
         = @user.name
     .panel-body
-      = image_tag(gravatar_for(@user), class: "img-rounded")
-      .pull-right
+      .pull-left
+        = image_tag(gravatar_for(@user), class: "img-rounded")
+      %ul.list-group
+        -if @user.child?
+          %li.list-group-item
+            %span.badge= number_to_currency(@user.allowance || 0)
+            = t('views.weekly_allowance')
         -if @user.social_medium.any?
-          -@user.social_medium.each do |feed|
-            = link_to content_tag(:i,nil, class: "fa fa-#{SocialMedia::TYPE_NAME[feed.feed_type].downcase} fa-3x"), user_social_medium_path(@user, feed), remote: true, class: "btn btn-sm btn-#{SocialMedia::TYPE_NAME[feed.feed_type].downcase}"
+          %li.list-group-item
+            .pull-right{style: "margin-top: -8px;"}
+              -@user.social_medium.each do |feed|
+                = link_to content_tag(:i,nil, class: "fa fa-#{SocialMedia::TYPE_NAME[feed.feed_type].downcase} fa-2x"), user_social_medium_path(@user, feed), remote: true, class: "btn btn-sm btn-#{SocialMedia::TYPE_NAME[feed.feed_type].downcase}"
+            = t('views.social_media')
 
 .col-lg-6
   = render partial: 'tasks', locals: { family: nil, user: @user, tasks: @user.todays_tasks.order('required').reverse, section: t('views.todays_tasks') }

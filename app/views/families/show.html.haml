@@ -1,14 +1,25 @@
+:javascript
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+
 .col-lg-12
   .panel.panel-default
     .panel-heading
       %h4
         .pull-right
-          = link_to " #{t('views.link')}", @access_url, class: "glyphicon glyphicon-new-window btn btn-default btn-sm"
           -if current_user.parent?
             =link_to "", multi_families_path(id: @family.id), remote: true, class: "glyphicon glyphicon-cog btn btn-default btn-sm"
         = t('views.blank_family', family: @family.name)
     .panel-body
-      = image_tag(gravatar_for(@family), class: "img-rounded")
+      .pull-left
+        = image_tag(gravatar_for(@family), class: "img-rounded")
+      %ul.list-group
+        %li.list-group-item
+          .pull-right
+            = link_to @access_url, @access_url
+            %button.btn.btn-info.btn-sm.glyphicon.glyphicon-asterisk{"data-original-title" => t('views.tip_family_link'), "data-placement" => "left", "data-toggle" => "tooltip", :title => "", :type => "button"}
+          = t('views.family_access_link')
 
 -@members.each do |user|
   =render partial: 'card', locals: { user: user }

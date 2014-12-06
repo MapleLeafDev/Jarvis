@@ -50,10 +50,7 @@ class UsersController < ApplicationController
   def allowance
     @user = User.find(params[:id])
 
-    credits = @user.credits || 0
-    allowance = @user.allowance || 0
-
-    @user.update_attributes({credits: credits + allowance, last_allowance: Date.today})
+    @user.apply_allowance
 
     redirect_to @user.family
   end

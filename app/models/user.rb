@@ -53,6 +53,19 @@ class User < ActiveRecord::Base
     [completed, total]
   end
 
+  def check_allowance
+    apply = false
+    complete = weekly_task_progress
+    if complete[0] == complete[1]
+      apply = self.last_allowance < Date.today.beginning_of_week
+    end
+    apply
+  end
+
+  def apply_allowance
+    self.update_attributes({credits: (credits || 0) + (allowance || 0), last_allowance: Date.today}) if check_allowance
+  end
+
   def instagram?
     social_medium.where(feed_type: 1).any?
   end

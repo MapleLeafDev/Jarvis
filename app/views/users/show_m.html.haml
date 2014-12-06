@@ -9,7 +9,11 @@
             = number_to_currency("#{@user.credits || "0"}")
       = @user.name
   .panel-body
-    = image_tag(gravatar_for(@user), class: "img-rounded")
+    .pull-left
+      = image_tag(gravatar_for(@user), class: "img-rounded")
+    -if @user.child?
+      .lead{style: "margin-left:100px"}
+        = t('views.allowance') + ": " + number_to_currency(@user.allowance || 0)
     .pull-right
       -if @user.social_medium.any?
         -@user.social_medium.each do |feed|

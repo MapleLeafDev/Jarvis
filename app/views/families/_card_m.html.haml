@@ -22,8 +22,6 @@
           .label{class: wp[0] == wp[1] ? "label-success" : "label-default"}= "Weekly #{wp[0]}/#{wp[1]}"
           .pull-right
             -if current_user.parent?
-              -if wp[0] == wp[1] && (user.last_allowance.blank? || user.last_allowance < Date.today.beginning_of_week)
-                = link_to t('number.currency.format.unit'), allowance_users_path(id: user.id), class: "label label-success"
               =link_to "", multi_users_path(id: user.id), remote: true, class: "glyphicon glyphicon-cog btn btn-default btn-sm"
         - else
           .label.label-default= "Today #{p[0]}/#{p[1]}"
