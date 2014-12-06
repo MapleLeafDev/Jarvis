@@ -24,4 +24,8 @@ class Family < ActiveRecord::Base
      day = User::DAYS_OF_WEEK[Time.now.wday]
      tasks.where("daily = 't' OR #{day} = 't'")
   end
+
+  def other_tasks
+    tasks - todays_tasks
+  end
 end

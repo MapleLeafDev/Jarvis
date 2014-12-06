@@ -1,2 +1,2 @@
 $("#task-<%= @task.id %>").html('<btn class="btn btn-sm btn-success glyphicon glyphicon-check"></btn>');
-$("#credits").text("<%= @user.credits.to_s + ' ' + t('views.credits') %>");
+$("#credits").text("<%= number_to_currency(@user.credits || 0) %>");

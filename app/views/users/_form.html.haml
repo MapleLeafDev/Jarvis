@@ -6,6 +6,7 @@
     = f.password_field :password, label: t('views.password')
     = f.password_field :password_confirmation, label: t('views.confirm_password')
     = f.number_field :credits, placeholder: 0
+    = f.number_field :allowance, placeholder: 0, label: t('views.allowance')
     = f.number_field :pin, :maxlength => 4
     = f.form_group :parent do
       = f.check_box :parent

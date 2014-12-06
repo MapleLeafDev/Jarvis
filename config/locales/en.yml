@@ -12,6 +12,7 @@ en:
     event_created: "Event '%{event}' was created."
 
   views:
+    pays: "Pays"
     editing_task: "Editing '%{task}'"
     new_task: "New Task"
     add_task: "Add Task"
@@ -71,6 +72,11 @@ en:
     new_meal: "New Meal"
     editing_meal: "Editing '%{meal}'"
     recipe_box: "Recipe Box"
+    required_for_allowance: "Required for allowance"
+    other_tasks: "Other Tasks"
+    other_family_tasks: "Other Family Tasks"
+    todays_tasks: "Todays Tasks"
+    allowance: "Allowance"
 
   number:
     currency:

@@ -1,4 +1,8 @@
 :javascript
+  $(document).ready(function(){
+    setRequired();
+  });
+
   function setAssigned(){
     $('#assignee').toggle();
   }
@@ -24,14 +28,26 @@
     }
   };
 
+  function setRequired(){
+    if ($('#required').is(':checked')) {
+      $('#task_points').val('0');
+      $('#task_points').attr("disabled", true);
+    } else {
+      $('#task_points').attr("disabled", false);
+    };
+  };
+
 .modal-body
   = bootstrap_form_for(@task, layout: :horizontal, label_col: "col-sm-3", control_col: "col-sm-7", remote: true) do |f|
     .errors
     = f.hidden_field :user_id
     = f.hidden_field :family_id
+    -unless @task.family_id
+      = f.form_group :required do
+        = f.check_box :required, id: "required", label: t('views.required_for_allowance'), onclick: "setRequired();"
     = f.text_field :title
     = f.text_area :description, rows: "3", maxlength: "255"
-    = f.text_field :points, label: t('views.credits')
+    = f.text_field :points, label: t('views.pays')
     = f.form_group :daily do
       = f.check_box :daily, id: "daily", onclick: "setDailyOccurance();"
       = f.check_box :sunday, id: "sunday", onclick: "setSelectOccurance();"

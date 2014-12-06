@@ -12,4 +12,6 @@
 -@members.each do |user|
   =render partial: 'card_m', locals: { user: user }
 
-= render partial: 'users/tasks', locals: { family: @family, user: @current_user, tasks: @family.todays_tasks, section: t('views.tasks') }
+= render partial: 'users/tasks', locals: { family: @family, user: @current_user, tasks: @family.todays_tasks, section: t('views.todays_tasks') }
+-if current_user.parent?
+  = render partial: 'users/tasks', locals: { family: @family, user: @current_user, tasks: @family.other_tasks, section: t('views.other_tasks') }

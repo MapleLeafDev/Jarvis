@@ -29,18 +29,24 @@ class User < ActiveRecord::Base
      tasks.where("daily = 't' OR #{day} = 't'")
   end
 
+  def other_tasks
+    tasks - todays_tasks
+  end
+
   def task_progress
-    total = todays_tasks.count
-    completed = todays_tasks.select{|x| x.completed?}.count
+    t = todays_tasks.required
+    total = t.count
+    completed = t.select{|x| x.completed?}.count
 
     [completed, total]
   end
 
   def weekly_task_progress
+    t = tasks.required
     completed = 0
-    total = (tasks.where(daily: true).count * 7) + tasks.where(daily: false).count
+    total = (t.where(daily: true).count * 7) + t.where(daily: false).count
 
-    tasks.each do |task|
+    t.each do |task|
       completed += task.completions.where("completed > ?", Date.today.beginning_of_week.to_s).count
     end
 

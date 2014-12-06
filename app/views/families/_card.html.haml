@@ -11,7 +11,7 @@
                 .label.label-primary= t('views.parent')
               -else
                 .label.label-success{id: "credits"}
-                  = number_to_currency("#{user.credits || "0"}")
+                  = number_to_currency(user.credits || 0)
               -if current_user.parent?
                 %span{style: "padding-left:10px;"}
                   =link_to "", multi_users_path(id: user.id), remote: true, class: "glyphicon glyphicon-cog btn btn-default btn-sm"
@@ -21,7 +21,12 @@
           - p = user.task_progress
           - wp = user.weekly_task_progress
           %h4
-            .label{class: p[0] == p[1] ? "label-success" : "label-default"}= "Today #{p[0]}/#{p[1]}"
-            .label{class: wp[0] == wp[1] ? "label-success" : "label-default"}= "Weekly #{wp[0]}/#{wp[1]}"
-
-            
+            - if user.child?
+              .label{class: p[0] == p[1] ? "label-success" : "label-default"}= "Today #{p[0]}/#{p[1]}"
+              .label{class: wp[0] == wp[1] ? "label-success" : "label-default"}= "Weekly #{wp[0]}/#{wp[1]}"
+              -if current_user.parent? && wp[0] == wp[1] && (user.last_allowance.blank? || user.last_allowance < Date.today.beginning_of_week)
+                .pull-right
+                  = link_to t('number.currency.format.unit'), allowance_users_path(id: user.id), class: "label label-success"
+            - else
+              .label.label-default= "Today #{p[0]}/#{p[1]}"
+              .label.label-default= "Weekly #{wp[0]}/#{wp[1]}"

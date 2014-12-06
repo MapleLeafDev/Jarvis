@@ -25,8 +25,6 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if current_user
-      @user.password = current_user.family.url
-      @user.password_confirmation = current_user.family.url
       @user.family_id = current_user.family_id
     end
 
@@ -47,6 +45,17 @@ class UsersController < ApplicationController
   def multi
     @user = User.find(params[:id])
     @task = @user.tasks.new()
+  end
+
+  def allowance
+    @user = User.find(params[:id])
+
+    credits = @user.credits || 0
+    allowance = @user.allowance || 0
+
+    @user.update_attributes({credits: credits + allowance, last_allowance: Date.today})
+
+    redirect_to @user.family
   end
 
   def destroy

@@ -24,6 +24,7 @@ HomeManager::Application.routes.draw do
   resources :users do
     collection do
       get 'multi'
+      get 'allowance'
     end
     resources :tasks
     resources :completions

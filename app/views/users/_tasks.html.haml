@@ -1,21 +1,25 @@
 %div.well.well-sm
-  -if current_user.parent?
-    -if family
-      .pull-right= link_to "", new_task_path(family_id: family.id), remote: true, class: "glyphicon glyphicon-plus btn btn-default btn-sm"
-    -else
-      .pull-right= link_to "", new_task_path(user_id: user.id), remote: true, class: "glyphicon glyphicon-plus btn btn-default btn-sm"
+  -unless section == t('views.other_tasks') || section == t('views.other_family_tasks')
+    -if current_user.parent?
+      -if family
+        .pull-right= link_to "", new_task_path(family_id: family.id), remote: true, class: "glyphicon glyphicon-plus btn btn-default btn-sm"
+      -else
+        .pull-right= link_to "", new_task_path(user_id: user.id), remote: true, class: "glyphicon glyphicon-plus btn btn-default btn-sm"
   %h4= section
   -if tasks.any?
     -tasks.each do |task|
       .panel.panel-default
         .panel-heading
-          .pull-right{id: "task-#{task.id}"}
-            -if task.completed?
-              %btn.btn.btn-sm.btn-success.glyphicon.glyphicon-check
-            -else
-              = link_to '', complete_task_path(task: task.id, user: user.id), class: "glyphicon glyphicon-unchecked btn btn-sm btn-default", remote: true
-          - if task.points
-            .label.label-success= task.points
+          -unless section == t('views.other_tasks') || section == t('views.other_family_tasks')
+            .pull-right{id: "task-#{task.id}"}
+              -if task.completed?
+                %btn.btn.btn-sm.btn-success.glyphicon.glyphicon-check
+              -else
+                = link_to '', complete_task_path(task: task.id, user: user.id), class: "glyphicon glyphicon-unchecked btn btn-sm btn-default", remote: true
+          - if task.required?
+            .label.label-danger R
+          -else
+            .label.label-success= task.points || 0
           = link_to task.title, edit_task_path(task), remote: true
         -unless task.description.blank?
           .panel-body
