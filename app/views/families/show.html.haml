@@ -18,7 +18,7 @@
         %li.list-group-item
           .pull-right
             = link_to @access_url, @access_url
-            %button.btn.btn-info.btn-sm.glyphicon.glyphicon-asterisk{"data-original-title" => t('views.tip_family_link'), "data-placement" => "left", "data-toggle" => "tooltip", :title => "", :type => "button"}
+            .glyphicon.glyphicon-asterisk{"data-original-title" => t('views.tip_family_link'), "data-placement" => "left", "data-toggle" => "tooltip", :title => "", :type => "button"}
           = t('views.family_access_link')
 
 -@members.each do |user|
