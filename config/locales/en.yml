@@ -79,7 +79,8 @@ en:
     allowance: "Allowance"
     weekly_allowance: "Weekly Allowance"
     family_access_link: "Family Portal"
-    tip_family_link: "The 'Family Portal' is a custom login page for children."    
+    tip_family_link: "The 'Family Portal' is a custom login page for children."
+    tip_weekly_allowance: "The 'Weekly Allowance' is applied when all of the required tasks for the week are complete."  
   number:
     currency:
       format:

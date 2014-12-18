@@ -1,3 +1,8 @@
+:javascript
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+
 .col-lg-12
   .panel.panel-default
     .panel-heading
@@ -18,8 +23,10 @@
       %ul.list-group
         -if @user.child?
           %li.list-group-item
-            %span.badge= number_to_currency(@user.allowance || 0)
             = t('views.weekly_allowance')
+            .pull-right
+              %span.badge= number_to_currency(@user.allowance || 0)
+              .glyphicon.glyphicon-asterisk{"data-original-title" => t('views.tip_weekly_allowance'), "data-placement" => "left", "data-toggle" => "tooltip", :title => "", :type => "button"}
         -if @user.social_medium.any?
           %li.list-group-item
             .pull-right{style: "margin-top: -8px;"}
