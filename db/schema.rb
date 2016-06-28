@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140829163137) do
+ActiveRecord::Schema.define(version: 20141205234637) do
+
+  create_table "activities", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "family_id"
+    t.integer  "type_id"
+    t.string   "message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "completions", force: true do |t|
     t.integer  "user_id"
@@ -52,10 +61,10 @@ ActiveRecord::Schema.define(version: 20140829163137) do
   create_table "meals", force: true do |t|
     t.string   "name"
     t.string   "description"
-    t.integer  "user_id"
-    t.integer  "menu_day"
+    t.string   "menu_day"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "family_id"
   end
 
   create_table "purchases", force: true do |t|
@@ -100,6 +109,7 @@ ActiveRecord::Schema.define(version: 20140829163137) do
     t.boolean  "assigned"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.boolean  "required"
   end
 
   create_table "users", force: true do |t|
@@ -112,6 +122,9 @@ ActiveRecord::Schema.define(version: 20140829163137) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "timezone"
+    t.integer  "allowance"
+    t.datetime "last_allowance"
   end
 
 end
