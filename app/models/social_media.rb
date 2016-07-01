@@ -87,12 +87,12 @@ class SocialMedia < ActiveRecord::Base
 
   def self.instagram_redirect_uri
     if Rails.env.development?
-      "http://localhost:3001/instagram/callback"
+      "http://localhost:3000/instagram/callback"
     else
-      "http://chore-chart.herokuapp.com/instagram/callback"
+      "http://www.ml-family.com/instagram/callback"
     end
   end
-  
+
   ###################
   # Facebook
   ###################
@@ -111,9 +111,9 @@ class SocialMedia < ActiveRecord::Base
 
   def self.facebook_redirect_uri
     if Rails.env.development?
-      "http://localhost:3001/facebook/callback"
+      "http://localhost:3000/facebook/callback"
     else
-      "http://chore-chart.herokuapp.com/facebook/callback"
+      "http://www.ml-family.com/facebook/callback"
     end
   end
 

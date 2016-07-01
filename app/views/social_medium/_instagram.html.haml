@@ -13,14 +13,18 @@
             = link_to post.user.username, "http://instagram.com/#{post.user.username}"
         .panel-body
           %div
-            = image_tag(post.images.standard_resolution.url, class: "feed-img")
+            -if post[:videos]
+              = video_tag(post.videos.standard_resolution.url, controls: true, class: "feed-img")
+            -else
+              = image_tag(post.images.standard_resolution.url, class: "feed-img")
             %p= post.caption.text if post.caption
-          - post[:comments][:data].each do |comment|
-            .media
-              %a.pull-left{:href => "http://instagram.com/#{comment.from[:username]}"}
-                = image_tag(comment.from[:profile_picture], size: "30x30", class: "img-rounded media-object")
-              .media-body
-                %h4.media-heading=link_to comment.from[:username], "http://instagram.com/#{comment.from[:username]}"
-                = comment.text
+          -if post[:comments][:data]
+            - post[:comments][:data].each do |comment|
+              .media
+                %a.pull-left{:href => "http://instagram.com/#{comment.from[:username]}"}
+                  = image_tag(comment.from[:profile_picture], size: "30x30", class: "img-rounded media-object")
+                .media-body
+                  %h4.media-heading=link_to comment.from[:username], "http://instagram.com/#{comment.from[:username]}"
+                  = comment.text
   -else
     No Results

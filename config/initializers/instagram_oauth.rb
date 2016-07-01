@@ -1,4 +1,4 @@
 Instagram.configure do |config|
-  config.client_id = "14b4e5258b564c2bafb30438ae773503"
-  config.client_secret = "a6ad5dcee0994ab4b538a1bdcfe97cd6"
+  config.client_id = "ad5b7533e56444e1b46a6cdbafc0c527"
+  config.client_secret = "01bfbd786ac4409793d344b4b39a1c94"
 end

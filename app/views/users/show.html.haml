@@ -31,7 +31,7 @@
           %li.list-group-item
             .pull-right{style: "margin-top: -8px;"}
               -@user.social_medium.each do |feed|
-                = link_to content_tag(:i,nil, class: "fa fa-#{SocialMedia::TYPE_NAME[feed.feed_type].downcase} fa-2x"), user_social_medium_path(@user, feed), remote: true, class: "btn btn-sm btn-#{SocialMedia::TYPE_NAME[feed.feed_type].downcase}"
+                = link_to content_tag(:i,nil, class: "fa fa-#{SocialMedia::TYPE_NAME[feed.feed_type].downcase} fa-2x"), user_social_medium_path(@user, feed, {type: 'recent'}), remote: true, class: "btn btn-sm btn-#{SocialMedia::TYPE_NAME[feed.feed_type].downcase}"
             = t('views.social_media')
 
 .col-lg-6
