@@ -13,13 +13,13 @@
  *= require_tree .
  */
 
-html.login { 
-  background: url(/assets/background.jpg) no-repeat center center fixed; 
+/*html.login {
+  background: url(/assets/background.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-}
+}*/
 
 #wrapper {
   padding-left: 0;
@@ -42,7 +42,7 @@ html.login {
     overflow-y: auto;
     background-color: #3e3f3a;
     margin-bottom: -5000px;
-    padding-bottom: 5000px; 
+    padding-bottom: 5000px;
   }
 
   .side-nav>li>a {
@@ -83,7 +83,7 @@ html.login {
   height: 50px;
 }
 
-.calendar td { 
+.calendar td {
   height: 100px;
   width: 14.28%;
 }

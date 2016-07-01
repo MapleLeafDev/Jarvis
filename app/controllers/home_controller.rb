@@ -9,6 +9,5 @@ class HomeController < ApplicationController
   end
 
   def privacy_policy
-    render layout: "layouts/application"
   end
 end
