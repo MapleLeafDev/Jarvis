@@ -7,4 +7,8 @@ class HomeController < ApplicationController
       redirect_to current_user
     end
   end
+
+  def privacy_policy
+    render layout: "layouts/application"
+  end
 end

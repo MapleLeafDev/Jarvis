@@ -1,5 +1,5 @@
 HomeManager::Application.routes.draw do
-  
+
   resources :meals
 
   resources :families do
@@ -9,7 +9,7 @@ HomeManager::Application.routes.draw do
     resources :tasks
   end
 
-  resources :items do 
+  resources :items do
     resources :purchases
   end
 
@@ -44,14 +44,14 @@ HomeManager::Application.routes.draw do
   resources :sessions
 
   resources :instagram do
-    collection do 
+    collection do
       get 'connect'
       get 'callback'
     end
   end
 
   resources :facebook do
-    collection do 
+    collection do
       get 'connect'
       get 'callback'
     end
@@ -63,7 +63,7 @@ HomeManager::Application.routes.draw do
     end
   end
   get '/auth/tumblr/callback' => 'tumblr#callback'
-  
+
   root :to => 'home#index'
 
   get '/my_family/:url', to: 'families#my_family', as: :my_family
@@ -78,4 +78,5 @@ HomeManager::Application.routes.draw do
   get '/buy_item' => 'purchases#buy_item', :as => :buy_item
   get '/award_credits' => 'users#award_credits', :as => :award_credits
   get '/assign_meal' => 'meals#assign_meal', :as => :assign_meal
+  get '/privacy' => 'home#privacy_policy', :as => :privacy
 end
