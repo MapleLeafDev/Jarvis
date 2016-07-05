@@ -45,17 +45,9 @@
     padding-bottom: 5000px;
   }
 
-  .side-nav>li>a {
-    width: 200px;
-  }
-
   .side-nav li a:hover,
   .side-nav li a:focus {
     outline: none;
-  }
-
-  #page-wrapper {
-    padding-left: 200px;
   }
 
 }
