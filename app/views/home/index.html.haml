@@ -1,11 +1,6 @@
 .jumbotron
   %h1 Maple Leaf Family
-  %p Stuff
   %p
-    =link_to t('views.sign_up'), signup_path, remote: true, class: "btn btn-primary btn-lg"
-  -# = form_tag sessions_path do
-  -#   .form-group
-  -#     = email_field_tag :email, '', placeholder: t('views.email'), class: "form-control"
-  -#   .form-group
-  -#     = password_field_tag :password, '', placeholder: t('views.password'), class: "form-control"
-  -#   %button.btn.btn-primary.btn-lg{:type => "submit"}= t('views.sign_in')
+    .lead Helping families promote good digital citizenship and social media awareness
+  %p
+    =link_to t('sign_up'), signup_path, remote: true, class: "btn btn-primary"

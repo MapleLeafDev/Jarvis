@@ -1,4 +1,7 @@
 en:
+  sign_in: "Sign In"
+  sign_up: "Sign Up"
+
   controllers:
     not_authorized: "Not authorized"
     need_to_sign_in: "Need to sign in"
@@ -80,7 +83,7 @@ en:
     weekly_allowance: "Weekly Allowance"
     family_access_link: "Family Portal"
     tip_family_link: "The 'Family Portal' is a custom login page for children."
-    tip_weekly_allowance: "The 'Weekly Allowance' is applied when all of the required tasks for the week are complete."  
+    tip_weekly_allowance: "The 'Weekly Allowance' is applied when all of the required tasks for the week are complete."
   number:
     currency:
       format:
