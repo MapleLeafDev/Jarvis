@@ -1,6 +1,6 @@
 class SocialMediumController < ApplicationController
   respond_to :html, :js
-  
+
   def show
     @user = User.find_by_id(params[:user_id])
     @feed = SocialMedia.find_by_id(params[:id])
@@ -13,7 +13,7 @@ class SocialMediumController < ApplicationController
     end
 
     respond_to do |format|
-      format.js 
+      format.js
       format.js.phone { render template: "social_medium/show_m" }
     end
   end
@@ -29,8 +29,18 @@ class SocialMediumController < ApplicationController
       @results = @feed.facebook_media(params[:type])
     end
     respond_to do |format|
-      format.js 
+      format.js
       format.js.phone { render template: "social_medium/relationships_m" }
+    end
+  end
+
+  def destroy
+    @user = User.find(params[:user_id])
+    @feed = SocialMedia.find(params[:id])
+    @feed.destroy
+
+    respond_to do |format|
+      format.html { redirect_to @user }
     end
   end
 end

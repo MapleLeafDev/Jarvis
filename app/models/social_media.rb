@@ -7,6 +7,11 @@ class SocialMedia < ActiveRecord::Base
     "Facebook",
     "Tumblr"
   ]
+
+  def type_tag
+    TYPE_NAME[feed_type]
+  end
+
   ###################
   # Instagram
   ###################

@@ -27,12 +27,18 @@
             .pull-right
               %span.badge= number_to_currency(@user.allowance || 0)
               .glyphicon.glyphicon-asterisk{"data-original-title" => t('views.tip_weekly_allowance'), "data-placement" => "left", "data-toggle" => "tooltip", :title => "", :type => "button"}
-        -if @user.social_medium.any?
-          %li.list-group-item
-            .pull-right{style: "margin-top: -8px;"}
-              -@user.social_medium.each do |feed|
-                = link_to content_tag(:i,nil, class: "fa fa-#{SocialMedia::TYPE_NAME[feed.feed_type].downcase} fa-2x"), user_social_medium_path(@user, feed, {type: 'recent'}), remote: true, class: "btn btn-sm btn-#{SocialMedia::TYPE_NAME[feed.feed_type].downcase}"
-            = t('views.social_media')
+        %li.list-group-item
+          %table.table.table-hover
+            %thead
+              %tr
+                %th{colspan: "2"}= t('views.social_media')
+            %tbody
+              -if @user.social_medium.any?
+                -@user.social_medium.each do |feed|
+                  -
+                  %tr
+                    %td= link_to content_tag(:i, " #{feed.type_tag}", class: "fa fa-#{feed.type_tag.downcase} fa-2x"), user_social_medium_path(@user, feed, {type: 'recent'}), remote: true
+                    %td{style: "width:32px;"}= link_to content_tag(:i,nil, class: "fa fa-remove fa-1x"), user_social_medium_path(@user, feed), method: :delete
 
 .col-lg-6
   = render partial: 'tasks', locals: { family: nil, user: @user, tasks: @user.todays_tasks.order('required').reverse, section: t('views.todays_tasks') }
