@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     respond_to do |format|
-      format.html.phone { render template: "users/show_m" }
+      # format.html.phone { render template: "users/show_m" }
       format.html
     end
   end
