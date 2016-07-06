@@ -1,1 +1,2 @@
-$("#more-results").html("<%= escape_javascript(render 'instagram_feed') %>");
+$("#more-results").remove();
+$("#results").append("<%= escape_javascript(render 'instagram_feed') %>");
