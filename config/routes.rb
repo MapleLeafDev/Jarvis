@@ -33,6 +33,8 @@ HomeManager::Application.routes.draw do
     resources :social_medium do
       collection do
         get 'relationships'
+        get 'instagram_post'
+        get 'more_results'
       end
     end
   end

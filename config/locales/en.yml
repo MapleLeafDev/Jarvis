@@ -1,6 +1,7 @@
 en:
   sign_in: "Sign In"
   sign_up: "Sign Up"
+  no_results: No Results
 
   controllers:
     not_authorized: "Not authorized"

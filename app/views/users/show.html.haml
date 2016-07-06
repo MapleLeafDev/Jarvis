@@ -3,49 +3,47 @@
     $('[data-toggle="tooltip"]').tooltip()
   })
 
-.col-lg-12
+.side-nav
   .panel.panel-default
     .panel-heading
       %h4
         .pull-right
-          -if @user.parent?
-            .label.label-primary= t('views.parent')
-          -else
-            .label.label-success{id: "credits"}
-              = number_to_currency(@user.credits || 0)
+          -# -unless @user.parent?
+          -#   .label.label-success{id: "credits"}
+          -#     = number_to_currency(@user.credits || 0)
           -if current_user.parent?
             %span{style: "padding-left:10px;"}
-              =link_to "", multi_users_path(id: @user.id), remote: true, class: "glyphicon glyphicon-cog btn btn-default btn-sm"
+              =link_to "", multi_users_path(id: @user.id), remote: true, class: "fa fa-cog fa-1x"
         = @user.name
     .panel-body
-      .pull-left
-        = image_tag(gravatar_for(@user), class: "img-rounded")
-      %ul.list-group
-        -if @user.child?
-          %li.list-group-item
-            = t('views.weekly_allowance')
-            .pull-right
-              %span.badge= number_to_currency(@user.allowance || 0)
-              .glyphicon.glyphicon-asterisk{"data-original-title" => t('views.tip_weekly_allowance'), "data-placement" => "left", "data-toggle" => "tooltip", :title => "", :type => "button"}
-        %li.list-group-item
-          %table.table.table-hover
-            %thead
+      %div{align: "center"}= image_tag(gravatar_for(@user), class: "img-rounded")
+      -# %ul.list-group
+      -#   -if @user.child?
+      -#     %li.list-group-item
+      -#       = t('views.weekly_allowance')
+      -#       .pull-right
+      -#         %span.badge= number_to_currency(@user.allowance || 0)
+      -#         .glyphicon.glyphicon-asterisk{"data-original-title" => t('views.tip_weekly_allowance'), "data-placement" => "left", "data-toggle" => "tooltip", :title => "", :type => "button"}
+      %table.table.table-hover
+        %thead
+          %tr
+            %th{colspan: "2"}= t('views.social_media')
+        %tbody
+          -if @user.social_medium.any?
+            -@user.social_medium.each do |feed|
               %tr
-                %th{colspan: "2"}= t('views.social_media')
-            %tbody
-              -if @user.social_medium.any?
-                -@user.social_medium.each do |feed|
-                  -
-                  %tr
-                    %td= link_to content_tag(:i, " #{feed.type_tag}", class: "fa fa-#{feed.type_tag.downcase} fa-2x"), user_social_medium_path(@user, feed, {type: 'recent'}), remote: true
-                    %td{style: "width:32px;"}= link_to content_tag(:i,nil, class: "fa fa-remove fa-1x"), user_social_medium_path(@user, feed), method: :delete
+                %td= link_to content_tag(:i, " #{feed.type_tag}", class: "fa fa-#{feed.type_tag.downcase} fa-2x"), user_social_medium_path(@user, feed, {type: 'recent'}), remote: true
+                %td{style: "width:32px;"}= link_to content_tag(:i,nil, class: "fa fa-remove fa-1x"), user_social_medium_path(@user, feed), method: :delete
 
-.col-lg-6
-  = render partial: 'tasks', locals: { family: nil, user: @user, tasks: @user.todays_tasks.order('required').reverse, section: t('views.todays_tasks') }
-  -if current_user.parent?
-    = render partial: 'tasks', locals: { family: nil, user: @user, tasks: @user.other_tasks, section: t('views.other_tasks') }
--if @user.family
-  .col-lg-6
-    = render partial: 'tasks', locals: { family: @user.family, user: @user, tasks: @user.family.todays_tasks, section: t('views.family_tasks') }
-    -if current_user.parent?
-      = render partial: 'tasks', locals: { family: @user.family, user: @user, tasks: @user.family.other_tasks, section: t('views.other_family_tasks') }
+.results-nav
+  #user-results
+
+-# .col-lg-6
+-#   = render partial: 'tasks', locals: { family: nil, user: @user, tasks: @user.todays_tasks.order('required').reverse, section: t('views.todays_tasks') }
+-#   -if current_user.parent?
+-#     = render partial: 'tasks', locals: { family: nil, user: @user, tasks: @user.other_tasks, section: t('views.other_tasks') }
+-# -if @user.family
+-#   .col-lg-6
+-#     = render partial: 'tasks', locals: { family: @user.family, user: @user, tasks: @user.family.todays_tasks, section: t('views.family_tasks') }
+-#     -if current_user.parent?
+-#       = render partial: 'tasks', locals: { family: @user.family, user: @user, tasks: @user.family.other_tasks, section: t('views.other_family_tasks') }

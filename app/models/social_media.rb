@@ -37,6 +37,7 @@ class SocialMedia < ActiveRecord::Base
     results = []
     begin
       while continue
+        puts url
         response = RestClient.get url
         parsed = JSON::parse(response)
         results += parsed['data']
@@ -75,19 +76,14 @@ class SocialMedia < ActiveRecord::Base
     results
   end
 
-  def instagram_media(type = nil)
+  def instagram_media(id = nil)
     client = instagram_client(self.token)
-    begin
-      if type == 'recent'
-        client.user_recent_media
-      elsif type == 'direct'
-        []
-      else
-        client.user_media_feed(777)
-      end
-    rescue
-      []
-    end
+    client.user_recent_media(count: 9, max_id: id)
+  end
+
+  def instagram_post(id)
+    client = instagram_client(self.token)
+    client.media_item(id)
   end
 
   def self.instagram_redirect_uri
