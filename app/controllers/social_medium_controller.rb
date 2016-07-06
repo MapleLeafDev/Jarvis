@@ -14,7 +14,7 @@ class SocialMediumController < ApplicationController
 
     respond_to do |format|
       format.js
-      format.js.phone { render template: "social_medium/show_m" }
+      # format.js.phone { render template: "social_medium/show_m" }
     end
   end
 
@@ -30,7 +30,7 @@ class SocialMediumController < ApplicationController
     end
     respond_to do |format|
       format.js
-      format.js.phone { render template: "social_medium/relationships_m" }
+      # format.js.phone { render template: "social_medium/relationships_m" }
     end
   end
 
@@ -47,7 +47,6 @@ class SocialMediumController < ApplicationController
 
     respond_to do |format|
       format.js
-      format.js.phone { render template: "social_medium/show_m" }
     end
   end
 
