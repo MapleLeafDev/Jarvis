@@ -42,6 +42,18 @@
   }
 }
 
+@media (max-width: 767px) {
+  .side-nav {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  .results-nav {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+}
+
 .week {
   height: 100px;
 }

@@ -8,15 +8,13 @@
             -last_post = post
             -if post
               -if post[:videos]
-                = link_to video_tag(post.videos.standard_resolution.url, controls: true, class: 'feed-img'), instagram_post_user_social_medium_index_path(@user, feed_id: @feed.id, media_id: post.id), remote: true
+                = link_to image_tag(post.images.thumbnail.url, class: 'feed-img'), instagram_post_user_social_medium_index_path(@user, feed_id: @feed.id, media_id: post.id), remote: true
               -else
-                = link_to image_tag(post.images.standard_resolution.url, class: 'feed-img'), instagram_post_user_social_medium_index_path(@user, feed_id: @feed.id, media_id: post.id), remote: true
+                = link_to image_tag(post.images.thumbnail.url, class: 'feed-img'), instagram_post_user_social_medium_index_path(@user, feed_id: @feed.id, media_id: post.id), remote: true
   -if last_post
     #more-results
-      %div.list-group{style: "width:100%; padding-left:0px"}
-        = link_to "Load More", more_results_user_social_medium_index_path(@user, feed_id: @feed.id, id: last_post.id), remote: true, class: "list-group-item active"
+      %div.list-group{style: "width:100%; padding-left:0px; text-align: center;"}
+        %h4= link_to t("load_more"), more_results_user_social_medium_index_path(@user, feed_id: @feed.id, id: last_post.id), remote: true, class: "list-group-item active"
 -else
-  %table{style: "width:100%"}
-    %tr
-      %td{align: "center"}
-        = t("no_results")
+  %div.list-group{style: "width:100%; padding-left:0px; text-align: center;"}
+    %h4= t("no_results")

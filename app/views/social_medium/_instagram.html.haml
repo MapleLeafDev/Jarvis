@@ -1,3 +1,23 @@
-= render 'instagram_header'
+.panel.panel-default
+  .panel-heading
+    .pull-right
+      %h4= link_to @info['username'], "http://instagram.com/#{@info['username']}", target: :blank
+    %h4 Instagram
+  .panel-body
+    %table{width: "100%"}
+      %tr
+        %td{style: 'padding-right: 10px;'}= image_tag(@info['profile_picture'], size: '50x50', class: "img-rounded")
+        %td
+          = @info['bio']
+          = link_to @info['website'], @info['website'], target: :blank
+    %table{width: "100%"}
+      %tr
+        %td
+          %strong= "#{@info['counts']['media']} #{t('views.posts')}"
+        %td{align: 'center'}
+          %strong= link_to "#{@info['counts']['followed_by']} #{t('views.followers')}", relationships_user_social_medium_index_path(@user, feed_id: @feed.id, rel_type: 'followers'), remote: true
+        %td{align: 'right'}
+          %strong= link_to "#{@info['counts']['follows']} #{t('views.following')}", relationships_user_social_medium_index_path(@user, feed_id: @feed.id, rel_type: 'following'), remote: true
+
 #results
   = render 'instagram_feed'

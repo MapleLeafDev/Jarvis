@@ -25,6 +25,7 @@ HomeManager::Application.routes.draw do
     collection do
       get 'multi'
       get 'allowance'
+      get 'social_medium'
     end
     resources :tasks
     resources :completions

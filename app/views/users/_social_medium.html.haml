@@ -1,10 +1,22 @@
-.well.well-sm
-  -if @user.instagram?
-    = link_to content_tag(:i,nil, class: "fa fa-instagram fa-3x"), user_social_medium_path(@user, @user.instagram), remote: true, class: "btn btn-sm btn-instagram"
-  -else
-    = link_to content_tag(:i,nil, class: "fa fa-instagram fa-3x"), connect_instagram_index_path, class: "btn btn-default btn-sm"
+.modal-header
+  .pull-right
+    = link_to content_tag(:i, nil, class: "fa fa-remove fa-2x"), "", data: {dismiss: "modal"}
+  %h3
+    = @user.name + " - " + t('views.social_media')
 
-  -if @user.facebook?
-    = link_to content_tag(:i,nil, class: "fa fa-facebook fa-3x"), user_social_medium_path(@user, @user.facebook), remote: true, class: "btn btn-sm btn-facebook"
-  -else
-    = link_to content_tag(:i,nil, class: "fa fa-facebook fa-3x"), connect_facebook_index_path, class: "btn btn-default btn-sm"
+%table.table.table-hover
+  %tbody
+    %tr
+      %td= content_tag(:i, " Instagram", class: "fa fa-instagram fa-2x")
+      %td
+        -if @user.instagram?
+          = link_to t("disable"), user_social_medium_path(@user, @user.instagram), method: :delete
+        -else
+          = link_to t("enable"), connect_instagram_index_path
+    %tr
+      %td= content_tag(:i, " Facebook", class: "fa fa-facebook fa-2x")
+      %td
+        -if @user.facebook?
+          = link_to t("disabled"), user_social_medium_path(@user, @user.facebook), method: :delete
+        -else
+          = link_to t("enable"), connect_facebook_index_path

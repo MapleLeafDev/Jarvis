@@ -78,7 +78,7 @@ class SocialMedia < ActiveRecord::Base
 
   def instagram_media(id = nil)
     client = instagram_client(self.token)
-    client.user_recent_media(count: 9, max_id: id)
+    client.user_recent_media(count: 18, max_id: id)
   end
 
   def instagram_post(id)

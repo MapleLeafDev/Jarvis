@@ -47,6 +47,10 @@ class UsersController < ApplicationController
     @task = @user.tasks.new()
   end
 
+  def social_medium
+    @user = User.find(params[:id])
+  end
+
   def allowance
     @user = User.find(params[:id])
 

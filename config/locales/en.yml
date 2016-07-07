@@ -2,6 +2,10 @@ en:
   sign_in: "Sign In"
   sign_up: "Sign Up"
   no_results: No Results
+  disable: Disable
+  enable: Enable
+  activity: "Activity"
+  load_more: Load More
 
   controllers:
     not_authorized: "Not authorized"
@@ -34,7 +38,7 @@ en:
     editing_family: "Editing %{family}"
     create_join_family: "Create / Join Family"
     family_id: "Existing Family ID"
-    editing_user: "Editing '%{user}'"
+    editing_user: "Editing %{user}"
     create_account: "Create Account"
     add_family_member: "Add Member"
     edit_family: "Edit Family"

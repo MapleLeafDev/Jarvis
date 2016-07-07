@@ -13,7 +13,7 @@
           -#     = number_to_currency(@user.credits || 0)
           -if current_user.parent?
             %span{style: "padding-left:10px;"}
-              =link_to "", multi_users_path(id: @user.id), remote: true, class: "fa fa-cog fa-1x"
+              =link_to content_tag(:i, nil, class: "fa fa-cog fa-1x"), edit_user_path(@user), remote: true
         = @user.name
     .panel-body
       %div{align: "center"}= image_tag(gravatar_for(@user), class: "img-rounded")
@@ -27,7 +27,8 @@
       %table.table.table-hover
         %thead
           %tr
-            %th{colspan: "2"}= t('views.social_media')
+            %th= t('views.social_media')
+            %th= link_to content_tag(:i, nil, class: "fa fa-plus fa-1x"), social_medium_users_path(id: @user.id), remote: true
         %tbody
           -if @user.social_medium.any?
             -@user.social_medium.each do |feed|
@@ -37,6 +38,11 @@
 
 .results-nav
   #user-results
+    .panel.panel-default
+      .panel-heading
+        %h4= t("activity")
+      .panel-body
+
 
 -# .col-lg-6
 -#   = render partial: 'tasks', locals: { family: nil, user: @user, tasks: @user.todays_tasks.order('required').reverse, section: t('views.todays_tasks') }

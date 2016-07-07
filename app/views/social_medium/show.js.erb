@@ -1,3 +1,1 @@
-// $("#inner-modal").html("<%= escape_javascript(render 'show') %>");
-// $("#modal").modal("show");
-$("#user-results").html("<%= escape_javascript(render 'show') %>");
+$("#user-results").html('<%= escape_javascript(render "#{SocialMedia::TYPE_NAME[@feed.feed_type].downcase}") %>');
