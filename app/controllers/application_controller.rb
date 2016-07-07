@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
       end
     else
       if request.variant && request.variant.include?(:phone)
-        "application_m"
+        "application"
       else
         "application"
       end
