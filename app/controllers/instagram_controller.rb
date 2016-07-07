@@ -1,7 +1,7 @@
 class InstagramController < ApplicationController
 
   def connect
-    redirect_to Instagram.authorize_url(:redirect_uri => SocialMedia.instagram_redirect_uri, :scope => 'public_content comments relationships likes follower_list')
+    redirect_to Instagram.authorize_url(:redirect_uri => SocialMedia.instagram_redirect_uri, :scope => 'basic public_content follower_list')
   end
 
   def callback
