@@ -9,7 +9,9 @@ class SocialMediumController < ApplicationController
       @info = @feed.instagram_info
       @results = @feed.instagram_media
     when 2
+      @info = @feed.facebook_info
       @results = @feed.facebook_media
+      puts @info
     end
 
     respond_to do |format|

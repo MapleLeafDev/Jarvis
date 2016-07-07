@@ -1,22 +1,20 @@
-.lead{align: "center"}
-  .pull-right= link_to "", "", class: "glyphicon glyphicon-remove", data: {dismiss: "modal"}
-  %p= SocialMedia::TYPE_NAME[@feed.feed_type]
-  .well.well-sm
-    = image_tag(@feed.picture, size: '40x40', class: "img-rounded")
-    = @feed.full_name
+.panel.panel-default
+  .panel-heading
+    .pull-right
+      %h4= link_to @info["name"], @info["link"], target: :blank
+    %h4 Facebook
+  .panel-body
+    %table{width: "100%"}
+      %tr
+        %td{style: 'padding-right: 10px;'}= image_tag(@feed.picture, size: '50x50', class: "img-rounded")
+        %td
+
+    %table{width: "100%"}
+      %tr
+        %td{align: 'center'}
+          %strong= ""
+        %td{align: 'center'}
+          %strong= ""
+
 #results
-  - if @results.any?
-    - @results.each do |post|
-      .panel.panel-default
-        .panel-heading
-          %h3.panel-title
-            .pull-right
-              = time_ago_in_words(Time.at(DateTime.parse(post['created_time'])))
-            - post_pic = post['from']['id'] == @feed.username ? @feed.picture : post['picture']
-            = image_tag(post_pic, size: '30x30', class: "img-rounded")
-            = post['from']['name']
-        .panel-body
-          %div
-            = post['message'] || post['story']
-  -else
-    No Results
+  = render 'facebook_feed'

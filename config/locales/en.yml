@@ -8,6 +8,7 @@ en:
   load_more: Load More
   members: Members
   portal: Portal
+  no_social_media: No social media
 
   controllers:
     not_authorized: "Not authorized"

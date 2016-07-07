@@ -97,6 +97,11 @@ class SocialMedia < ActiveRecord::Base
   ###################
   # Facebook
   ###################
+  def facebook_info
+    client = facebook_client(self.token)
+    client.get_object("me")
+  end
+
   def facebook_media(type = nil)
     client = facebook_client(self.token)
     begin

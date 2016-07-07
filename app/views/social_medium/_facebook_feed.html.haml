@@ -1,0 +1,16 @@
+- if @results.any?
+  - @results.each do |post|
+    .panel.panel-default
+      .panel-heading
+        %h3.panel-title
+          .pull-right
+            = time_ago_in_words(Time.at(DateTime.parse(post['created_time'])))
+          - post_pic = post['from']['id'] == @feed.username ? @feed.picture : post['picture']
+          = image_tag(post_pic, size: '30x30', class: "img-rounded")
+          = post['from']['name']
+      .panel-body
+        %div
+          = post['message'] || post['story']
+-else
+  %div.list-group{style: "width:100%; padding-left:0px; text-align: center;"}
+    %h4= t("no_results")
