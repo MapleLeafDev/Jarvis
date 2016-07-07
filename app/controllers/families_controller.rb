@@ -10,7 +10,7 @@ class FamiliesController < ApplicationController
 
     @members = @family.parents + @family.children
 
-    @access_url = "http://#{Rails.env.development? ? request.host_with_port : 'chore-chart.herokuapp.com'}/my_family/" + @family.url
+    @access_url = "http://#{Rails.env.development? ? request.host_with_port : 'www.ml-family.com'}/my_family/" + @family.url
 
     respond_to do |format|
       format.html.phone { render template: "families/show_m" }

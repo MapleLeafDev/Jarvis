@@ -1,11 +1,13 @@
 en:
-  sign_in: "Sign In"
-  sign_up: "Sign Up"
+  sign_in: Sign In
+  sign_up: Sign Up
   no_results: No Results
   disable: Disable
   enable: Enable
-  activity: "Activity"
+  activity: Activity
   load_more: Load More
+  members: Members
+  portal: Portal
 
   controllers:
     not_authorized: "Not authorized"
