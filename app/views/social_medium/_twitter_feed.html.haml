@@ -1,0 +1,15 @@
+- if @results.any?
+  - @results.each do |post|
+    .panel.panel-default
+      .panel-heading
+        %h3.panel-title
+          .pull-right
+            = time_ago_in_words(post.created_at)
+          = image_tag(post.user.profile_image_url.to_s, size: '30x30', class: "img-rounded")
+          = post.user.name
+      .panel-body
+        %div
+          = post.text.html_safe
+-else
+  %div.list-group{style: "width:100%; padding-left:0px; text-align: center;"}
+    %h4= t("no_results")

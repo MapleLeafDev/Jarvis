@@ -1,0 +1,17 @@
+.modal-body{style: 'padding:0px;'}
+  .panel.panel-default
+    .panel-heading
+      %h3.panel-title
+        .pull-right
+          = link_to content_tag(:i, nil, class: "fa fa-remove fa-2x"), "", data: {dismiss: "modal"}
+        = @rel_type == "following" ? t("following") : t("followers")
+    .panel-body
+      %table.table.table-hover
+        %tbody
+          - @results.each do |result|
+            -puts result
+            %tr
+              %td{style: "width:50px;"}= link_to image_tag(result.profile_image_url.to_s, size: "40x40", class: "img-rounded media-object"), "http://twitter.com/#{result.screen_name}", target: :blank
+              %td
+                %h4.media-heading=link_to result.name, "http://twitter.com/#{result.screen_name}", target: :blank
+                = result['full_name']

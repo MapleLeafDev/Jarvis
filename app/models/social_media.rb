@@ -17,28 +17,23 @@ class SocialMedia < ActiveRecord::Base
   # Instagram
   ###################
   def instagram_info
-    client = instagram_client(self.token)
-    client.user
+    instagram_client(self.token).user
   end
 
   def instagram_following
-    client = instagram_client(self.token)
-    client.user_follows
+    instagram_client(self.token).user_follows
   end
 
   def instagram_followers
-    client = instagram_client(self.token)
-    client.user_followed_by
+    instagram_client(self.token).user_followed_by
   end
 
   def instagram_media(id = nil)
-    client = instagram_client(self.token)
-    client.user_recent_media('self', count: 18, max_id: id)
+    instagram_client(self.token).user_recent_media('self', count: 18, max_id: id)
   end
 
   def instagram_post(id)
-    client = instagram_client(self.token)
-    client.media_item(id)
+    instagram_client(self.token).media_item(id)
   end
 
   def self.instagram_redirect_uri
@@ -49,18 +44,15 @@ class SocialMedia < ActiveRecord::Base
   # Facebook
   ###################
   def facebook_info
-    client = facebook_client(self.token)
-    client.get_object("me", api_version: 'v2.0')
+    facebook_client(self.token).get_object("me", api_version: 'v2.0')
   end
 
   def facebook_friends
-    client = facebook_client(self.token)
-    client.get_connections("me", "friends", api_version: 'v2.0')
+    facebook_client(self.token).get_connections("me", "friends", api_version: 'v2.0')
   end
 
   def facebook_media(type = nil)
-    client = facebook_client(self.token)
-    client.get_connections("me", "feed", api_version: 'v2.0')
+    facebook_client(self.token).get_connections("me", "feed", api_version: 'v2.0')
   end
 
   def self.facebook_redirect_uri
@@ -71,8 +63,26 @@ class SocialMedia < ActiveRecord::Base
   # Tumblr
   ###################
   def tumblr_media(type = nil)
-    client = tumblr_client(self.token)
-    client.get_connections("me","feed")
+    tumblr_client(self.token).get_connections("me","feed")
+  end
+
+  ###################
+  # Twitter
+  ###################
+  def twitter_info
+    twitter_client(self.token, self.secret).user(self.username)
+  end
+
+  def twitter_media
+    twitter_client(self.token, self.secret).home_timeline
+  end
+
+  def twitter_followers
+    twitter_client(self.token, self.secret).followers
+  end
+
+  def twitter_following
+    twitter_client(self.token, self.secret).friends
   end
 
   private
@@ -95,10 +105,11 @@ class SocialMedia < ActiveRecord::Base
   end
 
   def twitter_client(token, secret)
-    Twitter::REST::Client.new do |config|
-      config.consumer_key = 'PprUn42LGaxlA7GQw1xSPMzny'
-      config.consumer_secret = 'enxaX79YMvwptSH0ikeTclFBc3Y36vUOUKx1RjwADDE5cPWNBa'
-      config.bearer_token = token
-    end
+    Twitter::REST::Client.new({
+      :consumer_key => "bpRzFtxeqooYCBau5qFcz4LHG",
+      :consumer_secret => "RDbEHYY19v2FXputsCpQCxwJmLWZiIUSWRCsTuqdBljQQcbhd7",
+      :access_token => token,
+      :access_token_secret => secret
+    })
   end
 end

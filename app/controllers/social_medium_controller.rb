@@ -8,11 +8,12 @@ class SocialMediumController < ApplicationController
     when 1
       @info = @feed.instagram_info
       @results = @feed.instagram_media
-      puts @info
     when 2
       @info = @feed.facebook_info
       @results = @feed.facebook_media
-      puts @info
+    when 4
+      @info = @feed.twitter_info
+      @results = @feed.twitter_media
     end
 
     respond_to do |format|
@@ -31,6 +32,9 @@ class SocialMediumController < ApplicationController
       @results = @rel_type == "following" ? @feed.instagram_following : @feed.instagram_followers
     when 2
       @results = @feed.facebook_media(params[:type])
+    when 4
+      @info = @feed.twitter_info
+      @results = @rel_type == "following" ? @feed.twitter_following : @feed.twitter_followers
     end
     respond_to do |format|
       format.js
