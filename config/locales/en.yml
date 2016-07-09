@@ -11,6 +11,8 @@ en:
   no_social_media: No social media
   following: Following
   followers: Followers
+  disabled: Disabled
+  enabled: Enabled
 
   controllers:
     not_authorized: "Not authorized"

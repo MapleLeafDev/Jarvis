@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141205234637) do
+ActiveRecord::Schema.define(version: 20160709164852) do
 
   create_table "activities", force: true do |t|
     t.integer  "user_id"
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 20141205234637) do
     t.string   "token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "secret"
   end
 
   create_table "tasks", force: true do |t|

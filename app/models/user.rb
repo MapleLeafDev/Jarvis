@@ -89,4 +89,12 @@ class User < ActiveRecord::Base
   def tumblr
     social_medium.where(feed_type: 3).first
   end
+
+  def twitter?
+    social_medium.where(feed_type: 4).any?
+  end
+
+  def twitter
+    social_medium.where(feed_type: 4).first
+  end
 end

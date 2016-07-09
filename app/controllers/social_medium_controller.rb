@@ -8,6 +8,7 @@ class SocialMediumController < ApplicationController
     when 1
       @info = @feed.instagram_info
       @results = @feed.instagram_media
+      puts @info
     when 2
       @info = @feed.facebook_info
       @results = @feed.facebook_media

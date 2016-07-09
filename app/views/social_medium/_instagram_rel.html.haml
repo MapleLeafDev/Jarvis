@@ -9,8 +9,9 @@
       %table.table.table-hover
         %tbody
           - @results.each do |result|
+            -puts result
             %tr
-              %td{style: "width:50px;"}= link_to image_tag(result['profile_picture'], size: "40x40", class: "img-rounded media-object"), "http://instagram.com/#{result['username']}"
+              %td{style: "width:50px;"}= link_to image_tag(result['profile_picture'], size: "40x40", class: "img-rounded media-object"), "http://instagram.com/#{result['username']}", target: :blank
               %td
-                %h4.media-heading=link_to result['username'], "http://instagram.com/#{result['username']}"
+                %h4.media-heading=link_to result['username'], "http://instagram.com/#{result['username']}", target: :blank
                 = result['full_name']
