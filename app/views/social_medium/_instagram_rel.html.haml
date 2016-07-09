@@ -1,7 +1,16 @@
-- @results.each do |result|
-  .media
-    %a.pull-left{:href => "http://instagram.com/#{result['username']}"}
-      = image_tag(result['profile_picture'], size: "40x40", class: "img-rounded media-object")
-    .media-body
-      %h4.media-heading=link_to result['username'], "http://instagram.com/#{result['username']}"
-      = result['full_name']
+.modal-body{style: 'padding:0px;'}
+  .panel.panel-default
+    .panel-heading
+      %h3.panel-title
+        .pull-right
+          = link_to content_tag(:i, nil, class: "fa fa-remove fa-2x"), "", data: {dismiss: "modal"}
+        = @rel_type == "following" ? t("following") : t("followers")
+    .panel-body
+      %table.table.table-hover
+        %tbody
+          - @results.each do |result|
+            %tr
+              %td{style: "width:50px;"}= link_to image_tag(result['profile_picture'], size: "40x40", class: "img-rounded media-object"), "http://instagram.com/#{result['username']}"
+              %td
+                %h4.media-heading=link_to result['username'], "http://instagram.com/#{result['username']}"
+                = result['full_name']

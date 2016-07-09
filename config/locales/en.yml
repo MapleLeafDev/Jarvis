@@ -9,6 +9,8 @@ en:
   members: Members
   portal: Portal
   no_social_media: No social media
+  following: Following
+  followers: Followers
 
   controllers:
     not_authorized: "Not authorized"

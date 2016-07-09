@@ -1,2 +1,2 @@
-$("#inner-modal").html("<%= escape_javascript(render 'relationships') %>");
+$("#inner-modal").html('<%= escape_javascript(render "#{SocialMedia::TYPE_NAME[@feed.feed_type].downcase}_rel") %>');
 $("#modal").modal("show");

@@ -23,10 +23,11 @@ class SocialMediumController < ApplicationController
   def relationships
     @user = User.find_by_id(params[:user_id])
     @feed = SocialMedia.find_by_id(params[:feed_id])
+    @rel_type = params[:rel_type]
     case @feed.feed_type
     when 1
       @info = @feed.instagram_info
-      @results = params[:rel_type] == "following" ? @feed.instagram_following : @feed.instagram_followers
+      @results = @rel_type == "following" ? @feed.instagram_following : @feed.instagram_followers
     when 2
       @results = @feed.facebook_media(params[:type])
     end
