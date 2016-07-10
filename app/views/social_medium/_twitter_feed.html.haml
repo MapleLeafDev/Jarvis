@@ -1,5 +1,7 @@
 - if @results.any?
+  -last_post = nil
   - @results.each do |post|
+    -last_post = post
     .panel.panel-default
       .panel-heading
         %h3.panel-title
@@ -9,7 +11,13 @@
           = post.user.name
       .panel-body
         %div
-          = post.text.html_safe
+          = twitter_feed_display(post)
+          -post.media.each do |m|
+            =image_tag(m.media_url.to_s, class: "feed-img img-rounded")
+  -if last_post
+    #more-results
+      %div.list-group{style: "width:100%; padding-left:0px; text-align: center;"}
+        %h4= link_to t("load_more"), more_results_user_social_medium_index_path(@user, feed_id: @feed.id, id: last_post.id), remote: true, class: "list-group-item active"
 -else
   %div.list-group{style: "width:100%; padding-left:0px; text-align: center;"}
-    %h4= t("no_results")
+    %h4.list-group-item.active= t("no_results")

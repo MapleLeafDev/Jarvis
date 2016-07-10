@@ -2,7 +2,7 @@
   .panel-heading
     .pull-right
       %h4= link_to @info["name"], @info["link"], target: :blank
-    %h4 Facebook
+    %h4= content_tag(:i, " Faceook", class: "fa fa-facebook")
   .panel-body
     %table{width: "100%"}
       %tr

@@ -13,7 +13,7 @@ class SocialMediumController < ApplicationController
       @results = @feed.facebook_media
     when 4
       @info = @feed.twitter_info
-      @results = @feed.twitter_media
+      @results = params[:type] == 'recent' ? @feed.twitter_media : @feed.twitter_user
     end
 
     respond_to do |format|
@@ -51,6 +51,8 @@ class SocialMediumController < ApplicationController
       @results = @feed.instagram_media(params[:id])
     when 2
       @results = @feed.facebook_media(params[:id])
+    when 4
+      @results = @feed.twitter_media(params[:id])
     end
 
     respond_to do |format|

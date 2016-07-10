@@ -73,8 +73,16 @@ class SocialMedia < ActiveRecord::Base
     twitter_client(self.token, self.secret).user(self.username)
   end
 
-  def twitter_media
-    twitter_client(self.token, self.secret).home_timeline
+  def twitter_user(id = nil)
+    options = {count: 200}
+    options[:max_id] = (id.to_i - 1) if id
+    twitter_client(self.token, self.secret).user_timeline(self.username, options)
+  end
+
+  def twitter_media(id = nil)
+    options = {count: 200}
+    options[:max_id] = (id.to_i - 1) if id
+    twitter_client(self.token, self.secret).home_timeline(options)
   end
 
   def twitter_followers

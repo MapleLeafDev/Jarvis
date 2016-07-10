@@ -2,7 +2,7 @@
   .panel-heading
     .pull-right
       %h4= link_to @info['username'], "http://instagram.com/#{@info['username']}", target: :blank
-    %h4 Instagram
+    %h4= content_tag(:i, " Instagram", class: "fa fa-instagram")
   .panel-body
     %table{width: "100%"}
       %tr
