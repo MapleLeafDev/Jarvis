@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require mobile
 //= require bootstrap
+//= require Chart.bundle
+//= require chartkick
 //= require_tree .
 
 $(document).bind("mobileinit", function(){

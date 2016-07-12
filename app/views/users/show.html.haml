@@ -3,6 +3,16 @@
     $('[data-toggle="tooltip"]').tooltip()
   })
 
+  function loadingSocialMedia(){
+    $("#loading").show();
+    $("#user-results").hide();
+  };
+
+  function loadingMoreSocialMedia(){
+    $("#more-loading").show();
+    $("#more-results").hide();
+  };
+
 .side-nav
   .panel.panel-default
     .panel-heading
@@ -23,7 +33,7 @@
             %tr
               %td{colspan: '2'}
                 -@user.social_medium.each do |feed|
-                  =link_to content_tag(:i, nil, class: "fa fa-#{feed.type_tag.downcase} fa-2x"), user_social_medium_path(@user, feed, {type: 'recent'}), remote: true
+                  =link_to content_tag(:i, nil, class: "fa fa-#{feed.type_tag.downcase} fa-2x"), user_social_medium_path(@user, feed, {type: 'recent'}), remote: true, onclick: "loadingSocialMedia();"
           -else
             %tr
               %td{colspan: '2', style: 'text-align: center;'}= t('no_social_media')
@@ -38,7 +48,7 @@
           -if @user.social_medium.any?
             -@user.social_medium.each do |feed|
               %tr
-                %td= link_to content_tag(:i, " #{feed.type_tag}", class: "fa fa-#{feed.type_tag.downcase} fa-2x"), user_social_medium_path(@user, feed, {type: 'recent'}), remote: true
+                %td= link_to content_tag(:i, " #{feed.type_tag}", class: "fa fa-#{feed.type_tag.downcase} fa-2x"), user_social_medium_path(@user, feed, {type: 'recent'}), remote: true, onclick: "loadingSocialMedia();"
                 %td{style: "width:32px;"}= link_to content_tag(:i,nil, class: "fa fa-remove fa-1x"), user_social_medium_path(@user, feed), method: :delete
           -else
             %tr
@@ -46,8 +56,16 @@
 
 
 .results-nav
+  #loading{style: 'display:none;', align: 'center'}
+    .panel.panel-default
+      .panel-heading
+        %h4
+          %i.fa.fa-spinner.fa-spin
   #user-results
     .panel.panel-default
       .panel-heading
         %h4= t("activity")
       .panel-body
+        - @user.social_medium_stat.format_data.each do |k,v|
+          = content_tag(:i, " #{k.titleize}", class: "fa fa-#{k} fa-2x")
+          = column_chart v, height: "150px"

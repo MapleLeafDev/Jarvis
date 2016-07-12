@@ -13,6 +13,17 @@ en:
   followers: Followers
   disabled: Disabled
   enabled: Enabled
+  posts: Posts
+
+  days:
+    -
+    - Monday
+    - Tuesday
+    - Wednesday
+    - Thursday
+    - Friday
+    - Saturday
+    - Sunday
 
   controllers:
     not_authorized: "Not authorized"

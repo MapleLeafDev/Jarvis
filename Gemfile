@@ -22,6 +22,7 @@ gem 'omniauth-twitter'
 gem 'tumblr_client'
 gem 'omniauth-tumblr'
 gem 'rest-client'
+gem 'chartkick'
 
 group :development do
   gem 'sqlite3'

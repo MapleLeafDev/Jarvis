@@ -1,2 +1,3 @@
 $("#more-results").remove();
+$("#more-loading").remove();
 $("#results").append('<%= escape_javascript(render "#{@feed.type_tag.downcase}_feed") %>');

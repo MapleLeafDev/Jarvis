@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :events, dependent: :destroy
   has_many :social_medium, dependent: :destroy, class_name: 'SocialMedia'
   has_many :activities, dependent: :destroy
+  has_one :social_medium_stat, dependent: :destroy
 
   validates_presence_of :name
   validates_uniqueness_of :email, allow_blank: true
