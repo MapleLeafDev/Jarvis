@@ -66,6 +66,7 @@
       .panel-heading
         %h4= t("activity")
       .panel-body
-        - @user.social_medium_stat.format_data.each do |k,v|
-          = content_tag(:i, " #{k.titleize}", class: "fa fa-#{k} fa-2x")
-          = column_chart v, height: "150px"
+        -if @user.social_medium_stat
+          - @user.social_medium_stat.format_data.each do |k,v|
+            = content_tag(:i, " #{k.titleize}", class: "fa fa-#{k} fa-2x")
+            = column_chart v, height: "150px"
