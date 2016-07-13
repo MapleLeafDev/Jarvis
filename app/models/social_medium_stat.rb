@@ -11,7 +11,7 @@ class SocialMediumStat < ActiveRecord::Base
       v.split(',').each do |d|
         parts = d.split(':')
         if values.any?
-          posts     += [[I18n.t("days")[day], (parts[0].to_i - values[0])]]
+          posts += [[I18n.t("days")[day], (parts[0].to_i - values[0])]]
           followers += [[I18n.t("days")[day], (parts[1].to_i - values[1])]]
           following += [[I18n.t("days")[day], (parts[2].to_i - values[2])]]
           day = day == 7 ? 1 : (day + 1)
@@ -29,7 +29,7 @@ class SocialMediumStat < ActiveRecord::Base
     self.user.social_medium.each do |sm|
       case sm.feed_type
       when 1
-        data = stats.instagram.split(',')
+        data = stats.instagram.split(',') rescue []
         data = data[1..7] if data.count == 8
         info = sm.instagram_info['counts']
         new_data = "#{info['media']}:#{info['followed_by']}:#{info['follows']}"
@@ -39,7 +39,7 @@ class SocialMediumStat < ActiveRecord::Base
       when 3
 
       when 4
-        data = stats.twitter.split(',')
+        data = stats.twitter.split(',') rescue []
         data = data[1..7] if data.count == 8
         info = sm.twitter_info
         new_data = "#{info.tweets_count}:#{info.followers_count}:#{info.friends_count}"

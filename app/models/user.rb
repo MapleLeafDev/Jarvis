@@ -98,4 +98,17 @@ class User < ActiveRecord::Base
   def twitter
     social_medium.where(feed_type: 4).first
   end
+
+  def update_social_medium_stats
+    stats = self.social_medium_stat || SocialMediumStat.create(user_id: self.id)
+    stats.update_data
+  end
+
+  def email_stats
+    if self.family_id
+      stats = self.social_medium_stat
+      to = self.family.parents.collect(&:email)
+      ApplicationMailer.social_medium_stats(to, self, stats).deliver
+    end
+  end
 end

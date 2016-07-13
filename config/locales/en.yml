@@ -14,6 +14,8 @@ en:
   disabled: Disabled
   enabled: Enabled
   posts: Posts
+  social_media_activity_subject: Social Media Activity for %{name}
+  social_media_activity: Social Media Activity
 
   days:
     -

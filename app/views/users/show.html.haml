@@ -21,24 +21,23 @@
           -if current_user.parent?
             %span{style: "padding-left:10px;"}
               =link_to content_tag(:i, nil, class: "fa fa-cog fa-1x"), edit_user_path(@user), remote: true
-        = @user.name
+        = link_to @user.name, user_path(@user)
     .panel-body.visible-xs
       %table.table.table-hover
         %thead
           %tr
             %th= t('views.social_media')
-            %th{style: "width:32px;"}= link_to content_tag(:i, nil, class: "fa fa-plus fa-1x"), social_medium_users_path(id: @user.id), remote: true
+            %th{style: "width:32px;", align: 'right'}= link_to content_tag(:i, nil, class: "fa fa-plus fa-1x"), social_medium_users_path(id: @user.id), remote: true
         %tbody
           -if @user.social_medium.any?
             %tr
               %td{colspan: '2'}
                 -@user.social_medium.each do |feed|
                   =link_to content_tag(:i, nil, class: "fa fa-#{feed.type_tag.downcase} fa-2x"), user_social_medium_path(@user, feed, {type: 'recent'}), remote: true, onclick: "loadingSocialMedia();"
-          -else
-            %tr
-              %td{colspan: '2', style: 'text-align: center;'}= t('no_social_media')
+              %td{style: "width:32px;"}
+
     .panel-body.hidden-xs
-      %div{align: "center"}= image_tag(gravatar_for(@user), class: "img-rounded")
+      %div{align: "center"}= link_to image_tag(gravatar_for(@user), class: "img-rounded"), user_path(@user)
       %table.table.table-hover
         %thead
           %tr
@@ -50,10 +49,6 @@
               %tr
                 %td= link_to content_tag(:i, " #{feed.type_tag}", class: "fa fa-#{feed.type_tag.downcase} fa-2x"), user_social_medium_path(@user, feed, {type: 'recent'}), remote: true, onclick: "loadingSocialMedia();"
                 %td{style: "width:32px;"}= link_to content_tag(:i,nil, class: "fa fa-remove fa-1x"), user_social_medium_path(@user, feed), method: :delete
-          -else
-            %tr
-              %td{colspan: '2', style: 'text-align: center;'}= t('no_social_media')
-
 
 .results-nav
   #loading{style: 'display:none;', align: 'center'}
@@ -62,11 +57,11 @@
         %h4
           %i.fa.fa-spinner.fa-spin
   #user-results
-    .panel.panel-default
-      .panel-heading
-        %h4= t("activity")
-      .panel-body
-        -if @user.social_medium_stat
+    -if @user.social_medium_stat
+      .panel.panel-default
+        .panel-heading
+          %h4= t("social_media_activity")
+        .panel-body
           - @user.social_medium_stat.format_data.each do |k,v|
             = content_tag(:i, " #{k.titleize}", class: "fa fa-#{k} fa-2x")
             = column_chart v, height: "150px"

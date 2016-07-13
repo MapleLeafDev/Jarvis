@@ -1,0 +1,17 @@
+.panel.panel-default
+  .panel-heading
+    %h4= t("social_media_activity")
+  .panel-body
+    - @stats.format_data.each do |k,v|
+      = content_tag(:i, " #{k.titleize}", class: "fa fa-#{k} fa-2x")
+      %table.table
+        %thead
+          %tr
+            %th= v[0][:name]
+            %th= v[1][:name]
+            %th= v[2][:name]
+        %tbody
+          %tr
+            %td= v[0][:data].last[1] rescue 0
+            %td= v[1][:data].last[1] rescue 0
+            %td= v[2][:data].last[1] rescue 0
