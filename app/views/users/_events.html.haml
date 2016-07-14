@@ -1,6 +1,6 @@
 %div.well.well-small
   -if current_user.parent?
-    .pull-right= link_to " #{t('views.event')}", new_event_path, class: "glyphicon glyphicon-plus btn btn-default"
+    .pull-right= link_to " #{t('event')}", new_event_path, class: "glyphicon glyphicon-plus btn btn-default"
 
   %h4= t('views.events')
   -if events.any?
@@ -16,4 +16,4 @@
               -else
                 = link_to '', complete_task_path(task: task.id, user: @user.id, task_ids: tasks.collect(&:id)), class: "i icon-ok btn", remote: true
   -else
-    %em= t('views.no_events')
+    %em= t('no_events')

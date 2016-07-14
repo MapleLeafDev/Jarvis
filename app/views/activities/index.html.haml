@@ -6,7 +6,7 @@
         = link_to image_tag(gravatar_for(activity.user, 25), class: "img-rounded"), user_path(activity.user)
         = time_ago_in_words(Time.zone.at(activity.created_at))
       .panel-body
-        %em= t('views.activity_completion', who: activity.user.name, what: activity.message)
+        %em= t('activity_completion', who: activity.user.name, what: activity.message)
     -elsif activity.type_id == 2
       .panel-heading
         = link_to image_tag(gravatar_for(activity.family, 25), class: "img-rounded"), family_path(activity.family)
@@ -14,6 +14,6 @@
       .panel-body
         -info = activity.message.split(',')
         -if info.count == 2
-          %em= t('views.activity_assign_meal', who:info[0], what: Date.parse(info[1]).strftime("%A, %m/%d"))
+          %em= t('activity_assign_meal', who:info[0], what: Date.parse(info[1]).strftime("%A, %m/%d"))
         -else
-          %em= t('views.activity_remove_meal', who:info[0])
+          %em= t('activity_remove_meal', who:info[0])

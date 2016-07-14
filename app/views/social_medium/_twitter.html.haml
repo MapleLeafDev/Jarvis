@@ -11,11 +11,11 @@
     %table{width: "100%"}
       %tr
         %td
-          %strong= link_to "#{@info.tweets_count} #{t('views.posts')}", user_social_medium_path(@user, @feed, {type: 'home'}), remote: true
+          %strong= link_to "#{@info.tweets_count} #{t('posts')}", user_social_medium_path(@user, @feed, {type: 'home'}), remote: true
         %td{align: 'center'}
-          %strong= link_to "#{@info.followers_count} #{t('views.followers')}", relationships_user_social_medium_index_path(@user, feed_id: @feed.id, relationship_type: 'followers'), remote: true
+          %strong= link_to "#{@info.followers_count} #{t('followers')}", relationships_user_social_medium_index_path(@user, feed_id: @feed.id, relationship_type: 'followers'), remote: true
         %td{align: 'right'}
-          %strong= link_to "#{@info.friends_count} #{t('views.following')}", relationships_user_social_medium_index_path(@user, feed_id: @feed.id, relationship_type: 'following'), remote: true
+          %strong= link_to "#{@info.friends_count} #{t('following')}", relationships_user_social_medium_index_path(@user, feed_id: @feed.id, relationship_type: 'following'), remote: true
 
 #results
   = render 'twitter_feed'

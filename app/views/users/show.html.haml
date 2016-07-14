@@ -26,7 +26,7 @@
       %table.table.table-hover
         %thead
           %tr
-            %th= t('views.social_media')
+            %th= t('social_media')
             %th{style: "width:32px;", align: 'right'}= link_to content_tag(:i, nil, class: "fa fa-plus fa-1x"), social_medium_users_path(id: @user.id), remote: true
         %tbody
           -if @user.social_medium.any?
@@ -41,7 +41,7 @@
       %table.table.table-hover
         %thead
           %tr
-            %th= t('views.social_media')
+            %th= t('social_media')
             %th= link_to content_tag(:i, nil, class: "fa fa-plus fa-1x"), social_medium_users_path(id: @user.id), remote: true
         %tbody
           -if @user.social_medium.any?
@@ -52,10 +52,10 @@
 
 .results-nav
   #loading{style: 'display:none;', align: 'center'}
-    .panel.panel-default
-      .panel-heading
-        %h4
-          %i.fa.fa-spinner.fa-spin
+    %div.list-group{style: "width:100%; padding-left:0px; text-align: center;"}
+      %h4.list-group-item.active
+        %i.fa.fa-spinner.fa-spin
+
   #user-results
     -if @user.social_medium_stat
       .panel.panel-default

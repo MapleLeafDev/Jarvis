@@ -10,11 +10,11 @@
       = image_tag(gravatar_for(@family), class: "img-rounded")
     %ul.list-group
       %li.list-group-item
-        = link_to t('views.family_access_link'), @access_url
+        = link_to t('family_access_link'), @access_url
 
 -@members.each do |user|
   =render partial: 'card_m', locals: { user: user }
 
-= render partial: 'users/tasks', locals: { family: @family, user: @current_user, tasks: @family.todays_tasks, section: t('views.todays_tasks') }
+= render partial: 'users/tasks', locals: { family: @family, user: @current_user, tasks: @family.todays_tasks, section: t('todays_tasks') }
 -if current_user.parent?
-  = render partial: 'users/tasks', locals: { family: @family, user: @current_user, tasks: @family.other_tasks, section: t('views.other_tasks') }
+  = render partial: 'users/tasks', locals: { family: @family, user: @current_user, tasks: @family.other_tasks, section: t('other_tasks') }

@@ -8,7 +8,7 @@
           .lead
             .pull-right
               -if user.parent?
-                .label.label-primary= t('views.parent')
+                .label.label-primary= t('parent')
               -else
                 .label.label-success{id: "credits"}
                   = number_to_currency(user.credits || 0)

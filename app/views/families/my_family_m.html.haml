@@ -20,7 +20,7 @@
   }
 
 .lead.well.well-sm{align: "center"}
-  = t('views.blank_family', family: @family.name)
+  = t('blank_family', family: @family.name)
 
 %div{align: "center"}
   = form_tag sessions_path do
@@ -39,5 +39,5 @@
             %img{:alt => "...", :src => "#{gravatar_for(user, 640)}"}/
     / Carousel
     .form-group
-      = password_field_tag :pin, '', placeholder: t('views.pin'), class: "form-control"
-    %button.btn.btn-primary{:type => "submit"}= t('views.sign_in')
+      = password_field_tag :pin, '', placeholder: t('pin'), class: "form-control"
+    %button.btn.btn-primary{:type => "submit"}= t('sign_in')

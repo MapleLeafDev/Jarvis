@@ -24,7 +24,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
 
     if @task.save
-      flash[:notice] = t('controllers.task_created', task: @task.title)
+      flash[:notice] = t('task_created', task: @task.title)
     end
     respond_with @task
   end
@@ -32,7 +32,7 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
 
-    flash[:notice] = t('controllers.task_updated', task: @task.title) if @task.update_attributes(task_params)
+    flash[:notice] = t('task_updated', task: @task.title) if @task.update_attributes(task_params)
     respond_with @task
   end
 

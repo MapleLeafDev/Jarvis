@@ -1,14 +1,14 @@
 .modal-body
   = bootstrap_form_for(@user, layout: :horizontal, label_col: "col-sm-3", control_col: "col-sm-7", remote: true) do |f|
     .errors
-    = f.text_field :name, label: t('views.name')
-    = f.email_field :email, label: t('views.email')
-    = f.password_field :password, label: t('views.password')
-    = f.password_field :password_confirmation, label: t('views.confirm_password')
+    = f.text_field :name, label: t('name')
+    = f.email_field :email, label: t('email')
+    = f.password_field :password, label: t('password')
+    = f.password_field :password_confirmation, label: t('confirm_password')
     - if current_user
       -# = f.number_field :credits, placeholder: 0
-      -# = f.number_field :allowance, placeholder: 0, label: t('views.allowance')
+      -# = f.number_field :allowance, placeholder: 0, label: t('allowance')
       = f.number_field :pin, :maxlength => 4
       = f.form_group :parent do
         = f.check_box :parent
-    = f.submit t('views.save'), class: "btn btn-primary"
+    = f.submit t('save'), class: "btn btn-primary"

@@ -8,12 +8,12 @@
   .panel.panel-default
     .panel-heading
       .pull-right
-        = link_to " #{t('views.event')}", new_event_path, remote: true, class: "glyphicon glyphicon-plus btn btn-default btn-sm"
-      = t('views.events_for')
+        = link_to " #{t('event')}", new_event_path, remote: true, class: "glyphicon glyphicon-plus btn btn-default btn-sm"
+      = t('events_for')
     .panel-body
       %div{class: "label label-info", style: "margin-right:10px;"}
         %input{type: "checkbox", checked: "", onclick: "toggle_visibility('meal');"}
-          = t('views.menu')
+          = t('menu')
       - @family.each do |member|
         %div{class: "label label-#{member_label(member, @family)}", style: "margin-right:10px;"}
           %input{type: "checkbox", checked: "", onclick: "toggle_visibility(#{member.id});"}

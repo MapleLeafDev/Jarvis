@@ -1,5 +1,5 @@
 .modal-header
   .pull-right
     = link_to content_tag(:i, nil, class: "fa fa-remove fa-2x"), "", data: {dismiss: "modal"}
-  %h3= t('views.editing_family', family: @family.name)
+  %h3= t('editing_family', family: @family.name)
 = render "form"

@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  helper_method :current_user, :family, :gravatar_for, :family_url, :is_parent, :children, :parents 
+
   def current_user
     @current_user ||= User.find_by_id(session[:user_id])
   end

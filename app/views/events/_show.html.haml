@@ -5,6 +5,6 @@
 .modal-body
   .lead= @event.name
   %p= @event.description
-  = link_to t('views.edit'), edit_event_path(@event), remote: true, class: "btn btn-sm btn-primary"
-  = link_to t('views.cancel'), "", class: "btn btn-default btn-sm", data: {dismiss: "modal"}
-  = link_to t('views.delete'), @event, method: :delete, data: {confirm: t('views.are_you_sure')}, class: "btn btn-sm btn-danger"
+  = link_to t('edit'), edit_event_path(@event), remote: true, class: "btn btn-sm btn-primary"
+  = link_to t('cancel'), "", class: "btn btn-default btn-sm", data: {dismiss: "modal"}
+  = link_to t('delete'), @event, method: :delete, data: {confirm: t('are_you_sure')}, class: "btn btn-sm btn-danger"

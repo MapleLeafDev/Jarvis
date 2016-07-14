@@ -1,6 +1,6 @@
 .modal-body
   = bootstrap_form_for(@family, layout: :horizontal, label_col: "col-sm-3", control_col: "col-sm-7", remote: true) do |f|
     .errors
-    = f.text_field :name, label: t('views.name')
-    = f.text_field :url, label: t('views.family_id')
+    = f.text_field :name, label: t('name')
+    = f.text_field :url, label: t('family_id')
     = f.submit class: "btn btn-primary"

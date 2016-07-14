@@ -1,4 +1,5 @@
 en:
+  about_us: Helping families promote good digital citizenship and social media awareness
   activity_assign_meal: "%{who} was added to the menu for %{what}"
   activity_completion: "%{who} has completed '%{what}'"
   activity_remove_meal: "%{who} was removed from the menu"

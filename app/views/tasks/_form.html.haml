@@ -47,7 +47,7 @@
         = f.check_box :required, id: "required", label: t('views.required_for_allowance'), onclick: "setRequired();"
     = f.text_field :title
     = f.text_area :description, rows: "3", maxlength: "255"
-    = f.text_field :points, label: t('views.pays')
+    = f.text_field :points, label: t('pays')
     = f.form_group :daily do
       = f.check_box :daily, id: "daily", onclick: "setDailyOccurance();"
       = f.check_box :sunday, id: "sunday", onclick: "setSelectOccurance();"
@@ -57,7 +57,7 @@
       = f.check_box :thursday, id: "thursday", onclick: "setSelectOccurance();"
       = f.check_box :friday, id: "friday", onclick: "setSelectOccurance();"
       = f.check_box :saturday, id: "saturday", onclick: "setSelectOccurance();"
-    = f.submit t('views.save'),class: "btn btn-primary"
-    = link_to t('views.cancel'), "", class: "btn btn-default", data: {dismiss: "modal"}
+    = f.submit t('save'),class: "btn btn-primary"
+    = link_to t('cancel'), "", class: "btn btn-default", data: {dismiss: "modal"}
     -if params[:action] == "edit"
-      = link_to t('views.delete'), @task, method: :delete, data: {confirm: t('views.are_you_sure')}, class: "btn btn-danger"
+      = link_to t('delete'), @task, method: :delete, data: {confirm: t('are_you_sure')}, class: "btn btn-danger"

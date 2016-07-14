@@ -1,15 +1,15 @@
 .modal-header
   %h3
     = image_tag(gravatar_for(@family, 40), class: "img-rounded")
-    = t('views.blank_family', family: @family.name)
+    = t('blank_family', family: @family.name)
 
 %ul.nav.nav-tabs{:role => "tablist"}
   %li.active
-    %a{"data-toggle" => "tab", :href => "#task", :role => "tab"}= t('views.add_task')
+    %a{"data-toggle" => "tab", :href => "#task", :role => "tab"}= t('add_task')
   %li
-    %a{"data-toggle" => "tab", :href => "#edit", :role => "tab"}= t('views.edit')
+    %a{"data-toggle" => "tab", :href => "#edit", :role => "tab"}= t('edit')
   %li
-    %a{"data-toggle" => "tab", :href => "#member", :role => "tab"}= t('views.add_family_member')
+    %a{"data-toggle" => "tab", :href => "#member", :role => "tab"}= t('add_family_member')
 
 .tab-content
   #task.tab-pane.fade.in.active

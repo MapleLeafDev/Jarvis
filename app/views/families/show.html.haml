@@ -10,7 +10,7 @@
         .pull-right
           -if current_user.parent?
             =link_to content_tag(:i, nil, class: "fa fa-cog fa-1x"), edit_family_path(@family), remote: true
-        = t('views.blank_family', family: @family.name)
+        = t('blank_family', family: @family.name)
     .panel-body
       %div{align: "center"}= image_tag(gravatar_for(@family), class: "img-rounded")
 

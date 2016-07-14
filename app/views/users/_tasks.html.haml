@@ -1,5 +1,5 @@
 %div.well.well-sm
-  -unless section == t('views.other_tasks') || section == t('views.other_family_tasks')
+  -unless section == t('other_tasks') || section == t('other_family_tasks')
     -if current_user.parent?
       -if family
         .pull-right= link_to "", new_task_path(family_id: family.id), remote: true, class: "glyphicon glyphicon-plus btn btn-default btn-sm"
@@ -10,7 +10,7 @@
     -tasks.each do |task|
       .panel.panel-default
         .panel-heading
-          -unless section == t('views.other_tasks') || section == t('views.other_family_tasks')
+          -unless section == t('other_tasks') || section == t('other_family_tasks')
             .pull-right{id: "task-#{task.id}"}
               -if task.completed?
                 %btn.btn.btn-sm.btn-success.glyphicon.glyphicon-check
@@ -25,4 +25,4 @@
           .panel-body
             %em= task.description
   -else
-    %em= t('views.no_tasks')
+    %em= t('no_tasks')
