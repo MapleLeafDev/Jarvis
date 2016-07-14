@@ -33,7 +33,7 @@
             %tr
               %td{colspan: '2'}
                 -@user.social_medium.each do |feed|
-                  =link_to content_tag(:i, nil, class: "fa fa-#{feed.type_tag.downcase} fa-2x"), user_social_medium_path(@user, feed, {type: 'recent'}), remote: true, onclick: "loadingSocialMedia();"
+                  =link_to content_tag(:i, nil, class: "fa fa-#{feed.css_class} fa-2x"), user_social_medium_path(@user, feed, {type: 'recent'}), remote: true, onclick: "loadingSocialMedia();"
               %td{style: "width:32px;"}
 
     .panel-body.hidden-xs
@@ -47,14 +47,14 @@
           -if @user.social_medium.any?
             -@user.social_medium.each do |feed|
               %tr
-                %td= link_to content_tag(:i, " #{feed.type_tag}", class: "fa fa-#{feed.type_tag.downcase} fa-2x"), user_social_medium_path(@user, feed, {type: 'recent'}), remote: true, onclick: "loadingSocialMedia();"
+                %td= link_to content_tag(:i, " #{feed.type_tag}", class: "fa fa-#{feed.css_class} fa-2x"), user_social_medium_path(@user, feed, {type: 'recent'}), remote: true, onclick: "loadingSocialMedia();"
                 %td{style: "width:32px;"}= link_to content_tag(:i,nil, class: "fa fa-remove fa-1x"), user_social_medium_path(@user, feed), method: :delete
 
 .results-nav
   #loading{style: 'display:none;', align: 'center'}
     %div.list-group{style: "width:100%; padding-left:0px; text-align: center;"}
       %h4.list-group-item.active
-        %i.fa.fa-spinner.fa-spin
+        %i.fa.fa-circle-o-notch.fa-spin
 
   #user-results
     -if @user.social_medium_stat

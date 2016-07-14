@@ -45,6 +45,7 @@ en:
   following: Following
   home: "Home"
   info: "Info"
+  likes: Likes
   link: "Link"
   load_more: Load More
   meal_created: "Meal '%{meal}' was created."

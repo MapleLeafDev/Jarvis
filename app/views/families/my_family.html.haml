@@ -24,18 +24,18 @@
 
 .well.well-sm{align: "center"}
   = form_tag sessions_path do
-    = hidden_field_tag :id, params[:id], value: @users.first.id
+    = hidden_field_tag :id, params[:id], value: @family.children.first.id
     #child-login.carousel.slide{"data-ride" => "carousel"}
       / Indicators
       %ol.carousel-indicators
         - c = 0
         -@family.children.each_slice(1) do |user|
-          %li{"data-slide-to" => "#{c}", "data-target" => "#carousel-example-generic", class: "#{'active' if user == @users.first}"}
+          %li{"data-slide-to" => "#{c}", "data-target" => "#carousel-example-generic", class: "#{'active' if user == @family.children.first}"}
           - c += 1
       / Wrapper for slides
       .carousel-inner
         -@family.children.each do |user|
-          .item{id: "#{user.id}", class: "#{'active' if user == @users.first}"}
+          .item{id: "#{user.id}", class: "#{'active' if user == @family.children.first}"}
             %img{:alt => "...", :src => "#{gravatar_for(user, 400)}"}/
 
       / Controls
@@ -45,5 +45,5 @@
         %span.fa.fa-chevron-right
     / Carousel
     .form-group
-      = password_field_tag :pin, '', placeholder: t('views.pin'), class: "form-control"
-    %button.btn.btn-primary.btn-sm{:type => "submit"}= t('views.sign_in')
+      = password_field_tag :pin, '', placeholder: t('pin'), class: "form-control"
+    %button.btn.btn-primary.btn-sm{:type => "submit"}= t('sign_in')

@@ -18,7 +18,7 @@
     #more-loading{style: 'display:none;', align: 'center'}
       %div.list-group{style: "width:100%; padding-left:0px; text-align: center;"}
         %h4.list-group-item.active
-          %i.fa.fa-spinner.fa-spin
+          %i.fa.fa-circle-o-notch.fa-spin
     #more-results
       %div.list-group{style: "width:100%; padding-left:0px; text-align: center;"}
         %h4= link_to t("load_more"), more_results_user_social_medium_index_path(@user, feed_id: @feed.id, media_id: last_post.id), remote: true, class: "list-group-item active", onclick: "loadingMoreSocialMedia();"

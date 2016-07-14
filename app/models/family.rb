@@ -9,7 +9,7 @@ class Family < ActiveRecord::Base
   validates_presence_of :name, :url
 
   def portal_url
-    "http://#{Rails.env.development? ? request.host_with_port : 'www.ml-family.com'}/my_family/" + url
+    "http://#{Rails.env.development? ? 'localhost:3000' : 'www.ml-family.com'}/my_family/" + url
   end
 
   def parents

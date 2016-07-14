@@ -9,8 +9,20 @@ class SocialMedia < ActiveRecord::Base
     "Twitter"
   ]
 
+  CSS_NAME = [
+    nil,
+    "instagram",
+    "facebook-square",
+    "tumblr-square",
+    "twitter-square"
+  ]
+
   def type_tag
     TYPE_NAME[feed_type]
+  end
+
+  def css_class
+    CSS_NAME[feed_type]
   end
 
   ###################

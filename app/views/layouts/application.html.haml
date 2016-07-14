@@ -42,11 +42,11 @@
         %ul.nav.navbar-nav.navbar-right{style: "margin-right:20px;"}
           %li{class: "#{'active' if params[:controller] == 'families'}"}
             -if current_user.family
-              = link_to t('views.family'), family_path(current_user.family)
+              = link_to t('family'), family_path(current_user.family)
             -else
-              = link_to t('views.family'), new_family_path, remote: true
-          %li= link_to t('views.profile'), current_user
-          %li= link_to t('views.sign_out'), signout_path
+              = link_to t('family'), new_family_path, remote: true
+          %li= link_to t('profile'), current_user
+          %li= link_to t('sign_out'), signout_path
         .collapse.navbar-collapse.navbar-ex1-collapse
 
     #page-wrapper
