@@ -20,7 +20,7 @@
             %th= t('portal')
         %tbody
           %tr
-            %td{colspan: '2'}= link_to @family.url, @access_url, target: :blank
+            %td{colspan: '2'}= link_to @family.url, @family.portal_url, target: :blank
 
       %table.table.table-hover
         %thead

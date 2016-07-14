@@ -4,7 +4,7 @@
       %h3.panel-title
         .pull-right
           = link_to content_tag(:i, nil, class: "fa fa-remove fa-2x"), "", data: {dismiss: "modal"}
-        = @rel_type == "following" ? t("following") : t("followers")
+        = params[:relationship_type] == "following" ? t("following") : t("followers")
     .panel-body
       %table.table.table-hover
         %tbody

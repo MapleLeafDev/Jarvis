@@ -19,7 +19,6 @@ class TwitterController < ApplicationController
         secret: params[:credentials][:secret]
         )
     end
-
     redirect_to current_user
   end
 end

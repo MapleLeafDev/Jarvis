@@ -29,12 +29,12 @@
       / Indicators
       %ol.carousel-indicators
         - c = 0
-        -@users.each_slice(1) do |user|
+        -@family.children.each_slice(1) do |user|
           %li{"data-slide-to" => "#{c}", "data-target" => "#carousel-example-generic", class: "#{'active' if user == @users.first}"}
           - c += 1
       / Wrapper for slides
       .carousel-inner
-        -@users.each do |user|
+        -@family.children.each do |user|
           .item{id: "#{user.id}", class: "#{'active' if user == @users.first}"}
             %img{:alt => "...", :src => "#{gravatar_for(user, 400)}"}/
 

@@ -60,9 +60,9 @@ module HomeManager
         :address              => "smtp.gmail.com",
         :port                 => 587,
         :domain               => "gmail.com",
-        :user_name            => "mapleafdev@gmail.com",
-        :password             => "4mm04bs0J4",
-        :authentication       => :login,
+        :user_name            => ENV['GMAIL_USERNAME'],
+        :password             => ENV['GMAIL_PASSWORD'],
+        :authentication       => :plain,
         :enable_starttls_auto => true
     }
   end

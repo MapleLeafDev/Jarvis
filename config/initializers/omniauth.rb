@@ -1,6 +1,6 @@
 OmniAuth.config.logger = Rails.logger
 
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :tumblr, 'JVfaewA6vSBIbKkL74YkfrmLfbsBnwoItBnSEDEGYgzvQiPnU0', 'XLWZhgdcYAdYRbs6A3KjSDMhrcsygJkofKF5vHvWRYE5FsVIYE'
-  provider :twitter, "bpRzFtxeqooYCBau5qFcz4LHG", "RDbEHYY19v2FXputsCpQCxwJmLWZiIUSWRCsTuqdBljQQcbhd7", { :authorize_params => { :force_login => 'true' }}
+  provider :tumblr, ENV['TUMBLR_ID'], ENV['TUMBLR_SECRET']
+  provider :twitter, ENV['TWITTER_ID'], ENV['TWITTER_SECRET'], { :authorize_params => { :force_login => 'true' }}
 end

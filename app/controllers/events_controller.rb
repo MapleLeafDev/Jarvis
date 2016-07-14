@@ -28,20 +28,17 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-
-    if @event.event_type == "meal"
-      @event.name = params[:meal_name]
-    end
+    @event.name = params[:meal_name] if @event.event_type == "meal"
 
     if @event.save
-      flash[:notice] = t('controllers.event_created', event: @event.name)
+      flash[:notice] = t('event_created', event: @event.name)
     end
     respond_with @event
   end
 
   def update
     @event = Meal.find(params[:id])
-    flash[:notice] = t('controllers.event_updated', event: @event.name) if @event.update_attributes(event_params)
+    flash[:notice] = t('event_updated', event: @event.name) if @event.update_attributes(event_params)
     respond_with @meal
   end
 

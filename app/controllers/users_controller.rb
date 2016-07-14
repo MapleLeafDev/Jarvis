@@ -2,15 +2,8 @@ class UsersController < ApplicationController
   respond_to :html, :js
   before_filter :authorize, except: [:new, :create]
 
-  layout :resolve_layout
-
   def show
     @user = User.find(params[:id])
-
-    respond_to do |format|
-      # format.html.phone { render template: "users/show_m" }
-      format.html
-    end
   end
 
   def new
@@ -23,22 +16,18 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
-    if current_user
-      @user.family_id = current_user.family_id
-    end
+    @user.family_id = current_user.family_id if current_user
 
     if @user.save
       session[:user_id] = @user.id unless current_user
-      flash[:notice] = t('controllers.user_created', user: @user.name)
+      flash[:notice] = t('user_created')
     end
     respond_with @user
   end
 
   def update
     @user = User.find(params[:id])
-
-    flash[:notice] = t('controllers.user_updated', user: @user.name) if @user.update_attributes(user_params)
+    flash[:notice] = t('user_updated') if @user.update_attributes(user_params)
     respond_with @user
   end
 
@@ -53,7 +42,6 @@ class UsersController < ApplicationController
 
   def allowance
     @user = User.find(params[:id])
-
     @user.apply_allowance
 
     redirect_to @user.family

@@ -27,7 +27,7 @@ class TumblrController < ApplicationController
   private
 
   def create_oauth_object
-    @oauth = Koala::Facebook::OAuth.new("1474290372850967", "d1a1f67e937b28a0c1b4fb0d1ad537d3", SocialMedia.facebook_redirect_uri)
+    @oauth = Koala::Facebook::OAuth.new(ENV['TUMBLR_ID'], ENV['TUMBLR_SECRET'], SocialMedia.redirect_url)
   end
 
 end

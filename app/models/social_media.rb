@@ -14,6 +14,57 @@ class SocialMedia < ActiveRecord::Base
   end
 
   ###################
+  # Generic Commands
+  ###################
+  def info
+    case feed_type
+    when 1
+      instagram_info
+    when 2
+      facebook_info
+    when 4
+      twitter_info
+    end
+  end
+
+  def media(type = 'profile')
+    case feed_type
+    when 1
+      instagram_media
+    when 2
+      facebook_media
+    when 4
+      type == 'recent' ? twitter_media : twitter_user
+    end
+  end
+
+  def more_results(id, type = 'profile')
+    case feed_type
+    when 1
+      instagram_media(id)
+    when 2
+      facebook_media(id)
+    when 4
+      type == 'recent' ? twitter_media(id) : twitter_user(id)
+    end
+  end
+
+  def relationships(type)
+    case feed_type
+    when 1
+      type == "following" ? instagram_following : instagram_followers
+    when 2
+      facebook_friends
+    when 4
+      type == "following" ? twitter_following : twitter_followers
+    end
+  end
+
+  def self.redirect_url
+    "http://#{Rails.env.development? ? request.host_with_port : 'www.ml-family.com'}/#{type_tag.downcase}/callback"
+  end
+
+  ###################
   # Instagram
   ###################
   def instagram_info
@@ -36,10 +87,6 @@ class SocialMedia < ActiveRecord::Base
     instagram_client(self.token).media_item(id)
   end
 
-  def self.instagram_redirect_uri
-    Rails.env.development? ? "http://localhost:3000/instagram/callback" : "http://www.ml-family.com/instagram/callback"
-  end
-
   ###################
   # Facebook
   ###################
@@ -53,10 +100,6 @@ class SocialMedia < ActiveRecord::Base
 
   def facebook_media(type = nil)
     facebook_client(self.token).get_connections("me", "feed", api_version: 'v2.0')
-  end
-
-  def self.facebook_redirect_uri
-    Rails.env.development? ? "http://localhost:3000/facebook/callback" : "http://www.ml-family.com/facebook/callback"
   end
 
   ###################
@@ -105,8 +148,8 @@ class SocialMedia < ActiveRecord::Base
 
   def tumblr_client(token, secret)
     Tumblr::Client.new({
-      :consumer_key => 'JVfaewA6vSBIbKkL74YkfrmLfbsBnwoItBnSEDEGYgzvQiPnU0',
-      :consumer_secret => 'XLWZhgdcYAdYRbs6A3KjSDMhrcsygJkofKF5vHvWRYE5FsVIYE',
+      :consumer_key => ENV['TUMBLR_ID'],
+      :consumer_secret => ENV['TUMBLR_SECRET'],
       :oauth_token => token,
       :oauth_token_secret => secret
     })
@@ -114,8 +157,8 @@ class SocialMedia < ActiveRecord::Base
 
   def twitter_client(token, secret)
     Twitter::REST::Client.new({
-      :consumer_key => "bpRzFtxeqooYCBau5qFcz4LHG",
-      :consumer_secret => "RDbEHYY19v2FXputsCpQCxwJmLWZiIUSWRCsTuqdBljQQcbhd7",
+      :consumer_key => ENV['TWITTER_ID'],
+      :consumer_secret => ENV['TWITTER_SECRET'],
       :access_token => token,
       :access_token_secret => secret
     })

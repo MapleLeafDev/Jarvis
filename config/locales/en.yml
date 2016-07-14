@@ -1,22 +1,102 @@
 en:
-  sign_in: Sign In
-  sign_up: Sign Up
-  no_results: No Results
-  disable: Disable
-  enable: Enable
+  activity_assign_meal: "%{who} was added to the menu for %{what}"
+  activity_completion: "%{who} has completed '%{what}'"
+  activity_remove_meal: "%{who} was removed from the menu"
   activity: Activity
-  load_more: Load More
-  members: Members
-  portal: Portal
-  no_social_media: No social media
-  following: Following
-  followers: Followers
+  add_family_member: "Add Member"
+  add_task: "Add Task"
+  added_to_family: Joined family
+  allowance: "Allowance"
+  are_you_sure: "Are you sure?"
+  blank_family: "%{family} Family"
+  calendar: "Calendar"
+  cancel: "Cancel"
+  child: "Child"
+  confirm_password: "Confirm Password"
+  create_account: "Create Account"
+  create_join_family: "Create / Join Family"
+  credits: "Credits"
+  delete: "Delete"
+  disable: Disable
   disabled: Disabled
+  edit_family: "Edit Family"
+  edit: "Edit"
+  editing_family: "Editing %{family}"
+  editing_meal: "Editing '%{meal}'"
+  editing_task: "Editing '%{task}'"
+  editing_user: "Editing %{user}"
+  email_password_invalid: Email / Password invalid
+  email: "Email"
+  enable: Enable
   enabled: Enabled
+  event_created: "Event '%{event}' was created."
+  event_updated: "Event '%{event}' was updated."
+  event: "Event"
+  events_for: "Events for..."
+  events: "My Events"
+  family_access_link: "Family Portal"
+  family_created: Family created
+  family_id: "Existing Family ID"
+  family_tasks: "Family Tasks"
+  family_updated: Family updated
+  family: "Family"
+  followers: Followers
+  following: Following
+  home: "Home"
+  info: "Info"
+  link: "Link"
+  load_more: Load More
+  meal_created: "Meal '%{meal}' was created."
+  meal_updated: "Meal '%{meal}' was updated."
+  meals: "Meals"
+  member_tasks: "Tasks for %{member}"
+  member: Member
+  members: Members
+  menu: Menu
+  name: Name
+  need_to_sign_in: "Need to sign in"
+  new_meal: "New Meal"
+  new_task: "New Task"
+  no_events: "(no events scheduled)"
+  no_results: No Results
+  no_social_media: No social media
+  no_tasks: "(no tasks assigned)"
+  not_authorized: "Not authorized"
+  other_family_tasks: "Other Family Tasks"
+  other_tasks: "Other Tasks"
+  parent: "Parent"
+  password: "Password"
+  pays: "Pays"
+  pin_doesnt_match: PIN invalid
+  pin: "PIN"
+  portal: Portal
   posts: Posts
+  profile: "Profile"
+  recipe_box: "Recipe Box"
+  required_for_allowance: "Required for allowance"
+  save: "Save"
+  settings: "Settings"
+  sign_in: Sign In
+  sign_out: Sign Out
+  sign_up: Sign Up
   social_media_activity_subject: Social Media Activity for %{name}
   social_media_activity: Social Media Activity
-
+  social_media: "Social Media"
+  task_created: "Task '%{task}' was created."
+  task_updated: "Task '%{task}' was updated."
+  task: "Task"
+  tasks: "Tasks"
+  tip_family_link: "The 'Family Portal' is a custom login page for children."
+  tip_weekly_allowance: "The 'Weekly Allowance' is applied when all of the required tasks for the week are complete."
+  todays_tasks: "Todays Tasks"
+  user_created: User created
+  user_updated: User updated
+  weekly_allowance: "Weekly Allowance"
+  number:
+    currency:
+      format:
+        format: "%u%n"
+        unit: "$"
   days:
     -
     - Monday
@@ -26,91 +106,3 @@ en:
     - Friday
     - Saturday
     - Sunday
-
-  controllers:
-    not_authorized: "Not authorized"
-    need_to_sign_in: "Need to sign in"
-    user_updated: "User '%{user}' was updated."
-    user_created: "User '%{user}' was created."
-    task_updated: "Task '%{task}' was updated."
-    task_created: "Task '%{task}' was created."
-    meal_updated: "Meal '%{meal}' was updated."
-    meal_created: "Meal '%{meal}' was created."
-    event_updated: "Event '%{event}' was updated."
-    event_created: "Event '%{event}' was created."
-
-  views:
-    pays: "Pays"
-    editing_task: "Editing '%{task}'"
-    new_task: "New Task"
-    add_task: "Add Task"
-    pin: "PIN"
-    parent: "Parent"
-    child: "Child"
-    edit: "Edit"
-    save: "Save"
-    cancel: "Cancel"
-    delete: "Delete"
-    member: "Member"
-    members: "Members"
-    link: "Link"
-    blank_family: "%{family} Family"
-    editing_family: "Editing %{family}"
-    create_join_family: "Create / Join Family"
-    family_id: "Existing Family ID"
-    editing_user: "Editing %{user}"
-    create_account: "Create Account"
-    add_family_member: "Add Member"
-    edit_family: "Edit Family"
-    name: "Name"
-    email: "Email"
-    password: "Password"
-    confirm_password: "Confirm Password"
-    sign_in: "Sign In"
-    sign_up: "Sign Up"
-    settings: "Settings"
-    sign_out: "Sign Out"
-    family: "Family"
-    calendar: "Calendar"
-    menu: "Menu"
-    credits: "Credits"
-    social_media: "Social Media"
-    tasks: "Tasks"
-    family_tasks: "Family Tasks"
-    member_tasks: "Tasks for %{member}"
-    no_tasks: "(no tasks assigned)"
-    task: "Task"
-    event: "Event"
-    events: "My Events"
-    no_events: "(no events scheduled)"
-    are_you_sure: "Are you sure?"
-    profile: "Profile"
-    events_for: "Events for..."
-    meals: "Meals"
-    enable: "Enable"
-    info: "Info"
-    home: "Home"
-    posts: "posts"
-    followers: "followers"
-    following: "following"
-    activity: "Activity"
-    activity_completion: "%{who} has completed '%{what}'"
-    activity_assign_meal: "%{who} was added to the menu for %{what}"
-    activity_remove_meal: "%{who} was removed from the menu"
-    new_meal: "New Meal"
-    editing_meal: "Editing '%{meal}'"
-    recipe_box: "Recipe Box"
-    required_for_allowance: "Required for allowance"
-    other_tasks: "Other Tasks"
-    other_family_tasks: "Other Family Tasks"
-    todays_tasks: "Todays Tasks"
-    allowance: "Allowance"
-    weekly_allowance: "Weekly Allowance"
-    family_access_link: "Family Portal"
-    tip_family_link: "The 'Family Portal' is a custom login page for children."
-    tip_weekly_allowance: "The 'Weekly Allowance' is applied when all of the required tasks for the week are complete."
-  number:
-    currency:
-      format:
-        format: "%u%n"
-        unit: "$"
