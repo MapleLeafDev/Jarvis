@@ -1,7 +1,16 @@
-.modal-body
-  = bootstrap_form_for(@family, layout: :horizontal, label_col: "col-sm-3", control_col: "col-sm-7", remote: true) do |f|
-    .errors
-    = f.text_field :name, label: t('name')
-    = f.text_field :url, label: t('family_id')
-    %div{align: 'right'}
-      = f.submit class: "btn btn-primary"
+%form.form-horizontal{"accept-charset" => "UTF-8", :action => (@family.id ? family_path(@family) : '/families'), "data-remote" => "true", :method => (@family.id ? "patch" : "post"), :role => "form"}
+  %div{:style => "display:none"}
+    %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+  .errors
+  .form-group
+    %label.col-md-3.control-label{:for => "name"}= t('name')
+    .col-md-9
+      %input#name.form-control{:type => "text", :name => 'family[name]', :value => @family.name}
+  .form-group
+    %label.col-md-3.control-label{:for => "url"}= t('family_id')
+    .col-md-9
+      %input#url.form-control{:type => "text", :name => 'family[url]', :value => @family.url}
+  .form-group
+    %label.col-md-3.control-label
+    .col-md-9{align: 'right'}
+      %input.btn.btn-primary{:name => "commit", :type => "submit", :value => t('save')}/

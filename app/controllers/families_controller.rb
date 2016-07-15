@@ -42,13 +42,8 @@ class FamiliesController < ApplicationController
 
   def update
     @family = Family.find(params[:id])
-    respond_to do |format|
-      if @family.update_attributes(params[:family])
-        format.html { redirect_to @family, notice: t('family_updated') }
-      else
-        format.html { render action: "edit" }
-      end
-    end
+    flash[:notice] = t('family_updated') if @family.update_attributes(family_params)
+    respond_with @family
   end
 
   def destroy
