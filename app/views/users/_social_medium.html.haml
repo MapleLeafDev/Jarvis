@@ -29,7 +29,7 @@
         %td
           .material-switch{style: 'padding:12px 0px 0px 12px;'}
             -if @user.twitter?
-              %input#twitter{:type => "checkbox", :checked => true, onChange: "window.location='#{user_social_medium_path(@user, @user.twitter)}';"}
+              %input#twitter{:type => "checkbox", :checked => true, onChange: "window.location='#{disable_user_social_medium_path(@user, @user.twitter)}';"}
             -else
               %input#twitter{:type => "checkbox", :checked => false, onChange: "window.location='#{connect_twitter_index_path}';"}
             %label.label-success{:for => "twitter"}

@@ -20,7 +20,7 @@ class SocialMediumController < ApplicationController
     @post = @feed.instagram_post(params[:media_id])
   end
 
-  def destroy
+  def disable
     @feed.destroy
     redirect_to @user
   end

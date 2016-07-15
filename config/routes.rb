@@ -37,6 +37,9 @@ HomeManager::Application.routes.draw do
         get 'instagram_post'
         get 'more_results'
       end
+      member do
+        get 'disable'
+      end
     end
   end
 

@@ -21,8 +21,7 @@
         %ul.nav.navbar-nav.navbar-right{style: "margin-right:20px;"}
           %li= link_to t('sign_in'), login_path, remote: true
     .container
-      .col-lg-4.col-lg-offset-4
-        = yield
+      = yield
 
     .container{style:  "position:fixed; top:70px; right:0px; width:200px;"}
       -if flash.count > 0
