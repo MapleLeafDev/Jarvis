@@ -10,10 +10,8 @@
         .pull-right
           -if current_user.parent?
             =link_to content_tag(:i, nil, class: "fa fa-cog fa-1x"), edit_family_path(@family), remote: true
-        = t('blank_family', family: @family.name)
+        = link_to t('blank_family', family: @family.name), family_path(@family)
     .panel-body
-      %div{align: "center"}= image_tag(gravatar_for(@family), class: "img-rounded")
-
       %table.table.table-hover
         %thead
           %tr
@@ -43,11 +41,3 @@
       .panel-heading
         %h4= t("activity")
       .panel-body
-
--# -@members.each do |user|
--#   =render partial: 'card', locals: { user: user }
--#
--# .col-lg-12
--#   = render partial: 'users/tasks', locals: { family: @family, user: @current_user, tasks: @family.todays_tasks, section: t('views.todays_tasks') }
--#   -if current_user.parent?
--#     = render partial: 'users/tasks', locals: { family: @family, user: @current_user, tasks: @family.other_tasks, section: t('views.other_tasks') }

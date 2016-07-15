@@ -3,4 +3,5 @@
     .errors
     = f.text_field :name, label: t('name')
     = f.text_field :url, label: t('family_id')
-    = f.submit class: "btn btn-primary"
+    %div{align: 'right'}
+      = f.submit class: "btn btn-primary"

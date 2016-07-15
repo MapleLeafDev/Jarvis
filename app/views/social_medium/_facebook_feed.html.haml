@@ -5,7 +5,7 @@
       .panel-heading
         %h3.panel-title
           .pull-right
-            = time_ago_in_words(Time.at(DateTime.parse(post['created_time'])))
+            = time_ago_in_words(Time.at(DateTime.parse(post['created_time'])), scope: 'time_ago')
           - post_pic = post['from']['id'] == @feed.username ? @feed.picture : post['picture']
           = image_tag(post_pic, size: '30x30', class: "img-rounded")
           = post['from']['name']
@@ -18,9 +18,9 @@
                 %li.list-group-item
                   .list-group-item-heading
                     .pull-right
-                      =t('likes')
-                      .badge= comment['like_count']
-                      = time_ago_in_words(Time.at(DateTime.parse(comment['created_time'])))
+                      = time_ago_in_words(Time.at(DateTime.parse(comment['created_time'])), scope: 'time_ago')
+                    .badge
+                      = content_tag(:i, " #{comment['like_count']}", class: "fa #{comment['user_likes'] ? 'fa-thumbs-up' : 'fa-thumbs-o-up'}")
                     = link_to comment['from']['name'], "http://facebook.com/#{comment['from']['id']}", target: :blank
                   %p.list-group-item-text= comment['message']
 

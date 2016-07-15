@@ -1,7 +1,9 @@
-.modal-header
-  .lead
-    -if current_user
-      = t('add_family_member')
-    -else
-      = t('create_account')
-= render "form"
+.panel.panel-default
+  .panel-heading
+    %h4
+      -if current_user
+        = t('add_family_member')
+      -else
+        = t('create_account')
+  .panel-body
+    = render "form"

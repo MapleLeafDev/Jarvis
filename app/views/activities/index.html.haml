@@ -4,13 +4,13 @@
     -if activity.type_id == 1
       .panel-heading
         = link_to image_tag(gravatar_for(activity.user, 25), class: "img-rounded"), user_path(activity.user)
-        = time_ago_in_words(Time.zone.at(activity.created_at))
+        = time_ago_in_words(Time.zone.at(activity.created_at), scope: 'time_ago')
       .panel-body
         %em= t('activity_completion', who: activity.user.name, what: activity.message)
     -elsif activity.type_id == 2
       .panel-heading
         = link_to image_tag(gravatar_for(activity.family, 25), class: "img-rounded"), family_path(activity.family)
-        = time_ago_in_words(Time.zone.at(activity.created_at))
+        = time_ago_in_words(Time.zone.at(activity.created_at), scope: 'time_ago')
       .panel-body
         -info = activity.message.split(',')
         -if info.count == 2

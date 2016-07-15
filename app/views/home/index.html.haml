@@ -3,4 +3,6 @@
   %p
     .lead= t('about_us')
   %p
-    =link_to t('sign_up'), signup_path, remote: true, class: "btn btn-primary"
+    #user-results
+      %div{align: 'right'}
+        =link_to t('sign_up'), signup_path, remote: true, class: "btn btn-primary"

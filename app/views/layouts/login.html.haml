@@ -24,7 +24,7 @@
       .col-lg-4.col-lg-offset-4
         = yield
 
-    .container{style:  "position:fixed; top:70px; right:0px; width:20%;"}
+    .container{style:  "position:fixed; top:70px; right:0px; width:200px;"}
       -if flash.count > 0
         -flash.each do |name, msg|
           -if flash[:notice]
@@ -35,4 +35,4 @@
               =content_tag :div, msg, :id => "flash_#{name}"
     #modal.modal.fade
       .modal-dialog
-        #inner-modal.modal-content
+        #inner-modal.modal-content{style: 'width:300px;'}

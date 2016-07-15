@@ -6,4 +6,5 @@
       = email_field_tag :email, '', placeholder: t('email'), class: "form-control"
     .form-group
       = password_field_tag :password, '', placeholder: t('password'), class: "form-control"
-    %button.btn.btn-primary{:type => "submit"}= t('sign_in')
+    %div{align: 'right'}
+      %button.btn.btn-primary{:type => "submit"}= t('sign_in')

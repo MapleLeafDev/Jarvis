@@ -1,5 +1,5 @@
-.modal-header
-  .pull-right
-    = link_to content_tag(:i, nil, class: "fa fa-remove fa-2x"), "", data: {dismiss: "modal"}
-  %h3= t('editing_user', user: @user.name)
-= render "form"
+.panel.panel-default
+  .panel-heading
+    %h4= t('editing_user', user: @user.name)
+  .panel-body
+    = render "form"

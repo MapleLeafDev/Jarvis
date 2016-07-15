@@ -1,14 +1,14 @@
 class InstagramController < ApplicationController
 
   def connect
-    redirect_to Instagram.authorize_url(:redirect_uri => SocialMedia.redirect_url, :scope => 'basic public_content follower_list')
+    redirect_to Instagram.authorize_url(:redirect_uri => SocialMedia.redirect_url(1), :scope => 'basic public_content follower_list')
   end
 
   def callback
     if params[:error]
       redirect_to current_user, notice: params[:error_description]
     else
-      response = Instagram.get_access_token(params[:code], redirect_uri: SocialMedia.redirect_url)
+      response = Instagram.get_access_token(params[:code], redirect_uri: SocialMedia.redirect_url(1))
       if feed = current_user.instagram
         feed.update_attribute(:token, response.access_token)
       else

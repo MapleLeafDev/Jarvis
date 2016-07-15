@@ -6,7 +6,7 @@
       .panel-heading
         %h3.panel-title
           .pull-right
-            = time_ago_in_words(post.created_at)
+            = time_ago_in_words(post.created_at, scope: 'time_ago')
           = image_tag(post.user.profile_image_url.to_s, size: '30x30', class: "img-rounded")
           = post.user.name
       .panel-body

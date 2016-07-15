@@ -9,21 +9,27 @@
       %tr
         %td= content_tag(:i, " Instagram", class: "fa fa-instagram fa-2x")
         %td{style: "width:50px;"}
-          -if @user.instagram?
-            = link_to t("enabled"), user_social_medium_path(@user, @user.instagram), method: :delete, class: 'btn btn-sm btn-success'
-          -else
-            = link_to t("disabled"), connect_instagram_index_path, class: 'btn btn-sm btn-danger'
+          .material-switch{style: 'padding:12px 0px 0px 12px;'}
+            -if @user.instagram?
+              %input#instagram{:type => "checkbox", :checked => true, onChange: "window.location='#{user_social_medium_path(@user, @user.instagram)}';"}
+            -else
+              %input#instagram{:type => "checkbox", :checked => false, onChange: "window.location='#{connect_instagram_index_path}';"}
+            %label.label-success{:for => "instagram"}
       %tr
-        %td= content_tag(:i, " Facebook", class: "fa fa-facebook fa-2x")
+        %td= content_tag(:i, " Facebook", class: "fa fa-facebook-square fa-2x")
         %td
-          -if @user.facebook?
-            = link_to t("enabled"), user_social_medium_path(@user, @user.facebook), method: :delete, class: 'btn btn-sm btn-success'
-          -else
-            = link_to t("disabled"), connect_facebook_index_path, class: 'btn btn-sm btn-danger'
+          .material-switch{style: 'padding:12px 0px 0px 12px;'}
+            -if @user.facebook?
+              %input#facebook{:type => "checkbox", :checked => true, onChange: "window.location='#{user_social_medium_path(@user, @user.facebook)}';"}
+            -else
+              %input#facebook{:type => "checkbox", :checked => false, onChange: "window.location='#{connect_facebook_index_path}';"}
+            %label.label-success{:for => "facebook"}
       %tr
-        %td= content_tag(:i, " Twitter", class: "fa fa-twitter fa-2x")
+        %td= content_tag(:i, " Twitter", class: "fa fa-twitter-square fa-2x")
         %td
-          -if @user.twitter?
-            = link_to t("enabled"), user_social_medium_path(@user, @user.twitter), method: :delete, class: 'btn btn-sm btn-success'
-          -else
-            = link_to t("disabled"), connect_twitter_index_path, class: 'btn btn-sm btn-danger'
+          .material-switch{style: 'padding:12px 0px 0px 12px;'}
+            -if @user.twitter?
+              %input#twitter{:type => "checkbox", :checked => true, onChange: "window.location='#{user_social_medium_path(@user, @user.twitter)}';"}
+            -else
+              %input#twitter{:type => "checkbox", :checked => false, onChange: "window.location='#{connect_twitter_index_path}';"}
+            %label.label-success{:for => "twitter"}

@@ -27,6 +27,6 @@ class FacebookController < ApplicationController
   private
 
   def create_oauth_object
-    @oauth = Koala::Facebook::OAuth.new(ENV['FACEBOOK_ID'], ENV['FACEBOOK_SECRET'], SocialMedia.redirect_url)
+    @oauth = Koala::Facebook::OAuth.new(ENV['FACEBOOK_ID'], ENV['FACEBOOK_SECRET'], SocialMedia.redirect_url(2))
   end
 end

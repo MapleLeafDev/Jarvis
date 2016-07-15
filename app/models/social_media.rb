@@ -72,8 +72,8 @@ class SocialMedia < ActiveRecord::Base
     end
   end
 
-  def self.redirect_url
-    "http://#{Rails.env.development? ? request.host_with_port : 'www.ml-family.com'}/#{type_tag.downcase}/callback"
+  def self.redirect_url(type)
+    "http://#{Rails.env.development? ? 'localhost:3000' : 'www.ml-family.com'}/#{SocialMedia::TYPE_NAME[type].downcase}/callback"
   end
 
   ###################
