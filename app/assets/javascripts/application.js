@@ -23,7 +23,7 @@ $(document).bind("mobileinit", function(){
 });
 
 $(document).ready(function(){
-  setTimeout(function(){$('.alert').fadeOut("1000ms")},2000);
+  setTimeout(function(){$('.flash').fadeOut("1000ms")},2000);
 
   $('.carousel').each(function(){
       $(this).carousel({

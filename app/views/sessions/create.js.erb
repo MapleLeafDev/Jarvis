@@ -1,0 +1,15 @@
+var el = $('.error');
+
+<% if @error %>
+
+  var errors = $('<p />');
+  errors.append("<%= escape_javascript( @error ) %>");
+
+  el.html(errors);
+  el.addClass('alert alert-danger');
+
+<% else %>
+
+  window.location = '<%= escape_javascript( user_path(@user) ) %>';
+
+<% end %>

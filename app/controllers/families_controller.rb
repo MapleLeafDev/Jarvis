@@ -3,13 +3,17 @@ class FamiliesController < ApplicationController
   before_filter :authorize, except: [:my_family]
   before_filter :is_parent, except: [:my_family, :show]
 
+  layout "my_family", :only => [:my_family]
+
   def show
     @family = Family.find(params[:id])
     @members = @family.parents + @family.children
   end
 
   def my_family
-    unless @family = Family.find_by_url(params[:url])
+    if @family = Family.find_by_url(params[:url])
+      @users = @family.users
+    else
       redirect_to root_url
     end
   end

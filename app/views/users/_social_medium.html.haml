@@ -12,7 +12,7 @@
       %tr
         %td= content_tag(:i, " Instagram", class: "fa fa-instagram fa-2x")
         %td{style: "width:50px;"}
-          .material-switch{style: 'padding:12px 0px 0px 12px;'}
+          .material-switch{style: 'padding:4px 0px 0px 12px;'}
             -if @user.instagram?
               %input#instagram{:type => "checkbox", :checked => true, onChange: "window.location='#{user_social_medium_path(@user, @user.instagram)}';"}
             -else
@@ -21,7 +21,7 @@
       %tr
         %td= content_tag(:i, " Facebook", class: "fa fa-facebook-square fa-2x")
         %td
-          .material-switch{style: 'padding:12px 0px 0px 12px;'}
+          .material-switch{style: 'padding:4px 0px 0px 12px;'}
             -if @user.facebook?
               %input#facebook{:type => "checkbox", :checked => true, onChange: "window.location='#{user_social_medium_path(@user, @user.facebook)}';"}
             -else
@@ -30,7 +30,7 @@
       %tr
         %td= content_tag(:i, " Twitter", class: "fa fa-twitter-square fa-2x")
         %td
-          .material-switch{style: 'padding:12px 0px 0px 12px;'}
+          .material-switch{style: 'padding:4px 0px 0px 12px;'}
             -if @user.twitter?
               %input#twitter{:type => "checkbox", :checked => true, onChange: "window.location='#{disable_user_social_medium_path(@user, @user.twitter)}';"}
             -else

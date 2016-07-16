@@ -1,10 +1,21 @@
-.modal-header
-  %h3= t('sign_in')
-.modal-body
-  = form_tag sessions_path do
-    .form-group
-      = email_field_tag :email, '', placeholder: t('email'), class: "form-control"
-    .form-group
-      = password_field_tag :password, '', placeholder: t('password'), class: "form-control"
-    %div{align: 'right'}
-      %button.btn.btn-primary{:type => "submit"}= t('sign_in')
+.panel.panel-default
+  .panel-heading
+    %h4= t('sign_in')
+  .panel-body
+    %form.form-horizontal{"accept-charset" => "UTF-8", :action => sessions_path, "data-remote" => "true", :method => "post", :role => "form"}
+      %div{:style => "display:none"}
+        %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+      .form-group{style: "margin-bottom:0px;"}
+        %label.col-md-3.control-label
+        .col-md-9{align: 'center'}
+          .error
+      .form-group
+        %label.col-md-3.control-label{:for => "email"}= t('email')
+        .col-md-9
+          %input#email.form-control{:type => "text", :name => 'email', :value => params[:email]}
+      .form-group
+        %label.col-md-3.control-label{:for => "password"}= t('password')
+        .col-md-9
+          %input#password.form-control{:type => "password", :name => 'password', :value => params[:password]}
+      %div{align: 'right'}
+        %button.btn.btn-primary{:type => "submit"}= t('sign_in')
