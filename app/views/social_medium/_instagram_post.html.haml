@@ -15,13 +15,15 @@
       %p{style: 'padding-top:10px;'}
         .pull-right
           = time_ago_in_words(Time.zone.at(@post.created_time.to_i), scope: 'time_ago')
-        = content_tag(:i, " #{@post.likes[:count]}", class: "fa #{@post.user_has_liked ? 'fa-heart' : 'fa-heart-o'}")
+        .badge
+          = content_tag(:i, " #{@post.likes[:count]}", class: "fa #{@post.user_has_liked ? 'fa-heart' : 'fa-heart-o'}")
       %p= @post.caption.text if @post.caption
-      -if @post[:comments][:data]
-        - @post[:comments][:data].each do |comment|
-          .media
-            %a.pull-left{:href => "http://instagram.com/#{comment.from[:username]}"}
-              = image_tag(comment.from[:profile_picture], size: "30x30", class: "img-rounded")
-            .media-body
-              %h4.media-heading=link_to comment.from[:username], "http://instagram.com/#{comment.from[:username]}"
-              = comment.text
+      -if @comments.any?
+        %ul.list-group{style: "padding-left:0px;"}
+          -@comments.each do |comment|
+            %li.list-group-item
+              .list-group-item-heading
+                .pull-right
+                  = time_ago_in_words(Time.zone.at(comment.created_time.to_i), scope: 'time_ago')
+                =link_to comment.from[:username], "http://instagram.com/#{comment.from[:username]}", target: :blank
+              %p.list-group-item-text= comment.text

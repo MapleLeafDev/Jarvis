@@ -22,6 +22,7 @@
     %label.col-md-3.control-label{:for => "pin"}= t('pin')
     .col-md-9
       %input#pin.form-control{:type => "number", :name => 'user[pin]', :value => @user.pin}
+      .text-muted= t('pin_info')
   -if current_user
     .form-group
       %label.col-md-3.control-label= t('parent')

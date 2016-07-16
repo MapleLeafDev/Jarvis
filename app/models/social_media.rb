@@ -50,6 +50,13 @@ class SocialMedia < ActiveRecord::Base
     end
   end
 
+  def comments(id)
+    case feed_type
+    when 1
+      instagram_comments(id)
+    end
+  end
+
   def more_results(id, type = 'profile')
     case feed_type
     when 1
@@ -93,6 +100,14 @@ class SocialMedia < ActiveRecord::Base
 
   def instagram_media(id = nil)
     instagram_client(self.token).user_recent_media('self', count: 18, max_id: id)
+  end
+
+  def instagram_comments(id)
+    instagram_client(self.token).media_comments(id)
+  end
+
+  def instagram_likes(id = nil)
+    instagram_client(self.token).user_liked_media(count: 18, max_id: id)
   end
 
   def instagram_post(id)

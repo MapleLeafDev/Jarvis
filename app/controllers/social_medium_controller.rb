@@ -18,6 +18,7 @@ class SocialMediumController < ApplicationController
 
   def instagram_post
     @post = @feed.instagram_post(params[:media_id])
+    @comments = @feed.comments(params[:media_id])
   end
 
   def disable
