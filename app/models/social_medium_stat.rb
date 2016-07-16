@@ -7,8 +7,9 @@ class SocialMediumStat < ActiveRecord::Base
       next if ["id","user_id","created_at","updated_at"].include?(k)
       next unless v
       values = posts = followers = following = []
-      day = Date.yesterday.cwday
-      v.split(',').each do |d|
+      days = v.split(',')
+      day = (Date.today - (days.count - 1).days).cwday
+      days.each do |d|
         parts = d.split(':')
         if values.any?
           posts += [[I18n.t("days")[day], (parts[0].to_i - values[0])]]
