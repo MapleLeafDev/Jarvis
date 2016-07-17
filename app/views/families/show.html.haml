@@ -29,11 +29,11 @@
                 = link_to content_tag(:i, nil, class: "fa fa-plus fa-1x"), new_user_path, remote: true
         %tbody
           -@members.each do |user|
-            %tr
+            %tr{id: "user-#{user.id}-row"}
               %td= link_to user.name, user_path(user)
               %td{style: "width:32px;"}
                 -if current_user.parent?
-                  = link_to content_tag(:i,nil, class: "fa fa-remove fa-1x"), user_path(user), method: :delete
+                  = link_to content_tag(:i,nil, class: "fa fa-remove fa-1x"), user_path(user), method: :delete, data: {confirm: t('are_you_sure')}, remote: true
 
 .results-nav
   #user-results

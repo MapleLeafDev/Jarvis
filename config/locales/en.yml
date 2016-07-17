@@ -1,5 +1,6 @@
 en:
   about_us: Helping families promote good digital citizenship and social media awareness
+  account_disabled: Account Disabled
   activity_assign_meal: "%{who} was added to the menu for %{what}"
   activity_completion: "%{who} has completed '%{what}'"
   activity_remove_meal: "%{who} was removed from the menu"
@@ -7,6 +8,7 @@ en:
   add_family_member: "Add Member"
   add_task: "Add Task"
   added_to_family: Joined family
+  admin: Administration
   allowance: "Allowance"
   are_you_sure: "Are you sure?"
   blank_family: "%{family} Family"
@@ -20,6 +22,7 @@ en:
   delete: "Delete"
   disable: Disable
   disabled: Disabled
+  disabled_by_admin: Account has been disabled by site administration
   edit_family: "Edit Family"
   edit: "Edit"
   editing_family: "Editing %{family}"
@@ -64,10 +67,12 @@ en:
   need_to_sign_in: "Need to sign in"
   new_meal: "New Meal"
   new_task: "New Task"
+  next: Next
   no_events: "(no events scheduled)"
   no_results: No Results
   no_social_media: No social media
   no_tasks: "(no tasks assigned)"
+  non_payment: No payment
   not_authorized: "Not authorized"
   other_family_tasks: "Other Family Tasks"
   other_tasks: "Other Tasks"
@@ -79,6 +84,7 @@ en:
   pin_info: The PIN is used to sign in to the family portal.
   portal: Portal
   posts: Posts
+  previous: Previous
   profile: "Profile"
   recipe_box: "Recipe Box"
   required_for_allowance: "Required for allowance"
@@ -100,11 +106,26 @@ en:
   user_created: User created
   user_updated: User updated
   weekly_allowance: "Weekly Allowance"
+
+  time:
+    am: am
+    formats:
+      default: ! '%a, %d %b %Y %l:%M:%S %z'
+      long: ! '%B %d, %Y %l:%M %P'
+      medium: ! '%-m-%d-%y %I:%M %P'
+      alt_medium: ! '%-m-%d %I:%M %P'
+      short: ! '%d %b %l:%M'
+      short_time: '%l:%M %P'
+      short_dates: '%d/%m/%y'
+    pm: pm
+    noon: noon
+
   number:
     currency:
       format:
         format: "%u%n"
         unit: "$"
+
   days:
     -
     - Monday
@@ -114,6 +135,7 @@ en:
     - Friday
     - Saturday
     - Sunday
+
   time_ago:
     half_a_minute: "30s"
     less_than_x_seconds:
@@ -149,6 +171,7 @@ en:
     almost_x_years:
       one:   "1y"
       other: "%{count}y"
+
   activerecord:
     models:
       family: Family

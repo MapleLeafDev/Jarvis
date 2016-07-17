@@ -1,10 +1,14 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  helper_method :current_user, :family, :gravatar_for, :family_url, :is_parent, :children, :parents
+  helper_method :current_user, :family, :gravatar_for, :family_url, :is_parent, :children, :parents, :is_admin
 
   def current_user
     @current_user ||= User.find_by_id(session[:user_id])
+  end
+
+  def is_admin
+    redirect_to user_path(current_user), alert: t('not_authorized') unless current_user.email == ENV['ADMIN']
   end
 
   def is_parent

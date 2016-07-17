@@ -27,6 +27,9 @@ HomeManager::Application.routes.draw do
       get 'allowance'
       get 'social_medium'
     end
+    member do
+      get 'toggle'
+    end
     resources :tasks
     resources :completions
     resources :purchases

@@ -1,0 +1,32 @@
+.panel.panel-default
+  .panel-heading
+    %h4= t('admin')
+  .panel-body
+    %table.table.table-hover
+      %thead
+        %tr
+          %th= t('name')
+          %th= t('email')
+          %th= t('family')
+          %th= t('created')
+          %th= t('enabled')
+          %th
+      %tbody
+        -@users.each do |user|
+          %tr{id: "user-#{user.id}-row"}
+            %td= user.name
+            %td= user.email
+            %td= user.family.name if user.family_id
+            %td= l(user.created_at, format: :medium)
+            %td
+              .material-switch{style: 'padding:4px 0px 0px 12px;'}
+                %input{:id => "user-#{user.id}", :name => "user-#{user.id}", :type => "checkbox", :checked => user.enabled, :onChange => "toggleUser(#{user.id});"}
+                %label.label-success{:for => "user-#{user.id}"}
+            %td{style: "width:32px;"}
+              = link_to content_tag(:i,nil, class: "fa fa-remove fa-1x"), user_path(user), method: :delete, data: {confirm: t('are_you_sure')}, remote: true
+
+    %ul.pager
+      %li.previous
+        =link_to_previous_page @users, t('previous'), remote: true
+      %li.next
+        =link_to_next_page @users, t('next'), remote: true

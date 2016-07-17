@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160711184340) do
+ActiveRecord::Schema.define(version: 20160717161114) do
 
   create_table "activities", force: true do |t|
     t.integer  "user_id"
@@ -135,6 +135,8 @@ ActiveRecord::Schema.define(version: 20160711184340) do
     t.string   "timezone"
     t.integer  "allowance"
     t.datetime "last_allowance"
+    t.boolean  "enabled"
+    t.string   "status"
   end
 
 end

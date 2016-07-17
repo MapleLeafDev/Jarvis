@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_secure_password
+  paginates_per 25
 
   belongs_to :family
   has_many :tasks, dependent: :destroy

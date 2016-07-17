@@ -40,11 +40,15 @@
         %a.navbar-brand{href: ""}= 'ML Family'
       .collapse.navbar-collapse
         %ul.nav.navbar-nav.navbar-right{style: "margin-right:20px;"}
-          %li{class: "#{'active' if params[:controller] == 'families'}"}
-            -if current_user.family
-              = link_to t('family'), family_path(current_user.family)
-            -else
-              = link_to t('family'), new_family_path, remote: true
+          -if current_user.email == ENV['ADMIN']
+            %li
+              = link_to t('admin'), users_path, remote: true
+          -if current_user.enabled
+            %li{class: "#{'active' if params[:controller] == 'families'}"}
+              -if current_user.family
+                = link_to t('family'), family_path(current_user.family)
+              -else
+                = link_to t('family'), new_family_path, remote: true
           %li{class: "#{'active' if params[:controller] == 'users'}"}
             = link_to t('profile'), current_user
           %li= link_to t('sign_out'), signout_path

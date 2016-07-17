@@ -1,10 +1,9 @@
-#sign-in
+#user-results
 .jumbotron
   %h1 Maple Leaf Family
   %p
     .lead= t('about_us')
-  %p
-    .pull-right
+  %p{align: 'center'}
+    .btn-group.btn-group-justified
+      =link_to t('sign_in'), login_path, remote: true, class: "btn btn-primary"
       =link_to t('create_account'), signup_path, remote: true, class: "btn btn-success"
-    =link_to t('sign_in'), login_path, remote: true, class: "btn btn-primary"
-#user-results

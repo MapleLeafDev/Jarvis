@@ -31,3 +31,7 @@ $(document).ready(function(){
       });
   });
 });
+
+function toggleUser( id ) {
+  $.get("/users/" + id + "/toggle")
+}
