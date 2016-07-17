@@ -57,6 +57,7 @@
     #page-wrapper
       .container-fluid
         = yield
+    =link_to content_tag(:i, nil, class: 'fa fa-arrow-up fa-2x'), "#", class: "cd-top btn btn-default"
 
     .container{style: "position:fixed; top:70px; right:0px; width:25%;"}
       -if flash.count > 0
