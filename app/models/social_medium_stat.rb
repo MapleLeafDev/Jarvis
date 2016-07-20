@@ -8,7 +8,7 @@ class SocialMediumStat < ActiveRecord::Base
       next unless v
       values = posts = followers = following = []
       days = v.split(',')
-      day = (Date.today - (days.count - 1).days).cwday
+      day = ((Time.now.utc + Time.zone_offset('PST')).to_date - (days.count - 1).days).cwday
       days.each do |d|
         parts = d.split(':')
         if values.any?
