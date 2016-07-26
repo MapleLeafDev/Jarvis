@@ -26,6 +26,15 @@
                 %input#facebook{:type => "checkbox", :checked => false, onChange: "window.location='#{connect_facebook_index_path}';"}
               %label.label-success{:for => "facebook"}
         %tr
+          %td= content_tag(:i, " Google", class: "fa fa-google-plus-square fa-2x")
+          %td
+            .material-switch{style: 'padding:4px 0px 0px 12px;'}
+              -if @user.google?
+                %input#google{:type => "checkbox", :checked => true, onChange: "window.location='#{disable_user_social_medium_path(@user, @user.google)}';"}
+              -else
+                %input#google{:type => "checkbox", :checked => false, onChange: "window.location='#{connect_google_index_path}';"}
+              %label.label-success{:for => "google"}
+        %tr
           %td= content_tag(:i, " Twitter", class: "fa fa-twitter-square fa-2x")
           %td
             .material-switch{style: 'padding:4px 0px 0px 12px;'}

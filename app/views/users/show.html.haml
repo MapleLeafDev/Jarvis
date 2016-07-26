@@ -53,7 +53,7 @@
               -@user.social_medium.each do |feed|
                 %tr
                   %td= link_to content_tag(:i, " #{feed.type_tag}", class: "fa fa-#{feed.css_class} fa-2x"), user_social_medium_path(@user, feed, {type: 'recent'}), remote: true, onclick: "loadingSocialMedia();"
-                  %td{style: "width:32px;"}= link_to content_tag(:i,nil, class: "fa fa-remove fa-1x"), user_social_medium_path(@user, feed), method: :delete, data: {confirm: t('are_you_sure')}
+                  %td{style: "width:32px;"}
 
 .results-nav
   #loading{style: 'display:none;', align: 'center'}

@@ -102,6 +102,14 @@ class User < ActiveRecord::Base
     social_medium.where(feed_type: 4).first
   end
 
+  def google?
+    social_medium.where(feed_type: 5).any?
+  end
+
+  def google
+    social_medium.where(feed_type: 5).first
+  end
+
   def update_social_medium_stats
     stats = self.social_medium_stat || SocialMediumStat.create(user_id: self.id)
     stats.update_data

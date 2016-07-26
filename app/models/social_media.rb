@@ -6,7 +6,8 @@ class SocialMedia < ActiveRecord::Base
     "Instagram",
     "Facebook",
     "Tumblr",
-    "Twitter"
+    "Twitter",
+    "Google"
   ]
 
   CSS_NAME = [
@@ -14,7 +15,8 @@ class SocialMedia < ActiveRecord::Base
     "instagram",
     "facebook-square",
     "tumblr-square",
-    "twitter-square"
+    "twitter-square",
+    "google-plus-square"
   ]
 
   def type_tag

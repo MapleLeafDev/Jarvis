@@ -67,6 +67,14 @@ HomeManager::Application.routes.draw do
   end
   get '/auth/twitter/callback' => 'twitter#callback'
 
+  resources :google do
+    collection do
+      get 'connect'
+      get 'callback'
+    end
+  end
+  get '/auth/google/callback' => 'google#callback'
+
   resources :facebook do
     collection do
       get 'connect'
