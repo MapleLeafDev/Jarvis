@@ -4,7 +4,7 @@ class HomeController < ApplicationController
 
   def index
     if current_user
-      redirect_to current_user
+      redirect_to (current_user.family_id ? family_path(current_user.family) : user_path(current_user))
     end
   end
 

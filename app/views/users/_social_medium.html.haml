@@ -1,38 +1,36 @@
-.modal-header
-  .pull-right
-    = link_to content_tag(:i, nil, class: "fa fa-remove fa-2x"), "", data: {dismiss: "modal"}
-  %h3
-    =t('social_media')
-.modal-body
-  .alert.alert-dismissible.alert-warning
-    %h4= t('enable_disable_social')
-    %p= t('enable_disable_social_info')
-  %table.table.table-hover{style: "width:100%;"}
-    %tbody
-      %tr
-        %td= content_tag(:i, " Instagram", class: "fa fa-instagram fa-2x")
-        %td{style: "width:50px;"}
-          .material-switch{style: 'padding:4px 0px 0px 12px;'}
-            -if @user.instagram?
-              %input#instagram{:type => "checkbox", :checked => true, onChange: "window.location='#{user_social_medium_path(@user, @user.instagram)}';"}
-            -else
-              %input#instagram{:type => "checkbox", :checked => false, onChange: "window.location='#{connect_instagram_index_path}';"}
-            %label.label-success{:for => "instagram"}
-      %tr
-        %td= content_tag(:i, " Facebook", class: "fa fa-facebook-square fa-2x")
-        %td
-          .material-switch{style: 'padding:4px 0px 0px 12px;'}
-            -if @user.facebook?
-              %input#facebook{:type => "checkbox", :checked => true, onChange: "window.location='#{user_social_medium_path(@user, @user.facebook)}';"}
-            -else
-              %input#facebook{:type => "checkbox", :checked => false, onChange: "window.location='#{connect_facebook_index_path}';"}
-            %label.label-success{:for => "facebook"}
-      %tr
-        %td= content_tag(:i, " Twitter", class: "fa fa-twitter-square fa-2x")
-        %td
-          .material-switch{style: 'padding:4px 0px 0px 12px;'}
-            -if @user.twitter?
-              %input#twitter{:type => "checkbox", :checked => true, onChange: "window.location='#{disable_user_social_medium_path(@user, @user.twitter)}';"}
-            -else
-              %input#twitter{:type => "checkbox", :checked => false, onChange: "window.location='#{connect_twitter_index_path}';"}
-            %label.label-success{:for => "twitter"}
+.panel.panel-default
+  .panel-heading
+    %h4= t('social_media')
+  .panel-body
+    .alert.alert-dismissible.alert-warning
+      %h4= t('enable_disable_social')
+      %p= t('enable_disable_social_info')
+    %table.table.table-hover{style: "width:100%;"}
+      %tbody
+        %tr
+          %td= content_tag(:i, " Instagram", class: "fa fa-instagram fa-2x")
+          %td{style: "width:50px;"}
+            .material-switch{style: 'padding:4px 0px 0px 12px;'}
+              -if @user.instagram?
+                %input#instagram{:type => "checkbox", :checked => true, onChange: "window.location='#{disable_user_social_medium_path(@user, @user.instagram)}';"}
+              -else
+                %input#instagram{:type => "checkbox", :checked => false, onChange: "window.location='#{connect_instagram_index_path}';"}
+              %label.label-success{:for => "instagram"}
+        %tr
+          %td= content_tag(:i, " Facebook", class: "fa fa-facebook-square fa-2x")
+          %td
+            .material-switch{style: 'padding:4px 0px 0px 12px;'}
+              -if @user.facebook?
+                %input#facebook{:type => "checkbox", :checked => true, onChange: "window.location='#{disable_user_social_medium_path(@user, @user.facebook)}';"}
+              -else
+                %input#facebook{:type => "checkbox", :checked => false, onChange: "window.location='#{connect_facebook_index_path}';"}
+              %label.label-success{:for => "facebook"}
+        %tr
+          %td= content_tag(:i, " Twitter", class: "fa fa-twitter-square fa-2x")
+          %td
+            .material-switch{style: 'padding:4px 0px 0px 12px;'}
+              -if @user.twitter?
+                %input#twitter{:type => "checkbox", :checked => true, onChange: "window.location='#{disable_user_social_medium_path(@user, @user.twitter)}';"}
+              -else
+                %input#twitter{:type => "checkbox", :checked => false, onChange: "window.location='#{connect_twitter_index_path}';"}
+              %label.label-success{:for => "twitter"}

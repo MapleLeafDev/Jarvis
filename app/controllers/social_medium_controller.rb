@@ -23,7 +23,7 @@ class SocialMediumController < ApplicationController
 
   def disable
     @feed.destroy
-    redirect_to @user
+    redirect_to user_path(@user)
   end
 
   private

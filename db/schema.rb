@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160717161114) do
+ActiveRecord::Schema.define(version: 20160726202153) do
 
   create_table "activities", force: true do |t|
     t.integer  "user_id"
@@ -128,7 +128,7 @@ ActiveRecord::Schema.define(version: 20160717161114) do
     t.integer  "credits"
     t.string   "email"
     t.boolean  "parent"
-    t.integer  "pin"
+    t.string   "pin"
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false

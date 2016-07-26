@@ -24,8 +24,16 @@
   .form-group
     %label.col-md-3.control-label{:for => "pin"}= t('pin')
     .col-md-9
-      %input#pin.form-control{:type => "number", :name => 'user[pin]', :value => @user.pin}
+      %input#pin.form-control{:type => "text", :name => 'user[pin]', :value => @user.pin}
       .text-muted= t('pin_info')
+  .form-group
+    %label.col-md-3.control-label{:for => "timezone"}= t('timezone')
+    .col-md-9
+      - ActiveSupport::TimeZone.us_zones
+      %select#timezone.form-control{:name => 'user[timezone]'}
+        -timezone = @user.timezone || "America/Los_Angeles"
+        -ActiveSupport::TimeZone.us_zones.each do |zone|
+          %option{:value => zone.tzinfo.name, :selected => (zone.tzinfo.name == timezone)}= zone.name
   -if current_user
     .form-group
       %label.col-md-3.control-label= t('parent')

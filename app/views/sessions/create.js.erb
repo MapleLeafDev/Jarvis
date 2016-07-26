@@ -10,6 +10,6 @@ var el = $('.error');
 
 <% else %>
 
-  window.location = '<%= escape_javascript( user_path(@user) ) %>';
+  window.location = '<%= escape_javascript( @user.family_id ? family_path(@user.family) : user_path(@user) ) %>';
 
 <% end %>
