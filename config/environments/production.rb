@@ -73,7 +73,7 @@ HomeManager::Application.configure do
   Rails.application.config.middleware.use ExceptionNotification::Rack,
   :email => {
     :deliver_with => :deliver,
-    :email_prefix => "[PREFIX] ",
+    :email_prefix => "ML Family - ",
     :sender_address => %{"notifier" <mapleafdev@gmail.com>},
     :exception_recipients => %w{mapleafdev@gmail.com}
   }
