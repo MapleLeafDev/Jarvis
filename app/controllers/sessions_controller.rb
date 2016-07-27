@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 
   def create
     if params[:pin]
-      if @user = User.find_by_id_and_pin(params[:id], params[:pin].to_i)
+      if @user = User.find_by_id_and_pin(params[:id], params[:pin])
         session[:user_id] = @user.id
       else
         @error = t('pin_doesnt_match')
