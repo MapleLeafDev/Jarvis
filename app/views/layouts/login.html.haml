@@ -21,10 +21,10 @@
       -if flash.count > 0
         -flash.each do |name, msg|
           -if flash[:notice]
-            .alert.fade.in.alert-info{align: "center"}
+            .flash.alert.fade.in.alert-info{align: "center"}
               =content_tag :div, msg, :id => "flash_#{name}"
           -else
-            .alert.fade.in.alert-danger{align: "center"}
+            .flash.alert.fade.in.alert-danger{align: "center"}
               =content_tag :div, msg, :id => "flash_#{name}"
     #modal.modal.fade
       .modal-dialog
