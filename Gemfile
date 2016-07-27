@@ -24,6 +24,7 @@ gem 'omniauth-tumblr'
 gem "omniauth-google-oauth2"
 gem 'rest-client'
 gem 'chartkick'
+gem 'exception_notification'
 
 group :development do
   gem 'sqlite3'
