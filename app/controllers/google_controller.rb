@@ -7,16 +7,14 @@ class GoogleController < ApplicationController
   def callback
     params = request.env['omniauth.auth']
     if feed = current_user.google
-      feed.update_attributes(token: params[:credentials][:token], secret: params[:credentials][:secret])
+      feed.update_attributes(token: params[:credentials][:refresh_token])
     else
       current_user.social_medium.create(
         feed_type: 5,
         full_name: params[:info][:name],
-        user_id: params[:info][:uid],
-        username: params[:info][:nickname],
+        username: params[:info][:email],
         picture: params[:info][:image],
-        token: params[:credentials][:token],
-        secret: params[:credentials][:secret]
+        token: params[:credentials][:refresh_token]
         )
     end
     redirect_to current_user
