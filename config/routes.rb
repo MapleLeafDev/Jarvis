@@ -73,7 +73,7 @@ HomeManager::Application.routes.draw do
       get 'callback'
     end
   end
-  get '/auth/google/callback' => 'google#callback'
+  get '/auth/google_oauth2/callback' => 'google#callback'
 
   resources :facebook do
     collection do
