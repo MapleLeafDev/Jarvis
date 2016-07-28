@@ -14,7 +14,7 @@ class FamiliesController < ApplicationController
   def my_family
     if @family = Family.find_by_url(params[:url])
       if user = User.find_by_id(session[:user_id])
-        redirect_to user_path(user)
+        redirect_to '/profile'
       else
         @users = @family.users
       end

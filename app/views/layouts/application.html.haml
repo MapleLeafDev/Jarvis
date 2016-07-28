@@ -41,15 +41,15 @@
       .collapse.navbar-collapse
         %ul.nav.navbar-nav.navbar-right{style: "margin-right:20px;"}
           -if current_user.email == ENV['ADMIN']
-            %li
-              = link_to t('admin'), users_path, class: 'location'
+            %li{class: "#{'active' if params[:controller] == 'users' && params[:action] == 'index'}"}
+              = link_to t('admin'), admin_path, class: 'location'
           -if current_user.enabled
             %li{class: "#{'active' if params[:controller] == 'families'}"}
               -if current_user.family
                 = link_to t('family'), "/family", class: 'location'
               -else
                 = link_to t('family'), new_family_path, remote: true, data: {toggle: 'collapse'}
-          %li{class: "#{'active' if params[:controller] == 'users'}"}
+          %li{class: "#{'active' if params[:controller] == 'users' && params[:action] != 'index'}"}
             = link_to t('profile'), "/profile", class: 'location'
           %li= link_to t('sign_out'), signout_path, class: 'location'
         .collapse.navbar-collapse.navbar-ex1-collapse
