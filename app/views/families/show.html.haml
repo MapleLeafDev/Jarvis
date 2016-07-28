@@ -10,7 +10,7 @@
         .pull-right
           -if current_user.parent?
             =link_to content_tag(:i, nil, class: "fa fa-cog fa-1x"), edit_family_path(@family), remote: true
-        = link_to t('blank_family', family: @family.name), family_path(@family)
+        = link_to t('blank_family', family: @family.name), family_path(@family), class: 'location'
     .panel-body
       %table.table.table-hover
         %thead
