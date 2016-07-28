@@ -25,6 +25,12 @@ $(document).bind("mobileinit", function(){
 $(document).ready(function(){
   setTimeout(function(){$('.flash').fadeOut("1000ms")},2000);
 
+  $('.location').click(function(event) {
+     event.preventDefault();
+     alert("works");
+     window.location = this.href;
+  });
+
   $('.carousel').each(function(){
       $(this).carousel({
           interval: false
