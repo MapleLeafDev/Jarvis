@@ -91,6 +91,9 @@ HomeManager::Application.routes.draw do
 
   root :to => 'home#index'
 
+  get '/family', to: 'families#show'
+  get '/profile', to: 'users#show'
+  get '/member/:id', to: 'users#show', as: :member
   get '/my_family/:url', to: 'families#my_family', as: :my_family
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'

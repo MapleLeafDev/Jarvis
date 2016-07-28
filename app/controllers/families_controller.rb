@@ -60,7 +60,7 @@ class FamiliesController < ApplicationController
   end
 
   def get_family
-    @family = Family.find(params[:id])
+    @family = current_user.family
   end
 
   def authorize_family

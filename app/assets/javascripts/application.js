@@ -27,7 +27,6 @@ $(document).ready(function(){
 
   $('.location').click(function(event) {
      event.preventDefault();
-     alert("works");
      window.location = this.href;
   });
 

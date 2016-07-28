@@ -24,7 +24,7 @@
           -if current_user.parent?
             %span{style: "padding-left:10px;"}
               =link_to content_tag(:i, nil, class: "fa fa-cog fa-1x"), edit_user_path(@user), remote: true
-        = link_to @user.name, user_path(@user), class: 'location'
+        = link_to @user.name, member_path(@user), class: 'location'
     .panel-body.visible-xs
       -if current_user.enabled
         %table.table.table-hover

@@ -35,7 +35,7 @@
           %span.icon-bar
           %span.icon-bar
           %span.icon-bar
-        %a.navbar-brand{href: ""}
+        %a.navbar-brand{href: "#{current_user.family ? '/family' : '/profile'}"}
           = image_tag("/assets/leaf_vectorized.png", size: "40x40", style: "margin-top:-10px;")
           = t("family")
       .collapse.navbar-collapse
@@ -46,11 +46,11 @@
           -if current_user.enabled
             %li{class: "#{'active' if params[:controller] == 'families'}"}
               -if current_user.family
-                = link_to t('family'), family_path(current_user.family), class: 'location'
+                = link_to t('family'), "/family", class: 'location'
               -else
-                = link_to t('family'), new_family_path, remote: true
+                = link_to t('family'), new_family_path, remote: true, data: {toggle: 'collapse'}
           %li{class: "#{'active' if params[:controller] == 'users'}"}
-            = link_to t('profile'), current_user, class: 'location'
+            = link_to t('profile'), "/profile", class: 'location'
           %li= link_to t('sign_out'), signout_path, class: 'location'
         .collapse.navbar-collapse.navbar-ex1-collapse
 
