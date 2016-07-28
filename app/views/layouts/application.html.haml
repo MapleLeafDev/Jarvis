@@ -35,7 +35,7 @@
           %span.icon-bar
           %span.icon-bar
           %span.icon-bar
-        %a.navbar-brand{href: "#{current_user.family ? '/family' : '/profile'}"}
+        %a.navbar-brand.location{href: "#{current_user.family ? '/family' : '/profile'}"}
           = image_tag("/assets/leaf_vectorized.png", size: "40x40", style: "margin-top:-10px;")
           = t("family")
       .collapse.navbar-collapse

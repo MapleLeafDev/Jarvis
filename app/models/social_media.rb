@@ -38,6 +38,8 @@ class SocialMedia < ActiveRecord::Base
       facebook_info
     when 4
       twitter_info
+    when 5
+      google_info
     end
   end
 
@@ -49,6 +51,8 @@ class SocialMedia < ActiveRecord::Base
       facebook_media
     when 4
       type == 'recent' ? twitter_media : twitter_user
+    when 5
+      google_media
     end
   end
 
@@ -165,6 +169,19 @@ class SocialMedia < ActiveRecord::Base
     twitter_client(self.token, self.secret).friends
   end
 
+  ###################
+  # Google +
+  ###################
+  def google_info
+    access_token = google_access_token(self.token)
+    puts "TOKEN -> #{access_token}"
+    GooglePlus::Person.get('112753912367392761286', access_token: access_token)
+  end
+
+  def google_media(id = nil)
+    []
+  end
+
   private
 
   def instagram_client(token)
@@ -191,5 +208,12 @@ class SocialMedia < ActiveRecord::Base
       :access_token => token,
       :access_token_secret => secret
     })
+  end
+
+  def google_access_token(token)
+    host = 'https://accounts.google.com/o/oauth2/token'
+    response = RestClient.post host, {:client_id => URI.escape(ENV['GOOGLE_ID']), :client_secret => ENV['GOOGLE_SECRET'], :refresh_token => URI.escape(token), :grant_type => 'refresh_token'}
+    json = JSON.parse(response)
+    json["access_token"]
   end
 end

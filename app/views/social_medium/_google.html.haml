@@ -1,8 +1,8 @@
 .panel.panel-default
   .panel-heading
     .pull-right
-      %h4= link_to @info["name"], @info["link"], target: :blank
-    %h4= content_tag(:i, " Facebook", class: "fa fa-facebook")
+      %h4= link_to @info.display_name, @info.image.url, target: :blank
+    %h4= content_tag(:i, " Google", class: "fa fa-google-plus")
   .panel-body
     %table{width: "100%"}
       %tr
@@ -17,4 +17,4 @@
           %strong= ""
 
 #results
-  = render 'facebook_feed'
+  = render 'google_feed'

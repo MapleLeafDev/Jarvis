@@ -21,6 +21,7 @@ gem 'twitter'
 gem 'omniauth-twitter'
 gem 'tumblr_client'
 gem 'omniauth-tumblr'
+gem 'google_plus'
 gem "omniauth-google-oauth2"
 gem 'rest-client'
 gem 'chartkick'

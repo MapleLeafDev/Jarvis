@@ -6,6 +6,7 @@ class GoogleController < ApplicationController
 
   def callback
     params = request.env['omniauth.auth']
+    puts ">>>>> #{params}"
     if feed = current_user.google
       feed.update_attributes(token: params[:credentials][:refresh_token])
     else
