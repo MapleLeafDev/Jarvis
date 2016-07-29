@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160727033325) do
+ActiveRecord::Schema.define(version: 20160729000148) do
 
   create_table "activities", force: true do |t|
     t.integer  "user_id"
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 20160727033325) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "secret"
+    t.string   "uid"
   end
 
   create_table "social_medium_stats", force: true do |t|
@@ -137,6 +138,7 @@ ActiveRecord::Schema.define(version: 20160727033325) do
     t.datetime "last_allowance"
     t.boolean  "enabled"
     t.string   "status"
+    t.string   "uid"
   end
 
 end

@@ -174,8 +174,7 @@ class SocialMedia < ActiveRecord::Base
   ###################
   def google_info
     access_token = google_access_token(self.token)
-    puts "TOKEN -> #{access_token}"
-    GooglePlus::Person.get('112753912367392761286', access_token: access_token)
+    GooglePlus::Person.get(self.uid, access_token: access_token)
   end
 
   def google_media(id = nil)
