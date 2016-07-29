@@ -173,12 +173,11 @@ class SocialMedia < ActiveRecord::Base
   # Google +
   ###################
   def google_info
-    access_token = google_access_token(self.token)
-    GooglePlus::Person.get(self.uid, access_token: access_token)
+    GooglePlus::Person.get(self.uid)
   end
 
   def google_media(id = nil)
-    []
+    GooglePlus::Person.get(self.uid).list_activities.items
   end
 
   private
@@ -207,12 +206,5 @@ class SocialMedia < ActiveRecord::Base
       :access_token => token,
       :access_token_secret => secret
     })
-  end
-
-  def google_access_token(token)
-    host = 'https://accounts.google.com/o/oauth2/token'
-    response = RestClient.post host, {:client_id => URI.escape(ENV['GOOGLE_ID']), :client_secret => ENV['GOOGLE_SECRET'], :refresh_token => URI.escape(token), :grant_type => 'refresh_token'}
-    json = JSON.parse(response)
-    json["access_token"]
   end
 end

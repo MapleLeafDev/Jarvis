@@ -1,5 +1,37 @@
 - if @results.any?
-  = "POSTS"
+  -last_post = nil
+  - @results.each do |post|
+    .panel.panel-default
+      .panel-heading
+        %h3.panel-title
+          .pull-right
+            = time_ago_in_words(Time.at(DateTime.parse(post.published)), scope: 'time_ago')
+          = image_tag(post.actor.image.url, size: '30x30', class: "img-rounded")
+          = post.actor.display_name
+      .panel-body
+        %div
+          %p= post.object.content
+          -# -if post['comments']
+          -#   %ul.list-group{style: "padding-left:0px;"}
+          -#     -post['comments']['data'].each do |comment|
+          -#       %li.list-group-item
+          -#         .list-group-item-heading
+          -#           .pull-right
+          -#             = time_ago_in_words(Time.at(DateTime.parse(comment['created_time'])), scope: 'time_ago')
+          -#           .badge
+          -#             = content_tag(:i, " #{comment['like_count']}", class: "fa #{comment['user_likes'] ? 'fa-thumbs-up' : 'fa-thumbs-o-up'}")
+          -#           = link_to comment['from']['name'], "http://facebook.com/#{comment['from']['id']}", target: :blank
+          -#         %p.list-group-item-text= comment['message']
+
+
+  -# -if last_post
+  -#   #more-loading{style: 'display:none;', align: 'center'}
+  -#     %div.list-group{style: "width:100%; padding-left:0px; text-align: center;"}
+  -#       %h4.list-group-item.active
+  -#         %i.fa.fa-circle-o-notch.fa-spin
+  -#   #more-results
+  -#     %div.list-group{style: "width:100%; padding-left:0px; text-align: center;"}
+  -#       %h4= link_to t("load_more"), more_results_user_social_medium_index_path(@user, feed_id: @feed.id, media_id: last_post.id), remote: true, class: "list-group-item active", onclick: "loadingMoreSocialMedia();"
 -else
   %div.list-group{style: "width:100%; padding-left:0px; text-align: center;"}
     %h4= t("no_results")
