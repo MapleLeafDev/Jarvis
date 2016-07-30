@@ -23,7 +23,7 @@ gem 'tumblr_client'
 gem 'omniauth-tumblr'
 gem 'google_plus'
 gem "omniauth-google-oauth2"
-gem 'omniauth-pinterest'
+gem 'pinterest-api'
 gem 'rest-client'
 gem 'chartkick'
 gem 'exception_notification'
