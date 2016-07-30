@@ -12,6 +12,7 @@ en:
   allowance: "Allowance"
   are_you_sure: "Are you sure?"
   blank_family: "%{family} Family"
+  boards: Boards
   calendar: "Calendar"
   cancel: "Cancel"
   child: "Child"

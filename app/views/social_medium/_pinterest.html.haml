@@ -2,7 +2,7 @@
   .panel-heading
     .pull-right
       %h4= link_to @info.data.username, @info.data.url, target: :blank
-    %h4= content_tag(:i, " Instagram", class: "fa fa-pinterest")
+    %h4= content_tag(:i, " Pinterest", class: "fa fa-pinterest")
   .panel-body
     %table{width: "100%"}
       %tr
@@ -17,8 +17,8 @@
           %strong= link_to "#{@info.data.counts.followers} #{t('followers')}", relationships_user_social_medium_index_path(@user, feed_id: @feed.id, relationship_type: 'followers'), remote: true
         %td{align: 'center'}
           %strong= link_to "#{@info.data.counts.following} #{t('following')}", relationships_user_social_medium_index_path(@user, feed_id: @feed.id, relationship_type: 'following'), remote: true
-        -# %td{align: 'center'}
-        -#   %strong= link_to t("liked"), relationships_user_social_medium_index_path(@user, feed_id: @feed.id, relationship_type: 'liked'), remote: true
+        %td{align: 'center'}
+          %strong= link_to "#{@info.data.counts.boards} #{t('boards')}", relationships_user_social_medium_index_path(@user, feed_id: @feed.id, relationship_type: 'liked'), remote: true
 
 #results
   = render 'pinterest_feed'
