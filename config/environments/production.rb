@@ -70,6 +70,8 @@ HomeManager::Application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
 
+  config.eager_load = false
+
   Rails.application.config.middleware.use ExceptionNotification::Rack,
   :email => {
     :deliver_with => :deliver,

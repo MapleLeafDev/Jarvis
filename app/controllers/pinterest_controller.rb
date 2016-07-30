@@ -6,6 +6,7 @@ class PinterestController < ApplicationController
 
   def callback
     params = request.env['omniauth.auth']
+    puts params
     unless current_user.pinterest?
       current_user.social_medium.create(
         feed_type: 6,

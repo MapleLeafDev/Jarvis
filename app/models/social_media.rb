@@ -190,7 +190,7 @@ class SocialMedia < ActiveRecord::Base
   # Pinterest
   ###################
   def pinterest_info
-    []
+    pinterest_client.get_user(self.uid)
   end
 
   def pinterest_media(id = nil)
@@ -223,5 +223,9 @@ class SocialMedia < ActiveRecord::Base
       :access_token => token,
       :access_token_secret => secret
     })
+  end
+
+  def pinterest_client
+    Pinterest::Client.new(ENV['PINTEREST_KEY'])
   end
 end
