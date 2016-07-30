@@ -190,7 +190,7 @@ class SocialMedia < ActiveRecord::Base
   # Pinterest
   ###################
   def pinterest_info
-    pinterest_client.get_user(self.uid)
+    pinterest_client.get_user(self.uid, {fields: 'first_name,id,last_name,url,bio,username,counts,account_type,created_at,image'})
   end
 
   def pinterest_media(id = nil)
