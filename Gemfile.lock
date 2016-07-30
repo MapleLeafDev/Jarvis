@@ -130,6 +130,9 @@ GEM
     omniauth-oauth2 (1.4.0)
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
+    omniauth-pinterest (2.0.1)
+      omniauth (~> 1.0)
+      omniauth-oauth2 (~> 1.0)
     omniauth-tumblr (1.2)
       multi_json
       omniauth-oauth (~> 1.0)
@@ -237,6 +240,7 @@ DEPENDENCIES
   koala
   nokogiri
   omniauth-google-oauth2
+  omniauth-pinterest
   omniauth-tumblr
   omniauth-twitter
   pg

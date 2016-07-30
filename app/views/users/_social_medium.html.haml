@@ -43,3 +43,12 @@
               -else
                 %input#twitter{:type => "checkbox", :checked => false, onChange: "window.location='#{connect_twitter_index_path}';"}
               %label.label-success{:for => "twitter"}
+        %tr
+          %td= content_tag(:i, " Pinterest", class: "fa fa-pinterest-square fa-2x")
+          %td
+            .material-switch{style: 'padding:4px 0px 0px 12px;'}
+              -if @user.pinterest?
+                %input#pinterest{:type => "checkbox", :checked => true, onChange: "window.location='#{disable_user_social_medium_path(@user, @user.pinterest)}';"}
+              -else
+                %input#pinterest{:type => "checkbox", :checked => false, onChange: "window.location='#{connect_pinterest_index_path}';"}
+              %label.label-success{:for => "pinterest"}

@@ -36,4 +36,6 @@ HomeManager::Application.configure do
   config.assets.debug = true
   config.serve_static_assets = true
   config.eager_load = false
+
+  config.force_ssl = true
 end

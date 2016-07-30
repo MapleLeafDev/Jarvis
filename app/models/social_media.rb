@@ -7,7 +7,8 @@ class SocialMedia < ActiveRecord::Base
     "Facebook",
     "Tumblr",
     "Twitter",
-    "Google"
+    "Google",
+    "Pinterest"
   ]
 
   CSS_NAME = [
@@ -16,7 +17,8 @@ class SocialMedia < ActiveRecord::Base
     "facebook-square",
     "tumblr-square",
     "twitter-square",
-    "google-plus-square"
+    "google-plus-square",
+    "pinterest-square"
   ]
 
   def type_tag
@@ -40,6 +42,8 @@ class SocialMedia < ActiveRecord::Base
       twitter_info
     when 5
       google_info
+    when 6
+      pinterest_info
     end
   end
 
@@ -53,6 +57,8 @@ class SocialMedia < ActiveRecord::Base
       type == 'recent' ? twitter_media : twitter_user
     when 5
       google_media
+    when 6
+      pinterest_media
     end
   end
 
@@ -178,6 +184,17 @@ class SocialMedia < ActiveRecord::Base
 
   def google_media(id = nil)
     GooglePlus::Person.get(self.uid).list_activities.items
+  end
+
+  ###################
+  # Pinterest
+  ###################
+  def pinterest_info
+    []
+  end
+
+  def pinterest_media(id = nil)
+    []
   end
 
   private

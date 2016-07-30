@@ -1,20 +1,20 @@
-class TwitterController < ApplicationController
+class PinterestController < ApplicationController
 
   def connect
-    redirect_to "/auth/twitter"
+    redirect_to "/auth/pinterest"
   end
 
   def callback
     params = request.env['omniauth.auth']
-    if feed = current_user.twitter
+    puts "PARAMS -> #{params}"
+    if feed = current_user.pinterest
       feed.update_attributes(token: params[:credentials][:token], secret: params[:credentials][:secret])
     else
       current_user.social_medium.create(
         feed_type: 4,
-        full_name: params[:info][:name],
-        uid: params[:info][:uid],
+        full_name: "#{params[:info][:first_name]} #{params[:info][:last_name]}",
+        uid: params[:info][:id],
         username: params[:info][:nickname],
-        picture: params[:info][:image],
         token: params[:credentials][:token],
         secret: params[:credentials][:secret]
         )

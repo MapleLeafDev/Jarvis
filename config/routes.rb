@@ -89,6 +89,14 @@ HomeManager::Application.routes.draw do
   end
   get '/auth/tumblr/callback' => 'tumblr#callback'
 
+  resources :pinterest do
+    collection do
+      get 'connect'
+      get 'callback'
+    end
+  end
+  get '/auth/pinterest/callback' => 'pinterest#callback'
+
   root :to => 'home#index'
 
   get '/administration', to: 'users#index', as: :admin
