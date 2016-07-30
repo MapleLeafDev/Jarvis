@@ -81,6 +81,7 @@ en:
   pays: "Pays"
   pin_doesnt_match: PIN invalid
   pin: "PIN"
+  pins: "Pins"
   pin_info: The PIN is used to sign in to the family portal.
   portal: Portal
   posts: Posts
