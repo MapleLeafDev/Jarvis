@@ -6,19 +6,13 @@ class PinterestController < ApplicationController
 
   def callback
     params = request.env['omniauth.auth']
-    puts "PARAMS -> #{params}"
-    if feed = current_user.pinterest
-      feed.update_attributes(token: params[:credentials][:token], secret: params[:credentials][:secret])
-    else
+    unless current_user.pinterest?
       current_user.social_medium.create(
-        feed_type: 4,
+        feed_type: 6,
         full_name: "#{params[:info][:first_name]} #{params[:info][:last_name]}",
-        uid: params[:info][:id],
-        username: params[:info][:nickname],
-        token: params[:credentials][:token],
-        secret: params[:credentials][:secret]
+        uid: params[:info][:id]
         )
     end
-    redirect_to current_user
+    redirect_to "/profile"
   end
 end
