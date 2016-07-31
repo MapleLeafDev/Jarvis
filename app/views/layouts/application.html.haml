@@ -35,9 +35,13 @@
           %span.icon-bar
           %span.icon-bar
           %span.icon-bar
-        %a.navbar-brand.location{href: "#{current_user.family ? '/family' : '/profile'}"}
+        .navbar-brand
           = image_tag("/assets/leaf_vectorized.png", size: "40x40", style: "margin-top:-10px;")
-          = t("family")
+          = link_to t("family"), "#{current_user.family ? '/family' : '/profile'}", class: "location", style: "text-decoration:none;color:white;"
+          -if params[:controller] == 'users' && params[:action] != 'index' && current_user.family
+            =" / "
+            = link_to @user.name, "/profile", class: "location", style: "text-decoration:none;color:white;"
+
       .collapse.navbar-collapse
         %ul.nav.navbar-nav.navbar-right{style: "margin-right:20px;"}
           -if current_user.email == ENV['ADMIN']

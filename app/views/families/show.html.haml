@@ -11,7 +11,21 @@
           -if current_user.parent?
             =link_to content_tag(:i, nil, class: "fa fa-cog fa-1x"), edit_family_path(@family), remote: true
         = link_to t('blank_family', family: @family.name), "/family", class: 'location'
-    .panel-body
+    .panel-body.visible-xs
+      %table.table.table-hover
+        %thead
+          %tr
+            %th= t('members')
+            %th{style: "width:32px;"}
+              -if current_user.parent?
+                = link_to content_tag(:i, nil, class: "fa fa-plus fa-1x"), new_user_path, remote: true
+        %tbody
+          %tr
+            %td{colspan: '2'}
+              -@members.each do |user|
+                = link_to image_tag(gravatar_for(user), class: "img-rounded", size: "40x40"), member_path(user), class: 'location'
+
+    .panel-body.hidden-xs
       %table.table.table-hover
         %thead
           %tr
@@ -30,7 +44,10 @@
         %tbody
           -@members.each do |user|
             %tr{id: "user-#{user.id}-row"}
-              %td= link_to user.name, member_path(user), class: 'location'
+              %td
+                %a.location.fa-2x{href: member_path(user), style: "text-decoration:none;"}
+                  =image_tag(gravatar_for(user), class: "img-rounded", size: "35x35")
+                  =user.name
               %td{style: "width:32px;"}
                 -if current_user.parent?
                   = link_to content_tag(:i,nil, class: "fa fa-remove fa-1x"), user_path(user), method: :delete, data: {confirm: t('are_you_sure')}, remote: true

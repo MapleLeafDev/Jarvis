@@ -40,7 +40,6 @@
                 %td{colspan: '2'}
                   -@user.social_medium.each do |feed|
                     =link_to content_tag(:i, nil, class: "fa fa-#{feed.css_class} fa-3x"), user_social_medium_path(@user, feed, {type: 'recent'}), remote: true, onclick: "loadingSocialMedia();"
-                %td
 
     .panel-body.hidden-xs
       %div{align: "center"}= link_to image_tag(gravatar_for(@user), class: "img-rounded"), user_path(@user)
