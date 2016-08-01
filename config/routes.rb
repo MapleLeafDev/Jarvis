@@ -29,6 +29,7 @@ HomeManager::Application.routes.draw do
     end
     member do
       get 'toggle'
+      get 'signup'
     end
     resources :tasks
     resources :completions
@@ -104,9 +105,9 @@ HomeManager::Application.routes.draw do
   get '/profile', to: 'users#show'
   get '/member/:id', to: 'users#show', as: :member
   get '/my_family/:url', to: 'families#my_family', as: :my_family
-  get 'signup', to: 'users#new', as: 'signup'
-  get 'login', to: 'sessions#new', as: 'login'
-  get 'logout', to: 'sessions#destroy', as: 'logout'
+  get '/signup', to: 'users#signup', as: 'signup'
+  get '/login', to: 'sessions#new', as: 'login'
+  get '/logout', to: 'sessions#destroy', as: 'logout'
   get '/auth/facebook/callback' => 'sessions#create'
   get '/signout' => 'sessions#destroy', :as => :signout
   get '/chores' => 'tasks#chores'

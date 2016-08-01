@@ -40,7 +40,7 @@
           = link_to t("family"), "#{current_user.family ? '/family' : '/profile'}", class: "location", style: "text-decoration:none;color:white;"
           -if params[:controller] == 'users' && params[:action] != 'index' && current_user.family
             =" / "
-            = link_to @user.name, "/profile", class: "location", style: "text-decoration:none;color:white;"
+            = link_to @user.name, (@user == current_user ? "/profile" : "/member/#{@user.id}"), class: "location", style: "text-decoration:none;color:white;"
 
       .collapse.navbar-collapse
         %ul.nav.navbar-nav.navbar-right{style: "margin-right:20px;"}

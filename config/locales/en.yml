@@ -20,6 +20,7 @@ en:
   create_account: "Create Account"
   create_join_family: "Create / Join Family"
   credits: "Credits"
+  daily_report: Daily Report
   delete: "Delete"
   disable: Disable
   disabled: Disabled
@@ -73,6 +74,7 @@ en:
   no_results: No Results
   no_social_media: No social media
   no_tasks: "(no tasks assigned)"
+  none: None
   non_payment: No payment
   not_authorized: "Not authorized"
   other_family_tasks: "Other Family Tasks"
