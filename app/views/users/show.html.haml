@@ -55,7 +55,10 @@
             -if @user.social_medium.any?
               -@user.social_medium.each do |feed|
                 %tr
-                  %td= link_to content_tag(:i, " #{feed.type_tag}", class: "fa fa-#{feed.css_class} fa-2x"), user_social_medium_path(@user, feed, {type: 'recent'}), remote: true, onclick: "loadingSocialMedia();"
+                  %td
+                    %a{href: "#{user_social_medium_path(@user, feed, {type: 'recent'})}", style: "text-decoration:none;text-transform:uppercase;font-size:18px;", data: {remote: "true"}}
+                      = content_tag(:i, nil, class: "fa fa-#{feed.css_class}")
+                      = feed.type_tag
                   %td{style: "width:32px;"}
 
 .results-nav
