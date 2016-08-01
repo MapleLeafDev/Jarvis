@@ -56,7 +56,7 @@
               -@user.social_medium.each do |feed|
                 %tr
                   %td
-                    %a{href: "#{user_social_medium_path(@user, feed, {type: 'recent'})}", style: "text-decoration:none;text-transform:uppercase;font-size:18px;", data: {remote: "true"}}
+                    %a.title-like{href: "#{user_social_medium_path(@user, feed, {type: 'recent'})}", data: {remote: "true"}, onclick: "loadingSocialMedia();", style: 'text-decoration:none;'}
                       = content_tag(:i, nil, class: "fa fa-#{feed.css_class}")
                       = feed.type_tag
                   %td{style: "width:32px;"}

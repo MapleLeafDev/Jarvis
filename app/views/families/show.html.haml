@@ -45,12 +45,10 @@
           -@members.each do |user|
             %tr{id: "user-#{user.id}-row"}
               %td
-                %a.location{href: member_path(user), style: "text-decoration:none;text-transform:uppercase;font-size:18px;"}
+                %a.location.title-like{href: member_path(user), style: 'text-decoration:none;'}
                   =image_tag(gravatar_for(user), class: "img-rounded", size: "35x35")
                   =user.name
               %td{style: "width:32px;"}
-                -if current_user.parent? && current_user != user
-                  = link_to content_tag(:i,nil, class: "fa fa-remove fa-1x"), user_path(user), method: :delete, data: {confirm: t('are_you_sure')}, remote: true
 
 .results-nav
   #user-results

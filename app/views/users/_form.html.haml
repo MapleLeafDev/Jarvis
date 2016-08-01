@@ -51,4 +51,6 @@
   .form-group
     %label.col-md-3.control-label
     .col-md-9{align: 'right'}
+      -if @user.id && current_user.parent? && current_user != @user
+        = link_to t("delete"), user_path(@user), method: :delete, data: {confirm: t('are_you_sure')}, remote: true, class: "btn btn-danger"
       %input.btn.btn-primary{:name => "commit", :type => "submit", :value => t('save')}/
