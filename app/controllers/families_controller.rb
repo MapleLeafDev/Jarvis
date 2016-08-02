@@ -9,7 +9,7 @@ class FamiliesController < ApplicationController
 
   def show
     @members = @family.parents + @family.children
-    @activities = @family.activities
+    @activities = @family.activities.order('posted_at desc')
   end
 
   def my_family

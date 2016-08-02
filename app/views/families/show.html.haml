@@ -57,7 +57,7 @@
         %h4= t("activity")
       .panel-body
         %table.table.table-hover
-          -@activities.reverse.each do |activity|
+          -@activities.each do |activity|
             %tr
               %td=SocialMedia::TYPE_NAME[activity.type_id]
               %td=activity.user.name
