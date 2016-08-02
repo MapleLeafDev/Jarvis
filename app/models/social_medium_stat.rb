@@ -28,6 +28,7 @@ class SocialMediumStat < ActiveRecord::Base
     stats = self
     data_hash = {}
     self.user.social_medium.each do |sm|
+      puts "#{self.user.name} -> #{SocialMedia::TYPE_NAME[activity.type_id]}"
       case sm.feed_type
       when 1
         data = stats.instagram.split(',') rescue []
