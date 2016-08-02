@@ -72,7 +72,9 @@
                     %i.glyphicon.glyphicon-time
                     =l(activity.posted_at + Time.now.in_time_zone(activity.user.timezone).utc_offset, format: :medium)
                   %h4.timeline-title
-                    %a.location.title-like{href: member_path(activity.user), style: 'text-decoration:none;'}
+                    %a.location.title-like.visible-xs{href: member_path(activity.user), style: 'text-decoration:none;'}
+                      =image_tag(gravatar_for(activity.user), class: "img-rounded", size: "35x35")
+                    %a.location.title-like.hidden-xs{href: member_path(activity.user), style: 'text-decoration:none;'}
                       =image_tag(gravatar_for(activity.user), class: "img-rounded", size: "35x35")
                       =activity.user.name
                 .timeline-body

@@ -116,7 +116,7 @@
   display: inline-block;
   position: fixed;
   bottom: 40px;
-  right: 10px;
+  left: 50%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   overflow: hidden;
   white-space: nowrap;
@@ -125,7 +125,7 @@
   -webkit-transition: opacity .3s 0s, visibility 0s .3s;
   -moz-transition: opacity .3s 0s, visibility 0s .3s;
   transition: opacity .3s 0s, visibility 0s .3s;
-  z-index: 2;
+  z-index: 999;
 }
 .cd-top.cd-is-visible, .cd-top.cd-fade-out, .no-touch .cd-top:hover {
   -webkit-transition: opacity .3s 0s, visibility 0s 0s;
@@ -134,7 +134,7 @@
 }
 .cd-top.cd-is-visible {
   visibility: visible;
-  opacity: 1;
+  opacity: .5;
 }
 .cd-top.cd-fade-out {
   opacity: .5;
@@ -145,13 +145,13 @@
 }
 @media only screen and (min-width: 768px) {
   .cd-top {
-    right: 20px;
+    left: 50%;
     bottom: 20px;
   }
 }
 @media only screen and (min-width: 1024px) {
   .cd-top {
-    right: 30px;
+    left: 50%;
     bottom: 30px;
   }
 }
@@ -365,4 +365,10 @@
     left: -14px;
     right: auto;
   }
+}
+
+.twitter-img {
+  width: 45%;
+  height: auto;
+  padding:5px;
 }

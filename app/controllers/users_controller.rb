@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @activities = @user.activities
   end
 
   def new

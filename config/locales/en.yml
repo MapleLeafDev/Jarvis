@@ -25,6 +25,7 @@ en:
   disable: Disable
   disabled: Disabled
   disabled_by_admin: Account has been disabled by site administration
+  dob: Birthday
   edit_family: "Edit Family"
   edit: "Edit"
   editing_family: "Editing %{family}"
@@ -98,7 +99,7 @@ en:
   sign_out: Sign Out
   sign_up: Sign Up
   social_media_activity_subject: Social Media Activity for %{name}
-  social_media_activity: Social Media Activity
+  social_media_stats: Social Media Stats
   social_media: "Social Media"
   task_created: "Task '%{task}' was created."
   task_updated: "Task '%{task}' was updated."
@@ -179,6 +180,9 @@ en:
   activerecord:
     models:
       family: Family
+      user: Member
     attributes:
       family:
         url: "Family ID"
+      user:
+        dob: Birthday

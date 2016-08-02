@@ -8,7 +8,7 @@ class FamiliesController < ApplicationController
   layout "my_family", :only => [:my_family]
 
   def show
-    @members = @family.parents + @family.children
+    @members = @family.users.order(:dob)
     @activities = @family.activities.order('posted_at desc')
   end
 

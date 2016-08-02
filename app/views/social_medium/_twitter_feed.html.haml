@@ -12,8 +12,9 @@
       .panel-body
         %div
           = twitter_feed_display(post)
+          %br/
           -post.media.each do |m|
-            =image_tag(m.media_url.to_s, class: "feed-img img-rounded")
+            =image_tag(m.media_url.to_s, class: "twitter-img img-rounded")
   -if last_post
     #more-loading{style: 'display:none;', align: 'center'}
       %div.list-group{style: "width:100%; padding-left:0px; text-align: center;"}
