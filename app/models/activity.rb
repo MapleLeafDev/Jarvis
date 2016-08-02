@@ -16,11 +16,11 @@ class Activity < ActiveRecord::Base
   CSS_NAME = [
     nil,
     "instagram",
-    "facebook-square",
-    "tumblr-square",
-    "twitter-square",
-    "google-plus-square",
-    "pinterest-square"
+    "facebook",
+    "tumblr",
+    "twitter",
+    "google-plus",
+    "pinterest"
   ]
 
   def css_class
