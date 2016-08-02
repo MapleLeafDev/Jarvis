@@ -76,7 +76,7 @@ class SocialMedia < ActiveRecord::Base
     when 2
       facebook_media(id)
     when 4
-      type == 'recent' ? twitter_media(id) : twitter_user(id)
+      type == 'recent' ? twitter_media(id) : twitter_user(max_id: id)
     end
   end
 
@@ -103,12 +103,17 @@ class SocialMedia < ActiveRecord::Base
     case feed.feed_type
     when 1
       posts = feed.instagram_media(min_id: feed.last_id)
+    when 4
+      posts = feed.twitter_user(min_id: feed.last_id)
     end
 
     posts.reverse.each do |post|
       case feed.feed_type
       when 1
         posted_at = Time.at(post.created_time.to_i)
+        new_last_id = post.id
+      when 4
+        posted_at = post.created_time
         new_last_id = post.id
       end
       unless Activity.find_by_media_id(post.id)
@@ -179,14 +184,15 @@ class SocialMedia < ActiveRecord::Base
     twitter_client(self.token, self.secret).user(self.username)
   end
 
-  def twitter_user(id = nil)
-    options = {count: 200}
-    options[:max_id] = (id.to_i - 1) if id
+  def twitter_user(params = {})
+    options = {count: 100}
+    options[:max_id] = (params[:max_id].to_i - 1) if params[:max_id]
+    options[:min_id] = (params[:min_id].to_i + 1) if params[:min_id]
     twitter_client(self.token, self.secret).user_timeline(self.username, options)
   end
 
   def twitter_media(id = nil)
-    options = {count: 200}
+    options = {count: 100}
     options[:max_id] = (id.to_i - 1) if id
     twitter_client(self.token, self.secret).home_timeline(options)
   end
