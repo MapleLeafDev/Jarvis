@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @activities = @user.activities
+    @activities = @user.activities.order('posted_at desc')
   end
 
   def new

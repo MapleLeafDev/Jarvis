@@ -111,10 +111,10 @@ class SocialMedia < ActiveRecord::Base
       case feed.feed_type
       when 1
         posted_at = Time.at(post.created_time.to_i)
-        new_last_id = post.id
+        new_last_id = post.id.to_s
       when 4
         posted_at = post.created_at
-        new_last_id = post.id
+        new_last_id = post.id.to_s
       end
       unless Activity.find_by_media_id(post.id)
         Activity.create(family_id: feed.user.family_id, user_id: feed.user_id, type_id: feed.feed_type, media_id: new_last_id, posted_at: posted_at)
