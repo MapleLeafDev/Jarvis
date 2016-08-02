@@ -72,7 +72,7 @@ class SocialMedia < ActiveRecord::Base
   def more_results(id, type = 'profile')
     case feed_type
     when 1
-      instagram_media(id)
+      instagram_media(max_id: id)
     when 2
       facebook_media(id)
     when 4
@@ -95,6 +95,29 @@ class SocialMedia < ActiveRecord::Base
     "http://#{Rails.env.development? ? 'localhost:3000' : 'www.ml-family.com'}/#{SocialMedia::TYPE_NAME[type].downcase}/callback"
   end
 
+  def self.record(id)
+    feed = SocialMedia.find(id)
+    case feed.feed_type
+    when 1
+      posts = feed.instagram_media(min_id: feed.last_id)
+    end
+
+    posted_at = Time.now
+    new_last_id = ""
+    posts.reverse.each do |post|
+      case feed.feed_type
+      when 1
+        posted_at = Time.at(post.created_time.to_i)
+        new_last_id = post.id
+      end
+      unless Activity.find_by_media_id(post.id)
+        Activity.create(family_id: feed.user.family_id, user_id: feed.user_id, type_id: feed.feed_type, media_id: new_last_id, posted_at: posted_at)
+      end
+    end
+
+    feed.update_attribute(:last_id, new_last_id)
+  end
+
   ###################
   # Instagram
   ###################
@@ -110,8 +133,8 @@ class SocialMedia < ActiveRecord::Base
     instagram_client(self.token).user_followed_by
   end
 
-  def instagram_media(id = nil)
-    instagram_client(self.token).user_recent_media('self', count: 18, max_id: id)
+  def instagram_media(params = {})
+    instagram_client(self.token).user_recent_media('self', count: params[:count], max_id: params[:max_id], min_id: params[:min_id])
   end
 
   def instagram_comments(id)

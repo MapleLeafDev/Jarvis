@@ -9,6 +9,7 @@ class FamiliesController < ApplicationController
 
   def show
     @members = @family.parents + @family.children
+    @activities = @family.activities
   end
 
   def my_family

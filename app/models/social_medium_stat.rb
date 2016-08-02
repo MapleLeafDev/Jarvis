@@ -46,6 +46,7 @@ class SocialMediumStat < ActiveRecord::Base
         new_data = "#{info.tweets_count}:#{info.followers_count}:#{info.friends_count}"
         data_hash[:twitter] = (data + [new_data]).join(',')
       end
+      SocialMedia.record(sm.id)
     end
     stats.update_attributes(data_hash)
   end
