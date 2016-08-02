@@ -99,7 +99,7 @@ class SocialMedia < ActiveRecord::Base
     feed = SocialMedia.find(id)
     posts = []
     new_last_id = nil
-    
+
     case feed.feed_type
     when 1
       posts = feed.instagram_media(min_id: feed.last_id)
@@ -115,7 +115,7 @@ class SocialMedia < ActiveRecord::Base
         Activity.create(family_id: feed.user.family_id, user_id: feed.user_id, type_id: feed.feed_type, media_id: new_last_id, posted_at: posted_at)
       end
     end
-    puts "UPDATE 'last_id'"
+
     feed.update_attribute(:last_id, new_last_id) if new_last_id
   end
 

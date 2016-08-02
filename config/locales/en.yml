@@ -120,7 +120,7 @@ en:
       alt_medium: ! '%-m-%d %I:%M %P'
       short: ! '%d %b %l:%M'
       short_time: '%l:%M %P'
-      short_dates: '%d/%m/%y'
+      short_dates: '%-m-%d-%y'
     pm: pm
     noon: noon
 

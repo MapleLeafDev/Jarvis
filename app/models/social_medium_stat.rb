@@ -3,12 +3,13 @@ class SocialMediumStat < ActiveRecord::Base
 
   def format_data
     data = {}
+    timezone = self.user.timezone || "America/Los_Angeles"
     attributes.each do |k,v|
       next if ["id","user_id","created_at","updated_at"].include?(k)
       next unless v
       values = posts = followers = following = []
       days = v.split(',')
-      day = ((Time.now.utc + Time.zone_offset('PDT')).to_date - (days.count - 1).days).cwday
+      day = ((Time.now.utc + Time.now.in_time_zone(timezone).utc_offset).to_date - (days.count - 1).days).cwday
       days.each do |d|
         parts = d.split(':')
         if values.any?
