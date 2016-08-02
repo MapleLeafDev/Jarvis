@@ -113,7 +113,7 @@ class SocialMedia < ActiveRecord::Base
         posted_at = Time.at(post.created_time.to_i)
         new_last_id = post.id
       when 4
-        posted_at = post.created_time
+        posted_at = post.created_at
         new_last_id = post.id
       end
       unless Activity.find_by_media_id(post.id)
