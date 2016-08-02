@@ -62,8 +62,6 @@ GEM
     google_plus (0.2.4)
       json
       rest-client (~> 1.6)
-    groupdate (3.0.1)
-      activesupport (>= 3)
     haml (4.0.7)
       tilt
     hashie (3.4.4)
@@ -237,7 +235,6 @@ DEPENDENCIES
   exception_notification
   geocoder
   google_plus
-  groupdate
   haml
   instagram
   jquery-rails
