@@ -1,0 +1,15 @@
+.modal-body{style: 'padding:0px;'}
+  .panel.panel-default{style: 'margin-bottom:0px;'}
+    .panel-heading
+      %h3.panel-title
+        .pull-right
+          = time_ago_in_words(@post.created_at, scope: 'time_ago')
+          = link_to content_tag(:i, nil, class: "fa fa-remove fa-2x"), "", data: {dismiss: "modal"}
+        = image_tag(@post.user.profile_image_url.to_s, size: '30x30', class: "img-rounded")
+        = @post.user.name
+    .panel-body
+      %div
+        = twitter_feed_display(@post)
+        %br/
+        -@post.media.each do |m|
+          =image_tag(m.media_url.to_s, class: "twitter-img img-rounded")

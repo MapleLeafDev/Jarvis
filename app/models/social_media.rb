@@ -116,6 +116,7 @@ class SocialMedia < ActiveRecord::Base
         posted_at = post.created_at
         new_last_id = post.id.to_s
       end
+      
       unless Activity.find_by_media_id(new_last_id)
         Activity.create(family_id: feed.user.family_id, user_id: feed.user_id, type_id: feed.feed_type, media_id: new_last_id, posted_at: posted_at)
       end
@@ -187,7 +188,7 @@ class SocialMedia < ActiveRecord::Base
   def twitter_user(params = {})
     options = {count: 100}
     options[:max_id] = (params[:max_id].to_i - 1) if params[:max_id]
-    options[:min_id] = (params[:min_id].to_i + 1) if params[:min_id]
+    options[:since_id] = (params[:min_id].to_i + 1) if params[:min_id]
     twitter_client(self.token, self.secret).user_timeline(self.username, options)
   end
 
@@ -203,6 +204,12 @@ class SocialMedia < ActiveRecord::Base
 
   def twitter_following
     twitter_client(self.token, self.secret).friends
+  end
+
+  def twitter_post(id)
+    options = {count: 1}
+    options[:max_id] = id.to_i
+    twitter_client(self.token, self.secret).user_timeline(self.username, options)
   end
 
   ###################

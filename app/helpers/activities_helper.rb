@@ -3,6 +3,8 @@ module ActivitiesHelper
     case activity.type_id
     when 1
       instagram_post_user_social_medium_index_path(activity.user, feed_id: activity.user.instagram.id, media_id: activity.media_id)
+    when 4
+      twitter_post_user_social_medium_index_path(activity.user, feed_id: activity.user.twitter.id, media_id: activity.media_id)
     else
       ""
     end

@@ -39,6 +39,7 @@ HomeManager::Application.routes.draw do
       collection do
         get 'relationships'
         get 'instagram_post'
+        get 'twitter_post'
         get 'more_results'
       end
       member do

@@ -21,6 +21,10 @@ class SocialMediumController < ApplicationController
     @comments = @feed.comments(params[:media_id])
   end
 
+  def twitter_post
+    @post = @feed.twitter_post(params[:media_id]).first
+  end
+
   def disable
     @feed.destroy
     redirect_to user_path(@user)
