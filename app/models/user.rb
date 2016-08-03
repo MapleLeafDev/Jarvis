@@ -126,8 +126,9 @@ class User < ActiveRecord::Base
   def email_stats
     if self.family_id
       stats = self.social_medium_stat
-      to = self.family.parents.where('notifications > 0').collect(&:email)
-      ApplicationMailer.social_medium_stats(to, self, stats).deliver
+      to = self.family.parents.where(notifications: 1).collect(&:email)
+      puts "EMAILING STATS TO -> #{to}"
+      ApplicationMailer.social_medium_stats(to, self, stats).deliver if to.any?
     end
   end
 end
