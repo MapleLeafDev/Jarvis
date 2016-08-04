@@ -54,30 +54,9 @@
   #user-results
     .panel.panel-default
       .panel-heading
+        .pull-right
+          =link_to content_tag(:i, nil, class: "fa fa-refresh fa-2x"), record_user_social_medium_index_path(current_user), remote: true, onclick: "$('.fa-refresh').addClass('fa-spin');"
         %h4= t("activity")
       .panel-body
-        %ul.timeline
-          -right = false
-          -date = nil
-          -@activities.each do |activity|
-            -unless date == activity.date
-              %li.timeline-date
-                .lable.label-success=l(activity.posted_at + Time.now.in_time_zone(activity.user.timezone).utc_offset, format: :short_dates)
-            %li{class: "#{'timeline-inverted' if right}"}
-              .timeline-badge
-                =link_to content_tag(:i, nil, class: "fa fa-#{activity.css_class} fa-2x activity-post-link"), activity_post_link(activity), remote: true
-              .timeline-panel
-                .timeline-heading
-                  %small.text-muted.pull-right{style: "padding-top:10px;"}
-                    %i.glyphicon.glyphicon-time
-                    =l(activity.posted_at + Time.now.in_time_zone(activity.user.timezone).utc_offset, format: :medium)
-                  %h4.timeline-title
-                    %a.location.title-like.visible-xs{href: member_path(activity.user), style: 'text-decoration:none;'}
-                      =image_tag(gravatar_for(activity.user), class: "img-rounded", size: "35x35")
-                    %a.location.title-like.hidden-xs{href: member_path(activity.user), style: 'text-decoration:none;'}
-                      =image_tag(gravatar_for(activity.user), class: "img-rounded", size: "35x35")
-                      =activity.user.name
-                .timeline-body
-                  %p= activity.message
-            - right = !right
-            - date = activity.date
+        #timeline
+          =render '/social_medium/activity'

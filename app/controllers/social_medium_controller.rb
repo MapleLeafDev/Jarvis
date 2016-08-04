@@ -30,6 +30,15 @@ class SocialMediumController < ApplicationController
     redirect_to user_path(@user)
   end
 
+  def record
+    @user.family.users.each do |member|
+      member.social_medium.each do |sm|
+        SocialMedia.record(sm.id)
+      end
+    end
+    @activities = @user.family.activities.order('posted_at desc')
+  end
+
   private
 
   def load_objects

@@ -41,6 +41,7 @@ HomeManager::Application.routes.draw do
         get 'instagram_post'
         get 'twitter_post'
         get 'more_results'
+        get 'record'
       end
       member do
         get 'disable'
