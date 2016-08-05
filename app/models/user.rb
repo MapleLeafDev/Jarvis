@@ -123,6 +123,17 @@ class User < ActiveRecord::Base
     stats.update_data
   end
 
+  def get_token
+    unless self.token
+      self.update_attribute(:token, generate_token)
+    end
+    self.token
+  end
+
+  def generate_token
+    SecureRandom.base64(24)
+  end
+
   def email_stats
     if self.family_id
       stats = self.social_medium_stat

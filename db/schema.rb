@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160802181643) do
+ActiveRecord::Schema.define(version: 20160805002204) do
 
   create_table "activities", force: true do |t|
     t.integer  "user_id"
@@ -145,6 +145,7 @@ ActiveRecord::Schema.define(version: 20160802181643) do
     t.string   "uid"
     t.integer  "notifications"
     t.datetime "dob"
+    t.string   "token"
   end
 
 end
