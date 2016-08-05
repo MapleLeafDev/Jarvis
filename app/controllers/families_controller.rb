@@ -13,10 +13,7 @@ class FamiliesController < ApplicationController
   end
 
   def my_family
-    if @user = User.find_by_token(params[:token])
-      session[:user_id] = @user.id
-      redirect_to root_url
-    elsif @family = Family.find_by_url(params[:url])
+    if @family = Family.find_by_url(params[:url])
       @users = @family.users
     else
       redirect_to root_url
@@ -60,6 +57,15 @@ class FamiliesController < ApplicationController
   end
 
   def get_family
+    unless params[:token].blank?
+      if @user = User.find_by_token(params[:token])
+        session[:user_id] = @user.id
+      else
+        session[:user_id] = nil
+        redirect_to root_url
+        return
+      end
+    end
     @family = current_user.family
   end
 

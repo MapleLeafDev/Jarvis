@@ -16,7 +16,9 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize
-    redirect_to root_path, alert: t('need_to_sign_in') if !current_user
+    unless params[:token]
+      redirect_to root_path, alert: t('need_to_sign_in') if !current_user
+    end
   end
 
   def family

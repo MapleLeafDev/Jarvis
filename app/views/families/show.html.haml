@@ -33,6 +33,8 @@
         %tbody
           %tr
             %td{colspan: '2'}= link_to @family.url, "#{@family.portal_url}?token=#{current_user.get_token}", target: :blank
+          %tr
+            %td{colspan: '2'}= link_to t("auto_auth_link"), "/family?token=#{current_user.get_token}", target: :blank
 
       %table.table.table-hover
         %thead

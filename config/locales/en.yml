@@ -10,6 +10,7 @@ en:
   added_to_family: Joined family
   admin: Administration
   allowance: "Allowance"
+  auto_auth_link: "Auto login link"
   are_you_sure: "Are you sure?"
   blank_family: "%{family} Family"
   boards: Boards
