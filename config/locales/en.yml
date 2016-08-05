@@ -89,6 +89,7 @@ en:
   pins: "Pins"
   pin_info: The PIN is used to sign in to the family portal.
   portal: Portal
+  portal_links: Family Portal Links
   posts: Posts
   previous: Previous
   profile: "Profile"
@@ -123,6 +124,7 @@ en:
       short: ! '%d %b %l:%M'
       short_time: '%l:%M %P'
       short_dates: '%-m-%d-%y'
+      day_month: '%-m-%d'
     pm: pm
     noon: noon
 

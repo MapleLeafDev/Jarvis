@@ -29,10 +29,10 @@
       %table.table.table-hover
         %thead
           %tr
-            %th= t('portal')
+            %th= t('portal_links')
         %tbody
           %tr
-            %td{colspan: '2'}= link_to @family.url, "#{@family.portal_url}?token=#{current_user.get_token}", target: :blank
+            %td{colspan: '2'}= link_to t('family_portal'), "#{@family.portal_url}?token=#{current_user.get_token}", target: :blank
           %tr
             %td{colspan: '2'}= link_to t("auto_auth_link"), "/family?token=#{current_user.get_token}", target: :blank
 

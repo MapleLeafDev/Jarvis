@@ -5,21 +5,36 @@
     -unless date == activity.date
       %li.timeline-date
         -date = activity.posted_at + Time.now.in_time_zone(activity.user.timezone).utc_offset
-        .label.label-success="#{t('days')[date.wday]} #{l(date, format: :short_dates)}"
+        .label.label-success="#{t('days')[date.wday]} #{l(date, format: :day_month)}"
     %li{class: "#{'timeline-inverted' if right}"}
       .timeline-badge
         =link_to content_tag(:i, nil, class: "fa fa-#{activity.css_class} fa-2x activity-post-link"), activity_post_link(activity), remote: true
       .timeline-panel
         .timeline-heading
-          %small.text-muted.pull-right{style: "padding-top:10px;"}
-            %i.glyphicon.glyphicon-time
-            =l(activity.posted_at + Time.now.in_time_zone(activity.user.timezone).utc_offset, format: :short_time)
-          %h4.timeline-title
-            %a.location.title-like.visible-xs{href: member_path(activity.user), style: 'text-decoration:none;'}
-              =image_tag(gravatar_for(activity.user), class: "img-rounded", size: "35x35")
-            %a.location.title-like.hidden-xs{href: member_path(activity.user), style: 'text-decoration:none;'}
-              =image_tag(gravatar_for(activity.user), class: "img-rounded", size: "35x35")
-              =activity.user.name
+          .visible-xs
+            %small.text-muted.pull-right{style: "padding-top:10px;"}
+              %i.glyphicon.glyphicon-time
+              =l(activity.posted_at + Time.now.in_time_zone(activity.user.timezone).utc_offset, format: :short_time)
+            %h4.timeline-title
+              %a.location.title-like{href: member_path(activity.user), style: 'text-decoration:none;'}
+                =image_tag(gravatar_for(activity.user), class: "img-rounded", size: "35x35")
+          .hidden-xs
+            -if right
+              %h4.timeline-title.pull-right
+                %a.location.title-like.hidden-xs{href: member_path(activity.user), style: 'text-decoration:none;'}
+                  =activity.user.name
+                  =image_tag(gravatar_for(activity.user), class: "img-rounded", size: "35x35")
+              %small.text-muted{style: "padding-top:10px;"}
+                %i.glyphicon.glyphicon-time
+                =l(activity.posted_at + Time.now.in_time_zone(activity.user.timezone).utc_offset, format: :short_time)
+            -else
+              %small.text-muted.pull-right{style: "padding-top:10px;"}
+                %i.glyphicon.glyphicon-time
+                =l(activity.posted_at + Time.now.in_time_zone(activity.user.timezone).utc_offset, format: :short_time)
+              %h4.timeline-title
+                %a.location.title-like.hidden-xs{href: member_path(activity.user), style: 'text-decoration:none;'}
+                  =image_tag(gravatar_for(activity.user), class: "img-rounded", size: "35x35")
+                  =activity.user.name
         .timeline-body
           %p= activity.message
     - right = !right

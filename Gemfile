@@ -27,6 +27,7 @@ gem 'pinterest-api'
 gem 'rest-client'
 gem 'chartkick'
 gem 'exception_notification'
+gem 'stripe'
 
 group :development do
   gem 'sqlite3'
