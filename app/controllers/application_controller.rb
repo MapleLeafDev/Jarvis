@@ -47,7 +47,7 @@ class ApplicationController < ActionController::Base
 
   def gravatar_for(user, size = nil)
     id = Digest::MD5::hexdigest (user.email.blank? ? user.name : user.email).strip.downcase
-    url = 'http://www.gravatar.com/avatar/' + id + '?d=retro'
+    url = 'https://www.gravatar.com/avatar/' + id + '?d=retro'
     url += "&s=#{size}" if size
     return url
   end
