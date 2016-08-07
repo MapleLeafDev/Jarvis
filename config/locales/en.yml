@@ -81,6 +81,7 @@ en:
   not_authorized: "Not authorized"
   other_family_tasks: "Other Family Tasks"
   other_tasks: "Other Tasks"
+  page_not_found: Page not found
   parent: "Parent"
   password: "Password"
   pays: "Pays"
@@ -96,6 +97,7 @@ en:
   recipe_box: "Recipe Box"
   required_for_allowance: "Required for allowance"
   save: "Save"
+  server_error: Server error
   settings: "Settings"
   sign_in: Sign In
   sign_out: Sign Out

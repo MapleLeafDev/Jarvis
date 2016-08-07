@@ -119,4 +119,7 @@ HomeManager::Application.routes.draw do
   get '/award_credits' => 'users#award_credits', :as => :award_credits
   get '/assign_meal' => 'meals#assign_meal', :as => :assign_meal
   get '/privacy' => 'home#privacy_policy', :as => :privacy
+
+  match "/404", :to => "errors#not_found", :via => :all
+  match "/500", :to => "errors#internal_server_error", :via => :all
 end
