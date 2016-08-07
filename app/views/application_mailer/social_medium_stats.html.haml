@@ -1,6 +1,6 @@
 .panel.panel-default
   .panel-heading
-    %h4= t("social_media_activity")
+    %h4= t("social_media_stats")
   .panel-body
     - @stats.format_data.each do |k,v|
       = content_tag(:i, " #{k.titleize}", class: "fa fa-#{k} fa-2x")

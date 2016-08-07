@@ -76,7 +76,7 @@ HomeManager::Application.configure do
   :email => {
     :deliver_with => :deliver,
     :email_prefix => "ML Family - ",
-    :sender_address => %{"notifier" <mapleafdev@gmail.com>},
+    :sender_address => %{"notifier" <info@ml-family.com>},
     :exception_recipients => %w{mapleafdev@gmail.com}
   }
 end
