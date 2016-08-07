@@ -1,11 +1,47 @@
 #user-results
-.jumbotron{align: 'center'}
+.row{align: 'center', style: 'margin:0px;'}
   %h1
     = image_tag("/assets/leaf_vectorized.png", size: "120x120", style: "margin-top:-10px;")
     = t("family")
   %p
-    .lead= t('about_us')
+    .lead= t('tag_line')
   %p
     .btn-group.btn-group-justified{style: 'width:200px;'}
       =link_to t('sign_in'), login_path, remote: true, class: "btn btn-primary"
       =link_to t('sign_up'), signup_path, class: "btn btn-success"
+.row.home-row-grey
+  .col-md-6{align: 'center'}
+    %table.home-badge
+      %tr
+        %td{colspan: '2', align: 'center'}=content_tag(:i, nil, class: "fa fa-instagram fa-4x")
+      %tr
+        %td=content_tag(:i, nil, class: "fa fa-facebook fa-4x")
+        %td=content_tag(:i, nil, class: "fa fa-twitter fa-4x")
+  .col-md-6{align: 'center'}
+    .lead=t("home_blurb_1")
+    .text-muted
+      =content_tag(:i, nil, class: "fa fa-asterisk fa-1x")
+      = t('more_being_added')
+.row.home-row
+  .col-md-6{align: 'center'}
+    .lead=t("home_blurb_2")
+  .col-md-6{align: 'center'}
+    =image_tag('/timeline.png', class: "img-rounded", size: "200x200")
+.row.home-row-grey
+  .col-md-6{align: 'center'}
+    =image_tag('/profile.png', class: "img-rounded", size: "200x200")
+  .col-md-6{align: 'center'}
+    .lead=t("home_blurb_3")
+.row.home-row-basic
+  .col-md-12
+    %h1{align: 'center'}=t("goals")
+    %ul
+      %li=t("home_blurb_4_1")
+      %li=t("home_blurb_4_2")
+      %li=t("home_blurb_4_3")
+.row.home-row-grey
+  .col-md-12
+    %h1=t('about_us')
+    = "Developed by Maple Leaf Dev"
+    %br/
+    = "email: #{mail_to "jisaac@ml-family.com"}".html_safe

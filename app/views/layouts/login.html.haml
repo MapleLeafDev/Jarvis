@@ -21,8 +21,7 @@
         %a.navbar-brand
           = image_tag("/assets/leaf_vectorized.png", size: "40x40", style: "margin-top:-10px;")
           = t("family")
-    .container
-      = yield
+    = yield
 
     .container{style:  "position:fixed; top:70px; right:0px; width:200px;"}
       -if flash.count > 0
@@ -33,6 +32,6 @@
           -else
             .flash.alert.fade.in.alert-danger{align: "center"}
               =content_tag :div, msg, :id => "flash_#{name}"
-    #modal.modal.fade
+    #modal.modal.fade{style: "left:50%;margin-left:-150px;"}
       .modal-dialog
         #inner-modal.modal-content{style: 'width:300px;'}
