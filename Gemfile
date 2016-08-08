@@ -28,6 +28,7 @@ gem 'rest-client'
 gem 'chartkick'
 gem 'exception_notification'
 gem 'stripe'
+gem 'newrelic_rpm'
 
 group :development do
   gem 'sqlite3'
