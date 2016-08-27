@@ -1,5 +1,6 @@
 class SocialMedia < ActiveRecord::Base
   belongs_to :user
+  after_destroy :delete_activity
 
   TYPE_NAME = [
     nil,
@@ -32,6 +33,10 @@ class SocialMedia < ActiveRecord::Base
   ###################
   # Generic Commands
   ###################
+  def delete_activity
+    Activity.where(type_id: feed_type, user_id: user_id).destroy_all
+  end
+
   def info
     case feed_type
     when 1
@@ -50,7 +55,7 @@ class SocialMedia < ActiveRecord::Base
   def media(type = 'profile')
     case feed_type
     when 1
-      instagram_media
+      instagram_media(count: 18)
     when 2
       facebook_media
     when 4
@@ -69,6 +74,13 @@ class SocialMedia < ActiveRecord::Base
     end
   end
 
+  def delete_comment(media_id, comment_id)
+    case feed_type
+    when 1
+      instagram_delete_comment(media_id, comment_id)
+    end
+  end
+
   def more_results(id, type = 'profile')
     case feed_type
     when 1
@@ -83,11 +95,32 @@ class SocialMedia < ActiveRecord::Base
   def relationships(type)
     case feed_type
     when 1
-      type == "following" ? instagram_following : instagram_followers
+      case type
+      when "liked"
+        instagram_likes
+      when "following"
+        instagram_following
+      else
+        instagram_followers
+      end
     when 2
       facebook_friends
     when 4
       type == "following" ? twitter_following : twitter_followers
+    end
+  end
+
+  def unfollow(user_id)
+    case feed_type
+    when 1
+      instagram_unfollow(user_id)
+    end
+  end
+
+  def block_user(user_id)
+    case feed_type
+    when 1
+      instagram_block_user(user_id)
     end
   end
 
@@ -116,7 +149,7 @@ class SocialMedia < ActiveRecord::Base
         posted_at = post.created_at
         new_last_id = post.id.to_s
       end
-      
+
       unless Activity.find_by_media_id(new_last_id)
         Activity.create(family_id: feed.user.family_id, user_id: feed.user_id, type_id: feed.feed_type, media_id: new_last_id, posted_at: posted_at)
       end
@@ -140,12 +173,24 @@ class SocialMedia < ActiveRecord::Base
     instagram_client(self.token).user_followed_by
   end
 
+  def instagram_unfollow(user_id)
+    instagram_client(self.token).unfollow_user(user_id)
+  end
+
+  def instagram_block_user(user_id)
+    instagram_client(self.token).block_user(user_id)
+  end
+
   def instagram_media(params = {})
     instagram_client(self.token).user_recent_media('self', count: params[:count], max_id: params[:max_id], min_id: params[:min_id])
   end
 
   def instagram_comments(id)
     instagram_client(self.token).media_comments(id)
+  end
+
+  def instagram_delete_comment(media_id, comment_id)
+    instagram_client(self.token).delete_media_comment(media_id, comment_id)
   end
 
   def instagram_likes(id = nil)

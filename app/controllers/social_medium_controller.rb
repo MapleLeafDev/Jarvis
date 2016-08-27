@@ -16,6 +16,14 @@ class SocialMediumController < ApplicationController
     @results = @feed.more_results(params[:media_id])
   end
 
+  def unfollow
+    @feed.unfollow(params[:rel_id])
+  end
+
+  def block_user
+    @feed.block_user(params[:rel_id])
+  end
+
   def instagram_post
     @post = @feed.instagram_post(params[:media_id])
     @comments = @feed.comments(params[:media_id])
@@ -23,6 +31,10 @@ class SocialMediumController < ApplicationController
 
   def twitter_post
     @post = @feed.twitter_post(params[:media_id]).first
+  end
+
+  def delete_comment
+    @feed.delete_comment(params[:media_id], params[:comment_id])
   end
 
   def disable

@@ -5,6 +5,7 @@ class Family < ActiveRecord::Base
   has_many :tasks, dependent: :destroy
   has_many :activities, dependent: :destroy
   has_many :meals, dependent: :destroy
+  has_one :registration, dependent: :destroy
 
   validates_presence_of :name, :url
   validates_uniqueness_of :url
@@ -33,5 +34,9 @@ class Family < ActiveRecord::Base
 
   def other_tasks
     tasks - todays_tasks
+  end
+
+  def self.random_id
+    Random.new.rand(1000000000..10000000000).to_s
   end
 end

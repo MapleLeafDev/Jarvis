@@ -1,1 +1,6 @@
-window.location = "/family";
+<% puts request.referrer %>
+<% if request.referrer.match(/administration/) %>
+  $('#user-<%= escape_javascript(@user.id.to_s) %>-row').remove();
+<% else %>
+  window.location = "/family";
+<% end %>

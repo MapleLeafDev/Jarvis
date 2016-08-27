@@ -16,6 +16,7 @@
 //= require bootstrap
 //= require Chart.bundle
 //= require chartkick
+//= require credit_card_form
 //= require_tree .
 
 $(document).bind("mobileinit", function(){
@@ -29,6 +30,8 @@ $(document).ready(function(){
      event.preventDefault();
      window.location = this.href;
   });
+
+  $('.stripe-button-el').removeClass('stripe-button-el').addClass('btn btn-info').text('Create Account')
 
   $('.carousel').each(function(){
       $(this).carousel({

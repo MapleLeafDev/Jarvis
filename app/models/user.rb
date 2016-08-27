@@ -20,6 +20,14 @@ class User < ActiveRecord::Base
 
   DAYS_OF_WEEK = ["sunday","monday","tuesday","wednesday","thursday","friday","saturday"]
 
+  def expired?
+    ENV['REGISTRATION'] == "1" ? (!activated? && (created_at < (Date.today - 30.days))) : false
+  end
+
+  def activated?
+    ENV['REGISTRATION'] == "1" ? (family.registration && family.registration.end_date && family.registration.end_date > Date.today) : true
+  end
+
   def parent?
     parent
   end

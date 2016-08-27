@@ -39,6 +39,9 @@ HomeManager::Application.routes.draw do
       collection do
         get 'relationships'
         get 'instagram_post'
+        get 'delete_comment'
+        get 'unfollow'
+        get 'block_user'
         get 'twitter_post'
         get 'more_results'
         get 'record'
@@ -54,6 +57,9 @@ HomeManager::Application.routes.draw do
   resources :activities
 
   resources :sessions
+
+  resources :registrations
+  post "registrations/hook"
 
   resources :instagram do
     collection do
@@ -108,6 +114,8 @@ HomeManager::Application.routes.draw do
   get '/member/:id', to: 'users#show', as: :member
   get '/my_family/:url', to: 'families#my_family', as: :my_family
   get '/signup', to: 'users#signup', as: 'signup'
+  post '/register', to: 'users#register', as: 'register'
+  get '/activate', to: 'registrations#new', as: 'activate'
   get '/login', to: 'sessions#new', as: 'login'
   get '/logout', to: 'sessions#destroy', as: 'logout'
   get '/auth/facebook/callback' => 'sessions#create'

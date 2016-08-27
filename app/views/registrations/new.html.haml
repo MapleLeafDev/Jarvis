@@ -1,0 +1,32 @@
+= javascript_include_tag "https://js.stripe.com/v2/"
+:javascript
+  Stripe.setPublishableKey('#{ENV['STRIPE_PUBLISHABLE_KEY']}');
+
+%form#new_registration.form-horizontal{"accept-charset" => "UTF-8", :action => '/registrations', :method => 'post', :role => "form"}
+  %div{:style => "display:none"}
+    %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+    %input{:name => 'registration[family_id]', :type => "hidden", :value => @registration.family_id}
+    %input{:name => 'registration[course_id]', :type => "hidden", :value => @registration.course_id}
+    %input{:name => 'registration[email]', :type => "hidden", :value => @registration.email}
+  .form-group{style: "margin-bottom:0px;"}
+    %label.col-md-3.control-label
+    .col-md-5
+      .errors
+  .form-group
+    %label.col-md-3.control-label{:for => "card_number"}= t('card_number')
+    .col-md-5
+      %input#card_number.form-control{:type => "text", :name => 'card_number', "data-stripe" => "number"}
+  .form-group
+    %label.col-md-3.control-label= t('card_expires')
+    .col-md-1
+      %input#card_number.form-control{:type => "text", :name => 'exp_month', "data-stripe" => "exp-month"}
+    .col-md-2
+      %input#card_number.form-control{:type => "text", :name => 'exp_year', "data-stripe" => "exp-year"}
+  .form-group
+    %label.col-md-3.control-label{:for => "card_verification"}= "CVC"
+    .col-md-2
+      %input#card_verification.form-control{:type => "text", :name => 'card_verification', "data-stripe" => "cvv"}
+  .form-group
+    %label.col-md-3.control-label
+    .col-md-5{align: 'right'}
+      %input.btn.btn-primary{:name => "commit", :type => "submit", :value => t('activate')}/

@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   end
 
   def is_admin
-    redirect_to user_path(current_user), alert: t('not_authorized') unless current_user.email == ENV['ADMIN']
+    redirect_to user_path(current_user), alert: t('not_authorized') unless current_user && current_user.email == ENV['ADMIN']
   end
 
   def is_parent

@@ -42,7 +42,9 @@
           -if params[:controller] == 'users' && params[:action] != 'index' && current_user.family
             =" / "
             = link_to @user.name, (@user == current_user ? "/profile" : "/member/#{@user.id}"), class: "location", style: "text-decoration:none;color:white;"
-
+          -if current_user.parent?
+            -unless current_user.activated?
+              = link_to t('activate'), "/activate", class: "label label-success", style: "margin-left:20px;"
       .collapse.navbar-collapse
         %ul.nav.navbar-nav.navbar-right{style: "margin-right:20px;"}
           -if current_user.email == ENV['ADMIN']

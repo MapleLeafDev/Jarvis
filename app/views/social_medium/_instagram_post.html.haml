@@ -21,9 +21,11 @@
       -if @comments.any?
         %ul.list-group{style: "padding-left:0px;"}
           -@comments.each do |comment|
-            %li.list-group-item
+            %li.list-group-item{id: comment.id}
               .list-group-item-heading
                 .pull-right
                   = time_ago_in_words(Time.zone.at(comment.created_time.to_i), scope: 'time_ago')
+                  -if current_user.parent?
+                    = link_to content_tag(:i, nil, class: "fa fa-remove"), delete_comment_user_social_medium_index_path(id: @feed.id, user_id: @user.id, media_id: @post.id, comment_id: comment.id), remote: true
                 =link_to comment.from[:username], "http://instagram.com/#{comment.from[:username]}", target: :blank
               %p.list-group-item-text= comment.text

@@ -18,8 +18,8 @@
           %strong= link_to "#{@info['counts']['followed_by']} #{t('followers')}", relationships_user_social_medium_index_path(@user, feed_id: @feed.id, relationship_type: 'followers'), remote: true
         %td{align: 'center'}
           %strong= link_to "#{@info['counts']['follows']} #{t('following')}", relationships_user_social_medium_index_path(@user, feed_id: @feed.id, relationship_type: 'following'), remote: true
-        -# %td{align: 'center'}
-        -#   %strong= link_to t("liked"), relationships_user_social_medium_index_path(@user, feed_id: @feed.id, relationship_type: 'liked'), remote: true
+        %td{align: 'center'}
+          %strong= link_to t("liked"), relationships_user_social_medium_index_path(@user, feed_id: @feed.id, relationship_type: 'liked'), remote: true
 
 #results
   = render 'instagram_feed'

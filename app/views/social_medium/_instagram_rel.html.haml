@@ -4,14 +4,26 @@
       %h3.panel-title
         .pull-right
           = link_to content_tag(:i, nil, class: "fa fa-remove fa-2x"), "", data: {dismiss: "modal"}
-        = params[:relationship_type] == "following" ? t("following") : t("followers")
+        = params[:relationship_type] == "following" ? t("following") : (params[:relationship_type] == "liked" ? t("liked") : t("followers"))
     .panel-body
       %table.table.table-hover
         %tbody
           - @results.each do |result|
-            -puts result
-            %tr
-              %td{style: "width:50px;"}= link_to image_tag(result['profile_picture'], size: "40x40", class: "img-rounded media-object"), "http://instagram.com/#{result['username']}", target: :blank
-              %td
-                %h4.media-heading=link_to result['username'], "http://instagram.com/#{result['username']}", target: :blank
-                = result['full_name']
+            -if params[:relationship_type] == "liked"
+              %tr
+                %td{style: "width:50px;"}= link_to image_tag(result.images['thumbnail']['url'], size: "40x40", class: "img-rounded media-object"), instagram_post_user_social_medium_index_path(@user, feed_id: @feed.id, media_id: result.id), remote: true
+                %td
+                  %h4.media-heading=link_to result.caption['from']['username'], "http://instagram.com/#{result.caption['from']['username']}", target: :blank
+                  = result.caption['from']['full_name']
+            -else
+              %tr{id: result.id}
+                %td{style: "width:50px;"}= link_to image_tag(result['profile_picture'], size: "40x40", class: "img-rounded media-object"), "http://instagram.com/#{result['username']}", target: :blank
+                %td
+                  -if current_user.parent?
+                    .pull-right
+                      -if params[:relationship_type] == "followers"
+                        = link_to content_tag(:i, nil, class: "fa fa-remove"), block_user_user_social_medium_index_path(id: @feed.id, user_id: @user.id, rel_id: result.id), remote: true
+                      -else
+                        = link_to content_tag(:i, nil, class: "fa fa-remove"), unfollow_user_social_medium_index_path(id: @feed.id, user_id: @user.id, rel_id: result.id), remote: true
+                  %h4.media-heading=link_to result['username'], "http://instagram.com/#{result['username']}", target: :blank
+                  = result['full_name']

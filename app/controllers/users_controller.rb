@@ -1,13 +1,14 @@
 class UsersController < ApplicationController
   respond_to :html, :js
   before_filter :is_admin, only: [:index, :toggle]
-  before_filter :get_user, except: [:index, :new, :create, :signup]
-  before_filter :authorize, except: [:new, :create, :signup]
-  before_filter :authorize_family, except: [:index, :new, :create, :toggle, :destroy, :signup]
+  before_filter :get_user, except: [:index, :new, :create, :signup, :register]
+  before_filter :authorize, except: [:new, :create, :signup, :register]
+  before_filter :authorize_family, except: [:index, :new, :create, :toggle, :destroy, :signup, :register]
 
   layout "login", :only => [:signup]
 
   def index
+    @family = current_user.family
     @page = (params[:page] || 1).to_i
     @users = User.page @page
   end
@@ -28,6 +29,30 @@ class UsersController < ApplicationController
     end
   end
 
+  def register
+    unless @family = Family.find_by_url(family_params[:url])
+      @family = Family.new(family_params)
+      @family.url = @family.name + "-" + Family.random_id
+      @family.valid?
+    end
+
+    @user = User.new(user_params)
+    @user.family_id = current_user.family_id if current_user
+    @user.family_id = @family.id if @family
+    @user.enabled = true
+    @user.valid?
+
+    unless @user.errors.any? || @family.errors.any?
+      @user.save
+      @family.save
+      session[:user_id] = @user.id
+      flash[:notice] = t('user_created')
+    else
+      @family.url = nil
+      render :signup, layout: 'login'
+    end
+  end
+
   def edit
   end
 
@@ -35,7 +60,7 @@ class UsersController < ApplicationController
     if family_params
       unless @family = Family.find_by_url(family_params[:url])
         @family = Family.new(family_params)
-        @family.url = @family.name + "-" + Random.new.rand(1000000000..10000000000).to_s
+        @family.url = @family.name + "-" + Family.random_id
         @family.save
       end
     end
@@ -47,8 +72,9 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id unless current_user
       flash[:notice] = t('user_created')
+    else
+      respond_with @user
     end
-    respond_with @user
   end
 
   def update

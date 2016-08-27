@@ -2,6 +2,7 @@ en:
   tag_line: Helping families promote good digital citizenship and social media awareness
   about_us: About Us
   account_disabled: Account Disabled
+  activate: Activate
   activity_assign_meal: "%{who} was added to the menu for %{what}"
   activity_completion: "%{who} has completed '%{what}'"
   activity_remove_meal: "%{who} was removed from the menu"
@@ -17,6 +18,7 @@ en:
   boards: Boards
   calendar: "Calendar"
   cancel: "Cancel"
+  card_expires: "Expiration (MM/YYYY)"
   child: "Child"
   confirm_password: "Confirm Password"
   create_account: "Create Account"
@@ -104,6 +106,8 @@ en:
   previous: Previous
   profile: "Profile"
   recipe_box: "Recipe Box"
+  register: "Register"
+  registration_successful: "Registration successful"
   required_for_allowance: "Required for allowance"
   save: "Save"
   server_error: Server error
@@ -198,5 +202,6 @@ en:
     attributes:
       family:
         url: "Family ID"
+        name: "Family Name"
       user:
         dob: Birthday

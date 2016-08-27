@@ -26,7 +26,7 @@
               =link_to content_tag(:i, nil, class: "fa fa-cog fa-1x"), edit_user_path(@user), remote: true
         = link_to @user.name, member_path(@user), class: 'location'
     .panel-body.visible-xs
-      -if current_user.enabled
+      -unless current_user.expired?
         %table.table.table-hover
           %thead
             %tr
@@ -43,7 +43,7 @@
 
     .panel-body.hidden-xs
       %div{align: "center"}= link_to image_tag(gravatar_for(@user), class: "img-rounded"), user_path(@user)
-      -if current_user.enabled
+      -unless current_user.expired?
         %table.table.table-hover
           %thead
             %tr
@@ -68,7 +68,7 @@
         %i.fa.fa-circle-o-notch.fa-spin
 
   #user-results
-    -if current_user.enabled
+    -unless current_user.expired?
       -if @user.social_medium_stat
         .panel.panel-default
           .panel-heading
