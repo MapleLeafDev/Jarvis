@@ -5,11 +5,13 @@ class TwitterController < ApplicationController
   end
 
   def callback
+    @user = current_user
     params = request.env['omniauth.auth']
     if feed = current_user.twitter
       feed.update_attributes(token: params[:credentials][:token], secret: params[:credentials][:secret])
     else
-      current_user.social_medium.create(
+      @error = t('feed_exists') if SocialMedia.find_by_feed_type_and_uid(4, params[:info][:uid])
+      @info = {
         feed_type: 4,
         full_name: params[:info][:name],
         uid: params[:info][:uid],
@@ -17,8 +19,8 @@ class TwitterController < ApplicationController
         picture: params[:info][:image],
         token: params[:credentials][:token],
         secret: params[:credentials][:secret]
-        )
+      }
     end
-    redirect_to current_user
+    render "users/callback"
   end
 end
