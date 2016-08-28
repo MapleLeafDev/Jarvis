@@ -1,0 +1,36 @@
+= render "users/sidenav"
+
+.results-nav
+  #user-results
+    .panel.panel-default
+      .panel-heading
+        %h4= t('social_media')
+      .panel-body
+        -if @error
+          .alert.alert-dismissible.alert-danger
+            %h4= t('enable_disable_social')
+            %p= @error
+        -else
+          .alert.alert-dismissible.alert-info
+            %h4= t('enable_disable_social')
+            %p= t('add_this_account')
+        %table.table.table-hover{style: "width:100%;"}
+          %tbody
+            %tr
+              %td= t("type")
+              %td= SocialMedia::TYPE_NAME[@info[:feed_type]]
+            %tr
+              %td= t("name")
+              %td= @info[:full_name]
+            %tr
+              %td= t("username")
+              %td= @info[:username]
+            %tr
+              %td= t("profile_picture")
+              %td= image_tag(@info[:picture], class: "img-rounded")
+            -unless @error
+              %tr
+                %td
+                %td
+                  .pull-right
+                    =link_to t("confirm"), save_feed_path(social_medium: @info), class: "btn btn-primary"

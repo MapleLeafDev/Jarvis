@@ -51,10 +51,20 @@ class SocialMediumController < ApplicationController
     @activities = @user.family.activities.order('posted_at desc')
   end
 
+  def save_feed
+    feed = current_user.social_medium.create(social_medium_params)
+    SocialMedia.record(feed.id)
+    redirect_to current_user
+  end
+
   private
 
   def load_objects
     @user = User.find_by_id(params[:user_id])
     @feed = SocialMedia.find_by_id(params[:id] || params[:feed_id])
+  end
+
+  def social_medium_params
+    params.require(:social_medium).permit!
   end
 end

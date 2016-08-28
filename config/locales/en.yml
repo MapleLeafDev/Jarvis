@@ -9,6 +9,7 @@ en:
   activity: Activity
   add_family_member: "Add Member"
   add_task: "Add Task"
+  add_this_account: Add this account?
   added_to_family: Joined family
   admin: Administration
   allowance: "Allowance"
@@ -55,6 +56,7 @@ en:
   family_tasks: "Family Tasks"
   family_updated: Family updated
   family: "Family"
+  feed_exists: Social media feed already exists.
   followers: Followers
   following: Following
   goals: Site Goals

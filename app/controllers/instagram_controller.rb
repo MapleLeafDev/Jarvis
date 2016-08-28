@@ -5,6 +5,7 @@ class InstagramController < ApplicationController
   end
 
   def callback
+    @user = current_user
     if params[:error]
       redirect_to current_user, notice: params[:error_description]
     else
@@ -12,16 +13,12 @@ class InstagramController < ApplicationController
       if feed = current_user.instagram
         feed.update_attribute(:token, response.access_token)
       else
-        current_user.social_medium.create(
-          feed_type: 1,
-          full_name: response.user.full_name,
-          username: response.user.username,
-          picture: response.user.profile_picture,
-          token: response.access_token
-          )
+        @error = t('feed_exists') if SocialMedia.find_by_feed_type_and_username(1, response.user.username)
+        @info = { feed_type: 1, full_name: response.user.full_name, username: response.user.username,
+                  picture: response.user.profile_picture, token: response.access_token }
       end
-      redirect_to current_user
     end
+    render "users/callback"
   end
 
 end

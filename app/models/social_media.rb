@@ -84,7 +84,7 @@ class SocialMedia < ActiveRecord::Base
   def more_results(id, type = 'profile')
     case feed_type
     when 1
-      instagram_media(max_id: id)
+      instagram_media(count: 18, max_id: id)
     when 2
       facebook_media(id)
     when 4
@@ -145,13 +145,14 @@ class SocialMedia < ActiveRecord::Base
       when 1
         posted_at = Time.at(post.created_time.to_i)
         new_last_id = post.id.to_s
+        message = post.caption ? post.caption.text : "Post"
       when 4
         posted_at = post.created_at
         new_last_id = post.id.to_s
       end
 
       unless Activity.find_by_media_id(new_last_id)
-        Activity.create(family_id: feed.user.family_id, user_id: feed.user_id, type_id: feed.feed_type, media_id: new_last_id, posted_at: posted_at)
+        Activity.create(family_id: feed.user.family_id, user_id: feed.user_id, type_id: feed.feed_type, media_id: new_last_id, posted_at: posted_at, message: message)
       end
     end
 

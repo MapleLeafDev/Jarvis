@@ -4,6 +4,8 @@
       %h3.panel-title
         .pull-right
           = link_to content_tag(:i, nil, class: "fa fa-remove fa-2x"), "", data: {dismiss: "modal"}
+        -if params[:path] == "liked"
+          = link_to content_tag(:i, nil, class: "fa fa-arrow-left fa-2x"), relationships_user_social_medium_index_path(@user, feed_id: @feed.id, relationship_type: 'liked'), remote: true, class: "back-arrow"
         = image_tag(@post.user[:profile_picture], size: "30x30", class: "img-rounded")
         = @post.user[:username]
     .panel-body
@@ -26,6 +28,6 @@
                 .pull-right
                   = time_ago_in_words(Time.zone.at(comment.created_time.to_i), scope: 'time_ago')
                   -if current_user.parent?
-                    = link_to content_tag(:i, nil, class: "fa fa-remove"), delete_comment_user_social_medium_index_path(id: @feed.id, user_id: @user.id, media_id: @post.id, comment_id: comment.id), remote: true
+                    = link_to content_tag(:i, nil, class: "fa fa-remove"), delete_comment_user_social_medium_index_path(id: @feed.id, user_id: @user.id, media_id: @post.id, comment_id: comment.id), remote: true, data: {confirm: t('are_you_sure')}
                 =link_to comment.from[:username], "http://instagram.com/#{comment.from[:username]}", target: :blank
               %p.list-group-item-text= comment.text

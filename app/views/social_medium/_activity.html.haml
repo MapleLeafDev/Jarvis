@@ -19,23 +19,14 @@
               %a.location.title-like{href: member_path(activity.user), style: 'text-decoration:none;'}
                 =image_tag(gravatar_for(activity.user), class: "img-rounded", size: "35x35")
           .hidden-xs
-            -if right
-              %h4.timeline-title.pull-right
-                %a.location.title-like.hidden-xs{href: member_path(activity.user), style: 'text-decoration:none;'}
-                  =activity.user.name
-                  =image_tag(gravatar_for(activity.user), class: "img-rounded", size: "35x35")
-              %small.text-muted{style: "padding-top:10px;"}
-                %i.glyphicon.glyphicon-time
-                =l(activity.posted_at + Time.now.in_time_zone(activity.user.timezone).utc_offset, format: :short_time)
-            -else
-              %small.text-muted.pull-right{style: "padding-top:10px;"}
-                %i.glyphicon.glyphicon-time
-                =l(activity.posted_at + Time.now.in_time_zone(activity.user.timezone).utc_offset, format: :short_time)
-              %h4.timeline-title
-                %a.location.title-like.hidden-xs{href: member_path(activity.user), style: 'text-decoration:none;'}
-                  =image_tag(gravatar_for(activity.user), class: "img-rounded", size: "35x35")
-                  =activity.user.name
+            %small.text-muted.pull-right{style: "padding-top:10px;"}
+              %i.glyphicon.glyphicon-time
+              =l(activity.posted_at + Time.now.in_time_zone(activity.user.timezone).utc_offset, format: :short_time)
+            %h4.timeline-title
+              %a.location.title-like.hidden-xs{href: member_path(activity.user), style: 'text-decoration:none;'}
+                =image_tag(gravatar_for(activity.user), class: "img-rounded", size: "35x35")
+                =activity.user.name
         .timeline-body
-          %p= activity.message
+          %p{style: "text-align: center;"}= activity.message
     - right = !right
     - date = activity.date
