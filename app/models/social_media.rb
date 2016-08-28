@@ -153,6 +153,7 @@ class SocialMedia < ActiveRecord::Base
       when 4
         posted_at = post.created_at
         new_last_id = post.id.to_s
+        message = post.full_text
       end
 
       unless Activity.find_by_media_id(new_last_id)
