@@ -145,7 +145,7 @@ class SocialMedia < ActiveRecord::Base
       when 1
         posted_at = Time.at(post.created_time.to_i)
         new_last_id = post.id.to_s
-        message = post.caption ? post.caption.text : "Post"
+        message = post.caption ? (post.caption.text[0..250] + "...") : "Post"
       when 4
         posted_at = post.created_at
         new_last_id = post.id.to_s
