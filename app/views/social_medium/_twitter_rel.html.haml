@@ -9,9 +9,14 @@
       %table.table.table-hover
         %tbody
           - @results.each do |result|
-            -puts result
-            %tr
+            %tr{id: result.id}
               %td{style: "width:50px;"}= link_to image_tag(result.profile_image_url.to_s, size: "40x40", class: "img-rounded media-object"), "http://twitter.com/#{result.screen_name}", target: :blank
               %td
+                -if current_user.parent?
+                  .pull-right
+                    -if params[:relationship_type] == "followers"
+                      = link_to content_tag(:i, nil, class: "fa fa-remove"), block_user_user_social_medium_index_path(id: @feed.id, user_id: @user.id, rel_id: result.id), remote: true, data: {confirm: t('are_you_sure')}
+                    -else
+                      = link_to content_tag(:i, nil, class: "fa fa-remove"), unfollow_user_social_medium_index_path(id: @feed.id, user_id: @user.id, rel_id: result.id), remote: true, data: {confirm: t('are_you_sure')}
                 %h4.media-heading=link_to result.name, "http://twitter.com/#{result.screen_name}", target: :blank
                 = result['full_name']
