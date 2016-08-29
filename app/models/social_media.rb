@@ -115,7 +115,7 @@ class SocialMedia < ActiveRecord::Base
     when 1
       instagram_unfollow(user_id)
     when 4
-      twitter_unfollow(user_id)
+      twitter_unfollow([user_id])
     end
   end
 
@@ -124,7 +124,7 @@ class SocialMedia < ActiveRecord::Base
     when 1
       instagram_block_user(user_id)
     when 4
-      twitter_block_user(user_id)
+      twitter_block_user([user_id])
     end
   end
 
