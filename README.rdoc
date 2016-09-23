@@ -1,4 +1,4 @@
-== Welcome to Rails
+== Jarvis / ML Family
 
 Jarvis is a site to help parents monitor their childrens social media posts.
 
