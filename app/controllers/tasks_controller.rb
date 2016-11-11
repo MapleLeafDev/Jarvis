@@ -36,10 +36,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @task.destroy
 
-    respond_to do |format|
-      format.html { redirect_to user_path(@task.user) }
-      format.json { head :no_content }
-    end
+    redirect_to '/tasks'
   end
 
   private
