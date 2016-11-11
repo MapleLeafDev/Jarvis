@@ -39,9 +39,13 @@
         .navbar-brand
           = image_tag("/assets/leaf_vectorized.png", size: "40x40", style: "margin-top:-10px;")
           = link_to t("family"), "#{current_user.family ? '/family' : '/profile'}", class: "location", style: "text-decoration:none;color:white;"
+          -if params[:controller] == 'tasks'
+            =" / "
+            = link_to t("tasks"), "/tasks", class: "location", style: "text-decoration:none;color:white;"
           -if params[:controller] == 'users' && params[:action] != 'index' && current_user.family
             =" / "
             = link_to @user.name, (@user == current_user ? "/profile" : "/member/#{@user.id}"), class: "location", style: "text-decoration:none;color:white;"
+          %span#bread-crumb
           -if current_user.parent?
             -unless current_user.activated?
               = link_to t('activate'), "/activate", class: "label label-success", style: "margin-left:20px;"
@@ -50,6 +54,8 @@
           -if current_user.email == ENV['ADMIN']
             %li{class: "#{'active' if params[:controller] == 'users' && params[:action] == 'index'}"}
               = link_to t('admin'), admin_path, class: 'location'
+          %li{class: "#{'active' if params[:controller] == 'tasks'}"}
+            = link_to t('tasks'), "/tasks", class: 'location'
           -if current_user.enabled
             %li{class: "#{'active' if params[:controller] == 'families'}"}
               -if current_user.family

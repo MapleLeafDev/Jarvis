@@ -28,6 +28,6 @@ class Activity < ActiveRecord::Base
   end
 
   def date
-    (self.posted_at  + Time.now.in_time_zone(self.user.timezone).utc_offset).strftime('%F')
+    ((self.posted_at || self.created_at)  + Time.now.in_time_zone(self.user.timezone).utc_offset).strftime('%F')
   end
 end

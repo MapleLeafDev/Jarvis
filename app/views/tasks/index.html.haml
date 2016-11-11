@@ -1,4 +1,7 @@
-= render partial: 'users/tasks', locals: { family: @family, user: @current_user, tasks: @family.todays_tasks, section: t('family_tasks') }
+= render "sidenav"
 
--@members.each do |member|
-  = render partial: 'users/tasks', locals: { family: @family, user: member, tasks: member.todays_tasks, section: t('member_tasks', member: member.name) }
+.results-nav
+  #user-results
+    = render partial: 'users/tasks', locals: { family: @family, user: @current_user, tasks: @family.todays_tasks, section: t('family_tasks') }
+    -@members.each do |member|
+      = render partial: 'users/tasks', locals: { family: @family, user: member, tasks: member.todays_tasks, section: t('member_tasks', member: member.name) }

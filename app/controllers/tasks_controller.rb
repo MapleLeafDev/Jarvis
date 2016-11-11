@@ -9,11 +9,7 @@ class TasksController < ApplicationController
   end
 
   def new
-    if params[:family_id]
-      @task = Family.find_by_id(params[:family_id]).tasks.new()
-    else
-      @task = User.find_by_id(params[:user_id]).tasks.new()
-    end
+    @task = Task.new
   end
 
   def edit

@@ -1,3 +1,4 @@
 $("#loading").hide();
 $("#user-results").html('<%= escape_javascript(render "#{SocialMedia::TYPE_NAME[@feed.feed_type].downcase}") %>');
 $("#user-results").show();
+$("#bread-crumb").text('<%= escape_javascript("/ #{SocialMedia::TYPE_NAME[@feed.feed_type]}") %>');

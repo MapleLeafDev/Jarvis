@@ -43,7 +43,7 @@
     .col-md-9
       .material-switch{style: 'padding:12px 0px 0px 12px;'}
         %input{:name => "user[parent]", :type => "hidden", :value => 'off'}
-        %input#parent{:name => "user[parent]", :type => "checkbox", :checked => @user.parent, :onchange => "$('.notifications-group').toggle();"}
+        %input#parent{:name => "user[parent]", :type => "checkbox", :checked => @user.parent, :onchange => "$('.notifications-group').toggle();", :disabled => (current_user == @user)}
         %label.label-success{:for => "parent"}
   .form-group.notifications-group{style: "#{'display:none;' unless @user.parent}"}
     %label.col-md-3.control-label{:for => "notifications"}= t('notifications')

@@ -1,56 +1,5 @@
-:javascript
-  $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-  })
 
-.side-nav
-  .panel.panel-default
-    .panel-heading
-      %h4
-        .pull-right
-          -if current_user.parent?
-            =link_to content_tag(:i, nil, class: "fa fa-cog fa-1x"), edit_family_path(@family), remote: true
-        = link_to t('blank_family', family: @family.name), "/family", class: 'location'
-    .panel-body.visible-xs
-      %table.table.table-hover
-        %thead
-          %tr
-            %th= t('members')
-            %th{style: "width:32px;"}
-              -if current_user.parent?
-                = link_to content_tag(:i, nil, class: "fa fa-plus fa-1x"), new_user_path, remote: true
-        %tbody
-          %tr
-            %td{colspan: '2'}
-              -@members.each do |user|
-                = link_to image_tag(gravatar_for(user), class: "img-rounded", size: "40x40"), member_path(user), class: 'location'
-
-    .panel-body.hidden-xs
-      %table.table.table-hover
-        %thead
-          %tr
-            %th= t('portal_links')
-        %tbody
-          %tr
-            %td{colspan: '2'}= link_to t('family_portal'), "#{@family.portal_url}?token=#{current_user.get_token}", target: :blank
-          %tr
-            %td{colspan: '2'}= link_to t("auto_auth_link"), "/family?token=#{current_user.get_token}", target: :blank
-
-      %table.table.table-hover
-        %thead
-          %tr
-            %th= t('members')
-            %th
-              -if current_user.parent?
-                = link_to content_tag(:i, nil, class: "fa fa-plus fa-1x"), new_user_path, remote: true
-        %tbody
-          -@members.each do |user|
-            %tr{id: "user-#{user.id}-row"}
-              %td
-                %a.location.title-like{href: member_path(user), style: 'text-decoration:none;'}
-                  =image_tag(gravatar_for(user), class: "img-rounded", size: "35x35")
-                  =user.name
-              %td{style: "width:32px;"}
+= render "sidenav"
 
 .results-nav
   #user-results
