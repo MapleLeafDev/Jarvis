@@ -2,6 +2,7 @@
   -right = false
   -date = nil
   -@activities.each do |activity|
+    -next unless activity.posted_at
     -unless date == activity.date
       %li.timeline-date
         -date = activity.posted_at + Time.now.in_time_zone(activity.user.timezone).utc_offset
