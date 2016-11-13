@@ -1,3 +1,5 @@
-.modal-header
-  %h3= t('editing_task', task: @task.title)
-= render "form"
+.panel.panel-default
+  .panel-heading
+    %h4= t('editing_task', task: @task.title)
+  .panel-body
+    = render "form"

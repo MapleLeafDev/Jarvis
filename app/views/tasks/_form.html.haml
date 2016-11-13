@@ -37,27 +37,26 @@
     };
   };
 
-.modal-body
-  = bootstrap_form_for(@task, layout: :horizontal, label_col: "col-sm-3", control_col: "col-sm-7", remote: true) do |f|
-    .errors
-    = f.hidden_field :user_id
-    = f.hidden_field :family_id
-    -unless @task.family_id
-      = f.form_group :required do
-        = f.check_box :required, id: "required", label: t('views.required_for_allowance'), onclick: "setRequired();"
-    = f.text_field :title
-    = f.text_area :description, rows: "3", maxlength: "255"
-    = f.text_field :points, label: t('pays')
-    = f.form_group :daily do
-      = f.check_box :daily, id: "daily", onclick: "setDailyOccurance();"
-      = f.check_box :sunday, id: "sunday", onclick: "setSelectOccurance();"
-      = f.check_box :monday, id: "monday", onclick: "setSelectOccurance();"
-      = f.check_box :tuesday, id: "tuesday", onclick: "setSelectOccurance();"
-      = f.check_box :wednesday, id: "wednesday", onclick: "setSelectOccurance();"
-      = f.check_box :thursday, id: "thursday", onclick: "setSelectOccurance();"
-      = f.check_box :friday, id: "friday", onclick: "setSelectOccurance();"
-      = f.check_box :saturday, id: "saturday", onclick: "setSelectOccurance();"
+= bootstrap_form_for(@task, layout: :horizontal, label_col: "col-sm-3", control_col: "col-sm-7", remote: true) do |f|
+  .errors
+  = f.hidden_field :user_id
+  = f.hidden_field :family_id
+  -# -unless @task.family_id
+  -#   = f.form_group :required do
+  -#     = f.check_box :required, id: "required", label: t('views.required_for_allowance'), onclick: "setRequired();"
+  = f.text_field :title
+  = f.text_area :description, rows: "3", maxlength: "255"
+  -# = f.text_field :points, label: t('pays')
+  = f.form_group :daily do
+    = f.check_box :daily, id: "daily", onclick: "setDailyOccurance();"
+    = f.check_box :sunday, id: "sunday", onclick: "setSelectOccurance();"
+    = f.check_box :monday, id: "monday", onclick: "setSelectOccurance();"
+    = f.check_box :tuesday, id: "tuesday", onclick: "setSelectOccurance();"
+    = f.check_box :wednesday, id: "wednesday", onclick: "setSelectOccurance();"
+    = f.check_box :thursday, id: "thursday", onclick: "setSelectOccurance();"
+    = f.check_box :friday, id: "friday", onclick: "setSelectOccurance();"
+    = f.check_box :saturday, id: "saturday", onclick: "setSelectOccurance();"
+  .div{align: 'right'}
     = f.submit t('save'),class: "btn btn-primary"
-    = link_to t('cancel'), "", class: "btn btn-default", data: {dismiss: "modal"}
     -if params[:action] == "edit"
       = link_to t('delete'), @task, method: :delete, data: {confirm: t('are_you_sure')}, class: "btn btn-danger"
