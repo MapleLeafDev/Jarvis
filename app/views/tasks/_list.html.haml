@@ -5,6 +5,7 @@
         %h3.panel-title
           .pull-right{id: "task-#{task.id}"}
             -if completed_by = task.completed_by
+              =task.last_completion.completed.split("-").last(2).join("-")
               =image_tag(gravatar_for(completed_by), class: "img-rounded task-done-by", size: "25x25")
             -if task.completed?
               =content_tag(:i, nil, class: "fa fa-check-square-o fa-2x text-success")

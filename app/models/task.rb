@@ -12,8 +12,12 @@ class Task < ActiveRecord::Base
     completions.where(completed: Date.today.to_s).any?
   end
 
+  def last_completion
+    completions.last
+  end
+
   def completed_by
-    completions.any? ? completions.last.user : nil
+    last_completion ? last_completion.user : nil
   end
 
   def required?
