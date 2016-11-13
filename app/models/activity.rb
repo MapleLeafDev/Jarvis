@@ -14,7 +14,7 @@ class Activity < ActiveRecord::Base
   ]
 
   CSS_NAME = [
-    nil,
+    "check",
     "instagram",
     "facebook",
     "tumblr",

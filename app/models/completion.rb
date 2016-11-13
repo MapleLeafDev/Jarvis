@@ -10,10 +10,11 @@ class Completion < ActiveRecord::Base
   def create_activity
     if user.family_id
       Activity.create(
-        type_id: 1,
+        type_id: 0,
         user_id: user.id,
         family_id: user.family_id,
-        message: task.title
+        message: task.title,
+        posted_at: Time.now.utc
       )
     end
   end

@@ -10,6 +10,7 @@ task :update_stats => :environment do
         user.email_stats
       end
     end
+    user.clean_up
   end
   puts "<<< DONE >>>"
 end

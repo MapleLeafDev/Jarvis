@@ -4,8 +4,7 @@
   -@activities.each do |activity|
     -unless date == activity.date
       %li.timeline-date
-        -date = activity.full_date
-        .label.label-success="#{t('days')[date.wday]} #{l(date, format: :day_month)}"
+        .label.label-success="#{t('days')[activity.full_date.wday]} #{l(activity.full_date, format: :day_month)}"
     %li{class: "#{'timeline-inverted' if right}"}
       .timeline-badge
         =link_to content_tag(:i, nil, class: "fa fa-#{activity.css_class} fa-2x activity-post-link"), activity_post_link(activity), remote: true

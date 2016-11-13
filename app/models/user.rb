@@ -28,6 +28,12 @@ class User < ActiveRecord::Base
     ENV['REGISTRATION'] == "1" ? (family.registration && family.registration.end_date && family.registration.end_date > Date.today) : true
   end
 
+  def clean_up
+    date = Time.now.utc - 30.days
+    completions.each {|comp| comp.destroy if comp.created_at < date }
+    activities.each {|act| act.destroy if act.created_at < date }
+  end
+
   def parent?
     parent
   end

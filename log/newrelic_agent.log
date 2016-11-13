@@ -682,3 +682,23 @@
 [2016-11-13 08:36:42 -0800 DevBox (4308)] INFO : Doing deferred dependency-detection before Rack startup
 [2016-11-13 08:36:44 -0800 DevBox (4308)] INFO : Reporting to: https://rpm.newrelic.com/accounts/1394952/applications/21513558
 [2016-11-13 08:36:46 -0800 DevBox (4308)] INFO : Doing deferred dependency-detection before Rack startup
+[2016-11-13 08:57:38 -0800 DevBox (4308)] INFO : Starting Agent shutdown
+[2016-11-13 08:57:40 -0800 DevBox (4777)] INFO : Starting the New Relic agent in "development" environment.
+[2016-11-13 08:57:40 -0800 DevBox (4777)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2016-11-13 08:57:40 -0800 DevBox (4777)] INFO : Reading configuration from config/newrelic.yml (/home/jason/Development/Jarvis)
+[2016-11-13 08:57:40 -0800 DevBox (4777)] INFO : New Relic Agent Developer Mode enabled.
+[2016-11-13 08:57:40 -0800 DevBox (4777)] INFO : Environment: development
+[2016-11-13 08:57:40 -0800 DevBox (4777)] INFO : No known dispatcher detected.
+[2016-11-13 08:57:40 -0800 DevBox (4777)] INFO : Application: My Application (Development)
+[2016-11-13 08:57:41 -0800 DevBox (4777)] INFO : Installing Rails 3+ middleware instrumentation
+[2016-11-13 08:57:41 -0800 DevBox (4777)] INFO : Installing Net instrumentation
+[2016-11-13 08:57:41 -0800 DevBox (4777)] INFO : Installing deferred Rack::Builder instrumentation
+[2016-11-13 08:57:41 -0800 DevBox (4777)] INFO : Installing Rack::Builder middleware instrumentation
+[2016-11-13 08:57:41 -0800 DevBox (4777)] INFO : Installing ActiveRecord 4+ instrumentation
+[2016-11-13 08:57:41 -0800 DevBox (4777)] INFO : Installing Rails 4 Controller instrumentation
+[2016-11-13 08:57:41 -0800 DevBox (4777)] INFO : Installing Rails 4 Error instrumentation
+[2016-11-13 08:57:41 -0800 DevBox (4777)] INFO : Installing Rails 4 view instrumentation
+[2016-11-13 08:57:41 -0800 DevBox (4777)] INFO : Finished instrumentation
+[2016-11-13 08:57:41 -0800 DevBox (4777)] INFO : Doing deferred dependency-detection before Rack startup
+[2016-11-13 08:57:42 -0800 DevBox (4777)] INFO : Doing deferred dependency-detection before Rack startup
+[2016-11-13 08:57:43 -0800 DevBox (4777)] INFO : Reporting to: https://rpm.newrelic.com/accounts/1394952/applications/21513558
