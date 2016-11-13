@@ -3,7 +3,7 @@ class Completion < ActiveRecord::Base
   belongs_to :user
   belongs_to :task
 
-  after_create :apply_allowance, :create_activity
+  after_create :create_activity
 
   private
 
@@ -18,7 +18,4 @@ class Completion < ActiveRecord::Base
     end
   end
 
-  def apply_allowance
-    user.apply_allowance
-  end
 end

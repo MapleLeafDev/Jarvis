@@ -6,6 +6,7 @@ class TasksController < ApplicationController
   def index
     @family = current_user.family
     @members = @family.users
+    @tasks = @family.tasks
   end
 
   def new
@@ -18,7 +19,7 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-
+    @task.family_id = current_user.family_id
     if @task.save
       flash[:notice] = t('task_created', task: @task.title)
     end

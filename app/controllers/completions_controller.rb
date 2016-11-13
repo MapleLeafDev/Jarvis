@@ -3,14 +3,9 @@ class CompletionsController < ApplicationController
 
   def complete_task
     @task = Task.find_by_id(params[:task])
-    @user = User.find_by_id(params[:user])
 
-    if @task && @user
-      unless @task.completed?
-        if Completion.create(user_id: @user.id, task_id: @task.id, completed: Time.zone.today)
-          @user.update_attribute(:credits, @user.credits.to_i + @task.points.to_i)
-        end
-      end
+    if @task && !@task.completed?
+      Completion.create(user_id: current_user.id, task_id: @task.id, completed: Time.zone.today)
     end
   end
 

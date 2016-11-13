@@ -1,0 +1,18 @@
+-if @tasks.any?
+  -@tasks.each do |task|
+    .panel.panel-default
+      .panel-heading
+        .pull-right{id: "task-#{task.id}"}
+          -if task.completed?
+            =content_tag(:i, nil, class: "fa fa-check-square-o fa-2x")
+          -else
+            = link_to content_tag(:i, nil, class: "fa fa-square-o fa-2x"), complete_task_path(task: task.id), remote: true
+        -if current_user.parent?
+          = link_to task.title, edit_task_path(task), remote: true
+        -else
+          = task.title
+      -unless task.description.blank?
+        .panel-body
+          %em= task.description
+-else
+  %em= t('no_tasks')

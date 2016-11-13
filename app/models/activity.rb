@@ -27,6 +27,10 @@ class Activity < ActiveRecord::Base
     CSS_NAME[type_id]
   end
 
+  def full_date
+    ((self.posted_at || self.created_at)  + Time.now.in_time_zone(self.user.timezone).utc_offset)
+  end
+
   def date
     ((self.posted_at || self.created_at)  + Time.now.in_time_zone(self.user.timezone).utc_offset).strftime('%F')
   end
