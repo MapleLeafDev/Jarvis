@@ -413,3 +413,8 @@
   color: #428bca !important;
   margin-right: 10px;
 }
+
+.task-done-by {
+  margin-top:-12px;
+  margin-right:10px;
+}

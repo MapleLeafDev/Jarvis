@@ -2,15 +2,18 @@
   -@tasks.each do |task|
     .panel.panel-default
       .panel-heading
-        .pull-right{id: "task-#{task.id}"}
-          -if task.completed?
-            =content_tag(:i, nil, class: "fa fa-check-square-o fa-2x")
+        %h3.panel-title
+          .pull-right{id: "task-#{task.id}"}
+            -if completed_by = task.completed_by
+              =image_tag(gravatar_for(completed_by), class: "img-rounded task-done-by", size: "25x25")
+            -if task.completed?
+              =content_tag(:i, nil, class: "fa fa-check-square-o fa-2x text-success")
+            -else
+              = link_to content_tag(:i, nil, class: "fa fa-square-o fa-2x"), complete_task_path(task: task.id), remote: true
+          -if current_user.parent?
+            = link_to task.title, edit_task_path(task), remote: true
           -else
-            = link_to content_tag(:i, nil, class: "fa fa-square-o fa-2x"), complete_task_path(task: task.id), remote: true
-        -if current_user.parent?
-          = link_to task.title, edit_task_path(task), remote: true
-        -else
-          = task.title
+            = task.title
       -unless task.description.blank?
         .panel-body
           %em= task.description

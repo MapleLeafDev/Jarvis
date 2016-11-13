@@ -1180,6 +1180,12 @@ a.text-warning:hover {
 a.text-danger:hover {
   color: #c9302c;
 }
+.text-task {
+  color: #fff;
+}
+a.text-task:hover {
+  color: #93c54b;
+}
 .bg-primary {
   color: #fff;
   background-color: #325d88;

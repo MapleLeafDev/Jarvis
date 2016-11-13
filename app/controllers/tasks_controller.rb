@@ -5,7 +5,7 @@ class TasksController < ApplicationController
 
   def index
     @family = current_user.family
-    @members = @family.users
+    @members = @family.users.order(:dob)
     @tasks = @family.tasks
   end
 
