@@ -35,17 +35,17 @@
     %label.col-md-3.control-label= t('who')
     .col-md-9
       .panel-body
-        -current_user.family.children.each do |child|
+        -current_user.family.members.each do |member|
           %span{:style => "display:inline-block;"}
-            .span{:style => "margin-left:8px;"}=image_tag(gravatar_for(child), class: "img-rounded task-done-by", size: "25x25")
+            .span{:style => "margin-left:8px;"}=image_tag(gravatar_for(member), class: "img-rounded task-done-by", size: "25x25")
             .material-switch{style: 'padding:12px 0px 0px 12px;'}
-              %input{:name => "assigned[#{child.id}]", :type => "hidden", :value => 'off'}
-              %input{:id => "assigned-#{child.id}", :name => "assigned[#{child.id}]", :type => "checkbox", :checked => @assigned.include?(child.id.to_s), :onchange => "setDailyOccurance();"}
-              %label.label-success{:for => "assigned-#{child.id}"}
+              %input{:name => "assigned[#{member.id}]", :type => "hidden", :value => 'off'}
+              %input{:id => "assigned-#{member.id}", :name => "assigned[#{member.id}]", :type => "checkbox", :checked => @assigned.include?(member.id.to_s), :onchange => "setDailyOccurance();"}
+              %label.label-success{:for => "assigned-#{member.id}"}
   .form-group
     %label.col-md-3.control-label{:for => "description"}= t('what')
     .col-md-9
-      %textarea#description.form-control{:type => "text", :name => 'task[description]', :rows => "3", :maxlength => "255", :value => @task.description}
+      %textarea#description.form-control{:type => "text", :name => 'task[description]', :rows => "3", :maxlength => "255"}= @task.description
   .form-group
     %label.col-md-3.control-label= t('when')
     .col-md-9

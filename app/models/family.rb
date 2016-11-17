@@ -15,12 +15,16 @@ class Family < ActiveRecord::Base
     "http://#{Rails.env.development? ? 'localhost:3000' : 'www.ml-family.com'}/my_family/" + url
   end
 
+  def members
+    users.order(:dob)
+  end
+
   def parents
-    users.where(parent: true)
+    users.where(parent: true).order(:dob)
   end
 
   def children
-    users.where(parent: false)
+    users.where(parent: false).order(:dob)
   end
 
   def email

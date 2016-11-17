@@ -1,22 +1,33 @@
--if @tasks.any?
-  -@tasks.each do |task|
-    .panel.panel-default
-      .panel-heading
-        %h3.panel-title
-          .pull-right{id: "task-#{task.id}"}
-            -if completed_by = task.completed_by
-              =task.last_completion.completed.split("-").last(2).join("-")
-              =image_tag(gravatar_for(completed_by), class: "img-rounded task-done-by", size: "25x25")
-            -if task.completed?
-              =content_tag(:i, nil, class: "fa fa-check-square-o fa-2x text-success")
-            -else
-              = link_to content_tag(:i, nil, class: "fa fa-square-o fa-2x"), complete_task_path(task: task.id), remote: true
-          -if current_user.parent?
-            = link_to task.title, edit_task_path(task), remote: true
-          -else
-            = task.title
-      -unless task.description.blank?
-        .panel-body
-          %em= task.description
+-if @family.tasks.any?
+  -@tasks.each do |k,v|
+    -next unless v.any?
+    -user = User.find_by_id(k)
+    %table.table.table-hover
+      %thead
+        %tr
+          %td
+            %a.location.title-like{href: member_path(user), style: 'text-decoration:none;'}
+              =image_tag(gravatar_for(user), class: "img-rounded", size: "35x35")
+              =user.name
+      %tbody
+        -v.each do |t|
+          -task = Task.find_by_id(t)
+          %tr
+            %td
+              .pull-right{id: "task-#{task.id}"}
+                -if completed_by = task.completed_by
+                  =task.last_completion.completed.split("-").last(2).join("-")
+                  =image_tag(gravatar_for(completed_by), class: "img-rounded task-done-by", size: "25x25")
+                -if task.completed?
+                  =content_tag(:i, nil, class: "fa fa-check-square-o fa-2x text-success")
+                -else
+                  = link_to content_tag(:i, nil, class: "fa fa-square-o fa-2x"), complete_task_path(task: task.id), remote: true
+              -if current_user.parent?
+                = link_to task.title, edit_task_path(task), remote: true
+              -else
+                = task.title
+              %br
+              %em{:style => "color:grey;"}= task.description
+
 -else
   %em= t('no_tasks')
