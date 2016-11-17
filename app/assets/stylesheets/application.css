@@ -115,8 +115,9 @@
 .cd-top {
   display: inline-block;
   position: fixed;
-  bottom: 40px;
-  left: 50%;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   overflow: hidden;
   white-space: nowrap;
@@ -142,18 +143,6 @@
 .no-touch .cd-top:hover {
   background-color: #e86256;
   opacity: 1;
-}
-@media only screen and (min-width: 768px) {
-  .cd-top {
-    left: 50%;
-    bottom: 20px;
-  }
-}
-@media only screen and (min-width: 1024px) {
-  .cd-top {
-    left: 50%;
-    bottom: 30px;
-  }
 }
 
 .portal-pics {
@@ -418,4 +407,9 @@
   margin-top:-12px;
   margin-right:10px;
   margin-left:10px;
+}
+
+.panel-form {
+  padding-left: 10px;
+  padding-right: 10px;
 }

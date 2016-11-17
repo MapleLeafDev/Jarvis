@@ -130,6 +130,9 @@ en:
   user_created: User created
   user_updated: User updated
   weekly_allowance: "Weekly Allowance"
+  who: Who
+  what: What
+  when: When
 
   time:
     am: am
@@ -160,6 +163,15 @@ en:
     - Friday
     - Saturday
     - Sunday
+  days_abbr:
+    - Sun
+    - Mon
+    - Tue
+    - Wed
+    - Thu
+    - Fri
+    - Sat
+    - Sun
 
   time_ago:
     half_a_minute: "30s"

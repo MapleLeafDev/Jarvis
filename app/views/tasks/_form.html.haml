@@ -32,75 +32,71 @@
     .col-md-9
       %input#title.form-control{:type => "text", :name => 'task[title]', :value => @task.title}
   .form-group
-    %label.col-md-3.control-label{:for => "description"}= t('description')
+    %label.col-md-3.control-label= t('who')
     .col-md-9
-      %input#description.form-control{:type => "textarea", :name => 'task[description]', :rows => "3", :maxlength => "255", :value => @task.description}
+      .panel-body
+        -current_user.family.children.each do |child|
+          %span{:style => "display:inline-block;"}
+            .span{:style => "margin-left:8px;"}=image_tag(gravatar_for(child), class: "img-rounded task-done-by", size: "25x25")
+            .material-switch{style: 'padding:12px 0px 0px 12px;'}
+              %input{:name => "assigned[#{child.id}]", :type => "hidden", :value => 'off'}
+              %input{:id => "assigned-#{child.id}", :name => "assigned[#{child.id}]", :type => "checkbox", :checked => @assigned.include?(child.id.to_s), :onchange => "setDailyOccurance();"}
+              %label.label-success{:for => "assigned-#{child.id}"}
   .form-group
-    %label.col-md-3.control-label= t('assigned')
+    %label.col-md-3.control-label{:for => "description"}= t('what')
     .col-md-9
-      -current_user.family.children.each do |child|
-        %span{:style => "display:inline-block;"}
-          .span{:style => "margin-left:8px;"}=image_tag(gravatar_for(child), class: "img-rounded task-done-by", size: "25x25")
-          .material-switch{style: 'padding:12px 0px 0px 12px;'}
-            %input{:name => "assigned[#{child.id}]", :type => "hidden", :value => 'off'}
-            %input{:id => "assigned-#{child.id}", :name => "assigned[#{child.id}]", :type => "checkbox", :checked => @assigned.include?(child.id.to_s), :onchange => "setDailyOccurance();"}
-            %label.label-success{:for => "assigned-#{child.id}"}
+      %textarea#description.form-control{:type => "text", :name => 'task[description]', :rows => "3", :maxlength => "255", :value => @task.description}
   .form-group
-    %label.col-md-3.control-label= t('daily')
+    %label.col-md-3.control-label= t('when')
     .col-md-9
-      .material-switch{style: 'padding:12px 0px 0px 12px;'}
-        %input{:name => "task[daily]", :type => "hidden", :value => 'off'}
-        %input#daily{:name => "task[daily]", :type => "checkbox", :checked => @task.daily, :onchange => "setDailyOccurance();"}
-        %label.label-success{:for => "daily"}
-  .form-group
-    %label.col-md-3.control-label= t('sunday')
-    .col-md-9
-      .material-switch{style: 'padding:12px 0px 0px 12px;'}
-        %input{:name => "task[sunday]", :type => "hidden", :value => 'off'}
-        %input#sunday{:name => "task[sunday]", :type => "checkbox", :checked => @task.sunday, :onchange => "setSelectOccurance();"}
-        %label.label-success{:for => "sunday"}
-  .form-group
-    %label.col-md-3.control-label= t('monday')
-    .col-md-9
-      .material-switch{style: 'padding:12px 0px 0px 12px;'}
-        %input{:name => "task[monday]", :type => "hidden", :value => 'off'}
-        %input#monday{:name => "task[monday]", :type => "checkbox", :checked => @task.monday, :onchange => "setSelectOccurance();"}
-        %label.label-success{:for => "monday"}
-  .form-group
-    %label.col-md-3.control-label= t('tuesday')
-    .col-md-9
-      .material-switch{style: 'padding:12px 0px 0px 12px;'}
-        %input{:name => "task[tuesday]", :type => "hidden", :value => 'off'}
-        %input#tuesday{:name => "task[tuesday]", :type => "checkbox", :checked => @task.tuesday, :onchange => "setSelectOccurance();"}
-        %label.label-success{:for => "tuesday"}
-  .form-group
-    %label.col-md-3.control-label= t('wednesday')
-    .col-md-9
-      .material-switch{style: 'padding:12px 0px 0px 12px;'}
-        %input{:name => "task[wednesday]", :type => "hidden", :value => 'off'}
-        %input#wednesday{:name => "task[wednesday]", :type => "checkbox", :checked => @task.wednesday, :onchange => "setSelectOccurance();"}
-        %label.label-success{:for => "wednesday"}
-  .form-group
-    %label.col-md-3.control-label= t('thursday')
-    .col-md-9
-      .material-switch{style: 'padding:12px 0px 0px 12px;'}
-        %input{:name => "task[thursday]", :type => "hidden", :value => 'off'}
-        %input#thursday{:name => "task[thursday]", :type => "checkbox", :checked => @task.thursday, :onchange => "setSelectOccurance();"}
-        %label.label-success{:for => "thursday"}
-  .form-group
-    %label.col-md-3.control-label= t('friday')
-    .col-md-9
-      .material-switch{style: 'padding:12px 0px 0px 12px;'}
-        %input{:name => "task[friday]", :type => "hidden", :value => 'off'}
-        %input#friday{:name => "task[friday]", :type => "checkbox", :checked => @task.friday, :onchange => "setSelectOccurance();"}
-        %label.label-success{:for => "friday"}
-  .form-group
-    %label.col-md-3.control-label= t('saturday')
-    .col-md-9
-      .material-switch{style: 'padding:12px 0px 0px 12px;'}
-        %input{:name => "task[saturday]", :type => "hidden", :value => 'off'}
-        %input#saturday{:name => "task[saturday]", :type => "checkbox", :checked => @task.saturday, :onchange => "setSelectOccurance();"}
-        %label.label-success{:for => "saturday"}
+      %span{:style => "display:inline-block;"}
+        .span{:style => "margin-left:10px;"}= t('daily')
+        .material-switch{style: 'padding:12px 0px 0px 12px;'}
+          %input{:name => "task[daily]", :type => "hidden", :value => 'off'}
+          %input#daily{:name => "task[daily]", :type => "checkbox", :checked => @task.daily, :onchange => "setDailyOccurance();"}
+          %label.label-success{:for => "daily"}
+      %span{:style => "display:inline-block;"}
+        .span{:style => "margin-left:15px;"}= t('days_abbr')[7]
+        .material-switch{style: 'padding:12px 0px 0px 12px;'}
+          %input{:name => "task[sunday]", :type => "hidden", :value => 'off'}
+          %input#sunday{:name => "task[sunday]", :type => "checkbox", :checked => @task.sunday, :onchange => "setSelectOccurance();"}
+          %label.label-success{:for => "sunday"}
+      %span{:style => "display:inline-block;"}
+        .span{:style => "margin-left:15px;"}= t('days_abbr')[1]
+        .material-switch{style: 'padding:12px 0px 0px 12px;'}
+          %input{:name => "task[monday]", :type => "hidden", :value => 'off'}
+          %input#monday{:name => "task[monday]", :type => "checkbox", :checked => @task.monday, :onchange => "setSelectOccurance();"}
+          %label.label-success{:for => "monday"}
+      %span{:style => "display:inline-block;"}
+        .span{:style => "margin-left:15px;"}= t('days_abbr')[2]
+        .material-switch{style: 'padding:12px 0px 0px 12px;'}
+          %input{:name => "task[tuesday]", :type => "hidden", :value => 'off'}
+          %input#tuesday{:name => "task[tuesday]", :type => "checkbox", :checked => @task.tuesday, :onchange => "setSelectOccurance();"}
+          %label.label-success{:for => "tuesday"}
+      %span{:style => "display:inline-block;"}
+        .span{:style => "margin-left:15px;"}= t('days_abbr')[3]
+        .material-switch{style: 'padding:12px 0px 0px 12px;'}
+          %input{:name => "task[wednesday]", :type => "hidden", :value => 'off'}
+          %input#wednesday{:name => "task[wednesday]", :type => "checkbox", :checked => @task.wednesday, :onchange => "setSelectOccurance();"}
+          %label.label-success{:for => "wednesday"}
+      %span{:style => "display:inline-block;"}
+        .span{:style => "margin-left:15px;"}= t('days_abbr')[4]
+        .material-switch{style: 'padding:12px 0px 0px 12px;'}
+          %input{:name => "task[thursday]", :type => "hidden", :value => 'off'}
+          %input#thursday{:name => "task[thursday]", :type => "checkbox", :checked => @task.thursday, :onchange => "setSelectOccurance();"}
+          %label.label-success{:for => "thursday"}
+      %span{:style => "display:inline-block;"}
+        .span{:style => "margin-left:15px;"}= t('days_abbr')[5]
+        .material-switch{style: 'padding:12px 0px 0px 12px;'}
+          %input{:name => "task[friday]", :type => "hidden", :value => 'off'}
+          %input#friday{:name => "task[friday]", :type => "checkbox", :checked => @task.friday, :onchange => "setSelectOccurance();"}
+          %label.label-success{:for => "friday"}
+      %span{:style => "display:inline-block;"}
+        .span{:style => "margin-left:15px;"}= t('days_abbr')[6]
+        .material-switch{style: 'padding:12px 0px 0px 12px;'}
+          %input{:name => "task[saturday]", :type => "hidden", :value => 'off'}
+          %input#saturday{:name => "task[saturday]", :type => "checkbox", :checked => @task.saturday, :onchange => "setSelectOccurance();"}
+          %label.label-success{:for => "saturday"}
   .form-group
     %label.col-md-3.control-label
     .col-md-9{align: 'right'}
