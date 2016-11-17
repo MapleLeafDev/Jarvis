@@ -57,7 +57,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    if family_params
+    if params[:family]
       unless @family = Family.find_by_url(family_params[:url])
         @family = Family.new(family_params)
         @family.url = @family.name + "-" + Family.random_id

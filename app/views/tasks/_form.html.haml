@@ -1,12 +1,4 @@
 :javascript
-  $(document).ready(function(){
-    setRequired();
-  });
-
-  function setAssigned(){
-    $('#assignee').toggle();
-  }
-
   function setDailyOccurance(){
     if ($('#daily').is(':checked')) {
       $('#as_needed').attr("checked", false);
@@ -28,35 +20,90 @@
     }
   };
 
-  function setRequired(){
-    if ($('#required').is(':checked')) {
-      $('#task_points').val('0');
-      $('#task_points').attr("disabled", true);
-    } else {
-      $('#task_points').attr("disabled", false);
-    };
-  };
-
-= bootstrap_form_for(@task, layout: :horizontal, label_col: "col-sm-3", control_col: "col-sm-7", remote: true) do |f|
-  .errors
-  = f.hidden_field :user_id
-  = f.hidden_field :family_id
-  -# -unless @task.family_id
-  -#   = f.form_group :required do
-  -#     = f.check_box :required, id: "required", label: t('views.required_for_allowance'), onclick: "setRequired();"
-  = f.text_field :title
-  = f.text_area :description, rows: "3", maxlength: "255"
-  -# = f.text_field :points, label: t('pays')
-  = f.form_group :daily do
-    = f.check_box :daily, id: "daily", onclick: "setDailyOccurance();"
-    = f.check_box :sunday, id: "sunday", onclick: "setSelectOccurance();"
-    = f.check_box :monday, id: "monday", onclick: "setSelectOccurance();"
-    = f.check_box :tuesday, id: "tuesday", onclick: "setSelectOccurance();"
-    = f.check_box :wednesday, id: "wednesday", onclick: "setSelectOccurance();"
-    = f.check_box :thursday, id: "thursday", onclick: "setSelectOccurance();"
-    = f.check_box :friday, id: "friday", onclick: "setSelectOccurance();"
-    = f.check_box :saturday, id: "saturday", onclick: "setSelectOccurance();"
-  .div{align: 'right'}
-    = f.submit t('save'),class: "btn btn-primary"
-    -if params[:action] == "edit"
-      = link_to t('delete'), @task, method: :delete, data: {confirm: t('are_you_sure')}, class: "btn btn-danger"
+%form.form-horizontal{"accept-charset" => "UTF-8", :action => (@task.id ? task_path(@task) : '/tasks'), "data-remote" => "true", :method => (@task.id ? "patch" : "post"), :role => "form"}
+  %div{:style => "display:none"}
+    %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+  .form-group{style: "margin-bottom:0px;"}
+    %label.col-md-3.control-label
+    .col-md-9
+      .errors
+  .form-group
+    %label.col-md-3.control-label{:for => "title"}= t('title')
+    .col-md-9
+      %input#title.form-control{:type => "text", :name => 'task[title]', :value => @task.title}
+  .form-group
+    %label.col-md-3.control-label{:for => "description"}= t('description')
+    .col-md-9
+      %input#description.form-control{:type => "textarea", :name => 'task[description]', :rows => "3", :maxlength => "255", :value => @task.description}
+  .form-group
+    %label.col-md-3.control-label= t('assigned')
+    .col-md-9
+      -current_user.family.children.each do |child|
+        %span{:style => "display:inline-block;"}
+          .span{:style => "margin-left:8px;"}=image_tag(gravatar_for(child), class: "img-rounded task-done-by", size: "25x25")
+          .material-switch{style: 'padding:12px 0px 0px 12px;'}
+            %input{:name => "assigned[#{child.id}]", :type => "hidden", :value => 'off'}
+            %input{:id => "assigned-#{child.id}", :name => "assigned[#{child.id}]", :type => "checkbox", :checked => @assigned.include?(child.id.to_s), :onchange => "setDailyOccurance();"}
+            %label.label-success{:for => "assigned-#{child.id}"}
+  .form-group
+    %label.col-md-3.control-label= t('daily')
+    .col-md-9
+      .material-switch{style: 'padding:12px 0px 0px 12px;'}
+        %input{:name => "task[daily]", :type => "hidden", :value => 'off'}
+        %input#daily{:name => "task[daily]", :type => "checkbox", :checked => @task.daily, :onchange => "setDailyOccurance();"}
+        %label.label-success{:for => "daily"}
+  .form-group
+    %label.col-md-3.control-label= t('sunday')
+    .col-md-9
+      .material-switch{style: 'padding:12px 0px 0px 12px;'}
+        %input{:name => "task[sunday]", :type => "hidden", :value => 'off'}
+        %input#sunday{:name => "task[sunday]", :type => "checkbox", :checked => @task.sunday, :onchange => "setSelectOccurance();"}
+        %label.label-success{:for => "sunday"}
+  .form-group
+    %label.col-md-3.control-label= t('monday')
+    .col-md-9
+      .material-switch{style: 'padding:12px 0px 0px 12px;'}
+        %input{:name => "task[monday]", :type => "hidden", :value => 'off'}
+        %input#monday{:name => "task[monday]", :type => "checkbox", :checked => @task.monday, :onchange => "setSelectOccurance();"}
+        %label.label-success{:for => "monday"}
+  .form-group
+    %label.col-md-3.control-label= t('tuesday')
+    .col-md-9
+      .material-switch{style: 'padding:12px 0px 0px 12px;'}
+        %input{:name => "task[tuesday]", :type => "hidden", :value => 'off'}
+        %input#tuesday{:name => "task[tuesday]", :type => "checkbox", :checked => @task.tuesday, :onchange => "setSelectOccurance();"}
+        %label.label-success{:for => "tuesday"}
+  .form-group
+    %label.col-md-3.control-label= t('wednesday')
+    .col-md-9
+      .material-switch{style: 'padding:12px 0px 0px 12px;'}
+        %input{:name => "task[wednesday]", :type => "hidden", :value => 'off'}
+        %input#wednesday{:name => "task[wednesday]", :type => "checkbox", :checked => @task.wednesday, :onchange => "setSelectOccurance();"}
+        %label.label-success{:for => "wednesday"}
+  .form-group
+    %label.col-md-3.control-label= t('thursday')
+    .col-md-9
+      .material-switch{style: 'padding:12px 0px 0px 12px;'}
+        %input{:name => "task[thursday]", :type => "hidden", :value => 'off'}
+        %input#thursday{:name => "task[thursday]", :type => "checkbox", :checked => @task.thursday, :onchange => "setSelectOccurance();"}
+        %label.label-success{:for => "thursday"}
+  .form-group
+    %label.col-md-3.control-label= t('friday')
+    .col-md-9
+      .material-switch{style: 'padding:12px 0px 0px 12px;'}
+        %input{:name => "task[friday]", :type => "hidden", :value => 'off'}
+        %input#friday{:name => "task[friday]", :type => "checkbox", :checked => @task.friday, :onchange => "setSelectOccurance();"}
+        %label.label-success{:for => "friday"}
+  .form-group
+    %label.col-md-3.control-label= t('saturday')
+    .col-md-9
+      .material-switch{style: 'padding:12px 0px 0px 12px;'}
+        %input{:name => "task[saturday]", :type => "hidden", :value => 'off'}
+        %input#saturday{:name => "task[saturday]", :type => "checkbox", :checked => @task.saturday, :onchange => "setSelectOccurance();"}
+        %label.label-success{:for => "saturday"}
+  .form-group
+    %label.col-md-3.control-label
+    .col-md-9{align: 'right'}
+      -if current_user.parent? && @task.id
+        = link_to t("delete"), task_path(@task), method: :delete, data: {confirm: t('are_you_sure')}, remote: true, class: "btn btn-danger"
+      %input.btn.btn-primary{:name => "commit", :type => "submit", :value => t('save')}/

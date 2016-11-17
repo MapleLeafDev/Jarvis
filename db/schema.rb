@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160810152840) do
+ActiveRecord::Schema.define(version: 20161117003159) do
 
   create_table "activities", force: true do |t|
     t.integer  "user_id"
@@ -132,7 +132,7 @@ ActiveRecord::Schema.define(version: 20160810152840) do
     t.datetime "custom_start"
     t.integer  "points"
     t.boolean  "as_needed"
-    t.boolean  "assigned"
+    t.string   "assigned"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.boolean  "required"
