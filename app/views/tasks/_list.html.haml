@@ -15,8 +15,6 @@
           %tr
             %td
               .pull-right{id: "task-#{task.id}"}
-                -if completed_by = task.completed_by
-                  =image_tag(gravatar_for(completed_by), class: "img-rounded task-done-by", size: "25x25")
                 -if task.completed?
                   =content_tag(:i, nil, class: "fa fa-check-square-o fa-2x text-success")
                 -else
