@@ -14,7 +14,7 @@ class FamiliesController < ApplicationController
 
   def my_family
     if @family = Family.find_by_url(params[:url])
-      @users = @family.users
+      @users = @family.members
     else
       redirect_to root_url
     end
