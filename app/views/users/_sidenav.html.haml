@@ -9,7 +9,9 @@
           -if current_user.parent?
             %span{style: "padding-left:10px;"}
               =link_to content_tag(:i, nil, class: "fa fa-cog fa-1x"), edit_user_path(@user), remote: true
-        = link_to @user.name, member_path(@user), class: 'location'
+        %a.location.title-like{href: member_path(@user), style: 'text-decoration:none;'}
+          =image_tag(gravatar_for(@user), class: "img-rounded", size: "35x35")
+          =@user.name
     .panel-body.visible-xs
       -unless current_user.expired?
         %table.table.table-hover
@@ -25,9 +27,28 @@
                 %td{colspan: '2'}
                   -@user.social_medium.each do |feed|
                     =link_to content_tag(:i, nil, class: "fa fa-#{feed.css_class} fa-3x"), user_social_medium_path(@user, feed, {type: 'recent'}), remote: true, onclick: "loadingSocialMedia();"
+            -else
+              %tr
+                %td{:colspan => "2"}
+                  %em{:style => "color:grey;"}= t("none")
+
+        %table.table.table-hover
+          %thead
+            %tr
+              %th= t('tasks')
+          %tbody
+            -@tasks.each do |t|
+              -task = Task.find_by_id(t)
+              %tr
+                %td
+                  .pull-right{id: "task-#{task.id}"}
+                    -if task.completed?
+                      =content_tag(:i, nil, class: "fa fa-check-square-o fa-2x text-success")
+                    -else
+                      = link_to content_tag(:i, nil, class: "fa fa-square-o fa-2x"), complete_task_path(task: task.id), remote: true
+                  = task.title
 
     .panel-body.hidden-xs
-      %div{align: "center"}= link_to image_tag(gravatar_for(@user), class: "img-rounded"), user_path(@user)
       -unless current_user.expired?
         %table.table.table-hover
           %thead

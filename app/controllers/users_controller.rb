@@ -15,6 +15,8 @@ class UsersController < ApplicationController
 
   def show
     @activities = @user.activities.order('posted_at desc')
+    @tasks = Task.sort_by_member(@user.family_id)[@user.id]
+    puts @tasks
   end
 
   def new
