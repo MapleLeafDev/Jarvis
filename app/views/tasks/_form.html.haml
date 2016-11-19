@@ -103,6 +103,7 @@
       -if current_user.parent? && @task.id
         = link_to t("delete"), task_path(@task), method: :delete, data: {confirm: t('are_you_sure')}, remote: true, class: "btn btn-danger"
       %input.btn.btn-primary{:name => "commit", :type => "submit", :value => t('save')}/
+      = link_to t("cancel"), '/tasks', class: "btn btn-info"
 
 -completions = @task.completions.last(10).reverse
 -if completions.any?

@@ -58,3 +58,4 @@
       -if @user.id && current_user.parent? && current_user != @user
         = link_to t("delete"), user_path(@user), method: :delete, data: {confirm: t('are_you_sure')}, remote: true, class: "btn btn-danger"
       %input.btn.btn-primary{:name => "commit", :type => "submit", :value => t('save')}/
+      = link_to t("cancel"), '/family', class: "btn btn-info"

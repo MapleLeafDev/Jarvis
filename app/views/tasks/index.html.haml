@@ -1,9 +1,13 @@
-= render "sidenav"
+= render "families/sidenav"
 
 .results-nav
   #user-results
     .panel.panel-default
       .panel-heading
-        %h4= t("tasks")
+        %h4
+          .pull-right
+            -if current_user.parent?
+              =link_to content_tag(:i, nil, class: "fa fa-plus fa-1x"), new_task_path, remote: true
+          = t("tasks")
       .panel-body
         = render partial: 'list'
