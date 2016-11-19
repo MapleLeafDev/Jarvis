@@ -22,11 +22,11 @@ class Task < ActiveRecord::Base
 
   def up_next
     assigned_array = assigned.split(",")
-    (assigned_array[assigned_array.index(completed_by.id.to_s) + 1] || assigned_array[0]) rescue assigned_array.first
+    (assigned_array[assigned_array.index(completed_by.id.to_s) + (completed? ? 0 : 1)] || assigned_array[0]) rescue assigned_array.first
   end
 
   def today
-    user = User.find_by_id(self.up_next)
+    user = User.find_by_id(assigned.split(",")[0])
     date = Time.now.utc + Time.now.in_time_zone(user.timezone).utc_offset
     "#{date.year}-#{date.month}-#{date.day}"
   end
