@@ -22,15 +22,7 @@ class Task < ActiveRecord::Base
 
   def up_next
     assigned_array = assigned.split(",")
-    begin
-      if completed?
-        (assigned_array[assigned_array.index(completed_by.id.to_s)] || assigned_array[0])
-      else
-        (assigned_array[assigned_array.index(completed_by.id.to_s) + 1] || assigned_array[0])
-      end
-    rescue
-      assigned_array.first
-    end
+    (assigned_array[assigned_array.index(completed_by.id.to_s) + 1] || assigned_array[0]) rescue assigned_array.first
   end
 
   def today
