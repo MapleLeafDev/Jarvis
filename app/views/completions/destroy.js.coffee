@@ -1,1 +1,1 @@
-$("#completion-<%= @completion.id %>").fadeOut "fast"
+$("#comp-<%= @completion.id %>").fadeOut "fast"

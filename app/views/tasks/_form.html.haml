@@ -101,9 +101,9 @@
     %label.col-md-3.control-label
     .col-md-9{align: 'right'}
       -if current_user.parent? && @task.id
-        = link_to t("delete"), task_path(@task), method: :delete, data: {confirm: t('are_you_sure')}, remote: true, class: "btn btn-danger"
-      %input.btn.btn-primary{:name => "commit", :type => "submit", :value => t('save')}/
-      = link_to t("cancel"), '/tasks', class: "btn btn-info"
+        = link_to t("delete"), task_path(@task), method: :delete, data: {confirm: t('are_you_sure')}, remote: true, class: "btn btn-sm btn-danger"
+      %input.btn.btn-primary.btn-sm{:name => "commit", :type => "submit", :value => t('save')}/
+      = link_to t("cancel"), '/tasks', class: "btn btn-sm btn-info"
 
 -completions = @task.completions.last(10).reverse
 -if completions.any?
@@ -112,11 +112,14 @@
       %tr
         %th= t("history")
         %th
+        %th{:style => "width:32px;"}
     %tbody
       -completions.each do |completion|
-        %tr
+        %tr{:id => "comp-#{completion.id}"}
           %td{:style => "padding-top:10px;"}
             =image_tag(gravatar_for(completion.user), class: "img-rounded task-done-by", size: "25x25")
             =completion.user.name
           %td{:align => "right"}
             =completion.completed
+          %td
+            = link_to content_tag(:i, nil, class: "fa fa-times-circle text-danger"), completion_path(completion), method: :delete, data: {confirm: t('are_you_sure')}, remote: true
