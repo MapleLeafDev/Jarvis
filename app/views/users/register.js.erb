@@ -1,6 +1,7 @@
 var el = $('.errors');
+var famEl = $('.fam-errors');
 
-<% if @user.errors.any? %>
+<% if @user.errors.any? || @family.errors.any? %>
   var errors = $('<ul />');
 
   <% @user.errors.full_messages.each do |error| %>
@@ -14,8 +15,21 @@ var el = $('.errors');
   el.html(errors);
   el.addClass('alert alert-danger');
 
+  var famErrors = $('<ul />');
+
+  <% @family.errors.full_messages.each do |error| %>
+    famErrors.append("<li><%= escape_javascript( error ) %></li>");
+  <% end %>
+
+  <% @family.errors.messages.each do |k,v| %>
+    $('#<%= k.to_s %>').parent().parent().addClass('has-error');
+  <% end %>
+
+  famEl.html(famErrors);
+  famEl.addClass('alert alert-danger');
+
 <% else %>
 
-  location.reload(true);
+  window.location = "/family";
 
 <% end %>

@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  has_secure_password
   paginates_per 25
 
   belongs_to :family
@@ -12,9 +11,9 @@ class User < ActiveRecord::Base
   has_one :social_medium_stat, dependent: :destroy
 
   validates_presence_of :name
-  validates :email, allow_blank: true, uniqueness: true
-  validates :email, allow_blank: true, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "invalid format" }
-  validates :pin, allow_blank: true, numericality: {only_integer: true}, length: {is: 4}
+  validates :email, uniqueness: true, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "invalid format" }
+  has_secure_password
+  validates :pin, numericality: {only_integer: true}, length: {is: 4}
 
   scope :default_order, -> {order('parent')}
 

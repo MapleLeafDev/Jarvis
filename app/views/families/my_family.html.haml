@@ -47,11 +47,8 @@
         %a.right.carousel-control{"data-slide" => "next", :href => "#child-login", :role => "button"}
           %span.fa.fa-chevron-right
       / Carousel
-      .form-group{style: 'padding-top:15px;'}
-        -# %label.col-md-3.control-label{:for => "pin"}= t('pin')
-        .col-md-12
+      .form-group{style: 'padding:15px 15px 0px 15px;'}
+        .input-group
           %input#pin.form-control{:type => "password", :name => 'pin', :placeholder => t('pin'), :value => params[:pin]}
-      -# .form-group
-      -#   = password_field_tag :pin, '', placeholder: t('pin'), class: "form-control"
-      %div{align: 'center'}
-        %button.btn.btn-primary.btn-sm{:type => "submit"}= t('sign_in')
+          %span.input-group-btn
+            %button.btn.btn-primary{:type => "submit"}= t('sign_in')

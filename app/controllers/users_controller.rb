@@ -39,19 +39,18 @@ class UsersController < ApplicationController
     end
 
     @user = User.new(user_params)
-    @user.family_id = current_user.family_id if current_user
-    @user.family_id = @family.id if @family
     @user.enabled = true
     @user.valid?
 
     unless @user.errors.any? || @family.errors.any?
-      @user.save
       @family.save
+      @user.family_id = @family.id
+      @user.save
       session[:user_id] = @user.id
       flash[:notice] = t('user_created')
     else
+      puts @family.errors.full_messages
       @family.url = nil
-      render :signup, layout: 'login'
     end
   end
 
