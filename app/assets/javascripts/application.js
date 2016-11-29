@@ -58,6 +58,17 @@ $(document).ready(function(){
 		 	}, scroll_top_duration
 		);
 	});
+
+  $('.num').click(function () {
+    var num = $(this);
+    var text = $.trim(num.find('.txt').clone().children().remove().end().text());
+    var pinNumber = $('#pin');
+    $(pinNumber).val(pinNumber.val() + text);
+  });
+  $('.clear').click(function () {
+    var pinNumber = $('#pin');
+    $(pinNumber).val("");
+  });
 });
 
 function toggleUser( id ) {

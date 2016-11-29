@@ -49,6 +49,11 @@
       / Carousel
       .form-group{style: 'padding:15px 15px 0px 15px;'}
         .input-group
-          %input#pin.form-control{:type => "password", :name => 'pin', :placeholder => t('pin'), :value => params[:pin]}
+          %input#pin.form-control.tel{:type => "text", :name => 'pin', :placeholder => t('pin'), :value => params[:pin]}
           %span.input-group-btn
             %button.btn.btn-primary{:type => "submit"}= t('sign_in')
+    -(0..9).each do |num|
+      %button.btn.btn-sm.btn-default
+        .num
+          .txt= num.to_s
+    %button.btn.btn-sm.btn-default.clear= t("clear")
