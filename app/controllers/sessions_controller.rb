@@ -23,7 +23,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    url = current_user.family.portal_url
     session[:user_id] = nil
-    redirect_to root_url
+    redirect_to url
   end
 end

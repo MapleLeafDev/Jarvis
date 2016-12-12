@@ -19,52 +19,52 @@
     $('#id').val(x);
   }
 
-.panel.panel-default.portal-pics
-  .panel-heading
-    %h4= t('blank_family', family: @family.name)
-  .panel-body{align: 'center'}
-    %form.form-horizontal{"accept-charset" => "UTF-8", :action => sessions_path, "data-remote" => "true", :method => "post", :role => "form"}
-      %div{:style => "display:none"}
-        %input{:name => "utf8", :type => "hidden", :value => "✓"}
-        %input#id{:name => "id", :type => "hidden", :value => @users.first.id}
-      .error
-      #child-login.carousel.slide{"data-ride" => "carousel"}
-        / Indicators
-        %ol.carousel-indicators
-          - c = 0
-          -@users.each_slice(1) do |user|
-            %li{"data-slide-to" => "#{c}", "data-target" => "#carousel-example-generic", class: "#{'active' if user == @users.first}"}
-            - c += 1
-        / Wrapper for slides
-        .carousel-inner
-          -@users.each do |user|
-            .item{id: "#{user.id}", class: "#{'active' if user == @users.first}"}
-              %img{:alt => "...", :src => "#{gravatar_for(user, 400)}"}/
+-# .panel.panel-default.portal-pics
+-#   .panel-heading
+-#     %h4= t('blank_family', family: @family.name)
+-#   .panel-body{align: 'center'}
+%form.form-horizontal{"accept-charset" => "UTF-8", :action => sessions_path, "data-remote" => "true", :method => "post", :role => "form"}
+  %div{:style => "display:none"}
+    %input{:name => "utf8", :type => "hidden", :value => "✓"}
+    %input#id{:name => "id", :type => "hidden", :value => @users.first.id}
+  .error
+  #child-login.carousel.slide{"data-ride" => "carousel"}
+    / Indicators
+    %ol.carousel-indicators
+      - c = 0
+      -@users.each_slice(1) do |user|
+        %li{"data-slide-to" => "#{c}", "data-target" => "#carousel-example-generic", class: "#{'active' if user == @users.first}"}
+        - c += 1
+    / Wrapper for slides
+    .carousel-inner
+      -@users.each do |user|
+        .item{id: "#{user.id}", class: "#{'active' if user == @users.first}"}
+          %img{:alt => "...", :src => "#{gravatar_for(user, 400)}"}/
 
-        / Controls
-        %a.left.carousel-control{"data-slide" => "prev", :href => "#child-login", :role => "button"}
-          %span.fa.fa-chevron-left
-        %a.right.carousel-control{"data-slide" => "next", :href => "#child-login", :role => "button"}
-          %span.fa.fa-chevron-right
-      / Carousel
-      .form-group{style: 'padding:15px 15px 0px 15px;'}
-        .input-group
-          %input#pin.form-control.tel{:type => "text", :name => 'pin', :placeholder => t('pin'), :value => params[:pin]}
+    / Controls
+    %a.left.carousel-control{"data-slide" => "prev", :href => "#child-login", :role => "button"}
+      %span.fa.fa-chevron-left
+    %a.right.carousel-control{"data-slide" => "next", :href => "#child-login", :role => "button"}
+      %span.fa.fa-chevron-right
+  / Carousel
+  .form-group
+    .input-group{style: 'width: 100%; padding: 15px 15px 0px 15px;'}
+      %input#pin.form-control.tel{:type => "text", :name => 'pin', :placeholder => t('pin'), :value => params[:pin]}
 
-  %table.table.table-bordered{:style => "width:100%;", :align => "center"}
-    %tr
-      %td.num{:style => "width:33%;"}= "1"
-      %td.num{:style => "width:33%;"}= "2"
-      %td.num{:style => "width:33%;"}= "3"
-    %tr
-      %td.num= "4"
-      %td.num= "5"
-      %td.num= "6"
-    %tr
-      %td.num= "7"
-      %td.num= "8"
-      %td.num= "9"
-    %tr
-      %td.clear= t("clear")
-      %td.num= "0"
-      %td.submit.bg-primary= t("submit")
+%table.table.table-bordered{:style => "width:100%;", :align => "center"}
+  %tr
+    %td.num.text-center.col-xs-4= "1"
+    %td.num.text-center.col-xs-4= "2"
+    %td.num.text-center.col-xs-4= "3"
+  %tr
+    %td.num.text-center= "4"
+    %td.num.text-center= "5"
+    %td.num.text-center= "6"
+  %tr
+    %td.num.text-center= "7"
+    %td.num.text-center= "8"
+    %td.num.text-center= "9"
+  %tr
+    %td.clear.text-center= t("clear")
+    %td.num.text-center= "0"
+    %td.submit.bg-primary.text-center= t("submit")
