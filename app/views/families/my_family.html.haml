@@ -50,10 +50,21 @@
       .form-group{style: 'padding:15px 15px 0px 15px;'}
         .input-group
           %input#pin.form-control.tel{:type => "text", :name => 'pin', :placeholder => t('pin'), :value => params[:pin]}
-          %span.input-group-btn
-            %button.btn.btn-primary{:type => "submit"}= t('sign_in')
-    -(0..9).each do |num|
-      %button.btn.btn-sm.btn-default
-        .num
-          .txt= num.to_s
-    %button.btn.btn-sm.btn-default.clear= t("clear")
+
+  %table.table.table-bordered{:style => "width:100%;", :align => "center"}
+    %tr
+      %td.num{:style => "width:33%;"}= "1"
+      %td.num{:style => "width:33%;"}= "2"
+      %td.num{:style => "width:33%;"}= "3"
+    %tr
+      %td.num= "4"
+      %td.num= "5"
+      %td.num= "6"
+    %tr
+      %td.num= "7"
+      %td.num= "8"
+      %td.num= "9"
+    %tr
+      %td.clear= t("clear")
+      %td.num= "0"
+      %td.submit.bg-primary= t("submit")

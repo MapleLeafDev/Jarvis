@@ -60,14 +60,17 @@ $(document).ready(function(){
 	});
 
   $('.num').click(function () {
-    var num = $(this);
-    var text = $.trim(num.find('.txt').clone().children().remove().end().text());
-    var pinNumber = $('#pin');
-    $(pinNumber).val(pinNumber.val() + text);
+    var cell = $(this);
+    var text = $(cell).text();
+    var pin = $('#pin');
+    pin.val(pin.val() + text);
   });
   $('.clear').click(function () {
-    var pinNumber = $('#pin');
-    $(pinNumber).val("");
+    var pin = $('#pin');
+    pin.val("");
+  });
+  $('.submit').click(function () {
+    $("form").submit();
   });
 });
 
