@@ -6,7 +6,7 @@ class TasksController < ApplicationController
   def index
     @family = current_user.family
     @members = @family.users.order(:dob)
-    @tasks = Task.sort_by_member(@family.id)
+    @tasks = @family.tasks #Task.sort_by_member(@family.id)
   end
 
   def new

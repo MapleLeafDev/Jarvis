@@ -413,3 +413,14 @@
   padding-left: 10px;
   padding-right: 10px;
 }
+
+.width-40 {
+  width: 40px;
+}
+.width-32 {
+  width: 32px;
+}
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

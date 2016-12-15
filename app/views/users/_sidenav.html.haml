@@ -12,57 +12,58 @@
         %a.location.title-like{href: member_path(@user), style: 'text-decoration:none;'}
           =image_tag(gravatar_for(@user), class: "img-rounded", size: "35x35")
           =@user.name
-    .panel-body.visible-xs
+    .panel-body
       -unless current_user.expired?
-        %table.table.table-hover
-          %thead
-            %tr
-              %th= t('social_media')
-              %th{style: "width:32px;"}
-                -if @user == current_user
-                  = link_to content_tag(:i, nil, class: "fa fa-cog fa-1x"), social_medium_users_path(id: @user.id), remote: true
-          %tbody
-            -if @user.social_medium.any?
+        .visible-xs
+          %table.table.table-hover
+            %thead
               %tr
-                %td{colspan: '2'}
-                  -@user.social_medium.each do |feed|
-                    =link_to content_tag(:i, nil, class: "fa fa-#{feed.css_class} fa-3x"), user_social_medium_path(@user, feed, {type: 'recent'}), remote: true, onclick: "loadingSocialMedia();"
-            -else
+                %th
+                  .pull-right
+                    -if @user == current_user
+                      = link_to content_tag(:i, nil, class: "fa fa-cog fa-1x"), social_medium_users_path(id: @user.id), remote: true
+                  = t('social_media')
+            %tbody
+              -if @user.social_medium.any?
+                %tr
+                  %td
+                    -@user.social_medium.each do |feed|
+                      =link_to content_tag(:i, nil, class: "fa fa-#{feed.css_class} fa-3x"), user_social_medium_path(@user, feed, {type: 'recent'}), remote: true, onclick: "loadingSocialMedia();"
+              -else
+                %tr
+                  %td
+                    %em.text-muted= t("none")
+
+        .hidden-xs
+          %table.table.table-hover
+            %thead
               %tr
-                %td{:colspan => "2"}
-                  %em{:style => "color:grey;"}= t("none")
+                %th
+                  .pull-right
+                    -if @user == current_user
+                      = link_to content_tag(:i, nil, class: "fa fa-cog fa-1x"), social_medium_users_path(id: @user.id), remote: true
+                  = t('social_media')
+            %tbody
+              -if @user.social_medium.any?
+                -@user.social_medium.each do |feed|
+                  %tr
+                    %td
+                      %a.title-like{href: "#{user_social_medium_path(@user, feed, {type: 'recent'})}", data: {remote: "true"}, onclick: "loadingSocialMedia();", style: 'text-decoration:none;'}
+                        = content_tag(:i, nil, class: "fa fa-#{feed.css_class}")
+                        = feed.type_tag
 
         %table.table.table-hover
           %thead
             %tr
               %th= t('tasks')
+              %th.width-40
           %tbody
             -@tasks.each do |t|
               -task = Task.find_by_id(t)
               %tr
-                %td
-                  .pull-right{id: "task-#{task.id}"}
-                    -if task.completed?
-                      =content_tag(:i, nil, class: "fa fa-check-square-o fa-2x text-success")
-                    -else
-                      = link_to content_tag(:i, nil, class: "fa fa-square-o fa-2x"), complete_task_path(task: task.id), remote: true
-                  = task.title
-
-    .panel-body.hidden-xs
-      -unless current_user.expired?
-        %table.table.table-hover
-          %thead
-            %tr
-              %th= t('social_media')
-              %th
-                -if @user == current_user
-                  = link_to content_tag(:i, nil, class: "fa fa-cog fa-1x"), social_medium_users_path(id: @user.id), remote: true
-          %tbody
-            -if @user.social_medium.any?
-              -@user.social_medium.each do |feed|
-                %tr
-                  %td
-                    %a.title-like{href: "#{user_social_medium_path(@user, feed, {type: 'recent'})}", data: {remote: "true"}, onclick: "loadingSocialMedia();", style: 'text-decoration:none;'}
-                      = content_tag(:i, nil, class: "fa fa-#{feed.css_class}")
-                      = feed.type_tag
-                  %td{style: "width:32px;"}
+                %td.truncate= task.title
+                %td{id: "task-#{task.id}"}
+                  -if task.completed?
+                    =content_tag(:i, nil, class: "fa fa-check-square-o fa-2x text-success")
+                  -else
+                    = link_to content_tag(:i, nil, class: "fa fa-square-o fa-2x"), complete_task_path(task: task.id), remote: true
