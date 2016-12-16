@@ -31,7 +31,7 @@
               =content_tag(:i, nil, class: "fa fa-check-square-o fa-2x text-success")
             -else
               -if current_user.parent?
-                = link_to content_tag(:i, nil, class: "fa fa-square-o fa-2x"), '#', remote: true, class: "popover-who", rel: "popover", "data-trigger" => "focus", "data-placement" => "left", title: "", "data-content" => "#{render partial: 'who', locals: { task: t }}"
+                = link_to content_tag(:i, nil, class: "fa fa-square-o fa-2x location"), '#', class: "popover-who", rel: "popover", "data-trigger" => "focus", "data-placement" => "left", title: "", "data-content" => "#{render partial: 'who', locals: { task: t }}"
               -else
                 = link_to content_tag(:i, nil, class: "fa fa-square-o fa-2x"), complete_task_path(task: t.id), remote: true
 
