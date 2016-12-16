@@ -7,10 +7,7 @@
           %td{style: "width:33%;padding:5px;"}
             -last_post = post
             -if post
-              -if post[:videos]
-                = link_to image_tag(post.images.thumbnail.url, class: 'img-rounded feed-img'), instagram_post_user_social_medium_index_path(@user, feed_id: @feed.id, media_id: post.id), remote: true
-              -else
-                = link_to image_tag(post.images.thumbnail.url, class: 'img-rounded feed-img'), instagram_post_user_social_medium_index_path(@user, feed_id: @feed.id, media_id: post.id), remote: true
+              = link_to image_tag(post.images.thumbnail.url, class: 'img-rounded feed-img'), instagram_post_user_social_medium_index_path(@user, feed_id: @feed.id, media_id: post.id), remote: true
   -if last_post
     #more-loading{style: 'display:none;', align: 'center'}
       %div.list-group{style: "width:100%; padding-left:0px; text-align: center;"}

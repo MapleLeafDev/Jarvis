@@ -1,0 +1,12 @@
+.modal-body{style: 'padding:0px;'}
+  %table.table.table-hover
+    %thead
+      %tr
+        %th= t('who_completed')
+    %tbody
+      -@members.each do |user|
+        %tr
+          %td
+            %a.location.title-like{href: complete_task_path(task: @task.id, user: user.id), style: 'text-decoration:none;', "data-remote" => true, "data-dismiss" => "modal"}
+              =image_tag(gravatar_for(user), class: "img-rounded", size: "35x35")
+              =user.name

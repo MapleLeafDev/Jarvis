@@ -420,6 +420,9 @@
 .width-32 {
   width: 32px;
 }
+.width-auto {
+  width: auto;
+}
 .truncate {
   overflow: hidden;
   text-overflow: ellipsis;

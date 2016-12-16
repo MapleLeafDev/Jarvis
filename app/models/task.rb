@@ -8,6 +8,11 @@ class Task < ActiveRecord::Base
 
   validates_presence_of :title, :assigned
 
+  # how many are assinged to this task?
+  def assigned_count
+    assigned.split(",").count
+  end
+
   # CSS class for text based on status
   def status_class
     case status

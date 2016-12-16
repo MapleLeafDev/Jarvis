@@ -19,11 +19,11 @@
               = t.title
             %br
             %em.text-muted.hidden-xs= t.description
-          %td
-            -if t.completed_by
+          %td{id: "task-last-#{t.id}"}
+            -if t.completed_by && t.assigned_count > 1
               %a.location.title-like{href: member_path(t.completed_by), style: 'text-decoration:none;'}
                 =image_tag(gravatar_for(t.completed_by), class: "img-rounded", size: "35x35")
-          %td
+          %td{id: "task-next-#{t.id}"}
             %a.location.title-like{href: member_path(t.up_next), style: 'text-decoration:none;'}
               =image_tag(gravatar_for(t.up_next), class: "img-rounded", size: "35x35")
           %td{id: "task-#{t.id}"}
@@ -31,7 +31,7 @@
               =content_tag(:i, nil, class: "fa fa-check-square-o fa-2x text-success")
             -else
               -if current_user.parent?
-                = link_to content_tag(:i, nil, class: "fa fa-square-o fa-2x"), '#', remote: true, class: "popover-who location", rel: "popover", "data-trigger" => "focus", "data-placement" => "left", title: "", "data-content" => "#{render partial: 'who', locals: { task: t }}"
+                = link_to content_tag(:i, nil, class: "fa fa-square-o fa-2x"), who_task_completions_path(task_id: t.id), remote: true
               -else
                 = link_to content_tag(:i, nil, class: "fa fa-square-o fa-2x"), complete_task_path(task: t.id), remote: true
 

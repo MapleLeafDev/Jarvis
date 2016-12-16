@@ -34,9 +34,6 @@ $(document).ready(function(){
      }
   });
 
-  // Enables popover
-  $('.popover-who').popover({ html : true });
-
   $('.stripe-button-el').removeClass('stripe-button-el').addClass('btn btn-info').text('Create Account')
 
   $('.carousel').each(function(){
