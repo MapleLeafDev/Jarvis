@@ -10,7 +10,8 @@
     %tbody
       -@tasks.each do |t|
         %tr
-          %td.text-center=content_tag(:i, nil, class: "fa fa-circle fa-2x text-#{t.status_class}")
+          %td.text-center{id: "task-status-#{t.id}"}
+            =content_tag(:i, nil, class: "fa fa-circle fa-2x text-#{t.status_class}")
           %td.truncate
             -if current_user.parent?
               = link_to t.title, edit_task_path(t), remote: true
@@ -19,8 +20,9 @@
             %br
             %em.text-muted.hidden-xs= t.description
           %td
-            %a.location.title-like{href: member_path(t.completed_by), style: 'text-decoration:none;'}
-              =image_tag(gravatar_for(t.completed_by), class: "img-rounded", size: "35x35")
+            -if t.completed_by
+              %a.location.title-like{href: member_path(t.completed_by), style: 'text-decoration:none;'}
+                =image_tag(gravatar_for(t.completed_by), class: "img-rounded", size: "35x35")
           %td
             %a.location.title-like{href: member_path(t.up_next), style: 'text-decoration:none;'}
               =image_tag(gravatar_for(t.up_next), class: "img-rounded", size: "35x35")
@@ -28,7 +30,10 @@
             -if t.completed?
               =content_tag(:i, nil, class: "fa fa-check-square-o fa-2x text-success")
             -else
-              = link_to content_tag(:i, nil, class: "fa fa-square-o fa-2x"), complete_task_path(task: t.id), remote: true
+              -if current_user.parent?
+                = link_to content_tag(:i, nil, class: "fa fa-square-o fa-2x"), '#', class: "popover-who", rel: "popover", "data-trigger" => "focus", "data-placement" => "left", title: "", "data-content" => "#{render partial: 'who', locals: { task: t }}"
+              -else
+                = link_to content_tag(:i, nil, class: "fa fa-square-o fa-2x"), complete_task_path(task: t.id), remote: true
 
 -else
   %em= t('no_tasks')

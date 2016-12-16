@@ -22,7 +22,7 @@ class Task < ActiveRecord::Base
 
   # status code of 0,1,2
   def status
-    return 0 if completed?
+    return 0 if completed? || !last_completion
     days_since_completed = (Date.today - last_completion.created_at.to_date).round
     if daily && days_since_completed > 1 || !daily && days_since_completed > 6
       return 2

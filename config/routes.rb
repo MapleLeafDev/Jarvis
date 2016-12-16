@@ -122,6 +122,7 @@ HomeManager::Application.routes.draw do
   get '/signout' => 'sessions#destroy', :as => :signout
   get '/chores' => 'tasks#chores'
   get '/complete_task' => 'completions#complete_task', :as => :complete_task
+  get '/who' => 'completions#who', :as => 'who'
   get '/make_parent' => 'family_members#make_parent', :as => :make_parent
   get '/buy_item' => 'purchases#buy_item', :as => :buy_item
   get '/award_credits' => 'users#award_credits', :as => :award_credits
