@@ -66,16 +66,13 @@ $(document).ready(function(){
     var cell = $(this);
     var text = cell.text();
     var pin = $('#pin');
-    cell.fadeTo(100, 0.1).fadeTo(200, 1.0);
     pin.val(pin.val() + text);
   });
   $('.clear').click(function () {
-    $(this).fadeTo(100, 0.1).fadeTo(200, 1.0);
     var pin = $('#pin');
     pin.val("");
   });
   $('.submit').click(function () {
-    $(this).fadeTo(100, 0.1).fadeTo(200, 1.0);
     $("form").submit();
   });
 });

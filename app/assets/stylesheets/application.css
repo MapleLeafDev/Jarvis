@@ -427,3 +427,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.key-press:active {
+  color: #fff;
+  background-color: #325d88;
+}
