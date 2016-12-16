@@ -28,7 +28,10 @@ $(document).ready(function(){
 
   $('.location').click(function(event) {
      event.preventDefault();
-     window.location = this.href;
+     var url = this.href
+     if(url != '#'){
+       window.location = url;
+     }
   });
 
   // Enables popover

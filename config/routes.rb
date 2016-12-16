@@ -18,7 +18,11 @@ HomeManager::Application.routes.draw do
   resources :completions
 
   resources :tasks do
-    resources :completions
+    resources :completions do
+      collection do
+        get 'who'
+      end
+    end
   end
 
   resources :users do
