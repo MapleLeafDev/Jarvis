@@ -1,10 +1,14 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
-ENV['RAILS_ENV'] ||= 'test'
+ENV['RAILS_ENV']  ||= 'test'
+ENV['SECRET_TOKEN'] = 'abcdefghijklmnopqrstuvwxyz0123456789'
+ENV['ADMIN']        = 'admin@ml-family.com'
 require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'spec_helper'
 require 'rspec/rails'
+require 'support/factory_girl'
+require 'support/helpers'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
