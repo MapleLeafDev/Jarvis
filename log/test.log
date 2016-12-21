@@ -2344,3 +2344,147 @@ Binary data inserted for `string` type on column `password_digest`
   [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("created_at", "dob", "email", "name", "password_digest", "pin", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-12-21 18:20:33.450932"], ["dob", "2016-12-20 18:20:33.448277"], ["email", "user15@ml-family.com"], ["name", "child"], ["password_digest", "$2a$04$2xZ3uVPLLiHi7dXgN3UyKOMFqwnNfT08Pc1MjBKl5lt5mgq2jlm82"], ["pin", "1234"], ["updated_at", "2016-12-21 18:20:33.450932"]]
   [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
   [1m[35m (1.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'admin' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'admin@ml-family.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "dob", "email", "name", "password_digest", "pin", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-12-21 18:22:39.650246"], ["dob", "2016-12-11 18:22:39.633529"], ["email", "admin@ml-family.com"], ["name", "admin"], ["password_digest", "$2a$04$sPfLy/HhYEBKRqZ0MxFNyeKom20IUtqE1pEhYq0Ihzez4/I2CsAiK"], ["pin", "1234"], ["updated_at", "2016-12-21 18:22:39.650246"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'admin' LIMIT 1
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered users/index.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 10ms (Views: 5.8ms | ActiveRecord: 0.2ms)
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'user1@ml-family.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "users" ("created_at", "dob", "email", "name", "parent", "password_digest", "pin", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-12-21 18:22:39.677142"], ["dob", "2016-12-11 18:22:39.675641"], ["email", "user1@ml-family.com"], ["name", "parent"], ["parent", "t"], ["password_digest", "$2a$04$rzaLz59vfrIlUhufWymDPectl1vYKGaYvwvse.1xMFDO2IvV293sO"], ["pin", "1234"], ["updated_at", "2016-12-21 18:22:39.677142"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+Redirected to http://test.host/users/1
+Filter chain halted as :is_admin rendered or redirected
+Completed 302 Found in 6ms (ActiveRecord: 0.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'admin' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'admin@ml-family.com' LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "dob", "email", "name", "password_digest", "pin", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-12-21 18:22:39.696222"], ["dob", "2016-12-11 18:22:39.695095"], ["email", "admin@ml-family.com"], ["name", "admin"], ["password_digest", "$2a$04$CFkCRTxl6QzLUkoDQCywiOeeac5w4Zfy.8ozncigG55WlSfSHAzue"], ["pin", "1234"], ["updated_at", "2016-12-21 18:22:39.696222"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'admin' LIMIT 1[0m
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.1ms)
+  [1m[36m (1.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFamily Load (0.1ms)[0m  [1mSELECT  "families".* FROM "families"  WHERE "families"."name" = 'testFam' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mFamily Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "families"  WHERE "families"."url" = 'testurl' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "families" ("created_at", "name", "updated_at", "url") VALUES (?, ?, ?, ?)  [["created_at", "2016-12-21 18:22:39.708956"], ["name", "testFam"], ["updated_at", "2016-12-21 18:22:39.708956"], ["url", "testurl"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'user2@ml-family.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("created_at", "dob", "email", "family_id", "name", "parent", "password_digest", "pin", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-12-21 18:22:39.714960"], ["dob", "2016-12-11 18:22:39.712449"], ["email", "user2@ml-family.com"], ["family_id", 1], ["name", "parent"], ["parent", "t"], ["password_digest", "$2a$04$T316bquXXtemNlR/BV49AO11mcDqN3yfjhZR5GzDGyJy6DAItUxbe"], ["pin", "1234"], ["updated_at", "2016-12-21 18:22:39.714960"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'user3@ml-family.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("created_at", "dob", "email", "family_id", "name", "parent", "password_digest", "pin", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-12-21 18:22:39.719602"], ["dob", "2016-12-11 18:22:39.718807"], ["email", "user3@ml-family.com"], ["family_id", 1], ["name", "parent"], ["parent", "t"], ["password_digest", "$2a$04$ZpIPDnWXpFl9NBd9Kpmrz.MQwicn7cOOoF.65dspDJL4ETuWNxmXC"], ["pin", "1234"], ["updated_at", "2016-12-21 18:22:39.719602"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'user4@ml-family.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("created_at", "dob", "email", "family_id", "name", "password_digest", "pin", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-12-21 18:22:39.722320"], ["dob", "2016-12-20 18:22:39.721543"], ["email", "user4@ml-family.com"], ["family_id", 1], ["name", "child"], ["password_digest", "$2a$04$x6yb3L4hsYEx3SYmgjoRP.eDk048w2dyvS96R4jfhEMNuLnllsMhu"], ["pin", "1234"], ["updated_at", "2016-12-21 18:22:39.722320"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'user5@ml-family.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("created_at", "dob", "email", "family_id", "name", "password_digest", "pin", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-12-21 18:22:39.730604"], ["dob", "2016-12-20 18:22:39.729645"], ["email", "user5@ml-family.com"], ["family_id", 1], ["name", "child"], ["password_digest", "$2a$04$XgWoXH436G3qB.64hD5vc..JAQZ51qvi0g7eGDNV8GfsmRK3qTJBy"], ["pin", "1234"], ["updated_at", "2016-12-21 18:22:39.730604"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"  WHERE "users"."family_id" = ?  ORDER BY "users"."dob" ASC  [["family_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users"  WHERE "users"."family_id" = 1  ORDER BY "users"."dob" ASC[0m
+  [1m[35m (3.6ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFamily Load (0.1ms)[0m  SELECT  "families".* FROM "families"  WHERE "families"."name" = 'testFam' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mFamily Exists (0.1ms)[0m  SELECT  1 AS one FROM "families"  WHERE "families"."url" = 'testurl' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "families" ("created_at", "name", "updated_at", "url") VALUES (?, ?, ?, ?)[0m  [["created_at", "2016-12-21 18:22:39.749498"], ["name", "testFam"], ["updated_at", "2016-12-21 18:22:39.749498"], ["url", "testurl"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'user6@ml-family.com' LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "dob", "email", "family_id", "name", "parent", "password_digest", "pin", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-12-21 18:22:39.762235"], ["dob", "2016-12-11 18:22:39.756851"], ["email", "user6@ml-family.com"], ["family_id", 1], ["name", "parent"], ["parent", "t"], ["password_digest", "$2a$04$p1EtN1ITe/jLaHmys5wxiem8sRlKly7bnQgBH4XdCDy6M16dA4JPK"], ["pin", "1234"], ["updated_at", "2016-12-21 18:22:39.762235"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'user7@ml-family.com' LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "dob", "email", "family_id", "name", "parent", "password_digest", "pin", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-12-21 18:22:39.766527"], ["dob", "2016-12-11 18:22:39.765506"], ["email", "user7@ml-family.com"], ["family_id", 1], ["name", "parent"], ["parent", "t"], ["password_digest", "$2a$04$NytiLb8mNGBqsmAl/oKyqeWTE/mRhVNBQIf.YIhjZYRVSFssfT9Ti"], ["pin", "1234"], ["updated_at", "2016-12-21 18:22:39.766527"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'user8@ml-family.com' LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "dob", "email", "family_id", "name", "password_digest", "pin", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-12-21 18:22:39.769498"], ["dob", "2016-12-20 18:22:39.768640"], ["email", "user8@ml-family.com"], ["family_id", 1], ["name", "child"], ["password_digest", "$2a$04$ySHH/wRYRdk65JMfbjpP4OJQsqzIC6c9YDZ8kiOFsJWLan1kNa5ja"], ["pin", "1234"], ["updated_at", "2016-12-21 18:22:39.769498"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'user9@ml-family.com' LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "dob", "email", "family_id", "name", "password_digest", "pin", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-12-21 18:22:39.772477"], ["dob", "2016-12-20 18:22:39.771563"], ["email", "user9@ml-family.com"], ["family_id", 1], ["name", "child"], ["password_digest", "$2a$04$8q/zUjX4HO1k7jW3eI3acOfcZ1/hUkANLVL7/6OxmBiY0sy.Zbgie"], ["pin", "1234"], ["updated_at", "2016-12-21 18:22:39.772477"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users"  WHERE "users"."family_id" = ? AND "users"."parent" = 't'  ORDER BY "users"."dob" ASC[0m  [["family_id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"  WHERE "users"."family_id" = 1 AND "users"."parent" = 't'  ORDER BY "users"."dob" ASC
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFamily Load (0.1ms)[0m  [1mSELECT  "families".* FROM "families"  WHERE "families"."name" = 'testFam' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mFamily Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "families"  WHERE "families"."url" = 'testurl' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "families" ("created_at", "name", "updated_at", "url") VALUES (?, ?, ?, ?)  [["created_at", "2016-12-21 18:22:39.777905"], ["name", "testFam"], ["updated_at", "2016-12-21 18:22:39.777905"], ["url", "testurl"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'user10@ml-family.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "users" ("created_at", "dob", "email", "family_id", "name", "parent", "password_digest", "pin", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-12-21 18:22:39.783263"], ["dob", "2016-12-11 18:22:39.781834"], ["email", "user10@ml-family.com"], ["family_id", 1], ["name", "parent"], ["parent", "t"], ["password_digest", "$2a$04$D3rUSFzKTLFo2mVncQnWN.dIkpbTeMpt9OiMlebP8gHQghWWIhx3u"], ["pin", "1234"], ["updated_at", "2016-12-21 18:22:39.783263"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'user11@ml-family.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("created_at", "dob", "email", "family_id", "name", "parent", "password_digest", "pin", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-12-21 18:22:39.791312"], ["dob", "2016-12-11 18:22:39.786574"], ["email", "user11@ml-family.com"], ["family_id", 1], ["name", "parent"], ["parent", "t"], ["password_digest", "$2a$04$L5/NgDGLhxjY.Xmb0jayX..6PlcqoVlXyoUsXEBEfZgNWszT4kK0q"], ["pin", "1234"], ["updated_at", "2016-12-21 18:22:39.791312"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'user12@ml-family.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("created_at", "dob", "email", "family_id", "name", "password_digest", "pin", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-12-21 18:22:39.794984"], ["dob", "2016-12-20 18:22:39.794036"], ["email", "user12@ml-family.com"], ["family_id", 1], ["name", "child"], ["password_digest", "$2a$04$b802BcURJctyCQ42F4XfR.4pGb0439gTpEBh8hXdO8/YWP.lB2jfG"], ["pin", "1234"], ["updated_at", "2016-12-21 18:22:39.794984"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'user13@ml-family.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("created_at", "dob", "email", "family_id", "name", "password_digest", "pin", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-12-21 18:22:39.799765"], ["dob", "2016-12-20 18:22:39.797877"], ["email", "user13@ml-family.com"], ["family_id", 1], ["name", "child"], ["password_digest", "$2a$04$KG9uTNrneCGpoL3gD7u7TOJrKk37kOJJpzS4dwJq/tCiciJ2MERza"], ["pin", "1234"], ["updated_at", "2016-12-21 18:22:39.799765"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"  WHERE "users"."family_id" = ? AND "users"."parent" = 'f'  ORDER BY "users"."dob" ASC  [["family_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users"  WHERE "users"."family_id" = 1 AND "users"."parent" = 'f'  ORDER BY "users"."dob" ASC[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'user14@ml-family.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "users" ("created_at", "dob", "email", "name", "parent", "password_digest", "pin", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-12-21 18:22:39.804863"], ["dob", "2016-12-11 18:22:39.804054"], ["email", "user14@ml-family.com"], ["name", "parent"], ["parent", "t"], ["password_digest", "$2a$04$esQa5xy.7U7M6qrPKJJvNOsRxPRZaG4QFdE69UnMJAGsSH0I/j8Yy"], ["pin", "1234"], ["updated_at", "2016-12-21 18:22:39.804863"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'user15@ml-family.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("created_at", "dob", "email", "name", "password_digest", "pin", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-12-21 18:22:39.809693"], ["dob", "2016-12-20 18:22:39.808940"], ["email", "user15@ml-family.com"], ["name", "child"], ["password_digest", "$2a$04$iiG2hR45P8pTCdHQIC3ZwuIGuG4JL9rALoLzz.NSdnaTKQYNj9K4e"], ["pin", "1234"], ["updated_at", "2016-12-21 18:22:39.809693"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
