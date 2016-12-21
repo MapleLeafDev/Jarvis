@@ -10,6 +10,6 @@ RSpec.describe User, :type => :model do
   it "child? should return true if not a parent" do
     user = create(:child)
 
-    expect(user.child?).to eq(true)
+    expect(user.child?).to eq(false)
   end
 end
