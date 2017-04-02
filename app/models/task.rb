@@ -45,9 +45,9 @@ class Task < ActiveRecord::Base
     completions.last
   end
 
-  # user who last completed
+  # users who last completed
   def completed_by
-    last_completion ? last_completion.user : nil
+    completions.where(completed: today)
   end
 
   # based on last completion and task rotation, user who is required to complete

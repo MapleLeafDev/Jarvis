@@ -4,11 +4,9 @@ class CompletionsController < ApplicationController
   def complete_task
     @task = Task.find_by_id(params[:task])
     user = params[:user] ? User.find(params[:user]) : current_user
-    if @task && !@task.completed?
-      Completion.create(user_id: user.id, task_id: @task.id, completed: @task.today)
+    if @task
+      @completion = Completion.create(user_id: user.id, task_id: @task.id, completed: @task.today)
     end
-    @last = @task.completed_by
-    @up_next = @task.up_next
   end
 
   def who

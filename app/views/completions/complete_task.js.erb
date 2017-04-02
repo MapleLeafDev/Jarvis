@@ -1,6 +1,3 @@
 $("#task-<%= @task.id %>").html('<btn class="fa fa-check-square-o fa-2x text-success"></btn>');
 $("#task-status-<%= @task.id %>").html('<btn class="fa fa-circle fa-2x text-success"></btn>');
-$("#task-next-<%= @task.id %>").html("<%= escape_javascript(image_tag(gravatar_for(@up_next), class: 'img-rounded', size: '35x35'))%>");
-if(<%= @task.assigned_count > 1%>){
-  $("#task-last-<%= @task.id %>").html("<%= escape_javascript(image_tag(gravatar_for(@last), class: 'img-rounded', size: '35x35'))%>");
-}
+$("#task-last-<%= @task.id %>").append("<%= escape_javascript(image_tag(gravatar_for(@completion.user), class: 'img-rounded', size: '25x25'))%>");
