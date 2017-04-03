@@ -46,8 +46,8 @@ class Task < ActiveRecord::Base
   end
 
   # users who last completed
-  def completed_by
-    completions.where(completed: today)
+  def completed_by(date = today)
+    completions.where(completed: date)
   end
 
   # based on last completion and task rotation, user who is required to complete
@@ -61,6 +61,12 @@ class Task < ActiveRecord::Base
   def today
     user = User.find_by_id(assigned.split(",")[0])
     date = Time.now.utc + Time.now.in_time_zone(user.timezone).utc_offset
+    "#{date.year}-#{date.month}-#{date.day}"
+  end
+
+  def other_day(offset)
+    user = User.find_by_id(assigned.split(",")[0])
+    date = (Time.now.utc - offset.days) + Time.now.in_time_zone(user.timezone).utc_offset
     "#{date.year}-#{date.month}-#{date.day}"
   end
 

@@ -3,8 +3,10 @@
     %thead
       %tr
         %th.width-40
-        %th= t('task')
-        %th
+        %th.width-160= t('task')
+        -[6,5,4,3,2,1,0].each do |offset|
+          -puts Time.now
+          %th.truncate= t('days_abbr')[(Time.now - offset.days).wday]
         %th.width-40
     %tbody
       -@tasks.each do |t|
@@ -18,8 +20,15 @@
               = t.title
             %br
             %em.text-muted.hidden-xs= t.description
+
+          -[6,5,4,3,2,1].each do |offset|
+            %td
+              %span
+                -t.completed_by(t.other_day(offset)).each do |comp|
+                  %a.location.title-like{href: member_path(comp.user), style: 'text-decoration:none;'}
+                    =image_tag(gravatar_for(comp.user), class: "img-rounded", size: "25x25")
           %td
-            %span{id: "task-last-#{t.id}", style: "float:right;"}
+            %span{id: "task-last-#{t.id}"}
               -t.completed_by.each do |comp|
                 %a.location.title-like{href: member_path(comp.user), style: 'text-decoration:none;'}
                   =image_tag(gravatar_for(comp.user), class: "img-rounded", size: "25x25")
